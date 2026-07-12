@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="CRITT favicon">
+  <rect x="8" y="8" width="240" height="240" rx="36" fill="#f4efe4" stroke="#17201e" stroke-width="12"/>
+  <path d="M190 56c-17-14-38-22-62-22-52 0-94 42-94 94s42 94 94 94c25 0 48-10 65-27" fill="none" stroke="#17201e" stroke-width="30" stroke-linecap="round"/>
+  <path d="M92 178c24-12 65-12 91 0" fill="none" stroke="#17201e" stroke-width="9" stroke-linecap="round"/>
+  <g fill="#c79c42">
+    <rect x="96" y="88" width="13" height="91" rx="4"/>
+    <rect x="122" y="82" width="13" height="97" rx="4"/>
+    <rect x="148" y="88" width="13" height="91" rx="4"/>
+  </g>
+  <circle cx="178" cy="150" r="24" fill="#a92b2c"/>
+  <path d="M160 139c11 3 20 10 27 20M164 133c12 3 23 11 30 21" fill="none" stroke="#f4efe4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M78 213c32 6 72 6 103 0" fill="none" stroke="#0e6b69" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+</svg>
