@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cricsheetの試合データとCSV2形式を日本語で解説。テスト、ODI、T20、男女別データ、各列の意味を紹介します。" />
+  <title>Cricsheetデータ入門 — CRITT</title>
+  <style>
+    :root{--paper:#f4efe4;--paper-2:#ebe4d6;--ink:#17201e;--muted:#666b66;--teal:#0e6b69;--red:#a92b2c;--gold:#c79c42;--blue:#1e66d0;--line:rgba(23,32,30,.22);--max:1120px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:radial-gradient(circle at 16% 8%,rgba(255,255,255,.75),transparent 24rem),repeating-linear-gradient(0deg,rgba(23,32,30,.018) 0 1px,transparent 1px 4px),var(--paper);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.8}a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(244,239,228,.9);border-bottom:1px solid var(--line)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:baseline;gap:13px}.brand strong{font:900 clamp(1.55rem,3vw,2.2rem)/1 Georgia,"Times New Roman",serif;letter-spacing:-.06em}.brand span{font-size:.68rem;letter-spacing:.12em;color:var(--muted)}.navlinks{display:flex;gap:20px;font-size:.74rem;font-weight:800}.navlinks a:hover{color:var(--red)}
+    .crumb{padding:24px 0 0;font-size:.72rem;color:var(--muted)}.crumb a{text-decoration:underline;text-underline-offset:4px}.hero{padding:42px 0 72px}.eyebrow{display:flex;align-items:center;gap:10px;font-size:.69rem;font-weight:900;letter-spacing:.16em;color:var(--teal)}.eyebrow:before{content:"";width:34px;height:2px;background:var(--teal)}h1{font:900 clamp(4rem,10vw,8.6rem)/.86 Georgia,"Times New Roman",serif;letter-spacing:-.065em;margin:22px 0}.lead{font-size:clamp(1rem,1.8vw,1.2rem);max-width:48em}.source-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.source-link{display:inline-flex;padding:10px 13px;border:1px solid var(--ink);font-size:.72rem;font-weight:900;background:rgba(255,255,255,.25)}.source-link:hover{background:var(--ink);color:var(--paper)}
+    .toc{margin-top:35px;border:1px solid var(--line);padding:20px 22px;background:rgba(255,255,255,.28)}.toc strong{font-family:Georgia,serif}.toc-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:8px;font-size:.78rem;color:var(--teal)}.toc a{text-decoration:underline;text-underline-offset:4px}
+    .section{padding:76px 0;border-top:1px solid var(--line)}.section.dark{background:var(--ink);color:var(--paper)}.section-title{display:grid;grid-template-columns:110px 1fr;gap:28px;margin-bottom:34px}.num{font:700 3rem/1 Georgia,serif;color:var(--red)}.dark .num{color:var(--gold)}h2{font:800 clamp(2.5rem,5vw,5rem)/.96 Georgia,"Times New Roman",serif;letter-spacing:-.045em;margin:0 0 14px}.section-title p{max-width:48em;margin:0;color:var(--muted)}.dark .section-title p{color:rgba(244,239,228,.7)}
+    .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.note-card{border:1px solid var(--line);padding:26px;background:rgba(255,255,255,.24)}.note-card h3{font:700 1.55rem/1.2 Georgia,serif;margin:0 0 12px}.note-card p{margin:0;color:var(--muted);font-size:.86rem}.note-card strong{color:var(--red)}
+    .formats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.format{position:relative;border:1px solid rgba(244,239,228,.35);padding:28px 24px;min-height:330px;background:rgba(244,239,228,.06)}.format.recommend{border:2px solid var(--gold)}.format .badge{position:absolute;right:15px;top:15px;background:var(--gold);color:var(--ink);padding:6px 9px;font-size:.63rem;font-weight:900}.format b{font:700 3.6rem/1 Georgia,serif;color:var(--gold)}.format h3{font:700 1.65rem/1.15 Georgia,serif;margin:16px 0 12px}.format p{font-size:.82rem;color:rgba(244,239,228,.72)}.format ul{padding-left:1.2em;font-size:.78rem;color:rgba(244,239,228,.76)}
+    .subtypes{margin-top:22px;padding:22px;border:1px solid rgba(244,239,228,.26);color:rgba(244,239,228,.75);font-size:.82rem}.subtypes strong{color:var(--paper)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}.step{padding:23px 19px;border-right:1px solid var(--line)}.step:last-child{border-right:0}.step b{color:var(--red);font:700 2rem/1 Georgia,serif}.step h3{font:700 1.2rem/1.2 Georgia,serif;margin:14px 0 8px}.step p{margin:0;color:var(--muted);font-size:.78rem}
+    .recommend-box{margin-top:26px;padding:24px 26px;border-left:5px solid var(--red);background:var(--paper-2)}.recommend-box strong{display:block;font:700 1.4rem/1.25 Georgia,serif;margin-bottom:7px}.recommend-box p{margin:0;color:var(--muted)}
+    .format-intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}.file-card{border:1px solid var(--line);padding:25px;background:rgba(255,255,255,.24)}.file-card code{display:block;font-size:1rem;font-weight:800;color:var(--teal);overflow-wrap:anywhere}.file-card h3{font:700 1.35rem/1.2 Georgia,serif}.file-card p{color:var(--muted);font-size:.82rem}.version{display:inline-block;margin-top:8px;padding:5px 9px;background:var(--blue);color:#fff;font-size:.66rem;font-weight:900}
+    .codebox{margin:24px 0;padding:20px;overflow:auto;background:#111a18;color:#e8eee8;border:1px solid var(--ink);font:500 .78rem/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre}.warning{padding:18px 20px;border:1px solid var(--gold);background:rgba(199,156,66,.1);font-size:.83rem}.warning strong{color:var(--red)}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);background:rgba(255,255,255,.22)}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);font-size:.78rem}th{position:sticky;top:71px;background:var(--ink);color:var(--paper);font-size:.7rem;letter-spacing:.05em}td code{color:var(--teal);font-weight:800}tr:last-child td{border-bottom:0}.group-row td{background:var(--paper-2);font-weight:900;color:var(--red);font-size:.72rem;letter-spacing:.06em}
+    .ball-note{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}.ball-note article{border:1px solid var(--line);padding:21px}.ball-note h3{font:700 1.25rem/1.2 Georgia,serif;margin:0 0 8px}.ball-note p{margin:0;color:var(--muted);font-size:.82rem}
+    .info-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.info-item{border:1px solid var(--line);padding:17px}.info-item code{color:var(--teal);font-weight:900}.info-item p{margin:5px 0 0;font-size:.76rem;color:var(--muted)}
+    .next{padding:70px 0;background:var(--red);color:#fff}.next-grid{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}.next h2{margin:0}.next p{margin:12px 0 0;color:rgba(255,255,255,.8)}.back{display:inline-flex;padding:14px 18px;background:#fff;color:var(--ink);font-size:.76rem;font-weight:900}.back:hover{background:var(--gold)}
+    footer{border-top:1px solid var(--line);padding:42px 0 55px}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end}.footer-logo{font:900 clamp(3.8rem,8vw,7rem)/.8 Georgia,serif;letter-spacing:-.07em}.footer-meta{text-align:right;font-size:.72rem;color:var(--muted)}
+    @media(max-width:850px){.section-title,.format-intro{grid-template-columns:1fr}.formats,.info-list{grid-template-columns:1fr}.intro-grid,.ball-note{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step{border-bottom:1px solid var(--line)}.next-grid{grid-template-columns:1fr}}
+    @media(max-width:580px){.wrap{width:min(calc(100% - 24px),var(--max))}.nav{height:62px}.brand span{display:none}.navlinks{gap:12px;font-size:.65rem}.navlinks a:nth-child(3){display:none}.steps{grid-template-columns:1fr}.step{border-right:0}.section-title{gap:10px}.num{font-size:2rem}.footer-grid{grid-template-columns:1fr}.footer-meta{text-align:left}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>CRITT</strong><span>クリケットを、データから読む</span></a><nav class="navlinks" aria-label="主要メニュー"><a href="index.html">ホーム</a><a href="data-analytics.html">データ分析</a><a href="#csv2">CSV2</a><a href="#columns">項目一覧</a></nav></div></header>
+<main>
+  <div class="wrap crumb"><a href="index.html">ホーム</a> ／ <a href="data-analytics.html">データ分析</a> ／ Cricsheet</div>
+  <section class="hero"><div class="wrap"><div class="eyebrow">データ解説・第1回</div><h1>Cricsheet</h1><p class="lead">Cricsheetは、国際試合や主要なリーグ戦の記録を、一球ごとの構造化データとして無料公開しているサイトです。試合の流れ、打者・投手の成績、得点やウィケットの発生を、自分で集計・分析できます。</p><div class="source-strip"><a class="source-link" href="https://cricsheet.org/" target="_blank" rel="noreferrer">Cricsheet公式サイト ↗</a><a class="source-link" href="https://cricsheet.org/downloads/" target="_blank" rel="noreferrer">データ取得ページ ↗</a><a class="source-link" href="https://cricsheet.org/format/csv_ashwin/" target="_blank" rel="noreferrer">CSV2公式仕様 ↗</a></div><nav class="toc" aria-label="ページ内目次"><strong>このページの内容</strong><div class="toc-links"><a href="#about">どんなデータか</a><a href="#match-types">試合形式</a><a href="#download">取得方法</a><a href="#csv2">CSV2</a><a href="#columns">項目一覧</a><a href="#info">試合情報</a></div></nav></div></section>
+
+  <section class="section" id="about"><div class="wrap"><div class="section-title"><div class="num">01</div><div><h2>どんなデータがあるのか</h2><p>Cricsheetの中心は、ボール・バイ・ボール、つまり一球単位の試合データです。得点だけでなく、打者、ノンストライカー、投手、エクストラ、アウトの種類、フィールダーなどを確認できます。</p></div></div><div class="intro-grid"><article class="note-card"><h3>一球が1行になる</h3><p>CSV2では、原則として<strong>一度の投球イベントが1行</strong>です。オーバーごとの得点、打者別・投手別成績、局面別の傾向を集計しやすい構造です。</p></article><article class="note-card"><h3>複数の切り口で選べる</h3><p>試合形式、男子・女子、国・チーム、大会、年などに分けて取得できます。必要な範囲だけを選べるため、最初から全試合を扱う必要はありません。</p></article></div></div></section>
+
+  <section class="section dark" id="match-types"><div class="wrap"><div class="section-title"><div class="num">02</div><div><h2>主な3つの試合形式</h2><p>国際クリケットの代表的な形式は、テスト、ODI、T20です。Cricsheetではそれぞれのデータが公開され、男子・女子に分けて取得できます。</p></div></div><div class="formats"><article class="format"><b>TEST</b><h3>テスト</h3><p>複数日にわたり、原則として両チームが2イニングずつ戦う長時間形式です。</p><ul><li>試合の文脈が長い</li><li>宣言や引き分けがある</li><li>最大4イニングを扱う</li><li>男子・女子のデータがある</li></ul></article><article class="format"><b>ODI</b><h3>ワンデー国際試合</h3><p>1チーム50オーバーを基本とする、1日で完結する国際試合です。</p><ul><li>各チーム原則1イニング</li><li>50オーバー制</li><li>得点ペースの変化を追いやすい</li><li>男子・女子のデータがある</li></ul></article><article class="format recommend"><span class="badge">最初におすすめ</span><b>T20</b><h3>T20国際試合</h3><p>1チーム20オーバーの短時間形式です。日本代表の試合も含まれ、初めての分析に向いています。</p><ul><li>各チーム原則1イニング</li><li>20オーバー制</li><li>1試合のデータ量が比較的小さい</li><li>日本の男子・女子データを扱える</li></ul></article></div><div class="subtypes"><strong>さらに細かな分類もあります。</strong><br>国際試合以外の複数日試合、ワンデー試合、非公式T20国際試合、IPLなどのクラブ大会、特定の国際大会、国・チーム・年ごとのデータなどです。分類ごとに男子・女子、または該当する性別のデータを選べます。</div></div></section>
+
+  <section class="section" id="download"><div class="wrap"><div class="section-title"><div class="num">03</div><div><h2>最初のデータ取得</h2><p>初めての場合は、すべての試合を一度に取得するより、T20国際試合のCSV2から始める方が分かりやすいです。</p></div></div><div class="steps"><article class="step"><b>1</b><h3>取得ページを開く</h3><p>Cricsheetの「Available match data downloads」を開きます。</p></article><article class="step"><b>2</b><h3>CSV downloadsへ</h3><p>ページ下部の実験的ダウンロードにあるCSVを選びます。</p></article><article class="step"><b>3</b><h3>Newを選ぶ</h3><p>Originalではなく、CSV2に相当するNew形式を選びます。</p></article><article class="step"><b>4</b><h3>T20と性別を選ぶ</h3><p>T20 internationalsの全体、女子、男子から目的に合うものを取得します。</p></article></div><div class="recommend-box"><strong>日本代表を分析するなら、まずT20。</strong><p>CricsheetにはJapanのチーム別データがあり、男子・女子の試合が含まれます。T20は1試合が短く、オーバー数も固定されているため、最初の読み込み・集計・可視化に向いています。</p></div></div></section>
+
+  <section class="section" id="csv2"><div class="wrap"><div class="section-title"><div class="num">04</div><div><h2>CSV2が使いやすい</h2><p>Cricsheetのダウンロード画面で「New」と表示される形式は、公式仕様では「Ashwin CSV」と呼ばれています。CRITTでは分かりやすくCSV2と表記します。</p></div></div><div class="format-intro"><article class="file-card"><code>&lt;試合ID&gt;.csv</code><h3>一球ごとのデータ</h3><p>先頭に列名があり、その後は一球につき1行です。分析の中心になるファイルです。</p><span class="version">現行仕様 2.3.0</span></article><article class="file-card"><code>&lt;試合ID&gt;_info.csv</code><h3>試合情報</h3><p>日付、チーム、性別、試合形式、会場、トス、勝者、選手、審判などが、複数のinfo行として記録されます。</p><span class="version">1試合につき2ファイル</span></article></div><div class="codebox">match_id,season,start_date,venue,innings,ball,actual_delivery,batting_team,bowling_team,striker,non_striker,bowler,runs_off_bat,extras,wides,noballs,byes,legbyes,penalty,non_boundary,wicket_type,player_dismissed,other_wicket_type,other_player_dismissed,fielder_1,fielder_2,fielder_3</div><div class="warning"><strong>CSV2 ＝ New ＝ Ashwin CSV</strong><br>呼び方が複数ありますが、同じ形式です。Cricsheet公式はJSONを主要形式としていますが、表形式で確認しやすく、Pythonや表計算ソフトで扱いやすい入口としてCSV2が便利です。</div></div></section>
+
+  <section class="section" id="columns"><div class="wrap"><div class="section-title"><div class="num">05</div><div><h2>一球データの項目</h2><p>CSV2の一球データは27列です。最初からすべて覚える必要はありません。まず、試合、投球、選手、得点、ウィケットの5つのまとまりで理解します。</p></div></div><div class="ball-note"><article><h3>ball</h3><p>実際に発生した投球イベントを順番に表す識別子です。ワイドやノーボールも別の行になるため、値が進みます。</p></article><article><h3>actual_delivery</h3><p>合法球として数えた投球番号です。ワイドやノーボールの後は、前の投球と同じ値になることがあります。</p></article></div><div class="table-wrap"><table><thead><tr><th>項目名</th><th>簡易説明</th><th>値の例・注意</th></tr></thead><tbody>
+<tr class="group-row"><td colspan="3">試合とイニング</td></tr>
+<tr><td><code>match_id</code></td><td>試合を識別するID</td><td>多くはESPNCricinfoの試合ID</td></tr>
+<tr><td><code>season</code></td><td>シーズン</td><td>2025、2025/26など</td></tr>
+<tr><td><code>start_date</code></td><td>試合開始日</td><td>複数日試合でも開始日のみ</td></tr>
+<tr><td><code>venue</code></td><td>会場名</td><td>不明な場合は空欄</td></tr>
+<tr><td><code>innings</code></td><td>イニング番号</td><td>1、2。テストでは3、4もある</td></tr>
+<tr><td><code>batting_team</code></td><td>打撃側チーム</td><td>その投球時の打撃チーム</td></tr>
+<tr><td><code>bowling_team</code></td><td>投球・守備側チーム</td><td>その投球時の相手チーム</td></tr>
+<tr class="group-row"><td colspan="3">投球番号</td></tr>
+<tr><td><code>ball</code></td><td>投球イベントの識別子</td><td>23.5は第24オーバーの5球目。オーバーは0始まり</td></tr>
+<tr><td><code>actual_delivery</code></td><td>合法球としての投球番号</td><td>ワイドやノーボールでは同じ番号が続くことがある</td></tr>
+<tr class="group-row"><td colspan="3">選手</td></tr>
+<tr><td><code>striker</code></td><td>その球を受ける打者</td><td>ストライカー</td></tr>
+<tr><td><code>non_striker</code></td><td>反対側にいる打者</td><td>ノンストライカー</td></tr>
+<tr><td><code>bowler</code></td><td>投球した選手</td><td>ボウラー</td></tr>
+<tr class="group-row"><td colspan="3">得点とエクストラ</td></tr>
+<tr><td><code>runs_off_bat</code></td><td>バットから生まれた得点</td><td>無得点なら0</td></tr>
+<tr><td><code>extras</code></td><td>エクストラの合計</td><td>その球の総得点は通常 runs_off_bat + extras</td></tr>
+<tr><td><code>wides</code></td><td>ワイドによる得点</td><td>該当しなければ空欄</td></tr>
+<tr><td><code>noballs</code></td><td>ノーボールによる得点</td><td>該当しなければ空欄</td></tr>
+<tr><td><code>byes</code></td><td>バイによる得点</td><td>バットや身体に触れずに走った得点</td></tr>
+<tr><td><code>legbyes</code></td><td>レッグバイによる得点</td><td>打者の身体に当たった後の得点</td></tr>
+<tr><td><code>penalty</code></td><td>ペナルティ得点</td><td>該当しなければ空欄</td></tr>
+<tr><td><code>non_boundary</code></td><td>境界線によらない4点・6点か</td><td>該当する場合はtrue</td></tr>
+<tr class="group-row"><td colspan="3">ウィケットとフィールダー</td></tr>
+<tr><td><code>wicket_type</code></td><td>アウトの種類</td><td>bowled、caught、lbw、run outなど</td></tr>
+<tr><td><code>player_dismissed</code></td><td>アウトになった選手</td><td>ウィケットがなければ空欄</td></tr>
+<tr><td><code>other_wicket_type</code></td><td>同じ球で2件目のアウトがある場合の種類</td><td>非常にまれ</td></tr>
+<tr><td><code>other_player_dismissed</code></td><td>2人目のアウト選手</td><td>非常にまれ</td></tr>
+<tr><td><code>fielder_1</code></td><td>アウトに関与した1人目のフィールダー</td><td>キャッチやランアウトなど</td></tr>
+<tr><td><code>fielder_2</code></td><td>2人目のフィールダー</td><td>主に複数人が関与するランアウト</td></tr>
+<tr><td><code>fielder_3</code></td><td>3人目のフィールダー</td><td>必要な場合のみ</td></tr>
+</tbody></table></div></div></section>
+
+  <section class="section" id="info"><div class="wrap"><div class="section-title"><div class="num">06</div><div><h2>試合情報ファイル</h2><p>試合情報ファイルは、固定された横長の表ではなく、基本的に「info、項目名、値」という行が並びます。チームや選手など、複数の値がある項目は複数行になります。</p></div></div><div class="codebox">info,team,Japan
+info,gender,female
+info,match_type,T20
+info,overs,20
+info,toss_winner,Japan
+info,toss_decision,field
+info,player,Japan,選手名
+info,registry,people,選手名,人物ID</div><div class="info-list"><article class="info-item"><code>team</code><p>参加チーム。チームごとに1行。</p></article><article class="info-item"><code>gender</code><p>maleまたはfemaleなど。</p></article><article class="info-item"><code>match_type</code><p>Test、ODI、T20など。</p></article><article class="info-item"><code>overs</code><p>イニングの規定オーバー数。</p></article><article class="info-item"><code>date</code><p>試合日。複数日なら日ごとに1行。</p></article><article class="info-item"><code>venue / city</code><p>会場と都市。</p></article><article class="info-item"><code>toss_winner</code><p>トスに勝ったチーム。</p></article><article class="info-item"><code>toss_decision</code><p>batまたはfield。</p></article><article class="info-item"><code>winner</code><p>勝利チーム。</p></article><article class="info-item"><code>winner_runs</code><p>得点差で勝った場合の差。</p></article><article class="info-item"><code>winner_wickets</code><p>ウィケット差で勝った場合の差。</p></article><article class="info-item"><code>player</code><p>チーム名と選手名。</p></article><article class="info-item"><code>registry</code><p>同一人物を識別するCricsheet人物ID。</p></article><article class="info-item"><code>event</code><p>大会名やシリーズ名。</p></article><article class="info-item"><code>player_of_match</code><p>プレイヤー・オブ・ザ・マッチ。</p></article></div></div></section>
+
+  <section class="next"><div class="wrap next-grid"><div><h2>次は、実際に読み込む。</h2><p>このページでデータの構造を把握したら、次はT20のCSV2をPythonや表計算ソフトで読み込みます。</p></div><a class="back" href="data-analytics.html">データ分析ページへ戻る →</a></div></section>
+</main>
+<footer><div class="wrap footer-grid"><div class="footer-logo">CRITT</div><div class="footer-meta">本ページはCricsheet公式仕様を参照した非公式の日本語解説です。<br>© Kenichi Aoki — 非公式の個人クリケット・ファンプロジェクト</div></div></footer>
+</body>
+</html>
