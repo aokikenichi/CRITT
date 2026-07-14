@@ -1,0 +1,77 @@
+name: Generate CRITT OGP image
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/generate-og.yml"
+      - "assets/critt-logo.svg"
+
+permissions:
+  contents: write
+
+jobs:
+  generate-og:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pillow
+
+      - name: Generate OGP PNG and add metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from io import BytesIO
+          import base64
+          import re
+          from PIL import Image, ImageDraw
+
+          svg_path = Path("assets/critt-logo.svg")
+          svg = svg_path.read_text(encoding="utf-8")
+          match = re.search(r'href="data:image/[^;]+;base64,([^"]+)"', svg)
+          if not match:
+              raise RuntimeError("Embedded logo image was not found in critt-logo.svg")
+
+          logo = Image.open(BytesIO(base64.b64decode(match.group(1)))).convert("RGBA")
+
+          canvas = Image.new("RGB", (1200, 630), "#f4efe4")
+          draw = ImageDraw.Draw(canvas)
+          for y in range(0, 630, 4):
+              draw.line((0, y, 1200, y), fill="#f1ebdf", width=1)
+
+          max_w, max_h = 760, 378
+          scale = min(max_w / logo.width, max_h / logo.height)
+          size = (round(logo.width * scale), round(logo.height * scale))
+          logo = logo.resize(size, Image.Resampling.LANCZOS)
+          x = (1200 - logo.width) // 2
+          y = 92
+          canvas.paste(logo, (x, y), logo)
+
+          draw.text((600, 510), "Cricket, Told Together.", anchor="mm", fill="#17201e")
+          draw.text((600, 552), "読む。創る。遊ぶ。調べる。語る。", anchor="mm", fill="#666b66")
+          canvas.save("assets/og-critt.png", format="PNG", optimize=True)
+
+          index_path = Path("index.html")
+          html = index_path.read_text(encoding="utf-8")
+          block = '''\n  <link rel="canonical" href="https://aokikenichi.github.io/CRITT/">\n  <meta property="og:type" content="website">\n  <meta property="og:site_name" content="CRITT">\n  <meta property="og:locale" content="ja_JP">\n  <meta property="og:title" content="CRITT — Cricket, Told Together.">\n  <meta property="og:description" content="クリケットに関するメディア、スタジオ、ラボ、コミュニティ、そして旅。">\n  <meta property="og:url" content="https://aokikenichi.github.io/CRITT/">\n  <meta property="og:image" content="https://aokikenichi.github.io/CRITT/assets/og-critt.png">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">\n  <meta property="og:image:type" content="image/png">\n  <meta property="og:image:alt" content="CRITT — Cricket, Told Together.">\n  <meta name="twitter:card" content="summary_large_image">\n  <meta name="twitter:title" content="CRITT — Cricket, Told Together.">\n  <meta name="twitter:description" content="クリケットに関するメディア、スタジオ、ラボ、コミュニティ、そして旅。">\n  <meta name="twitter:image" content="https://aokikenichi.github.io/CRITT/assets/og-critt.png">\n'''
+          if 'property="og:image"' not in html:
+              html = html.replace('  <title>CRITT — Cricket, Told Together.</title>', '  <title>CRITT — Cricket, Told Together.</title>' + block)
+              index_path.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/og-critt.png index.html
+          git diff --cached --quiet || git commit -m "Generate OGP image and metadata"
+          git push
