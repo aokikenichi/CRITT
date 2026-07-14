@@ -1,0 +1,57 @@
+name: Update CRITT home links
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/update-home-links.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-home:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Update Community link and footer
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("index.html")
+          html = path.read_text(encoding="utf-8")
+
+          old_css = '.community-copy{padding:54px;max-width:760px}.community-copy h2{font-size:clamp(2.8rem,5vw,5.5rem);line-height:.94}.coming-soon-btn{display:inline-flex;margin-top:18px;padding:11px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(244,239,228,.82);font-size:.76rem;font-weight:800}'
+          new_css = '.community-copy{padding:54px;max-width:760px}.community-copy h2{font-size:clamp(2.8rem,5vw,5.5rem);line-height:.94}.community-link{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:13px 17px;border:1px solid var(--red);background:var(--red);color:#fff;font-size:.76rem;font-weight:900;letter-spacing:.06em;transition:.2s}.community-link:hover{transform:translateY(-2px);background:var(--ink);border-color:var(--ink)}'
+          if old_css not in html:
+              raise RuntimeError("Expected Community CSS was not found")
+          html = html.replace(old_css, new_css, 1)
+
+          old_section = '<section class="community" id="community"><div class="wrap"><div class="community-panel reveal"><img src="assets/fans.png" alt="子どもや大人がクリケットを楽しむ様子を描いたペン画" /><div class="community-copy"><span class="stamp">Community</span><h2>一緒に、好きになろう。</h2><p>観戦したことがない人も、長年のファンも。感想、作品、データ、疑問。CRITTは、クリケットについて話すきっかけが生まれる場所を目指します。</p><span class="coming-soon-btn">準備中</span></div></div></div></section>'
+          new_section = '<section class="community" id="community"><div class="wrap"><div class="community-panel reveal"><img src="assets/fans.png" alt="子どもや大人がクリケットを楽しむ様子を描いたペン画" /><div class="community-copy"><span class="stamp">Community</span><h2>一緒に、好きになろう。</h2><p>観戦したことがない人も、長年のファンも。日本でクリケットを発信する人、ブログ、ポッドキャスト、体験活動へ。CRITTの外に広がるクリケットの世界とつながります。</p><a class="community-link" href="links.html">日本のクリケットリンク集を見る →</a></div></div></div></section>'
+          if old_section not in html:
+              raise RuntimeError("Expected Community section was not found")
+          html = html.replace(old_section, new_section, 1)
+
+          old_footer = '<a href="history.html">CRITTの歩み</a><br>'
+          new_footer = '<a href="links.html">日本のクリケットリンク集</a>　／　<a href="history.html">CRITTの歩み</a><br>'
+          if old_footer not in html:
+              raise RuntimeError("Expected footer link was not found")
+          html = html.replace(old_footer, new_footer, 1)
+
+          path.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Remove temporary workflow
+        run: rm .github/workflows/update-home-links.yml
+
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/update-home-links.yml
+          git commit -m "Link homepage to Japanese cricket links"
+          git push
