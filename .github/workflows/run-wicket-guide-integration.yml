@@ -36,3 +36,5 @@ jobs:
           git add index.html guide assets/wicket-*.jpg .github/workflows/run-wicket-guide-integration.yml
           git commit -m "Add cricket guide wicket page"
           git push
+
+# trigger integration
