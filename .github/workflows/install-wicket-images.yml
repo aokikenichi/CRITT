@@ -14,15 +14,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Restore images and fix HTML
+      - name: Fix image references
         shell: bash
         run: |
           set -euo pipefail
-          cat assets/wicket-images.zip.b64.part* | base64 -d > /tmp/wicket-images.zip
-          unzip -o /tmp/wicket-images.zip -d assets
           python - <<'PY'
           from pathlib import Path
           import re
+
+          def remove_broken_scripts(text: str) -> str:
+              def keep_or_remove(match):
+                  block = match.group(0)
+                  bad = (
+                      'wicket-images-source' in block
+                      or 'wicket-images-data' in block
+                      or 'data-wicket-image' in block
+                      or 'data-guide-image' in block
+                      or 'raw.githubusercontent.com' in block and 'wicket' in block
+                  )
+                  return '' if bad else block
+              return re.sub(r'<script[^>]*>.*?</script>', keep_or_remove, text, flags=re.S | re.I)
 
           for name in ['guide/index.html', 'guide/wicket.html']:
               p = Path(name)
@@ -30,39 +41,29 @@ jobs:
               for i in range(1, 7):
                   text = re.sub(
                       rf'<img\s+data-wicket-image="{i}"',
-                      f'<img src="../assets/wicket-{i:02d}.jpg"',
+                      f'<img src="../assets/wicket-{i:02d}.svg"',
                       text,
                   )
-              text = re.sub(
-                  r'<script>.*?(?:wicket-images-source|data-wicket-image).*?</script>',
-                  '',
-                  text,
-                  flags=re.S,
-              )
+              text = remove_broken_scripts(text)
               p.write_text(text, encoding='utf-8')
 
           p = Path('index.html')
           text = p.read_text(encoding='utf-8')
           text = re.sub(
               r'<img\s+data-guide-image',
-              '<img src="assets/wicket-01.jpg"',
+              '<img src="assets/wicket-01.svg"',
               text,
           )
-          text = re.sub(
-              r'<script>.*?(?:data-guide-image|wicket-images-source).*?</script>',
-              '',
-              text,
-              flags=re.S,
-          )
+          text = remove_broken_scripts(text)
           p.write_text(text, encoding='utf-8')
           PY
-          rm -f assets/wicket-images.zip.b64.part* assets/wicket-images.ready
+          rm -f assets/wicket-images.ready
           rm -f assets/wicket-images-source.txt assets/wicket-images-data.yml
           rm -f .github/workflows/install-wicket-images.yml
-      - name: Commit restored images
+      - name: Commit fixed pages
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/wicket-0*.jpg guide/index.html guide/wicket.html index.html assets/wicket-images.zip.b64.part* assets/wicket-images.ready assets/wicket-images-source.txt assets/wicket-images-data.yml .github/workflows/install-wicket-images.yml
-          git commit -m "Add wicket guide images" || exit 0
+          git add -A
+          git commit -m "Use local wicket guide images" || exit 0
           git push
