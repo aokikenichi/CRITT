@@ -1,0 +1,20 @@
+name: Apply guide copy edits
+on:
+  push:
+    branches: [main]
+    paths: ["assets/apply-guide-copy-edits.ready"]
+permissions:
+  contents: write
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/apply-guide-copy-edits.py
+      - run: |
+          rm -f assets/apply-guide-copy-edits.ready scripts/apply-guide-copy-edits.py .github/workflows/apply-guide-copy-edits.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add guide/wicket.html index.html history.html assets/apply-guide-copy-edits.ready scripts/apply-guide-copy-edits.py .github/workflows/apply-guide-copy-edits.yml
+          git commit -m "Refine guide sources and history" || exit 0
+          git push
