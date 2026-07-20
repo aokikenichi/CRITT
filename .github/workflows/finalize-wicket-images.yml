@@ -1,0 +1,23 @@
+name: Finalize wicket images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/finalize-wicket-images.ready"
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Switch HTML to JPEG files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          for filename in ['index.html', 'guide/index.html', 'guide/wicket.html']:
+              path = Path(filename)
