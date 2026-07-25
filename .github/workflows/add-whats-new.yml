@@ -21,7 +21,6 @@ jobs:
           python - <<'PY'
           from pathlib import Path
 
-          # history.html: add Last Over episode 6
           history_path = Path("history.html")
           history = history_path.read_text(encoding="utf-8")
           history_anchor = '        <li class="event"><time class="date" datetime="2026-07-20">7.20</time><div class="event-copy"><p>「<a href="guide/"><strong>クリケットガイド</strong></a>」ページを開設し、第一弾として「<a href="guide/wicket.html"><strong>三本のStumps、二本のBails</strong></a>」を公開</p></div></li>'
@@ -32,10 +31,8 @@ jobs:
               history = history.replace(history_anchor, history_anchor + history_item, 1)
               history_path.write_text(history, encoding="utf-8")
 
-          # index.html: add a compact What's New section beneath the hero
           index_path = Path("index.html")
           html = index_path.read_text(encoding="utf-8")
-
           css_anchor = '.about{padding:92px 0;'
           whats_new_css = '''.whats-new{padding:54px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper2)}.whats-new-grid{display:grid;grid-template-columns:.52fr 1.48fr;gap:44px;align-items:start}.whats-new h2{margin:8px 0 0;font:800 clamp(2.6rem,5vw,5rem)/.92 Georgia,serif;letter-spacing:-.05em}.news-list{border-top:1px solid var(--ink)}.news-item{display:grid;grid-template-columns:108px minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 8px;border-bottom:1px solid var(--line);transition:.2s}.news-item:hover{background:rgba(255,255,255,.38)}.news-date{font:700 .9rem/1.2 Georgia,serif;color:var(--red)}.news-type{display:block;margin-bottom:4px;color:var(--teal);font-size:.62rem;font-weight:900;letter-spacing:.14em}.news-title{font-size:.9rem;font-weight:800}.news-arrow{color:var(--red);font-size:.7rem;font-weight:900;white-space:nowrap}.news-more{margin-top:18px;text-align:right}.news-more a{color:var(--red);font-size:.74rem;font-weight:900;text-decoration:underline;text-underline-offset:4px}@media(max-width:920px){.whats-new-grid{grid-template-columns:1fr}}@media(max-width:640px){.news-item{grid-template-columns:1fr;gap:5px;padding:16px 4px}.news-arrow{margin-top:4px}.news-more{text-align:left}}\n'''
           if '.whats-new{' not in html:
