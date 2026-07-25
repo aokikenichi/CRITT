@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ICC T20I Team Rankings｜世界と日本の推移</title>
+<meta name="description" content="ICC T20Iチームランキングの仕組み、男女世界上位、日本代表のランキング推移を図解。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="canonical" href="https://aokikenichi.github.io/CRITT/t20i-rankings.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CRITT">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="ICC T20I Team Rankings｜世界と日本の推移 — CRITT">
+<meta property="og:description" content="男子・女子の世界ランキングと、日本代表の推移を図解。">
+<meta property="og:url" content="https://aokikenichi.github.io/CRITT/t20i-rankings.html">
+<meta property="og:image" content="https://aokikenichi.github.io/CRITT/assets/og-critt.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root {
+  --paper:#f4efe4; --paper2:#ebe4d6; --ink:#17201e; --muted:#626864;
+  --teal:#0e6b69; --red:#a92b2c; --gold:#c79c42; --line:rgba(23,32,30,.2);
+  --men:#164f86; --women:#9d315b; --white:#fffdf8; --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink);
+  background:
+    radial-gradient(circle at 8% 4%,rgba(255,255,255,.85),transparent 27rem),
+    repeating-linear-gradient(0deg,rgba(23,32,30,.018) 0 1px,transparent 1px 4px),
+    var(--paper);
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  line-height:1.75;
+}
+a{color:inherit}
+.wrap{width:min(calc(100% - 36px),var(--max));margin:auto}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(244,239,228,.9);border-bottom:1px solid var(--line)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{text-decoration:none;display:flex;align-items:baseline;gap:13px}.brand strong{font:900 clamp(1.55rem,3vw,2.2rem)/1 Georgia,serif;letter-spacing:-.06em}.brand span{font-size:.68rem;letter-spacing:.13em;color:var(--muted)}.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:.72rem;font-weight:800}.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--red)}
+.crumb{padding:20px 0 0;font-size:.72rem;color:var(--muted)}.crumb a{text-underline-offset:3px}
+.hero{position:relative;padding:76px 0 68px;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(95deg,rgba(244,239,228,.95),rgba(244,239,228,.84)),url('assets/data-cricket.png') center right/cover no-repeat;opacity:.95}
+.hero .wrap{position:relative;z-index:1}
+.kicker{font-size:.72rem;font-weight:900;letter-spacing:.18em;color:var(--teal);text-transform:uppercase}
+h1{margin:14px 0 20px;font:900 clamp(3.6rem,9vw,8rem)/.85 Georgia,serif;letter-spacing:-.065em}
+.lead{max-width:60rem;margin:0;color:var(--muted);font-size:clamp(1rem,1.7vw,1.2rem)}
+.section{position:relative;padding:82px 0;border-bottom:1px solid var(--line);overflow:hidden}
+.section.alt{background:var(--paper2)}
+.section.dark{background:var(--ink);color:var(--paper)}
+.section.bg-rules::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(244,239,228,.96),rgba(244,239,228,.90)),url('assets/bg-media.png') center/cover no-repeat;opacity:.55}
+.section.bg-history::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(244,239,228,.96),rgba(244,239,228,.90)),url('assets/hero-tokyo.png') center/cover no-repeat;opacity:.38}
+.section.bg-stumps::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(235,228,214,.96),rgba(235,228,214,.92)),url('assets/wicket-01.jpg') right center/contain no-repeat;opacity:.42}
+.section > .wrap{position:relative;z-index:1}
+.section-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:42px;align-items:end;margin-bottom:34px}
+.section-head h2{margin:8px 0 0;font:800 clamp(2.7rem,5vw,5.2rem)/.92 Georgia,serif;letter-spacing:-.05em}
+.section-head p{margin:0;color:var(--muted)}
+.dark .section-head p{color:rgba(244,239,228,.68)}
+.rule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rule{padding:26px;border:1px solid var(--ink);background:rgba(255,255,255,.48)}
+.rule b{display:block;color:var(--red);font:800 2.2rem/1 Georgia,serif}
+.rule h3{margin:13px 0 8px;font:800 1.15rem Georgia,serif}
+.rule p{margin:0;color:var(--muted);font-size:.84rem}
+.callout{margin-top:20px;padding:18px 20px;border-left:5px solid var(--gold);background:rgba(255,255,255,.46);color:var(--muted)}
+.rank-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.rank-card{border:1px solid var(--ink);background:rgba(255,255,255,.42);overflow:hidden}
+.rank-card header{padding:24px 26px;border-bottom:1px solid var(--line);display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.rank-card h3{margin:0;font:800 clamp(2rem,4vw,3.7rem)/.95 Georgia,serif}
+.rank-card small{font-size:.7rem;font-weight:900;letter-spacing:.12em;color:var(--muted)}
+.rank-card.men header{border-top:7px solid var(--men)} .rank-card.women header{border-top:7px solid var(--women)}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px 16px;border-bottom:1px solid var(--line);text-align:left;font-size:.82rem}
+th{font-size:.66rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+td:nth-child(n+2),th:nth-child(n+2){text-align:right}
+.japan-row{background:rgba(199,156,66,.18);font-weight:900}
+.country-dot{display:inline-block;width:8px;height:8px;margin-right:9px;border-radius:50%;background:var(--gold)}
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.chart-card{padding:26px;border:1px solid rgba(244,239,228,.38);background:rgba(244,239,228,.05)}
+.chart-card h3{margin:0 0 4px;font:700 1.8rem Georgia,serif}
+.chart-card p{margin:0 0 18px;color:rgba(244,239,228,.64);font-size:.78rem}
+.chart{width:100%;min-height:370px}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:.72rem;color:rgba(244,239,228,.7)}
+.legend i{display:inline-block;width:18px;height:4px;margin-right:7px;vertical-align:middle}
+.legend .rank{background:#f4efe4} .legend .matches{background:var(--gold)}
+.data-grid{display:grid;grid-template-columns:1fr;gap:26px}
+.data-card{border:1px solid var(--ink);background:rgba(255,255,255,.42);overflow:hidden}
+.data-card header{padding:25px 26px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.data-card h3{margin:0;font:800 2rem Georgia,serif}
+.data-card p{margin:0;color:var(--muted);font-size:.76rem}
+.note-cell{max-width:430px;text-align:left!important;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.fact{padding:24px;border:1px solid var(--ink);background:rgba(255,255,255,.42)}
+.fact strong{display:block;font:900 2.6rem Georgia,serif;color:var(--red)}
+.fact span{display:block;margin-top:6px;color:var(--muted);font-size:.8rem}
+.sources{position:relative;padding:60px 0;overflow:hidden}
+.sources::before{content:"";position:absolute;inset:0;background:linear-gradient(95deg,rgba(244,239,228,.96),rgba(244,239,228,.93)),url('assets/wicket-01.jpg') right center/contain no-repeat;opacity:.35}
+.sources .wrap{position:relative;z-index:1}
+.sources h2{font:800 2rem Georgia,serif}
+.sources li{margin:8px 0;color:var(--muted);font-size:.82rem}
+.source-note{font-size:.76rem;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+footer{padding:36px 0 50px;border-top:1px solid var(--line);color:var(--muted);font-size:.74rem}
+@media(max-width:880px){
+ .section-head,.rank-cards,.chart-grid,.rule-grid,.facts{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+ .brand span{display:none}.nav{padding:10px 0;align-items:flex-start}.navlinks{gap:10px;font-size:.62rem}
+ .wrap{width:min(calc(100% - 22px),var(--max))}
+ .hero{padding:54px 0}
+ .section{padding:62px 0}
+ th,td{padding:10px 9px;font-size:.72rem}
+ .note-cell{min-width:230px}
+ .table-scroll{overflow-x:auto}
+}
+@media print{
+ body{background:#fff} .section.dark{background:#fff;color:var(--ink)} .chart-card{border-color:var(--ink)}
+ .chart-card p,.legend{color:var(--muted)}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="index.html"><strong>CRITT</strong><span>クリケットを、データから読む</span></a><nav class="navlinks" aria-label="主要メニュー"><a href="index.html">ホーム</a><a href="data-analytics.html">データ分析</a><a href="history.html">CRITTの歩み</a><a href="about.html">CRITTとは</a></nav></div></header>
+<div class="wrap crumb"><a href="index.html">ホーム</a> ／ <a href="data-analytics.html">データ分析</a> ／ T20Iランキング</div>
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">ICC T20I Team Rankings</div>
+    <h1>世界の現在地。<br>日本の軌跡。</h1>
+    <p class="lead">T20試合形式の男子・女子の各国代表の最新世界ランキングと、日本代表の推移を一枚のページにまとめました。</p>
+  </div>
+</header>
+
+<main>
+<section class="section bg-rules">
+ <div class="wrap">
+  <div class="section-head">
+   <div><div class="kicker">How it works</div><h2>ランキングは、<br>どう決まる？</h2></div>
+   <p>単純な勝率順ではありません。試合結果、対戦相手の強さ、対象期間を組み合わせ、各チームのRatingを算出します。</p>
+  </div>
+  <div class="rule-grid">
+   <article class="rule"><b>01</b><h3>相手とのレーティング差</h3><p>勝敗だけでなく、対戦前の両チームのレーティング差によって獲得ポイントが変わります。</p></article>
+   <article class="rule"><b>02</b><h3>Rating＝ポイント÷試合総数</h3><p>ICCは、獲得したポイントを対象となるmatch/series totalで割り、四捨五入した値をRatingと説明しています。</p></article>
+   <article class="rule"><b>03</b><h3>新しい試合を重く評価</h3><p>年次更新では直近1年相当の試合を100％、その前の2年間を50％の重みで反映します。</p></article>
+  </div>
+  <div class="callout">2026年の年次更新では、2025年5月以降の試合を100％、それ以前の2年間を50％で評価。年次更新は例年5月ごろに行われます。</div>
+ </div>
+</section>
+
+<section class="section alt bg-stumps">
+ <div class="wrap">
+  <div class="section-head">
+   <div><div class="kicker">Latest Top Teams</div><h2>世界上位と、<br>日本。</h2></div>
+   <p>男子は2026年7月23日、女子は2026年7月24日のランキング。男女いずれかのTop10と日本を並べています。</p>
+  </div>
+  <div class="rank-cards">
+   <article class="rank-card men">
+    <header><h3>MEN</h3><small>UPDATED 2026.07.23</small></header>
+    <table><thead><tr><th>国・地域</th><th>男子順位</th><th>女子順位</th></tr></thead>
+     <tbody><tr class=""><td><span class="country-dot"></span>イングランド</td><td>1</td><td>2</td></tr>
+<tr class=""><td><span class="country-dot"></span>オーストラリア</td><td>3</td><td>1</td></tr>
+<tr class=""><td><span class="country-dot"></span>インド</td><td>2</td><td>3</td></tr>
+<tr class=""><td><span class="country-dot"></span>ニュージーランド</td><td>4</td><td>4</td></tr>
+<tr class=""><td><span class="country-dot"></span>南アフリカ</td><td>5</td><td>5</td></tr>
+<tr class=""><td><span class="country-dot"></span>パキスタン</td><td>6</td><td>8</td></tr>
+<tr class=""><td><span class="country-dot"></span>西インド諸島</td><td>7</td><td>7</td></tr>
+<tr class=""><td><span class="country-dot"></span>スリランカ</td><td>9</td><td>6</td></tr>
+<tr class=""><td><span class="country-dot"></span>バングラデシュ</td><td>8</td><td>10</td></tr>
+<tr class=""><td><span class="country-dot"></span>アイルランド</td><td>11</td><td>9</td></tr>
+<tr class=""><td><span class="country-dot"></span>アフガニスタン</td><td>10</td><td>—</td></tr>
+<tr class="japan-row"><td><span class="country-dot"></span>日本</td><td>41</td><td>40</td></tr></tbody>
+    </table>
+   </article>
+   <article class="rank-card women">
+    <header><div><h3>JAPAN</h3><small>現在のポジション</small></div></header>
+    <div style="padding:34px 28px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+        <div style="padding:24px;border:1px solid var(--line);text-align:center;background:rgba(255,255,255,.35)"><small>MEN</small><div style="font:900 4.5rem/1 Georgia,serif;color:var(--men)">41</div><div style="font-size:.78rem;color:var(--muted)">37試合</div></div>
+        <div style="padding:24px;border:1px solid var(--line);text-align:center;background:rgba(255,255,255,.35)"><small>WOMEN</small><div style="font:900 4.5rem/1 Georgia,serif;color:var(--women)">40</div><div style="font-size:.78rem;color:var(--muted)">31試合</div></div>
+      </div>
+      <p style="margin:24px 0 0;color:var(--muted);font-size:.82rem">男子は2019年の53位から41位へ。女子は一度ランキング外となった後、2023年に復帰し40位まで上昇しています。</p>
+    </div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="section dark">
+ <div class="wrap">
+  <div class="section-head">
+   <div><div class="kicker" style="color:var(--gold)">Japan Ranking History</div><h2>順位と試合数の、<br>二つの線。</h2></div>
+   <p>白線が順位、金色の棒が対象試合数です。</p>
+  </div>
+  <div class="chart-grid">
+   <article class="chart-card"><h3>MEN'S T20I</h3><p>2019年5月から2026年7月</p><svg id="menChart" class="chart" role="img" aria-label="男子日本代表T20Iランキング推移"></svg><div class="legend"><span><i class="rank"></i>順位</span><span><i class="matches"></i>試合数</span></div></article>
+   <article class="chart-card"><h3>WOMEN'S T20I</h3><p>2018年10月から2026年7月</p><svg id="womenChart" class="chart" role="img" aria-label="女子日本代表T20Iランキング推移"></svg><div class="legend"><span><i class="rank"></i>順位</span><span><i class="matches"></i>試合数</span></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="section bg-history">
+ <div class="wrap">
+  <div class="section-head">
+   <div><div class="kicker">Men's History</div><h2>男子日本代表。</h2></div>
+   <p>2019年5月3日、条件を満たす全ICC加盟国を含む男子T20Iランキングが公開され、日本は53位からスタートしました。</p>
+  </div>
+  <div class="data-card"><header><h3>MEN'S T20I TEAM RANKING</h3><p>ご提示いただいたICC日付選択画面の取得値</p></header><div class="table-scroll"><table><thead><tr><th>Date</th><th>Ranking</th><th>Matches</th></tr></thead><tbody><tr><td>2019-05-03</td><td>53</td><td>10</td></tr>
+<tr><td>2019-12-31</td><td>59</td><td>10</td></tr>
+<tr><td>2020-12-31</td><td>58</td><td>4</td></tr>
+<tr><td>2021-12-31</td><td>65</td><td>4</td></tr>
+<tr><td>2022-12-31</td><td>61</td><td>7</td></tr>
+<tr><td>2023-12-31</td><td>51</td><td>15</td></tr>
+<tr><td>2024-12-31</td><td>45</td><td>36</td></tr>
+<tr><td>2025-12-31</td><td>44</td><td>38</td></tr>
+<tr><td>2026-07-23</td><td>41</td><td>37</td></tr></tbody></table></div></div>
+ </div>
+</section>
+
+<section class="section alt bg-history">
+ <div class="wrap">
+  <div class="section-head">
+   <div><div class="kicker">Women's History</div><h2>女子日本代表。</h2></div>
+   <p>女子の全加盟国対象ランキングは2018年10月に開始。ICCの開始発表は10月12日で、ランキング履歴は10月1日から確認できます。</p>
+  </div>
+  <div class="data-card"><header><h3>WOMEN'S T20I TEAM RANKING</h3><p>ランキング外の期間を含む</p></header><div class="table-scroll"><table><thead><tr><th>Date</th><th>Ranking</th><th>Matches</th><th>備考</th></tr></thead><tbody><tr><td>2018-10-01</td><td>27</td><td>5</td><td>—</td></tr>
+<tr><td>2018-12-31</td><td>27</td><td>5</td><td>—</td></tr>
+<tr><td>2019-12-31</td><td>26</td><td>14</td><td>—</td></tr>
+<tr><td>2020-12-31</td><td>29</td><td>5</td><td>—</td></tr>
+<tr><td>2021-12-31</td><td>30</td><td>5</td><td>—</td></tr>
+<tr><td>2022-09-26</td><td>32</td><td>5</td><td>翌日以降はランキング外。当時の最低6試合基準を下回ったため</td></tr>
+<tr><td>2023-12-28</td><td>53</td><td>28</td><td>2023-05-26に51位・6試合で復帰。年末の最終更新日は12月28日</td></tr>
+<tr><td>2024-12-31</td><td>45</td><td>26</td><td>—</td></tr>
+<tr><td>2025-12-31</td><td>40</td><td>33</td><td>—</td></tr>
+<tr><td>2026-07-24</td><td>40</td><td>31</td><td>—</td></tr></tbody></table></div></div>
+ </div>
+</section>
+
+<section class="section bg-stumps">
+ <div class="wrap">
+  <div class="facts">
+   <div class="fact"><strong>53 → 41</strong><span>男子日本の順位変化。12ランク上昇。</span></div>
+   <div class="fact"><strong>27 → 40</strong><span>女子は開始時27位。加盟国増加とランキング外期間を経て現在40位。</span></div>
+   <div class="fact"><strong>8試合</strong><span>2026年時点でランキング掲載に必要な、過去3年間の最低T20I数。</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="sources">
+ <div class="wrap">
+  <h2>出典と注記</h2>
+  <ul>
+   <li>ICC「About the rankings」 — Team Ratingと年次更新の説明</li>
+   <li>ICC 2026年T20I年次更新 — 100％／50％の重み、最低8試合基準</li>
+   <li>ICC 2019年男子グローバルランキング開始</li>
+   <li>ICC 2018年女子グローバルランキング開始</li>
+   <li>ICC 男子T20I Team Rankings ／ ICC 女子T20I Team Rankings</li>
+  </ul>
+  <p class="source-note">歴史表の順位・試合数は、ご提示いただいたICC公式ランキングページの日付選択画面の取得値を使用。ランキングは試合後や年次更新で変動します。男子・女子の最新日が異なる点に注意してください。</p>
+ </div>
+</section>
+</main>
+
+<footer><div class="wrap">CRITT — Cricket, Told Together.<br><a href="data-analytics.html">データ分析へ戻る</a> ／ <a href="history.html">CRITTの歩み</a><br>©aokikenichi — an independent cricket fan project.</div></footer>
+
+<script>
+const menData = [{"date": "2019-05-03", "rank": 53, "matches": 10}, {"date": "2019-12-31", "rank": 59, "matches": 10}, {"date": "2020-12-31", "rank": 58, "matches": 4}, {"date": "2021-12-31", "rank": 65, "matches": 4}, {"date": "2022-12-31", "rank": 61, "matches": 7}, {"date": "2023-12-31", "rank": 51, "matches": 15}, {"date": "2024-12-31", "rank": 45, "matches": 36}, {"date": "2025-12-31", "rank": 44, "matches": 38}, {"date": "2026-07-23", "rank": 41, "matches": 37}];
+const womenData = [{"date": "2018-10-01", "rank": 27, "matches": 5, "note": ""}, {"date": "2018-12-31", "rank": 27, "matches": 5, "note": ""}, {"date": "2019-12-31", "rank": 26, "matches": 14, "note": ""}, {"date": "2020-12-31", "rank": 29, "matches": 5, "note": ""}, {"date": "2021-12-31", "rank": 30, "matches": 5, "note": ""}, {"date": "2022-09-26", "rank": 32, "matches": 5, "note": "翌日以降はランキング外。当時の最低6試合基準を下回ったため"}, {"date": "2023-12-28", "rank": 53, "matches": 28, "note": "2023-05-26に51位・6試合で復帰。年末の最終更新日は12月28日"}, {"date": "2024-12-31", "rank": 45, "matches": 26, "note": ""}, {"date": "2025-12-31", "rank": 40, "matches": 33, "note": ""}, {"date": "2026-07-24", "rank": 40, "matches": 31, "note": ""}];
+
+function drawChart(id, data, accent) {
+  const svg = document.getElementById(id);
+  const W = 720, H = 370, pad = {l:52,r:46,t:24,b:64};
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const ranks = data.map(d=>d.rank), matches = data.map(d=>d.matches);
+  const maxRank = Math.ceil(Math.max(...ranks)/10)*10;
+  const maxMatches = Math.ceil(Math.max(...matches)/10)*10 || 10;
+  const x = i => pad.l + i*(W-pad.l-pad.r)/(data.length-1);
+  const yRank = v => pad.t + (v/(maxRank))*(H-pad.t-pad.b);
+  const yMatch = v => H-pad.b - (v/maxMatches)*(H-pad.t-pad.b);
+  const ns="http://www.w3.org/2000/svg";
+  const add=(tag,attrs,text)=>{const e=document.createElementNS(ns,tag);Object.entries(attrs||{}).forEach(([k,v])=>e.setAttribute(k,v));if(text!=null)e.textContent=text;svg.appendChild(e);return e;};
+  svg.innerHTML="";
+  for(let r=0;r<=maxRank;r+=10){
+    const yy=yRank(r);
+    add("line",{x1:pad.l,y1:yy,x2:W-pad.r,y2:yy,stroke:"rgba(244,239,228,.17)","stroke-width":"1"});
+    add("text",{x:pad.l-10,y:yy+4,fill:"rgba(244,239,228,.55)","font-size":"11","text-anchor":"end"},String(r));
+  }
+  for(let m=0;m<=maxMatches;m+=10){
+    const yy=yMatch(m);
+    add("text",{x:W-pad.r+8,y:yy+4,fill:"#c79c42","font-size":"11","text-anchor":"start"},String(m));
+  }
+  add("text",{x:10,y:18,fill:"rgba(244,239,228,.62)","font-size":"10"},"RANK");
+  add("text",{x:W-2,y:18,fill:"#c79c42","font-size":"10","text-anchor":"end"},"MATCHES");
+  const barW=Math.max(10,(W-pad.l-pad.r)/data.length*.36);
+  data.forEach((d,i)=>{
+    const bh=(d.matches/maxMatches)*(H-pad.t-pad.b);
+    add("rect",{x:x(i)-barW/2,y:H-pad.b-bh,width:barW,height:bh,fill:"#c79c42",opacity:".72",rx:"2"});
+  });
+  const pts=data.map((d,i)=>`${x(i)},${yRank(d.rank)}`).join(" ");
+  add("polyline",{points:pts,fill:"none",stroke:"#f4efe4","stroke-width":"4","stroke-linejoin":"round","stroke-linecap":"round"});
+  data.forEach((d,i)=>{
+    add("circle",{cx:x(i),cy:yRank(d.rank),r:"5.5",fill:accent,stroke:"#f4efe4","stroke-width":"2"});
+    add("text",{x:x(i),y:yRank(d.rank)-11,fill:"#f4efe4","font-size":"12","font-weight":"800","text-anchor":"middle"},String(d.rank));
+    const label=d.date.slice(2,7).replace("-",".");
+    add("text",{x:x(i),y:H-pad.b+22,fill:"rgba(244,239,228,.62)","font-size":"10","text-anchor":"middle",transform:`rotate(-35 ${x(i)} ${H-pad.b+22})`},label);
+  });
+}
+drawChart("menChart",menData,"#164f86");
+drawChart("womenChart",womenData,"#9d315b");
+</script>
+</body>
+</html>
