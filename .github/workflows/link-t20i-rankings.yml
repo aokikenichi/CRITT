@@ -1,0 +1,82 @@
+name: Link T20I rankings page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/link-t20i-rankings.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update data analytics and homepage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # data-analytics.html
+          p = Path('data-analytics.html')
+          html = p.read_text(encoding='utf-8')
+
+          css_anchor = '.future-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}'
+          css = '.analysis-card{display:grid;grid-template-columns:.92fr 1.08fr;border:2px solid var(--ink);background:rgba(255,255,255,.34);transition:.25s}.analysis-card:hover{transform:translateY(-5px);border-color:var(--red);box-shadow:0 18px 48px rgba(23,32,30,.16)}.analysis-image{min-height:390px;overflow:hidden;border-right:1px solid var(--ink)}.analysis-image img{width:100%;height:100%;object-fit:cover}.analysis-copy{padding:40px;display:flex;flex-direction:column;justify-content:center}.analysis-copy small{color:var(--teal);font-weight:900;letter-spacing:.12em}.analysis-copy h3{margin:14px 0 18px;font:800 clamp(2.4rem,5vw,5rem)/.92 Georgia,serif;letter-spacing:-.05em}.analysis-copy p{color:var(--muted)}.analysis-copy .more{background:var(--red);color:#fff;box-shadow:none}.analysis-card:hover .more{background:var(--ink);color:#fff}\n    '
+          if '.analysis-card{' not in html:
+              if css_anchor not in html:
+                  raise RuntimeError('data analytics CSS anchor not found')
+              html = html.replace(css_anchor, css + css_anchor, 1)
+
+          section_anchor = '  <section class="section subdued" id="planned">'
+          section = '''  <section class="section"><div class="wrap"><div class="section-head"><div><span class="kicker">分析と可視化</span><h2>世界の現在地。<br>日本の軌跡。</h2></div><p>公開データを集めるだけでなく、競技の現在地や変化が伝わる形に整理して見せます。</p></div><a class="analysis-card" href="t20i-rankings.html"><div class="analysis-image"><img src="assets/data-cricket.png" alt="ICC T20Iチームランキングと日本代表の推移"></div><div class="analysis-copy"><small>ICC T20I TEAM RANKINGS</small><h3>男子・女子の世界ランキングと、日本代表の推移</h3><p>ランキングの仕組み、世界上位チーム、日本代表の順位と試合数の変化を、グラフと表で図解します。</p><span class="more">インフォグラフィックを見る →</span></div></a></div></section>\n\n'''
+          if 'href="t20i-rankings.html"' not in html:
+              if section_anchor not in html:
+                  raise RuntimeError('data analytics section anchor not found')
+              html = html.replace(section_anchor, section + section_anchor, 1)
+
+          html = html.replace('@media(max-width:850px){.hero-grid,.section-head,.data-card{grid-template-columns:1fr}', '@media(max-width:850px){.hero-grid,.section-head,.data-card,.analysis-card{grid-template-columns:1fr}', 1)
+          html = html.replace('.hero-art{min-height:330px}', '.hero-art{min-height:330px}.analysis-image{border-right:0;border-bottom:1px solid var(--ink);min-height:300px}', 1)
+          p.write_text(html, encoding='utf-8')
+
+          # index.html
+          p = Path('index.html')
+          html = p.read_text(encoding='utf-8')
+
+          old_news = '<a class="news-item" href="#stories"><time class="news-date" datetime="2026-07-24">2026.07.24</time><div><span class="news-type">MANGA</span><span class="news-title">『Last Over』第6話を公開</span></div><span class="news-arrow">物語を見る →</span></a><a class="news-item" href="guide/"><time class="news-date" datetime="2026-07-20">2026.07.20</time><div><span class="news-type">CRICKET GUIDE</span><span class="news-title">クリケットガイドを開設。「三本のStumps、二本のBails」を公開</span></div><span class="news-arrow">ガイドを見る →</span></a><a class="news-item" href="links.html"><time class="news-date" datetime="2026-07-14">2026.07.14</time><div><span class="news-type">LINKS</span><span class="news-title">「日本のクリケットとつながる。」リンク集を公開</span></div><span class="news-arrow">リンク集を見る →</span></a>'
+          new_news = '<a class="news-item" href="t20i-rankings.html"><time class="news-date" datetime="2026-07-25">2026.07.25</time><div><span class="news-type">DATA VISUALIZATION</span><span class="news-title">ICC T20Iチームランキングのインフォグラフィックを公開</span></div><span class="news-arrow">図解を見る →</span></a><a class="news-item" href="#stories"><time class="news-date" datetime="2026-07-24">2026.07.24</time><div><span class="news-type">MANGA</span><span class="news-title">『Last Over』第6話を公開</span></div><span class="news-arrow">物語を見る →</span></a><a class="news-item" href="guide/"><time class="news-date" datetime="2026-07-20">2026.07.20</time><div><span class="news-type">CRICKET GUIDE</span><span class="news-title">クリケットガイドを開設。「三本のStumps、二本のBails」を公開</span></div><span class="news-arrow">ガイドを見る →</span></a>'
+          if old_news in html:
+              html = html.replace(old_news, new_news, 1)
+
+          old_facts = '<a class="fact-item" href="data-analytics.html"><b>01</b><div><h3>データ分析</h3><p>試合の流れや選手の特徴が見える分析へ。</p></div></a><div class="fact-item"><b>02</b><div><h3>選手とクラブ</h3><p>準備中</p></div></div><div class="fact-item"><b>03</b><div><h3>試合を読み解く</h3><p>準備中</p></div></div>'
+          new_facts = '<a class="fact-item" href="data-analytics.html"><b>01</b><div><h3>データ分析</h3><p>試合の流れや選手の特徴が見える分析へ。</p></div></a><a class="fact-item" href="t20i-rankings.html"><b>02</b><div><h3>T20Iランキング</h3><p>世界上位と、日本代表の順位推移を図解。</p></div></a><div class="fact-item"><b>03</b><div><h3>試合を読み解く</h3><p>準備中</p></div></div>'
+          if old_facts not in html:
+              raise RuntimeError('homepage facts block not found')
+          html = html.replace(old_facts, new_facts, 1)
+          p.write_text(html, encoding='utf-8')
+
+          # history.html
+          p = Path('history.html')
+          html = p.read_text(encoding='utf-8')
+          anchor = '        <li class="event"><time class="date" datetime="2026-07-24">7.24</time><div class="event-copy"><p>『Last Over』第6話を公開</p></div></li>'
+          item = '\n        <li class="event"><time class="date" datetime="2026-07-25">7.25</time><div class="event-copy"><p>「<a href="t20i-rankings.html"><strong>ICC T20I Team Rankings｜世界の現在地。日本の軌跡。</strong></a>」を公開</p></div></li>'
+          if 'datetime="2026-07-25"' not in html:
+              if anchor not in html:
+                  raise RuntimeError('history anchor not found')
+              html = html.replace(anchor, anchor + item, 1)
+              p.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Remove temporary workflow
+        run: rm .github/workflows/link-t20i-rankings.yml
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html data-analytics.html history.html .github/workflows/link-t20i-rankings.yml
+          git commit -m "Link T20I rankings across CRITT"
+          git push
