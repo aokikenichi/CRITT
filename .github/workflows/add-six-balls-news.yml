@@ -1,0 +1,56 @@
+name: Add SIX BALLS to What's New and History
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/add-six-balls-news.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update index and history
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          index_path = Path("index.html")
+          index = index_path.read_text(encoding="utf-8")
+
+          old_news = '''<div class="news-list"><a class="news-item" href="guide/watch.html"><time class="news-date" datetime="2026-08-01">2026.08.01</time><div><span class="news-type">CRICKET GUIDE</span><span class="news-title">クリケットガイド「試合を観る」を公開</span></div><span class="news-arrow">観戦ガイドを見る →</span></a><a class="news-item" href="t20i-rankings.html"><time class="news-date" datetime="2026-07-25">2026.07.25</time><div><span class="news-type">DATA VISUALIZATION</span><span class="news-title">ICC T20Iチームランキングのインフォグラフィックを公開</span></div><span class="news-arrow">図解を見る →</span></a><a class="news-item" href="#stories"><time class="news-date" datetime="2026-07-24">2026.07.24</time><div><span class="news-type">MANGA</span><span class="news-title">『Last Over』第6話を公開</span></div><span class="news-arrow">物語を見る →</span></a></div>'''
+
+          new_news = '''<div class="news-list"><a class="news-item" href="games/six-balls/"><time class="news-date" datetime="2026-08-02">2026.08.02</time><div><span class="news-type">BROWSER GAME</span><span class="news-title">1人用クリケットカードゲーム『LAST OVER：SIX BALLS』を公開</span></div><span class="news-arrow">ゲームで遊ぶ →</span></a><a class="news-item" href="guide/watch.html"><time class="news-date" datetime="2026-08-01">2026.08.01</time><div><span class="news-type">CRICKET GUIDE</span><span class="news-title">クリケットガイド「試合を観る」を公開</span></div><span class="news-arrow">観戦ガイドを見る →</span></a><a class="news-item" href="t20i-rankings.html"><time class="news-date" datetime="2026-07-25">2026.07.25</time><div><span class="news-type">DATA VISUALIZATION</span><span class="news-title">ICC T20Iチームランキングのインフォグラフィックを公開</span></div><span class="news-arrow">図解を見る →</span></a></div>'''
+
+          if old_news not in index:
+              raise RuntimeError("Current What's New list was not found")
+          index = index.replace(old_news, new_news, 1)
+          index_path.write_text(index, encoding="utf-8")
+
+          history_path = Path("history.html")
+          history = history_path.read_text(encoding="utf-8")
+          anchor = '''        <li class="event"><time class="date" datetime="2026-08-01">8.01</time><div class="event-copy"><p>クリケットガイド「<a href="guide/watch.html"><strong>試合を観る</strong></a>」を公開</p></div></li>'''
+          addition = '''
+        <li class="event"><time class="date" datetime="2026-08-02">8.02</time><div class="event-copy"><p>1人用クリケットカードゲーム「<a href="games/six-balls/"><strong>LAST OVER：SIX BALLS</strong></a>」を公開</p></div></li>'''
+          if 'datetime="2026-08-02"' not in history:
+              if anchor not in history:
+                  raise RuntimeError("History insertion point was not found")
+              history = history.replace(anchor, anchor + addition, 1)
+              history_path.write_text(history, encoding="utf-8")
+          PY
+
+      - name: Remove temporary workflow
+        run: rm .github/workflows/add-six-balls-news.yml
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html history.html .github/workflows/add-six-balls-news.yml
+          git commit -m "Add SIX BALLS to What's New and History"
+          git push
