@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#17201e" />
+    <meta
+      name="description"
+      content="6球で決着する、スマートフォン対応の1人用クリケットカードゲーム。"
+    />
+    <title>LAST OVER：SIX BALLS | CRITT</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./cards.js" defer></script>
+    <script src="./game-model.js" defer></script>
+    <script src="./game.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="../../" aria-label="CRITT トップページへ戻る">
+          <span class="brand__mark" aria-hidden="true">C</span>
+          <span class="brand__name">CRITT</span>
+        </a>
+        <span class="site-header__label">BROWSER GAME / PROTOTYPE</span>
+      </header>
+
+      <main>
+        <section class="screen screen--title" id="titleScreen" aria-labelledby="gameTitle">
+          <div class="hero">
+            <p class="eyebrow">ONE INNING. SIX BALLS.</p>
+            <h1 id="gameTitle">
+              <span>LAST OVER</span>
+              <strong>SIX BALLS</strong>
+            </h1>
+            <p class="hero__lead">
+              選んだカードを同時に公開。<br />たった6球で勝負が決まる、1人用クリケットゲーム。
+            </p>
+            <div class="hero__pitch" aria-hidden="true">
+              <span class="hero__crease hero__crease--top"></span>
+              <span class="hero__ball"></span>
+              <span class="hero__crease hero__crease--bottom"></span>
+            </div>
+          </div>
+
+          <section class="how-to" aria-labelledby="howToTitle">
+            <div class="section-heading">
+              <p class="eyebrow">HOW TO PLAY</p>
+              <h2 id="howToTitle">はじめてでも、3ステップ</h2>
+            </div>
+            <ol class="how-to__steps">
+              <li>
+                <span class="how-to__number">1</span>
+                <div>
+                  <h3>カードを1枚選ぶ</h3>
+                  <p>攻撃ではバッティング、守備ではボウリング。CPUも同時に1枚選びます。</p>
+                </div>
+              </li>
+              <li>
+                <span class="how-to__number">2</span>
+                <div>
+                  <h3>カードを公開</h3>
+                  <p>組み合わせで結果の出やすさが変化。結果は 0・1・2・4・6点、またはWです。</p>
+                </div>
+              </li>
+              <li>
+                <span class="how-to__number">3</span>
+                <div>
+                  <h3>6球の合計で勝負</h3>
+                  <p>Wはアウト。2アウトか6球で攻守交代し、後攻が先攻の得点を超えれば即決着です。</p>
+                </div>
+              </li>
+            </ol>
+            <div class="beginner-note">
+              <span class="beginner-note__icon" aria-hidden="true">W</span>
+              <p><strong>このゲームでは</strong> ラン＝得点、ウィケット＝アウト。先攻は先に打ち、後攻は目標得点を追います。</p>
+            </div>
+            <a class="data-reference-link" href="./cards.html">カード相性・確率表を見る <span aria-hidden="true">→</span></a>
+          </section>
+
+          <fieldset class="order-selector">
+            <legend>
+              <span class="eyebrow">BATTING ORDER</span>
+              <strong>先攻・後攻を選ぶ</strong>
+            </legend>
+            <div class="order-options">
+              <label class="order-option">
+                <input type="radio" name="battingOrder" value="first">
+                <span><strong>先攻</strong><small>先に打つ</small></span>
+              </label>
+              <label class="order-option">
+                <input type="radio" name="battingOrder" value="second">
+                <span><strong>後攻</strong><small>後から打つ</small></span>
+              </label>
+              <label class="order-option">
+                <input type="radio" name="battingOrder" value="random" checked>
+                <span><strong>ランダム</strong><small>開始時に決定</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="primary-button primary-button--start" id="startButton" type="button">
+            <span>試合をはじめる</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </section>
+
+        <section class="screen screen--game" id="gameScreen" aria-labelledby="matchHeading" hidden>
+          <header class="match-header">
+            <div>
+              <p class="eyebrow" id="inningsLabel">1ST INNINGS</p>
+              <h2 id="matchHeading">あなたの攻撃</h2>
+              <p class="match-order" id="matchOrder">あなたは先攻</p>
+            </div>
+            <div class="target-badge" id="targetBadge" hidden>
+              <span>目標</span>
+              <strong id="targetValue">—</strong>
+              <small>点</small>
+            </div>
+          </header>
+
+          <section class="scoreboard" aria-label="得点">
+            <article class="team-score team-score--player" id="playerScoreCard">
+              <div class="team-score__name">
+                <span class="team-dot" aria-hidden="true"></span>
+                <strong>YOU</strong>
+                <span class="role-chip" id="playerRole">攻撃</span>
+              </div>
+              <div class="team-score__values">
+                <div>
+                  <strong id="playerScore">0</strong>
+                  <span>点</span>
+                </div>
+                <p><strong id="playerWickets">0</strong><span>/ 2アウト</span></p>
+              </div>
+            </article>
+            <div class="scoreboard__divider" aria-hidden="true">VS</div>
+            <article class="team-score" id="cpuScoreCard">
+              <div class="team-score__name">
+                <span class="team-dot" aria-hidden="true"></span>
+                <strong>CPU</strong>
+                <span class="role-chip" id="cpuRole">守備</span>
+              </div>
+              <div class="team-score__values">
+                <div>
+                  <strong id="cpuScore">0</strong>
+                  <span>点</span>
+                </div>
+                <p><strong id="cpuWickets">0</strong><span>/ 2アウト</span></p>
+              </div>
+            </article>
+          </section>
+
+          <section class="play-panel" id="choicePanel" aria-labelledby="choiceHeading">
+            <div class="play-panel__heading">
+              <div>
+                <p class="over-count" id="ballCount">第1球 / 6球</p>
+                <h2 id="choiceHeading">バッティングカードを選ぶ</h2>
+              </div>
+              <p class="choice-hint" id="choiceHint">タップして1枚選択</p>
+            </div>
+            <div class="card-grid" id="cardGrid" role="group" aria-labelledby="choiceHeading"></div>
+          </section>
+
+          <section class="reveal-panel" id="revealPanel" aria-labelledby="revealHeading" hidden>
+            <div class="reveal-panel__topline">
+              <p class="eyebrow">CARD OPEN</p>
+              <h2 id="revealHeading">カード公開</h2>
+            </div>
+            <div class="versus-cards">
+              <article class="open-card open-card--player">
+                <span>YOU</span>
+                <small id="playerCardType">バッティング</small>
+                <img class="open-card__art" id="playerCardArt" alt="" width="720" height="720">
+                <strong id="playerCardName">—</strong>
+              </article>
+              <span class="versus-cards__vs" aria-hidden="true">VS</span>
+              <article class="open-card open-card--cpu">
+                <span>CPU</span>
+                <small id="cpuCardType">ボウリング</small>
+                <img class="open-card__art" id="cpuCardArt" alt="" width="720" height="720">
+                <strong id="cpuCardName">—</strong>
+              </article>
+            </div>
+            <div class="delivery-result" id="deliveryResult" aria-live="polite">
+              <span class="delivery-result__label">RESULT</span>
+              <strong id="resultMark">0</strong>
+              <p id="resultText">得点なし</p>
+            </div>
+            <button class="primary-button" id="continueButton" type="button">次へ</button>
+          </section>
+
+          <section class="history-panel" aria-labelledby="historyHeading">
+            <div class="history-panel__heading">
+              <div>
+                <p class="eyebrow">SCOREBOOK</p>
+                <h2 id="historyHeading">6球の履歴</h2>
+              </div>
+              <p><span class="history-key history-key--wicket">W</span> はアウト</p>
+            </div>
+            <div class="history-row">
+              <div class="history-row__label">
+                <strong>YOU</strong>
+                <span>1回表</span>
+              </div>
+              <ol id="playerHistory" aria-label="あなたの6球の結果"></ol>
+            </div>
+            <div class="history-row">
+              <div class="history-row__label">
+                <strong>CPU</strong>
+                <span>1回裏</span>
+              </div>
+              <ol id="cpuHistory" aria-label="CPUの6球の結果"></ol>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>CRITT</span>
+        <span>LAST OVER：SIX BALLS / PROTOTYPE</span>
+      </footer>
+    </div>
+
+    <div class="modal" id="inningsModal" role="dialog" aria-modal="true" aria-labelledby="inningsModalTitle" hidden>
+      <div class="modal__backdrop"></div>
+      <div class="modal__card">
+        <p class="eyebrow">INNINGS BREAK</p>
+        <div class="modal__icon" aria-hidden="true">↔</div>
+        <h2 id="inningsModalTitle">攻守交代</h2>
+        <p class="modal__lead" id="inningsLead">あなたの攻撃が終了しました。</p>
+        <div class="target-callout">
+          <span id="inningsTargetLabel">CPUの目標</span>
+          <strong id="inningsTarget">1</strong>
+          <small>点</small>
+        </div>
+        <p id="inningsSummary">次はあなたがボウリングカードを選び、CPUの得点を防ぎます。</p>
+        <button class="primary-button" id="secondInningsButton" type="button">後攻をはじめる</button>
+      </div>
+    </div>
+
+    <div class="modal" id="resultModal" role="dialog" aria-modal="true" aria-labelledby="resultTitle" hidden>
+      <div class="modal__backdrop"></div>
+      <div class="modal__card modal__card--result">
+        <p class="eyebrow">MATCH RESULT</p>
+        <span class="result-kicker" id="resultKicker">YOU WIN</span>
+        <h2 id="resultTitle">勝利！</h2>
+        <p class="modal__lead" id="resultReason">目標点を守り切りました。</p>
+        <div class="final-score" aria-label="最終得点">
+          <div>
+            <span>YOU</span>
+            <strong id="finalPlayerScore">0</strong>
+            <small>点</small>
+          </div>
+          <span>—</span>
+          <div>
+            <span>CPU</span>
+            <strong id="finalCpuScore">0</strong>
+            <small>点</small>
+          </div>
+        </div>
+        <button class="primary-button" id="replayButton" type="button">もう一度遊ぶ</button>
+        <button class="text-button" id="backToTitleButton" type="button">遊び方へ戻る</button>
+      </div>
+    </div>
+
+    <div class="sr-only" id="liveRegion" aria-live="assertive"></div>
+  </body>
+</html>

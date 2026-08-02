@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#17201e" />
+    <meta
+      name="description"
+      content="LAST OVER：SIX BALLSの打撃カードと投球カード、25通りの結果確率を確認できる一覧表。"
+    />
+    <title>カード相性・確率表 | LAST OVER：SIX BALLS | CRITT</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./cards-table.css" />
+    <script src="./cards.js" defer></script>
+    <script src="./cards-table.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="../../" aria-label="CRITT トップページへ戻る">
+          <span class="brand__mark" aria-hidden="true">C</span>
+          <span class="brand__name">CRITT</span>
+        </a>
+        <span class="site-header__label">LAST OVER：SIX BALLS</span>
+      </header>
+
+      <main class="card-reference">
+        <section class="card-reference__hero" aria-labelledby="referenceTitle">
+          <p class="eyebrow">CARD MATCHUPS / PROBABILITY</p>
+          <h1 id="referenceTitle">カード相性・<br />確率表</h1>
+          <p>
+            打撃カードと投球カードの組み合わせごとに、1球の結果が決まります。<br />
+            数字は得点、<strong>W</strong> はウィケット（アウト）です。
+          </p>
+          <a class="reference-back-link" href="./">ゲームへ戻る <span aria-hidden="true">→</span></a>
+        </section>
+
+        <section class="reference-note" aria-labelledby="readingTitle">
+          <div class="reference-note__mark" aria-hidden="true">?</div>
+          <div>
+            <p class="eyebrow">HOW TO READ</p>
+            <h2 id="readingTitle">表の見方</h2>
+            <p>
+              たとえば「守る × 速球」の <strong>1点 26%</strong> は、その組み合わせで1点になる確率です。
+              各行は必ず100%になり、ゲーム中もこの表と同じ数値を使います。
+            </p>
+          </div>
+        </section>
+
+        <section class="summary-section" aria-labelledby="summaryTitle">
+          <div class="reference-heading">
+            <div>
+              <p class="eyebrow">BATTING AT A GLANCE</p>
+              <h2 id="summaryTitle">打撃カードの傾向</h2>
+            </div>
+            <p>全5種類の投球を同じ確率で受けた場合</p>
+          </div>
+          <div class="summary-table-wrap">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th scope="col">打撃カード</th>
+                  <th scope="col">特徴</th>
+                  <th scope="col">平均得点</th>
+                  <th scope="col">4・6点</th>
+                  <th scope="col">W</th>
+                </tr>
+              </thead>
+              <tbody id="battingSummaryBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="matchup-section" aria-labelledby="matchupTitle">
+          <div class="reference-heading">
+            <div>
+              <p class="eyebrow">ALL 25 MATCHUPS</p>
+              <h2 id="matchupTitle">組み合わせ別の確率</h2>
+            </div>
+            <p>横にスクロールして確認できます</p>
+          </div>
+          <div class="table-scroll" tabindex="0" aria-label="カード組み合わせ別の結果確率表。横にスクロールできます。">
+            <table class="matchup-table">
+              <thead>
+                <tr>
+                  <th scope="col">打つ側</th>
+                  <th scope="col">投げる側</th>
+                  <th scope="col">0点</th>
+                  <th scope="col">1点</th>
+                  <th scope="col">2点</th>
+                  <th scope="col">4点</th>
+                  <th scope="col">6点</th>
+                  <th scope="col">W</th>
+                  <th scope="col">平均得点</th>
+                </tr>
+              </thead>
+              <tbody id="matchupTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="reference-footer-note" aria-label="確率表の補足">
+          <p><strong>調整メモ：</strong>現在の設計では、ランダムにカードを選んだ1イニングの平均はおよそ7〜8点です。</p>
+          <p>数値を変える場合は、各行の合計が100%になるようにしてください。</p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>CRITT</span>
+        <span>LAST OVER：SIX BALLS / PROTOTYPE</span>
+      </footer>
+    </div>
+  </body>
+</html>
