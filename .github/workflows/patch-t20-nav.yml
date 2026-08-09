@@ -1,0 +1,41 @@
+name: Patch T20 navigation once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/patch-t20-nav.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message != 'Patch T20 navigation links'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add two navigation links only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('t20-men.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<nav aria-label="ページ内ナビゲーション"><a href="#basics">T20とは</a><a href="#explorer">収録範囲比較</a><a href="#directory">全選手</a><a href="#method">読み方</a></nav>'
+          new = '<nav aria-label="ページ内ナビゲーション"><a href="index.html">CRITTトップ</a><a href="data-analytics.html">データ分析</a><a href="#basics">T20とは</a><a href="#explorer">収録範囲比較</a><a href="#directory">全選手</a><a href="#method">読み方</a></nav>'
+          count = s.count(old)
+          if count != 1:
+              raise SystemExit(f'expected exactly one navigation target, found {count}')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit target change and remove this workflow
+        run: |
+          git config user.name "CRITT site maintenance"
+          git config user.email "actions@users.noreply.github.com"
+          git add t20-men.html
+          git rm .github/workflows/patch-t20-nav.yml
+          git diff --cached --check
+          git commit -m "Patch T20 navigation links"
+          git push
