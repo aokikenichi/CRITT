@@ -1,0 +1,51 @@
+name: Patch CRITT news and history once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/patch-news-history.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.event.head_commit.message != 'Update Whats New and History for T20 men analysis'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update index and history only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # index.html: replace the current three What's New entries with the new top three.
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<div class="news-list"><a class="news-item" href="games/six-balls/"><time class="news-date" datetime="2026-08-02">2026.08.02</time><div><span class="news-type">BROWSER GAME</span><span class="news-title">1人用クリケットカードゲーム『LAST OVER：SIX BALLS』を公開</span></div><span class="news-arrow">ゲームで遊ぶ →</span></a><a class="news-item" href="guide/watch.html"><time class="news-date" datetime="2026-08-01">2026.08.01</time><div><span class="news-type">CRICKET GUIDE</span><span class="news-title">クリケットガイド「試合を観る」を公開</span></div><span class="news-arrow">観戦ガイドを見る →</span></a><a class="news-item" href="t20i-rankings.html"><time class="news-date" datetime="2026-07-25">2026.07.25</time><div><span class="news-type">DATA VISUALIZATION</span><span class="news-title">ICC T20Iチームランキングのインフォグラフィックを公開</span></div><span class="news-arrow">図解を見る →</span></a></div>'
+          new = '<div class="news-list"><a class="news-item" href="t20-men.html"><time class="news-date" datetime="2026-08-09">2026.08.09</time><div><span class="news-type">DATA ANALYTICS</span><span class="news-title">「120球で見る、日本の現在地。— 男子版」を公開</span></div><span class="news-arrow">分析を見る →</span></a><a class="news-item" href="games/six-balls/"><time class="news-date" datetime="2026-08-02">2026.08.02</time><div><span class="news-type">BROWSER GAME</span><span class="news-title">1人用クリケットカードゲーム『LAST OVER：SIX BALLS』を公開</span></div><span class="news-arrow">ゲームで遊ぶ →</span></a><a class="news-item" href="guide/watch.html"><time class="news-date" datetime="2026-08-01">2026.08.01</time><div><span class="news-type">CRICKET GUIDE</span><span class="news-title">クリケットガイド「試合を観る」を公開</span></div><span class="news-arrow">観戦ガイドを見る →</span></a></div>'
+          if s.count(old) != 1:
+              raise SystemExit(f'index target count={s.count(old)}')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+
+          # history.html: append the 8/9 release after the 8/2 entry.
+          p = Path('history.html')
+          s = p.read_text(encoding='utf-8')
+          old = '<li class="event"><time class="date" datetime="2026-08-02">8.02</time><div class="event-copy"><p>1人用クリケットカードゲーム「<a href="games/six-balls/"><strong>LAST OVER：SIX BALLS</strong></a>」を公開</p></div></li>\n      </ol></section>'
+          new = '<li class="event"><time class="date" datetime="2026-08-02">8.02</time><div class="event-copy"><p>1人用クリケットカードゲーム「<a href="games/six-balls/"><strong>LAST OVER：SIX BALLS</strong></a>」を公開</p></div></li>\n        <li class="event"><time class="date" datetime="2026-08-09">8.09</time><div class="event-copy"><p>データ分析実験室の第一弾「<a href="t20-men.html"><strong>120球で見る、日本の現在地。— 男子版</strong></a>」を公開</p></div></li>\n      </ol></section>'
+          if s.count(old) != 1:
+              raise SystemExit(f'history target count={s.count(old)}')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit changes and remove workflow
+        run: |
+          git config user.name "CRITT site maintenance"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html history.html
+          git rm .github/workflows/patch-news-history.yml
+          git diff --cached --check
+          git commit -m "Update Whats New and History for T20 men analysis"
+          git push
