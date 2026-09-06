@@ -25,17 +25,156 @@ jobs:
         run: python scripts/build_t20_women.py
       - name: Add CRITT navigation
         run: python scripts/link_t20_women.py
+      - name: Apply SEO metadata and sitemap
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import html
+          import re
+
+          BASE = "https://aokikenichi.github.io/CRITT"
+
+          pages = {
+              "index.html": {
+                  "canonical": f"{BASE}/",
+                  "description": "CRITT — クリケットを読む、知る、遊ぶ、データで見る。日本語で楽しむファンメイドのクリケットサイトです。",
+              },
+              "about.html": {
+                  "canonical": f"{BASE}/about.html",
+                  "description": "CRITTについて。クリケットを読む、創る、知る、遊ぶためのファンメイドサイトCRITTの目的と考え方を紹介します。",
+              },
+              "history.html": {
+                  "canonical": f"{BASE}/history.html",
+                  "description": "CRITTの更新履歴。公開したクリケット記事、ガイド、データ分析、ゲームなどの追加・更新情報をまとめています。",
+              },
+              "links.html": {
+                  "canonical": f"{BASE}/links.html",
+                  "description": "クリケットを知るための公式サイト、データ、ニュース、学習資料など、CRITTおすすめの関連リンク集です。",
+              },
+              "cricket-map.html": {
+                  "canonical": f"{BASE}/cricket-map.html",
+                  "description": "世界のクリケットを地図から見るCRITTのクリケットマップ。各国・地域とクリケットの広がりを紹介します。",
+              },
+              "cricsheet.html": {
+                  "canonical": f"{BASE}/cricsheet.html",
+                  "description": "Cricsheetとは何か、どのような一球ごとのクリケットデータを取得できるのか、分析への使い方と注意点を日本語で紹介します。",
+              },
+              "data-analytics.html": {
+                  "canonical": f"{BASE}/data-analytics.html",
+                  "description": "CRITTのクリケット・データ分析ページ。公開データ、分析の考え方、可視化、T20I国際比較などのデータ分析実験を紹介します。",
+              },
+              "t20i-rankings.html": {
+                  "canonical": f"{BASE}/t20i-rankings.html",
+                  "description": "T20Iの国際ランキングをクリケット初心者にも分かりやすく見るためのCRITTデータページです。",
+              },
+              "t20-men.html": {
+                  "canonical": f"{BASE}/t20-men.html",
+                  "title": "男子T20I｜120球で見る、日本の現在地 — CRITT",
+                  "description": "Cricsheetの男子T20Iデータから、日本代表選手の得点速度、アウトされにくさ、ウィケット獲得頻度などを世界の選手と比較します。",
+              },
+              "t20-women.html": {
+                  "canonical": f"{BASE}/t20-women.html",
+                  "title": "女子T20I｜120球で見る、日本の現在地 — CRITT",
+                  "description": "Cricsheetの女子T20Iデータから、日本代表選手の得点速度、アウトされにくさ、ウィケット獲得頻度などを世界の選手と比較します。",
+              },
+              "guide/index.html": {
+                  "canonical": f"{BASE}/guide/",
+                  "description": "クリケット初心者向けのCRITT入門ガイド。ルール、観戦方法、歴史などを日本語で分かりやすく紹介します。",
+              },
+              "guide/wicket.html": {
+                  "canonical": f"{BASE}/guide/wicket.html",
+                  "description": "クリケットのウィケットとは何か。初心者向けに意味、アウトとの関係、基本的な見方を分かりやすく解説します。",
+              },
+              "guide/watch.html": {
+                  "canonical": f"{BASE}/guide/watch.html",
+                  "description": "クリケット観戦の入口を初心者向けに紹介。試合の見どころや基本的な楽しみ方をCRITTが日本語で案内します。",
+              },
+              "guide/history.html": {
+                  "canonical": f"{BASE}/guide/history.html",
+                  "description": "クリケットの歴史を初心者向けに紹介。競技の誕生から世界への広がり、日本との関わりまでをたどります。",
+              },
+              "games/six-balls/index.html": {
+                  "canonical": f"{BASE}/games/six-balls/",
+                  "description": "6球で遊ぶCRITTのクリケットゲーム。バッティングやボウリングの選択を通してクリケットの駆け引きを楽しめます。",
+              },
+          }
+
+          canonical_re = re.compile(r'<link\b(?=[^>]*\brel=["\']canonical["\'])[^>]*>', re.I)
+          description_re = re.compile(r'<meta\b(?=[^>]*\bname=["\']description["\'])[^>]*>', re.I)
+          title_re = re.compile(r'<title>.*?</title>', re.I | re.S)
+
+          def insert_before_head_end(text, tag):
+              m = re.search(r'</head\s*>', text, re.I)
+              if not m:
+                  return text
+              return text[:m.start()] + tag + "\n" + text[m.start():]
+
+          for rel, meta in pages.items():
+              path = Path(rel)
+              if not path.exists():
+                  print(f"Skip missing: {rel}")
+                  continue
+              text = path.read_text(encoding="utf-8")
+
+              if meta.get("title"):
+                  new_title = f"<title>{html.escape(meta['title'])}</title>"
+                  if title_re.search(text):
+                      text = title_re.sub(new_title, text, count=1)
+                  else:
+                      text = insert_before_head_end(text, new_title)
+
+              canonical_tag = f'<link rel="canonical" href="{meta["canonical"]}">'
+              if canonical_re.search(text):
+                  text = canonical_re.sub(canonical_tag, text, count=1)
+              else:
+                  text = insert_before_head_end(text, canonical_tag)
+
+              description_tag = f'<meta name="description" content="{html.escape(meta["description"], quote=True)}">'
+              if description_re.search(text):
+                  text = description_re.sub(description_tag, text, count=1)
+              else:
+                  text = insert_before_head_end(text, description_tag)
+
+              path.write_text(text, encoding="utf-8")
+
+          sitemap_urls = [
+              f"{BASE}/",
+              f"{BASE}/about.html",
+              f"{BASE}/history.html",
+              f"{BASE}/links.html",
+              f"{BASE}/cricket-map.html",
+              f"{BASE}/cricsheet.html",
+              f"{BASE}/data-analytics.html",
+              f"{BASE}/t20i-rankings.html",
+              f"{BASE}/t20-men.html",
+              f"{BASE}/t20-women.html",
+              f"{BASE}/guide/",
+              f"{BASE}/guide/wicket.html",
+              f"{BASE}/guide/watch.html",
+              f"{BASE}/guide/history.html",
+              f"{BASE}/games/six-balls/",
+          ]
+          sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+          sitemap.extend(f"  <url><loc>{url}</loc></url>" for url in sitemap_urls)
+          sitemap.append('</urlset>')
+          Path("sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
+          PY
       - name: Clean temporary file
         run: rm -f t20-women.html.tmp
-      - name: Commit generated page and navigation
+      - name: Commit generated page, SEO metadata and sitemap
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add t20-women.html data-analytics.html
+          git add \
+            index.html about.html history.html links.html cricket-map.html cricsheet.html \
+            data-analytics.html t20i-rankings.html t20-men.html t20-women.html \
+            guide/index.html guide/wicket.html guide/watch.html guide/history.html \
+            games/six-balls/index.html sitemap.xml
           git rm --ignore-unmatch t20-women.html.tmp || true
           if git diff --cached --quiet; then
             echo 'No changes'
           else
-            git commit -m 'Publish women T20I comparison in CRITT'
+            git commit -m 'Improve CRITT indexing metadata and sitemap'
             git push
           fi
