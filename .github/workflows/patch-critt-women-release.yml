@@ -1,0 +1,76 @@
+name: Patch CRITT women T20I release
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-critt-women-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update data analytics, What's New and History
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          # 1) data-analytics.html: combine men/women into one frame
+          p = Path('data-analytics.html')
+          s = p.read_text(encoding='utf-8')
+          css_anchor = '.lab-card{background:var(--paper)}.lab-card .analysis-copy small{color:var(--red)}'
+          css_extra = '.experiment-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.experiment-links .more{margin-top:0}.experiment-links .more.secondary{background:var(--ink)}.experiment-links .more:hover{background:var(--gold);color:var(--ink)}'
+          if css_extra not in s:
+              if css_anchor not in s:
+                  raise SystemExit('data-analytics CSS anchor not found')
+              s = s.replace(css_anchor, css_anchor + css_extra, 1)
+
+          pattern = re.compile(
+              r'<a class="analysis-card lab-card" href="t20-men\.html">.*?</a>\s*'
+              r'<a class="analysis-card lab-card" href="t20-women\.html" style="margin-top:24px">.*?</a>',
+              re.S,
+          )
+          replacement = '''<article class="analysis-card lab-card"><div class="analysis-image"><img src="assets/data-cricket.png" alt="T20I選手のデータ比較を表すイメージ"></div><div class="analysis-copy"><span class="experiment-status">実験中・検証改善中</span><small>EXPERIMENT 01–02 / T20I PLAYER COMPARISON</small><h3>120球で見る、日本の現在地。</h3><p>CricsheetのT20I収録データから、打者の得点速度とアウトされにくさ、投手の失点抑制とウィケット獲得頻度を二軸で比較。補正なし／相手・局面の部分補正を切り替えながら、日本代表選手の特徴を男子・女子それぞれで探索します。</p><div class="experiment-links"><a class="more" href="t20-men.html">男子版を見る →</a><a class="more secondary" href="t20-women.html">女子版を見る →</a></div></div></article>'''
+          if 'EXPERIMENT 01–02 / T20I PLAYER COMPARISON' not in s:
+              s, n = pattern.subn(replacement, s, count=1)
+              if n != 1:
+                  raise SystemExit(f'data-analytics card replacement failed: {n}')
+          p.write_text(s, encoding='utf-8')
+
+          # 2) index.html: keep the latest three What's New items
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          new_news = '''<div class="news-list"><a class="news-item" href="t20-women.html"><time class="news-date" datetime="2026-09-06">2026.09.06</time><div><span class="news-type">DATA ANALYTICS LAB</span><span class="news-title">データ分析実験室の第二弾「120球で見る、日本の現在地。— 女子版」を公開</span></div><span class="news-arrow">女子版を見る →</span></a><a class="news-item" href="https://note.com/aokikenichi/n/nf4f859f7ede0" target="_blank" rel="noopener"><time class="news-date" datetime="2026-08-30">2026.08.30</time><div><span class="news-type">NOTE / ARTICLE</span><span class="news-title">『Last Over』第7話を公開</span></div><span class="news-arrow">noteで読む ↗</span></a><a class="news-item" href="guide/history.html"><time class="news-date" datetime="2026-08-23">2026.08.23</time><div><span class="news-type">CRICKET GUIDE</span><span class="news-title">「日本のクリケット史」を公開</span></div><span class="news-arrow">歴史を読む →</span></a></div><div class="news-more">'''
+          if 'datetime="2026-09-06"' not in s:
+              s, n = re.subn(r'<div class="news-list">.*?</div><div class="news-more">', new_news, s, count=1, flags=re.S)
+              if n != 1:
+                  raise SystemExit(f'index news replacement failed: {n}')
+          p.write_text(s, encoding='utf-8')
+
+          # 3) history.html: add September entry
+          p = Path('history.html')
+          s = p.read_text(encoding='utf-8')
+          september = '''      <section class="month"><h2>9月</h2><ol class="timeline">\n        <li class="event"><time class="date" datetime="2026-09-06">9.06</time><div class="event-copy"><p>データ分析実験室の第二弾「<a href="t20-women.html"><strong>120球で見る、日本の現在地。— 女子版</strong></a>」を公開</p></div></li>\n      </ol></section>\n'''
+          if 'datetime="2026-09-06"' not in s:
+              anchor = '      </ol></section>\n    </div></section>\n    <div class="note">'
+              if anchor not in s:
+                  raise SystemExit('history insertion anchor not found')
+              s = s.replace(anchor, '      </ol></section>\n' + september + '    </div></section>\n    <div class="note">', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data-analytics.html index.html history.html
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Unify T20I lab links and announce women edition'
+            git push
+          fi
