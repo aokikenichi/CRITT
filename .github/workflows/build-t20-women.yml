@@ -1,0 +1,35 @@
+name: Build women T20I page
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/build_t20_women.py'
+      - '.github/workflows/build-t20-women.yml'
+      - 't20-men.html'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Cricsheet women T20I data
+        run: |
+          mkdir -p tmp
+          curl -L --fail --retry 3 https://cricsheet.org/downloads/t20s_female_csv2.zip -o tmp/t20s_female_csv2.zip
+      - name: Build page
+        run: python scripts/build_t20_women.py
+      - name: Commit generated page
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add t20-women.html
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Update women T20I comparison page'
+            git push
+          fi
