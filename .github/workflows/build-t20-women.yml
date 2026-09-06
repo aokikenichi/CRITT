@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'scripts/build_t20_women.py'
+      - 'scripts/link_t20_women.py'
       - '.github/workflows/build-t20-women.yml'
       - 't20-men.html'
 
@@ -22,14 +23,19 @@ jobs:
           curl -L --fail --retry 3 https://cricsheet.org/downloads/t20s_female_csv2.zip -o tmp/t20s_female_csv2.zip
       - name: Build page
         run: python scripts/build_t20_women.py
-      - name: Commit generated page
+      - name: Add CRITT navigation
+        run: python scripts/link_t20_women.py
+      - name: Clean temporary file
+        run: rm -f t20-women.html.tmp
+      - name: Commit generated page and navigation
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add t20-women.html
+          git add t20-women.html data-analytics.html
+          git rm --ignore-unmatch t20-women.html.tmp || true
           if git diff --cached --quiet; then
             echo 'No changes'
           else
-            git commit -m 'Update women T20I comparison page'
+            git commit -m 'Publish women T20I comparison in CRITT'
             git push
           fi
