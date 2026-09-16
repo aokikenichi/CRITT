@@ -1,0 +1,73 @@
+name: Fix T20 predictor CRITT header
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-predictor-header.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch predictor header only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('japan-t20-predictor.html')
+          text = path.read_text(encoding='utf-8')
+
+          old = '''    <a class="brand" href="#overview" data-route="overview" aria-label="概要へ">
+              <span class="brand-mark" aria-hidden="true">JP</span>
+              <span><strong>Japan T20</strong><small>WASP-style Lab</small></span>
+            </a>'''
+
+          new = '''    <a class="brand" href="index.html" aria-label="CRITTトップへ">
+              <span class="brand-mark" aria-hidden="true">C</span>
+              <span><strong>CRITT</strong><small>Japan T20 Predictor</small></span>
+            </a>'''
+
+          if new in text:
+              print('Header is already patched')
+          elif old in text:
+              text = text.replace(old, new, 1)
+              path.write_text(text, encoding='utf-8')
+              print('Header patched')
+          else:
+              # The uploaded file uses six spaces inside the brand block in some versions.
+              old2 = '''    <a class="brand" href="#overview" data-route="overview" aria-label="概要へ">
+      <span class="brand-mark" aria-hidden="true">JP</span>
+      <span><strong>Japan T20</strong><small>WASP-style Lab</small></span>
+    </a>'''
+              new2 = '''    <a class="brand" href="index.html" aria-label="CRITTトップへ">
+      <span class="brand-mark" aria-hidden="true">C</span>
+      <span><strong>CRITT</strong><small>Japan T20 Predictor</small></span>
+    </a>'''
+              if old2 not in text:
+                  raise SystemExit('Predictor header anchor not found; no file was changed')
+              text = text.replace(old2, new2, 1)
+              path.write_text(text, encoding='utf-8')
+              print('Header patched')
+          PY
+
+      - name: Commit header fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add japan-t20-predictor.html
+          if git diff --cached --quiet; then
+            echo 'No changes needed'
+            exit 0
+          fi
+          git commit -m 'Fix T20 predictor CRITT header navigation'
+          git pull --rebase origin main
+          git push origin main
