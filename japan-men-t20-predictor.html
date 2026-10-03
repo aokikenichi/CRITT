@@ -273,7 +273,7 @@ footer p { margin: 0; }
       <div class="hero">
         <div>
           <p class="eyebrow">MEN'S T20 · CRICSHEET · OFFLINE</p>
-          <h1 id="overview-title">日本代表の試合を、<br><span>一球ごとの状態</span>から読む。</h1>
+          <h1 id="overview-title">日本男子代表の試合を、<br><span>一球ごとの状態</span>から読む。</h1>
           <p class="lead">第1イニング最終得点と第2イニング追走確率を、Cricsheetデータと機械学習で推定する、完全オフラインのWASP-style ML分析ツールです。</p>
           <div class="hero-actions">
             <a class="button primary" href="#first" data-route="first">先攻得点を推定</a>
@@ -287,7 +287,7 @@ footer p { margin: 0; }
       </div>
       <p class="muted" style="margin:-4px 0 20px; line-height:1.8;">
         Cricsheetが公開する男子T20のball-by-ballデータを使用しています。収録期間は2005-02-17〜2026-07-13。
-        3,464試合、781,044 deliveries（うち747,384合法球）、108チームを含み、このうち日本代表戦は57試合です。
+        3,464試合、781,044 deliveries（うち747,384合法球）、108チームを含み、このうち日本男子代表戦は57試合です。
       </p>
       <div id="summary-cards" class="metric-grid" aria-live="polite"></div>
 
@@ -324,7 +324,7 @@ footer p { margin: 0; }
         </div>
       </section>
 
-      <aside class="notice-panel"><strong>注記</strong><p>得点と確率は事実・公式値ではなく、収録試合に基づく推定です。<span id="correction-note">強い国・弱い国との対戦では、相手の実力差を考慮した追加補正が必要です。日本代表向けの追加補正は、過去試合のデータ量や検証での精度改善が十分でないため、現在は適用していません。</span></p></aside>
+      <aside class="notice-panel"><strong>注記</strong><p>得点と確率は事実・公式値ではなく、収録試合に基づく推定です。<span id="correction-note">強い国・弱い国との対戦では、相手の実力差を考慮した追加補正が必要です。日本男子代表向けの追加補正は、過去試合のデータ量や検証での精度改善が十分でないため、現在は適用していません。</span></p></aside>
     </section>
 
     <section id="view-first" class="view" data-view="first" aria-labelledby="first-title" hidden>
@@ -430,7 +430,7 @@ footer p { margin: 0; }
         <p>第1イニング：Histogram Gradient Boosting回帰を中心とした候補モデル比較により、現在の試合状態から残り得点を推定します。予測最終得点 = 現在得点 + 予測残り得点として算出し、50%・80%予測区間を表示します。</p>
         <p>第2イニング：Histogram Gradient Boosting分類およびロジスティック回帰等を比較し、現在得点、wicket、残り球、target、必要run rate等から追走成功確率を推定します。</p>
         <p>チーム情報：Elo、batting form、bowling suppression、venue等の試合前情報を候補モデルで利用します。</p>
-        <p>世界の男子T20データで学習したモデルを日本代表戦にも適用します。</p>
+        <p>世界の男子T20データで学習したモデルを日本男子代表戦にも適用します。</p>
         <p>本ツールは公式WASPのアルゴリズムを再現したものではなく、WASPと同じ『第1イニング最終得点／第2イニング追走成功確率』という問題設定をCricsheetデータと独自の機械学習モデルで実装したWASP-style分析です。</p>
       </article>
       <div class="two-column">
@@ -1072,7 +1072,7 @@ footer p { margin: 0; }
       metricCard("男子T20試合", fmt(matchCount, 0), metadata.period || ""),
       metricCard("deliveries", fmt(deliveryCount, 0), "ball-by-ball"),
       metricCard("収録チーム", fmt(teamCount, 0), "男子T20"),
-      metricCard("日本代表戦", fmt(japanCount, 0), "収録試合")
+      metricCard("日本男子代表戦", fmt(japanCount, 0), "収録試合")
     ].join("");
     const sha = metadata.source_sha256 || (metadata.source && metadata.source.sha256) || rawData.source_sha256;
 
