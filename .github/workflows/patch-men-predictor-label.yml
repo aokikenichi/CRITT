@@ -1,0 +1,52 @@
+name: Patch men's T20 predictor label
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/patch-men-predictor-label.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch men's team labels only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('japan-men-t20-predictor.html')
+          text = path.read_text(encoding='utf-8')
+          target = '日本代表'
+          replacement = '日本男子代表'
+          count = text.count(target)
+
+          if count == 0:
+              print('Labels are already patched')
+          elif count == 5:
+              path.write_text(text.replace(target, replacement), encoding='utf-8')
+              print(f'Patched {count} labels')
+          else:
+              raise SystemExit(f'Unexpected target count: {count}; no file was changed')
+          PY
+
+      - name: Commit label fix
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add japan-men-t20-predictor.html
+          if git diff --cached --quiet; then
+            echo 'No changes needed'
+            exit 0
+          fi
+          git commit -m "Label men's T20 predictor explicitly as Japan men's team"
+          git pull --rebase origin main
+          git push origin main
