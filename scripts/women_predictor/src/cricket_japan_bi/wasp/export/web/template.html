@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'">
+  <meta name="description" content="Cricsheet収録試合に基づく日本女子代表向けT20 WASP-styleオフライン分析">
+  <title>__WASP_DOCUMENT_TITLE__</title>
+  <style><!--__WASP_STYLE__--></style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <header class="site-header">
+    <div class="site-global">
+      <a class="brand" href="index.html" aria-label="CRITTトップへ">
+        <strong>CRITT</strong>
+        <small>Cricket, Told Together.</small>
+      </a>
+      <nav class="global-nav" aria-label="CRITT全体">
+        <a href="index.html">ホーム</a>
+        <a href="index.html#stories">物語</a>
+        <a href="index.html#play">遊ぶ</a>
+        <a href="index.html#guide">知る</a>
+        <a href="data-analytics.html">データ分析</a>
+        <a href="about.html">CRITTとは</a>
+      </nav>
+    </div>
+    <div class="site-page-nav">
+      <span class="page-nav-title">T20 Match Predictor</span>
+      <nav class="page-nav" aria-label="このページ">
+        <a href="#overview" data-route="overview">概要</a>
+        <a href="#first" data-route="first">先攻予測</a>
+        <a href="#chase" data-route="chase">追走予測</a>
+        <a href="#replay" data-route="replay">リプレイ</a>
+        <a href="#evaluation" data-route="evaluation">モデル評価</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="page-shell" tabindex="-1">
+    <div id="global-alert" class="alert" role="alert" hidden></div>
+
+    <section id="view-overview" class="view" data-view="overview" aria-labelledby="overview-title">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">WOMEN'S T20 · CRICSHEET · OFFLINE</p>
+          <h1 id="overview-title">日本女子代表の試合を、<br><span>一球ごとの状態</span>から読む。</h1>
+          <p class="lead">第1イニング最終得点と第2イニング追走確率を、Cricsheetデータと機械学習で推定する、完全オフラインのWASP-style ML分析ツールです。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#first" data-route="first">先攻得点を推定</a>
+            <a class="button ghost" href="#chase" data-route="chase">追走確率を推定</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div><p class="eyebrow">DATA COVERAGE</p><h2>使用データ</h2></div>
+      </div>
+      <p id="overview-data-text" class="muted" style="margin:-4px 0 20px; line-height:1.8;">Cricsheetが公開する女子T20 Internationalのball-by-ballデータを使用しています。</p>
+      <div id="summary-cards" class="metric-grid" aria-live="polite"></div>
+
+      <article class="panel">
+        <div class="panel-heading"><p class="eyebrow">LOCKED TEST</p><h2>評価スナップショット</h2></div>
+        <div id="overview-evaluation"></div>
+      </article>
+      <section class="panel" aria-labelledby="wasp-about-title" style="margin-top:28px;">
+        <div class="panel-heading"><p class="eyebrow">ABOUT WASP</p><h2 id="wasp-about-title">WASPとは？</h2></div>
+        <p class="muted">WASP（Win And Score Predictor）は、クリケットの試合中に「第1イニングの最終得点は何点になりそうか」「第2イニングで追走側が勝つ確率はどのくらいか」を、現在の得点・wicket・残り球などの試合状況から推定する考え方です。</p>
+        <p class="muted">WASPと同じ発想のリアルタイム予測は、その後、Play-CricketのWASP機能やCricVizのWinViz／PredictVizなど、放送・デジタル配信・商用分析サービスにも展開されています。</p>
+        <p class="muted">このツールは公式WASPのアルゴリズムをそのまま再現したものではありません。WASPが扱った「最終得点予測」と「勝率予測」という問題設定を参考にし、Cricsheetのball-by-ballデータと現代的な機械学習を使って独自に推定しています。</p>
+      </section>
+
+      <section class="panel" aria-labelledby="howto-title" style="margin-top:28px;">
+        <div class="panel-heading"><p class="eyebrow">HOW TO USE</p><h2 id="howto-title">使い方</h2></div>
+        <div class="two-column" style="margin:0;">
+          <div>
+            <h3>先攻予測</h3>
+            <p class="muted">第1イニング途中の得点・wicket・消化overを入力すると、最終得点の予測値と50%／80%予測区間を表示します。</p>
+          </div>
+          <div>
+            <h3>追走予測</h3>
+            <p class="muted">第2イニングのtarget・現在得点・wicket・残り球を入力すると、追走成功確率を表示します。トス結果が分かる場合は選択するとチーム情報モデルを利用できます。</p>
+          </div>
+          <div>
+            <h3>リプレイ</h3>
+            <p class="muted">収録済みの試合を選ぶと、実際の試合進行に沿って最終得点予測と追走成功確率の推移を一球ごとに確認できます。</p>
+          </div>
+          <div>
+            <h3>見方のポイント</h3>
+            <p class="muted">数値は公式値ではなくモデル推定です。試合序盤ほど不確実性が大きく、終盤になるほど予測は安定します。</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="notice-panel"><strong>注記</strong><p>得点と確率は事実・公式値ではなく、収録試合に基づく推定です。<br><span id="correction-note">強い国・弱い国との対戦では、相手の実力差を考慮した追加補正が必要です。現在は検証に十分な日本女子代表戦のデータがないため、日本代表向けの追加補正は適用していません。</span></p></aside>
+    </section>
+
+    <section id="view-first" class="view" data-view="first" aria-labelledby="first-title" hidden>
+      <header class="page-heading"><div><p class="eyebrow">FIRST INNINGS</p><h1 id="first-title">最終得点レンジ</h1></div><p>現在の得点・wicket・合法球数から、最終得点と50%／80%予測区間を推定します。</p></header>
+      <div class="workspace-grid">
+        <form id="first-form" class="control-panel" novalidate>
+          <h2>試合状態</h2>
+          <div class="field-grid">
+            <label>打撃チーム<input name="batting_team" list="team-options" value="Japan" autocomplete="off" required></label>
+            <label>守備チーム<input name="bowling_team" list="team-options" value="Indonesia" autocomplete="off" required></label>
+            <label>現在得点<input name="runs" type="number" min="0" step="1" value="62" required inputmode="numeric"></label>
+            <label>wicket<input name="wickets" type="number" min="0" max="10" step="1" value="3" required inputmode="numeric"></label>
+          </div>
+          <fieldset><legend>完了した合法球</legend><div class="field-grid compact"><label>over<input name="completed_overs" type="number" min="0" step="1" value="10" required></label><label>ball<input name="completed_balls" type="number" min="0" max="5" step="1" value="0" required></label></div></fieldset>
+          <fieldset><legend>イニングquota</legend><div class="field-grid compact"><label>over<input name="quota_overs" type="number" min="0" step="1" value="20" required></label><label>ball<input name="quota_balls" type="number" min="0" max="5" step="1" value="0" required></label></div></fieldset>
+          <label>会場（任意）<input name="venue" list="venue-options" placeholder="Sano International Cricket Ground" autocomplete="off"></label>
+          <label class="check-row"><input name="use_japan_correction" type="checkbox" checked> gate通過時に日本向け補正を使う</label>
+          <button class="button primary wide" type="submit">最終得点を推定</button>
+          <p class="form-note">over.ballは小数ではなく別々に入力します。例：14 overs 4 balls = 88合法球。</p>
+        </form>
+        <section class="result-panel" aria-live="polite" aria-atomic="true">
+          <div id="first-empty" class="empty-state large">試合状態を入力すると、モデル比較と予測区間が表示されます。</div>
+          <div id="first-results" hidden>
+            <div class="result-hero"><span>選択モデルの最終得点</span><strong id="first-selected">—</strong><small id="first-interval">—</small></div>
+            <div id="first-comparison" class="comparison-grid"></div>
+            <div id="first-correction" class="correction-box"></div>
+            <ul id="first-warnings" class="warning-list"></ul>
+          </div>
+        </section>
+      </div>
+      <section class="panel chart-panel">
+        <div class="section-heading"><div><p class="eyebrow">SESSION</p><h2>この端末での予測推移</h2></div><button id="clear-first-history" class="text-button" type="button">履歴を消去</button></div>
+        <div class="canvas-wrap"><canvas id="first-history-chart" class="chart" height="320" aria-label="完了合法球ごとの現在得点と最終得点推定"></canvas><p id="first-history-empty" class="empty-state">この端末での送信履歴はまだありません。</p></div>
+        <div id="first-history-table" class="sr-only" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <section id="view-chase" class="view" data-view="chase" aria-labelledby="chase-title" hidden>
+      <header class="page-heading"><div><p class="eyebrow">RUN CHASE</p><h1 id="chase-title">追走成功確率</h1></div><p>必要得点・残り合法球・wicketから、追走成功確率を推定します。</p></header>
+      <div class="workspace-grid">
+        <form id="chase-form" class="control-panel" novalidate>
+          <h2>追走状態</h2>
+          <div class="field-grid">
+            <label>追走チーム<input name="chasing_team" list="team-options" value="Japan" autocomplete="off" required></label>
+            <label>守備チーム<input name="defending_team" list="team-options" value="Indonesia" autocomplete="off" required></label>
+            <label>target<input name="target" type="number" min="1" step="1" value="130" required></label>
+            <label>現在得点<input name="current_score" type="number" min="0" step="1" value="76" required></label>
+            <label>wicket<input name="wickets" type="number" min="0" max="10" step="1" value="4" required></label>
+            <label>残り合法球<input name="balls_remaining" type="number" min="0" max="120" step="1" value="48" required></label>
+          </div>
+          <fieldset><legend>target制限球数</legend><div class="field-grid compact"><label>over<input name="limit_overs" type="number" min="0" step="1" value="20" required></label><label>ball<input name="limit_balls" type="number" min="0" max="5" step="1" value="0" required></label></div></fieldset>
+          <label>トス勝者<select name="toss_winner"><option value="chasing">追走チーム</option><option value="defending">守備チーム</option><option value="unknown" selected>不明</option></select></label>
+          <label>会場（任意）<input name="venue" list="venue-options" placeholder="Sano International Cricket Ground" autocomplete="off"></label>
+          <label class="check-row"><input name="use_japan_correction" type="checkbox" checked> gate通過時に日本向け補正を使う</label>
+          <button class="button primary wide" type="submit">追走確率を推定</button>
+        </form>
+        <section class="result-panel" aria-live="polite" aria-atomic="true">
+          <div id="chase-empty" class="empty-state large">試合状態を入力すると、確率比較と次球シナリオが表示されます。</div>
+          <div id="chase-results" hidden>
+            <div class="probability-ring" id="chase-ring"><div><strong id="chase-selected">—</strong><span>追走成功推定</span></div></div>
+            <p id="chase-terminal" class="terminal-note" hidden></p>
+            <div id="chase-comparison" class="comparison-grid"></div>
+            <div id="chase-correction" class="correction-box"></div>
+            <ul id="chase-warnings" class="warning-list"></ul>
+          </div>
+        </section>
+      </div>
+      <section class="panel chart-panel">
+        <div class="panel-heading"><p class="eyebrow">NEXT LEGAL BALL</p><h2>次球シナリオ</h2></div>
+        <div id="scenario-empty" class="empty-state">追走状態を推定すると表示されます。</div>
+        <div id="scenario-content" hidden><div class="canvas-wrap"><canvas id="scenario-chart" class="chart" height="320" aria-label="次の合法球後の追走成功確率"></canvas></div><div id="scenario-table" class="table-wrap"></div></div>
+      </section>
+    </section>
+
+    <section id="view-replay" class="view" data-view="replay" aria-labelledby="replay-heading" hidden>
+      <header class="page-heading"><div><p class="eyebrow">MATCH REPLAY</p><h1 id="replay-heading">一球ごとの推定推移</h1></div><p>試合前のrating snapshotを使った履歴推定を表示します。</p></header>
+      <div class="filter-bar" role="search" aria-label="試合検索">
+        <label>キーワード<input id="replay-query" type="search" placeholder="対戦相手・会場"></label>
+        <label>開始日<input id="replay-from-date" type="date"></label>
+        <label>終了日<input id="replay-to-date" type="date"></label>
+        <label class="check-row"><input id="replay-japan-only" type="checkbox" checked> 日本戦のみ</label>
+      </div>
+      <div class="replay-grid">
+        <aside class="panel match-browser" aria-labelledby="match-list-title"><div class="section-heading compact-heading"><h2 id="match-list-title">収録試合</h2><span id="match-count" class="muted"></span></div><div id="match-list" class="match-list"></div></aside>
+        <section class="panel">
+          <div id="replay-empty" class="empty-state large">左から試合を選択してください。</div>
+          <div id="replay-detail" hidden>
+            <div class="section-heading"><div><p id="replay-date" class="eyebrow"></p><h2 id="replay-title"></h2><p id="replay-venue" class="muted"></p></div><span id="replay-result" class="status-pill"></span></div>
+            <div id="replay-eligibility" class="notice-panel" aria-live="polite" hidden></div>
+            <div class="event-legend" aria-label="イベント凡例"><span><i class="dot wicket"></i>wicket</span><span><i class="dot four"></i>Four</span><span><i class="dot six"></i>Six</span></div>
+            <h3 id="replay-first-chart-title">第1イニング 最終得点推定</h3><div class="canvas-wrap"><canvas id="replay-first-chart" class="chart" height="330" aria-label="第1イニングの得点と最終得点推定"></canvas></div>
+            <h3 id="replay-chase-chart-title">第2イニング 追走成功確率</h3><div class="canvas-wrap"><canvas id="replay-chase-chart" class="chart" height="330" aria-label="第2イニングの追走成功推定"></canvas></div>
+            <div id="replay-accessible-summary" class="sr-only"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="view-evaluation" class="view" data-view="evaluation" aria-labelledby="evaluation-title" hidden>
+      <header class="page-heading"><div><p class="eyebrow">MODEL CARD</p><h1 id="evaluation-title">検証結果と限界</h1></div><p>モデル選択に使わないlocked testを分離し、指標と標本数を表示します。</p></header>
+      <div id="evaluation-cards" class="metric-grid"></div>
+      <article class="panel">
+        <div class="panel-heading"><h2>予測モデル</h2></div>
+        <p>第1イニング：Histogram Gradient Boosting回帰を中心とした候補モデル比較により、現在の試合状態から残り得点を推定します。予測最終得点 = 現在得点 + 予測残り得点として算出し、50%・80%予測区間を表示します。</p>
+        <p>第2イニング：Histogram Gradient Boosting分類およびロジスティック回帰等を比較し、現在得点、wicket、残り球、target、必要run rate等から追走成功確率を推定します。</p>
+        <p>チーム情報：Elo、batting form、bowling suppression、venue等の試合前情報を候補モデルで利用します。</p>
+        <p>世界の女子T20 Internationalデータで学習したモデルを日本女子代表戦にも適用します。</p>
+        <p>本ツールは公式WASPのアルゴリズムを再現したものではなく、WASPと同じ『第1イニング最終得点／第2イニング追走成功確率』という問題設定をCricsheetデータと独自の機械学習モデルで実装したWASP-style分析です。</p>
+      </article>
+      <div class="two-column">
+        <article class="panel chart-panel"><div class="panel-heading"><p class="eyebrow">CALIBRATION</p><h2>確率校正</h2></div><div class="canvas-wrap"><canvas id="calibration-chart" class="chart" height="330" aria-label="推定確率と実測率の校正曲線"></canvas></div><div id="calibration-table" class="sr-only"></div></article>
+        <article class="panel"><div class="panel-heading"><p class="eyebrow">BY PHASE</p><h2>局面別精度</h2></div><div id="phase-table" class="table-wrap"></div></article>
+      </div>
+      <article class="panel"><div class="panel-heading"><p class="eyebrow">SELECTION</p><h2>候補モデル</h2></div><div id="candidate-table" class="table-wrap"></div></article>
+      <article class="panel"><div class="panel-heading"><p class="eyebrow">LIMITATIONS</p><h2>解釈上の注意</h2></div><ul id="model-limitations" class="plain-list"></ul></article>
+      <aside class="notice-panel"><strong>評価単位</strong><p>主指標は1試合内のstateを平均してから試合間で平均するmatch-macroです。delivery数の多い試合が評価を支配しないようにしています。<br><span id="replay-model-note">Replayは女子T20I全期間で再学習したproductionモデルによる振り返りです。チーム情報は試合前日のsnapshotを使いますが、未学習試合の性能評価ではありません。評価画面には別モデルのlocked testを表示します。</span></p></aside>
+    </section>
+
+    <datalist id="team-options"></datalist>
+    <datalist id="venue-options"></datalist>
+  </main>
+
+  <footer><p>これは公式WASPの再現ではありません。数値はCricsheet収録試合に基づくモデル推定です。Data source: <a href="https://cricsheet.org/" target="_blank" rel="noopener noreferrer">Cricsheet</a>（data cutoff: <span id="data-cutoff">—</span>）</p><p id="generated-at">最終更新 —</p></footer>
+
+  <script id="wasp-standalone-data" type="application/json"><!--__WASP_PAYLOAD__--></script>
+  <script><!--__WASP_PREDICTOR__--></script>
+  <script><!--__WASP_APP__--></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}概要 | {{ product_name }}{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">MEN'S T20 · CRICSHEET</p>
+    <h1>日本代表の試合を、<br><span>一球ごとの状態</span>から読む。</h1>
+    <p class="lead">第1イニング最終得点と第2イニング追走確率を、全体モデル・チーム補正・日本向け補正で比較するWASP型分析環境です。</p>
+  </div>
+  <div class="hero-actions">
+    <a class="button primary" href="/first-innings">先攻得点を推定</a>
+    <a class="button secondary" href="/chase">追走確率を推定</a>
+  </div>
+</section>
+
+<section aria-labelledby="summary-title">
+  <div class="section-heading">
+    <div><p class="eyebrow">DATA COVERAGE</p><h2 id="summary-title">収録範囲</h2></div>
+    <span id="source-hash" class="mono muted">source —</span>
+  </div>
+  <div id="summary-cards" class="metric-grid" aria-live="polite">
+    <article class="metric-card skeleton"><span>収録試合</span><strong>—</strong><small>CSV2監査済み</small></article>
+    <article class="metric-card skeleton"><span>日本戦</span><strong>—</strong><small>男子T20</small></article>
+    <article class="metric-card skeleton"><span>採用先攻モデル</span><strong>—</strong><small>validation選択</small></article>
+    <article class="metric-card skeleton"><span>採用追走モデル</span><strong>—</strong><small>validation選択</small></article>
+  </div>
+</section>
+
+<section class="two-column" aria-label="モデル概要">
+  <article class="panel">
+    <div class="panel-heading"><p class="eyebrow">LOCKED TEST</p><h2>評価スナップショット</h2></div>
+    <div id="dashboard-evaluation" class="empty-state">評価アーティファクトを読み込んでいます。</div>
+  </article>
+  <article class="panel">
+    <div class="panel-heading"><p class="eyebrow">QUALITY CONTROL</p><h2>主な除外理由</h2></div>
+    <div id="exclusions" class="empty-state">監査結果を読み込んでいます。</div>
+  </article>
+</section>
+
+<section class="notice-panel">
+  <strong>読み方</strong>
+  <p>確率や得点は事実ではなく推定です。日本補正は役割別gateを通過した場合だけ使われ、標本不足時は自動的にチーム補正へ戻ります。</p>
+</section>
+{% endblock %}

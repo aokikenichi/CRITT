@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}追走予測 | {{ product_name }}{% endblock %}
+{% block content %}
+<header class="page-heading">
+  <div><p class="eyebrow">RUN CHASE</p><h1>追走成功確率</h1></div>
+  <p>必要得点・残り合法球・wicketから、追走成功確率を推定します。</p>
+</header>
+
+<div class="workspace-grid">
+  <form id="chase-form" class="control-panel">
+    <h2>追走状態</h2>
+    <div class="field-grid">
+      <label>追走チーム<input name="chasing_team" value="Japan" required></label>
+      <label>守備チーム<input name="defending_team" value="Indonesia" required></label>
+      <label>target<input name="target" type="number" min="1" value="130" required></label>
+      <label>現在得点<input name="current_score" type="number" min="0" value="76" required></label>
+      <label>wicket<input name="wickets" type="number" min="0" max="10" value="4" required></label>
+      <label>残り合法球<input name="balls_remaining" type="number" min="0" max="120" value="48" required></label>
+      <label>制限over<input name="limit_overs" type="number" min="0" value="20" required></label>
+      <label>制限ball<input name="limit_balls" type="number" min="0" max="5" value="0" required></label>
+      <label class="span-2">会場（任意）<input name="venue" placeholder="Sano International Cricket Ground"></label>
+      <label class="span-2">トス勝者<select name="toss_winner"><option value="chasing">追走チーム</option><option value="defending">守備チーム</option><option value="unknown" selected>不明</option></select></label>
+    </div>
+    <label class="check-row"><input name="use_japan_correction" type="checkbox" checked> gate通過時に日本向け補正を使う</label>
+    <button class="button primary wide" type="submit">追走確率を推定</button>
+  </form>
+
+  <section class="result-panel" aria-live="polite">
+    <div id="chase-empty" class="empty-state large">試合状態を入力すると、確率比較と次球シナリオが表示されます。</div>
+    <div id="chase-results" hidden>
+      <div class="probability-ring" id="chase-ring"><div><strong id="chase-selected">—</strong><span>追走成功推定</span></div></div>
+      <p id="chase-terminal" class="terminal-note" hidden></p>
+      <div id="chase-comparison" class="comparison-grid"></div>
+      <div id="chase-correction" class="correction-box"></div>
+      <ul id="chase-warnings" class="plain-list"></ul>
+    </div>
+  </section>
+</div>
+
+<section class="panel chart-panel">
+  <div class="panel-heading"><p class="eyebrow">NEXT LEGAL BALL</p><h2>次球シナリオ</h2></div>
+  <div id="scenario-chart" class="chart" aria-label="次の合法球後の追走成功確率"></div>
+</section>
+{% endblock %}

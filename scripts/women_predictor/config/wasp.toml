@@ -1,0 +1,88 @@
+[project]
+name = "Japan Women's T20 WASP-style"
+schema_version = "1.0"
+random_seed = 20260731
+timezone = "Asia/Tokyo"
+
+[paths]
+source_zip = "data/raw/t20s_female_csv2.zip"
+processed_dir = "data/processed/wasp"
+database = "data/processed/wasp/wasp.duckdb"
+artifacts_dir = "artifacts/wasp"
+reports_dir = "reports/wasp"
+
+[source]
+gender = "female"
+team_type = "international"
+match_type = "T20"
+expected_sha256 = "acb457e9d1337907e901b4aa08a3a8a1962a7b98b216476ca3236d595bb0f4d9"
+csv_format = "CSV2"
+stream_buffer_rows = 50000
+
+[splits]
+train_end = 2022-12-31
+validation_start = 2023-01-01
+validation_end = 2024-12-31
+test_start = 2025-01-01
+correction_fit_end = 2024-12-31
+correction_gate_start = 2025-01-01
+correction_gate_end = 2025-12-31
+correction_audit_start = 2026-01-01
+
+[eligibility]
+full_match_balls = 120
+exclude_dl_dls = true
+exclude_super_over = true
+exclude_bowl_out = true
+exclude_awarded = true
+exclude_no_result = true
+exclude_regulation_tie = true
+allow_reconstructed_standard_target = true
+
+[phases.absolute]
+powerplay_end_ball = 35
+middle_end_ball = 95
+
+[phases.relative]
+powerplay_end_fraction = 0.30
+middle_end_fraction = 0.80
+
+[features]
+elo_initial = 1500.0
+elo_k_candidates = [16, 24, 32]
+form_half_life_days = 365
+form_prior_innings = 8
+venue_prior_innings = 20
+same_day_batch_updates = true
+
+[models]
+resource_pseudo_counts = [12, 24, 48, 96]
+chase_pseudo_counts = [12, 24, 48, 96]
+tweedie_powers = [1.1, 1.5]
+quantiles = [0.10, 0.25, 0.75, 0.90]
+first_primary_metric = "match_macro_mae"
+chase_primary_metric = "match_macro_brier"
+simple_model_tolerance_fraction = 0.01
+chase_tie_tolerance = 0.002
+
+[reduced_match_gate]
+minimum_development_matches = 50
+maximum_full_match_degradation_fraction = 0.01
+require_reduced_validation_improvement = true
+
+[japan_correction]
+bootstrap_iterations = 500
+minimum_history_matches = 12
+minimum_gate_matches = 8
+minimum_chase_wins = 3
+minimum_chase_losses = 3
+confidence_levels = [0.80, 0.95]
+max_coverage_degradation_points = 5.0
+max_ece_degradation = 0.02
+
+[api]
+host = "127.0.0.1"
+port = 8000
+default_page_size = 25
+maximum_page_size = 100
+fail_closed_on_artifact_error = true

@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "published_male_reference": "https://aokikenichi.github.io/CRITT/japan-t20-predictor.html",
+  "five_screen_dom_layouts_match_published_male": true,
+  "published_css_including_mobile_breakpoints_preserved": true,
+  "allowed_female_replay_detail_note_only": true,
+  "payload_sha256": "eba335fe67c5670208b05e8ec275746c7f41d5fb7c5238193a94a3eb3ba3735b",
+  "payload_unchanged": true,
+  "predictor_javascript_unchanged": true,
+  "female_training_artifacts_unchanged": 17,
+  "in_app_browser_refresh": "blocked_by_file_url_protocol_policy",
+  "new_browser_render_test_run": false,
+  "headless_javascript_ui_checks": "passed"
+}

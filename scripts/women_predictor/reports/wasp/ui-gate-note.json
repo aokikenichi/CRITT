@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "removed_panels": [
+    "overview-gates",
+    "evaluation-gates"
+  ],
+  "note": "強い国・弱い国との対戦では、相手の実力差を考慮した追加補正が必要です。現在は検証に十分な日本女子代表戦のデータがないため、日本代表向けの追加補正は適用していません。",
+  "javascript_overview_and_evaluation_render": "passed",
+  "reduced_match_input_guard_preserved": true,
+  "payload_unchanged": true,
+  "predictor_unchanged": true,
+  "female_training_artifacts_unchanged": 17,
+  "male_files_unchanged": 65,
+  "browser_render_test_run": false
+}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}試合リプレイ | {{ product_name }}{% endblock %}
+{% block content %}
+<header class="page-heading">
+  <div><p class="eyebrow">MATCH REPLAY</p><h1>一球ごとの推定推移</h1></div>
+  <p>試合当時までのrating snapshotを使った履歴推定を再生します。</p>
+</header>
+
+<section class="filter-bar" aria-label="試合検索">
+  <label class="check-row"><input id="replay-japan-only" type="checkbox" checked> 日本戦のみ</label>
+  <label>開始日<input id="replay-from-date" type="date"></label>
+  <label>終了日<input id="replay-to-date" type="date"></label>
+  <button id="replay-search" class="button secondary" type="button">試合を検索</button>
+</section>
+
+<div class="replay-grid">
+  <aside class="panel match-browser">
+    <h2>収録試合</h2>
+    <div id="match-list" class="match-list"><p class="empty-state">試合一覧を読み込んでいます。</p></div>
+    <button id="replay-more" class="text-button wide" type="button" hidden>さらに表示</button>
+  </aside>
+  <section class="panel">
+    <div id="replay-empty" class="empty-state large">左から試合を選択してください。</div>
+    <div id="replay-detail" hidden>
+      <div class="section-heading"><div><p id="replay-date" class="eyebrow"></p><h2 id="replay-title"></h2></div><span id="replay-result" class="status-pill"></span></div>
+      <div id="replay-events" class="event-legend"><span>● wicket</span><span>◆ Four</span><span>⬢ Six</span></div>
+      <h3>第1イニング 最終得点推定</h3>
+      <div id="replay-first-chart" class="chart"></div>
+      <h3>第2イニング 追走成功確率</h3>
+      <div id="replay-chase-chart" class="chart"></div>
+    </div>
+  </section>
+</div>
+{% endblock %}

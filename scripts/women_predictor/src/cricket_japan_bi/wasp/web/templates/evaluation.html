@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}モデル評価 | {{ product_name }}{% endblock %}
+{% block content %}
+<header class="page-heading">
+  <div><p class="eyebrow">MODEL CARD</p><h1>検証結果と限界</h1></div>
+  <p>選択に使わないlocked testを分離し、全体・日本・役割・phase別の指標と標本数を示します。</p>
+</header>
+
+<section class="filter-bar" aria-label="評価の絞り込み">
+  <label>モデル<select id="evaluation-model"><option value="">すべて</option><option value="first_innings">第1イニング</option><option value="chase">追走</option></select></label>
+  <label>対象<select id="evaluation-scope"><option value="">全体</option><option value="japan">日本</option><option value="full">通常20-over</option><option value="reduced">短縮</option></select></label>
+  <label>phase<select id="evaluation-phase"><option value="">すべて</option><option value="powerplay">Powerplay</option><option value="middle">Middle</option><option value="death">Death</option></select></label>
+  <button id="evaluation-apply" class="button secondary" type="button">表示を更新</button>
+</section>
+
+<div id="evaluation-cards" class="metric-grid"></div>
+
+<article class="panel">
+  <div class="panel-heading"><h2>予測モデル</h2></div>
+  <p>第1イニング：Histogram Gradient Boosting回帰を中心とした候補モデル比較により、現在の試合状態から残り得点を推定します。予測最終得点 = 現在得点 + 予測残り得点として算出し、50%・80%予測区間を表示します。</p>
+  <p>第2イニング：Histogram Gradient Boosting分類およびロジスティック回帰等を比較し、現在得点、wicket、残り球、target、必要run rate等から追走成功確率を推定します。</p>
+  <p>チーム情報：Elo、batting form、bowling suppression、venue等の試合前情報を候補モデルで利用します。</p>
+  <p>世界の男子T20データで学習したモデルを日本代表戦にも適用し、日本向け補正は十分な検証結果が得られた役割についてのみ適用します。</p>
+  <p>本ツールは公式WASPのアルゴリズムを再現したものではなく、WASPと同じ『第1イニング最終得点／第2イニング追走成功確率』という問題設定をCricsheetデータと独自の機械学習モデルで実装したWASP-style分析です。</p>
+</article>
+
+<section class="two-column">
+  <article class="panel chart-panel"><div class="panel-heading"><p class="eyebrow">CALIBRATION</p><h2>確率校正</h2></div><div id="calibration-chart" class="chart"></div></article>
+  <article class="panel chart-panel"><div class="panel-heading"><p class="eyebrow">BY PHASE</p><h2>局面別精度</h2></div><div id="phase-chart" class="chart"></div></article>
+</section>
+
+<section class="two-column">
+  <article class="panel"><div class="panel-heading"><p class="eyebrow">SELECTION</p><h2>候補モデル</h2></div><div id="candidate-table" class="table-wrap"></div></article>
+  <article class="panel"><div class="panel-heading"><p class="eyebrow">LIMITATIONS</p><h2>解釈上の注意</h2></div><ul id="model-limitations" class="plain-list"><li>モデル情報を読み込んでいます。</li></ul></article>
+</section>
+
+<section class="notice-panel">
+  <strong>評価単位</strong>
+  <p>主指標は1試合内のstateを平均してから試合間で平均するmatch-macroです。delivery数の多い試合が評価を支配しないようにしています。</p>
+</section>
+{% endblock %}

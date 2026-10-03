@@ -1,0 +1,13 @@
+{
+  "html": "/Users/aoki/Documents/New project/CRITT/japan-women-t20-predictor.html",
+  "offline": true,
+  "female_replays": 45,
+  "excluded_replays_checked": 3,
+  "first_form_parity": true,
+  "chase_toss_cases": 3,
+  "terminal_cases": 4,
+  "mobile_width": 390,
+  "mobile_routes_checked": 5,
+  "page_errors": [],
+  "external_requests": []
+}

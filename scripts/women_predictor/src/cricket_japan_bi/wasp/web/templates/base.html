@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cricsheet収録試合に基づく日本男子代表向けT20 WASP-style分析">
+  <title>{% block title %}{{ product_name }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('wasp-static', path='/app.css') }}?v=20260731-2">
+  <script defer src="{{ url_for('wasp-static', path='/plotly.min.js') }}"></script>
+  <script defer src="{{ url_for('wasp-static', path='/app.js') }}?v=20260731-2"></script>
+</head>
+<body data-page="{{ active_page }}">
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ダッシュボードへ">
+      <span class="brand-mark" aria-hidden="true">JP</span>
+      <span><strong>Japan T20</strong><small>WASP-style Lab</small></span>
+    </a>
+    <nav aria-label="主な画面">
+      <a {% if active_page == 'dashboard' %}aria-current="page"{% endif %} href="/">概要</a>
+      <a {% if active_page == 'first-innings' %}aria-current="page"{% endif %} href="/first-innings">先攻予測</a>
+      <a {% if active_page == 'chase' %}aria-current="page"{% endif %} href="/chase">追走予測</a>
+      <a {% if active_page == 'replay' %}aria-current="page"{% endif %} href="/replay">リプレイ</a>
+      <a {% if active_page == 'evaluation' %}aria-current="page"{% endif %} href="/evaluation">モデル評価</a>
+    </nav>
+    <span id="service-status" class="status-pill status-loading">接続確認中</span>
+  </header>
+
+  <main id="main-content" class="page-shell">
+    <div id="global-alert" class="alert" role="status" hidden></div>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>これは公式WASPの再現ではありません。数値はCricsheet収録試合に基づくモデル推定です。</p>
+    <a href="/docs">API仕様</a>
+  </footer>
+</body>
+</html>

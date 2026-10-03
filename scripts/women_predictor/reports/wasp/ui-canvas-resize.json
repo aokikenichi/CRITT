@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "bug": "Reading canvas height attribute after DPR scaling compounds the display height on each redraw",
+  "replay_display_height_px": 330,
+  "source_javascript_regression": "passed",
+  "exported_html_regression": "passed",
+  "draws_per_test": 174,
+  "pixel_ratios": [1, 1.5, 2],
+  "replay_prediction_actual_score_and_empty_states": true,
+  "pixel_ratio_and_width_changes": true,
+  "scenario_redraws": true,
+  "original_bug_reproduced": {
+    "pixel_ratio": 1.5,
+    "redraw": 2,
+    "expected_display_height_px": 320,
+    "actual_display_height_px": 480
+  },
+  "payload_unchanged": true,
+  "predictor_runtime_unchanged": true,
+  "male_files_unchanged": 65,
+  "browser_render_test_run": false,
+  "test": "scripts/women_predictor/tests/canvas-resize.cjs"
+}

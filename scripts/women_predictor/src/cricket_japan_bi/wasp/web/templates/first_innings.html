@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}第1イニング予測 | {{ product_name }}{% endblock %}
+{% block content %}
+<header class="page-heading">
+  <div><p class="eyebrow">FIRST INNINGS</p><h1>最終得点レンジ</h1></div>
+  <p>現在の得点・wicket・合法球数から、最終得点と50%／80%予測区間を推定します。</p>
+</header>
+
+<div class="workspace-grid">
+  <form id="first-innings-form" class="control-panel">
+    <h2>試合状態</h2>
+    <div class="field-grid">
+      <label>打撃チーム<input name="batting_team" value="Japan" required></label>
+      <label>守備チーム<input name="bowling_team" value="Indonesia" required></label>
+      <label>現在得点<input name="runs" type="number" min="0" value="62" required></label>
+      <label>wicket<input name="wickets" type="number" min="0" max="10" value="3" required></label>
+      <label>完了over<input name="completed_overs" type="number" min="0" value="10" required></label>
+      <label>完了ball<input name="completed_balls" type="number" min="0" max="5" value="0" required></label>
+      <label>quota over<input name="quota_overs" type="number" min="0" value="20" required></label>
+      <label>quota ball<input name="quota_balls" type="number" min="0" max="5" value="0" required></label>
+      <label class="span-2">会場（任意）<input name="venue" placeholder="Sano International Cricket Ground"></label>
+    </div>
+    <label class="check-row"><input name="use_japan_correction" type="checkbox" checked> gate通過時に日本向け補正を使う</label>
+    <button class="button primary wide" type="submit">最終得点を推定</button>
+    <p class="form-note">over.ballは小数ではなく別入力です。例：14 overs 4 balls = 88合法球。</p>
+  </form>
+
+  <section class="result-panel" aria-live="polite">
+    <div id="first-empty" class="empty-state large">試合状態を入力すると、モデル比較と予測区間が表示されます。</div>
+    <div id="first-results" hidden>
+      <div class="result-hero"><span>選択モデルの最終得点</span><strong id="first-selected">—</strong><small id="first-interval">—</small></div>
+      <div id="first-comparison" class="comparison-grid"></div>
+      <div id="first-correction" class="correction-box"></div>
+    </div>
+  </section>
+</div>
+
+<section class="panel chart-panel">
+  <div class="section-heading"><div><p class="eyebrow">SESSION</p><h2>このブラウザでの予測推移</h2></div><button id="clear-first-history" class="text-button" type="button">履歴を消去</button></div>
+  <div id="first-history-chart" class="chart" aria-label="予測得点推移グラフ"></div>
+</section>
+{% endblock %}
