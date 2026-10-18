@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="男子T20国際試合の実データから、一球の得点とアウトをたどるサンキー図。">
+  <title>一球のゆくえ — CRITT</title>
+  <link rel="stylesheet" href="assets/one-ball-sankey.css">
+  <link rel="stylesheet" href="assets/one-ball-stories.css">
+  <script defer src="assets/vendor/d3-7.9.0.min.js"></script>
+  <script defer src="assets/vendor/d3-sankey-0.12.3.min.js"></script>
+  <script defer src="assets/one-ball-layout.js"></script>
+  <script defer src="assets/one-ball-modes.js"></script>
+  <script defer src="assets/one-ball-sankey.js"></script>
+  <script defer src="assets/one-ball-stories.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#explore">図の操作へ進む</a>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="https://aokikenichi.github.io/CRITT/">CRITT<span>CRICKET, TOLD TOGETHER.</span></a><div class="edition">DATA ANALYTICS LAB</div></div></header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <div><p class="eyebrow">ONE BALL, INFINITE POSSIBILITIES</p><h1 id="title">一球の<span>ゆくえ</span><span class="title-dot" aria-hidden="true">.</span></h1></div>
+      <div class="intro"><p>点が入る。アウトになる。<br>その両方が、一球で起こる。</p><p class="muted">男子T20国際試合の記録を、左から右へ。<br>帯の太さは球数。一球がたどった道を見てみよう。</p></div>
+    </section>
+    <div class="mode-switch" role="tablist" aria-label="表示モード">
+      <button id="mode-explore" type="button" role="tab" aria-controls="explore" aria-selected="true" data-mode="explore">図を見る<span>EXPLORE THE FLOW</span></button>
+      <button id="mode-stories" type="button" role="tab" aria-controls="stories" aria-selected="false" tabindex="-1" data-mode="stories">データを読み解く<span>READ THE STORIES</span></button>
+    </div>
+    <div id="load-status" role="status">投球の記録を読み込んでいます…</div>
+    <section id="explore" class="explore" role="tabpanel" aria-labelledby="mode-explore" hidden>
+      <div class="toolbar"><div id="phase-tabs" class="tabs" role="tablist" aria-label="オーバー区分">
+        <button role="tab" id="tab-all" aria-controls="phase-panel" aria-selected="true" data-phase="all">全体<span>ALL OVERS</span></button>
+        <button role="tab" id="tab-early" aria-controls="phase-panel" aria-selected="false" tabindex="-1" data-phase="early">序盤<span>Powerplay（1–6）</span></button>
+        <button role="tab" id="tab-middle" aria-controls="phase-panel" aria-selected="false" tabindex="-1" data-phase="middle">中盤<span>Middle（7–15）</span></button>
+        <button role="tab" id="tab-late" aria-controls="phase-panel" aria-selected="false" tabindex="-1" data-phase="late">終盤<span>Death（16–20）</span></button>
+      </div><p class="source-tag">CRICSHEET / MEN’S T20I</p></div>
+      <p class="phase-note">Middle・Deathは分析上の区分です。短縮試合も同じオーバー番号で集計します。Powerplayは標準20オーバー試合の呼称で、短縮試合の実際の守備制限期間とは一致しない場合があります。</p>
+      <div id="phase-panel" role="tabpanel" aria-labelledby="tab-all">
+        <div id="metrics" class="metrics"></div>
+        <div class="figure-head"><div><p class="eyebrow">FOLLOW THE FLOW</p><h2 id="phase-title" tabindex="-1">一球を、たどる。</h2></div><label class="expand-control"><input type="checkbox" id="expand-outs"><span>アウトの内訳を表示</span></label></div>
+        <div class="chart-help"><span><i class="dot teal"></i>通常投球 <i class="dot gold"></i>ノーボール <i class="dot red"></i>ワイド</span><span>帯を選ぶと、その経路だけが浮かび上がります <span class="mobile-hint">／ 図は横にスクロールできます →</span></span></div>
+        <div class="chart-scroll" tabindex="0" role="region" aria-label="サンキー図。小さい画面では横スクロールできます">
+          <div class="chart-inner"><div class="column-heads"><div><span>01</span> 全投球<small>このタブの記録投球</small></div><div><span>02</span> 投球種類</div><div><span>03</span> 得点結果<small>打者得点を中心に分類</small></div><div><span>04</span> アウト・退場結果</div></div><svg id="sankey" role="group" aria-label="全投球から投球種類、得点、アウトまでの完全経路"></svg></div>
+        </div>
+        <div class="figure-foot"><p>各ノードの％は、選択中タブの全投球に対する割合です。帯幅は球数に比例し、タブごとに尺度が変わります。<br>選択時の小さな点は位置の目印です。アウト率には「複数イベント」のうちアウトを伴う球も含めています。</p><button id="reset-selection" class="text-button">選択を解除 ↗</button></div>
+        <section class="detail" aria-labelledby="detail-title"><div class="detail-heading"><p class="eyebrow">THE STORY OF A DELIVERY</p><label for="path-picker" class="picker-label">経路を一覧から選ぶ</label><select id="path-picker"><option value="">経路を選択…</option></select></div><div id="detail-content" aria-live="polite"><h3 id="detail-title">気になる帯を、ひとつ。</h3><p>ホバー、タップ、または一覧から選ぶと、得点の内訳とアウトの種類が分かります。</p></div></section>
+      </div>
+    </section>
+    <section id="stories" class="stories" role="tabpanel" aria-labelledby="mode-stories" hidden>
+      <div id="stories-status" role="status">データストーリーを読み込んでいます…</div>
+      <div id="stories-content"></div>
+    </section>
+    <section class="reading" aria-labelledby="reading-title"><div><p class="eyebrow">HOW TO READ</p><h2 id="reading-title">一球は、<br>ひとつの道。</h2></div><div class="reading-items"><article><b>01 / 球数を読む</b><p>左端の「全投球」は選択したタブの記録投球。ワイド・ノーボールも含み、法的に有効な投球数（legal balls）とは異なります。</p></article><article><b>02 / 得点を読む</b><p>バウンダリー（FOUR・SIX）は、打球がフィールドの境界に達して得られる4点・6点です。バウンダリーではない打者4点・6点は「4ラン」「6ラン」として分けています。「無得点」はチーム0点、「エクストラのみ」は打者0点。追加点との組合せは詳細で確認できます。</p></article><article><b>03 / アウトを読む</b><p>得点とアウトは同時に起こります。退場してもアウトにならない場合があります。複数イベントも一球として数え、アウトの種類を内訳に残しています。</p></article></div></section>
+    <details class="method"><summary>データの範囲・集計方法・出典 <span>＋</span></summary><div id="provenance"></div><p>形式はCSV2（Ashwin形式）。スーパーオーバーを除外し、ballのオーバー番号から局面を区分。短縮試合も含みます。割合は選択中タブの記録投球件数を分母とします。</p><p>無得点率は打者得点＋extrasが0の球、FOUR＋SIX率はバウンダリー（FOUR・SIX）の球、アウト率は少なくとも1件のアウトを伴う球の割合です。</p><p>retired hurt／retired not outは非アウト退場、retired outはアウトです。non_boundary=trueの打者4点・6点は「4ラン（非バウンダリー）」「6ラン（非バウンダリー）」の独立ノードで示し、FOUR・SIXとは区別します。</p><p><a href="https://cricsheet.org/downloads/">Data: Cricsheet</a> · <a href="https://cricsheet.org/format/csv_ashwin/">CSV仕様</a> · <a href="https://cricsheet.org/licensing/">Open Data Commons Attribution License</a>。原データをCRITTで集計・可視化しています。全T20Iの完全な網羅を意味するものではありません。</p><p><a href="data/one-ball-sankey.json" download>集計JSON</a> ／ <a href="data/one-ball-stories.json" download>記事用JSON</a></p></details>
+  </main>
+  <footer class="wrap footer"><strong>CRITT</strong><p>クリケットを、データから読む。</p></footer>
+</body>
+</html>
