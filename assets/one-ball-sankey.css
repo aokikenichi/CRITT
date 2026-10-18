@@ -7,3 +7,12 @@
 svg *{-webkit-tap-highlight-color:transparent}.route-hit:focus{stroke:transparent}
 .chart-inner{min-width:1120px}.column-heads{position:relative;display:block;height:80px;padding:0}.column-heads>div,.column-heads>div:first-child,.column-heads>div:nth-child(2),.column-heads>div:last-child{position:absolute;top:20px;width:180px;padding:0;text-align:center;transform:translateX(-50%)}
 .node-percentage{font:600 12px Georgia,serif;fill:var(--teal);paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}
+
+/* CRITTの既存ペン画を、タイトルの背景に控えめに配置する。図には重ねない。 */
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0 0 0 auto;width:49%;background:url("data-cricket.png") center / contain no-repeat;opacity:.18;pointer-events:none;z-index:0}
+.hero>*{position:relative;z-index:1}
+.edition{display:flex;align-items:center;gap:10px;color:var(--teal);text-decoration:none;font-weight:700;white-space:nowrap}
+.edition span{color:var(--muted);font-size:9px;font-weight:400;letter-spacing:1px}
+.edition:hover{text-decoration:underline}
+@media(max-width:560px){.hero::before{width:78%;opacity:.12}.edition{font-size:10px}.edition span{display:none}}
