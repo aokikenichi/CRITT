@@ -1,0 +1,28 @@
+{
+  "verified_on": "2026-10-28",
+  "timezone": "Asia/Tokyo",
+  "items": [
+    {
+      "id": "009",
+      "source": "source-backups/INPUT/CRITT_Museum_Work09_Gravity_Panorama_Rebuild_v0.5.html",
+      "connected": "works/009/index.html",
+      "bytes": 1820624,
+      "sha256": "43ac21fd5175024933878750366ae88ebd3bfa74cc7335de90f7ee4f022b0078",
+      "connected_sha256": "43ac21fd5175024933878750366ae88ebd3bfa74cc7335de90f7ee4f022b0078",
+      "byte_identical": true,
+      "source_file_modified": false,
+      "runtime_adapter": "js/museum-shell.js"
+    },
+    {
+      "id": "010",
+      "source": "source-backups/INPUT/CRITT_Museum_Work10_Final_Boundary_v1.0.html",
+      "connected": "works/010/index.html",
+      "bytes": 32459,
+      "sha256": "c023f68a4a41a86161a01eca731cb4e16412d01c50d225892cc53c071190395b",
+      "connected_sha256": "c023f68a4a41a86161a01eca731cb4e16412d01c50d225892cc53c071190395b",
+      "byte_identical": true,
+      "source_file_modified": false,
+      "runtime_adapter": "js/museum-shell.js"
+    }
+  ]
+}

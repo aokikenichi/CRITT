@@ -1,0 +1,75 @@
+{
+  "verified_on": "2026-10-28",
+  "timezone": "Asia/Tokyo",
+  "method": "Codex in-app browser UI operations via CUA; not the standalone Playwright CLI suite",
+  "http_origins": [
+    "http://127.0.0.1:8000/museum/",
+    "http://127.0.0.1:8000/CRITT/museum/"
+  ],
+  "viewport_sizes": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 340,
+      "height": 698
+    }
+  ],
+  "observed_metrics": {
+    "009_manual_map_before": "4.16667%",
+    "009_manual_map_after": "18.7007%",
+    "009_reference_images": [
+      {
+        "width": 1440,
+        "height": 810
+      },
+      {
+        "width": 1440,
+        "height": 810
+      },
+      {
+        "width": 1440,
+        "height": 810
+      }
+    ],
+    "010_crossings_after_keyboard_walk": 3,
+    "010_crossings_after_reset": 0,
+    "mobile_009_010_page_width": 390,
+    "mobile_009_010_frame_height": 658.3125,
+    "fixture_image_natural_size": [
+      1600,
+      900
+    ],
+    "fixture_image_at_100_percent": [
+      1600,
+      900
+    ],
+    "fixture_zoom_after_increase": "125%",
+    "fixture_approved_count": 2,
+    "observed_work_browser_error_warn_count": 0
+  },
+  "evidence_files": [
+    "desktop-009.png",
+    "desktop-010.png",
+    "mobile-009.png",
+    "mobile-010.png",
+    "desktop-viewer-fixture.png",
+    "mobile-viewer-fixture.png"
+  ],
+  "qa_record": "../STEP03_QA.md",
+  "standalone_cli_suite_executed": false,
+  "unverified": [
+    "physical touch and pinch",
+    "coarse pointer movement",
+    "reduced-motion browser emulation",
+    "Safari/Firefox",
+    "old artwork versions",
+    "approved artwork originals (none supplied)",
+    "production URL"
+  ]
+}
