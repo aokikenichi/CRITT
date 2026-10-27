@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>CRITT MUSEUM | 10 最後のバウンダリー</title>
+<style>
+:root{--gold:#dcb975;--warm:#ffdf9e;--navy:#07111e;--frost:#aabed1;--white:#edf3f4}
+*{box-sizing:border-box}[hidden]{display:none!important}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030911;color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #f9d996;outline-offset:3px}
+#stage{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}#stage.dragging{cursor:grabbing}
+#reveal{position:fixed;top:12px;right:12px;z-index:10;display:none;color:#f6ddab;border:1px solid #cfb16e;background:#0a1c2b;padding:9px 12px;border-radius:30px;font-size:12px;cursor:pointer}.noise{pointer-events:none;position:fixed;inset:0;opacity:.11;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='128' height='128' filter='url(%23n)' opacity='.20'/%3E%3C/svg%3E")}
+.vignette{pointer-events:none;position:fixed;inset:0;box-shadow:inset 0 0 19vw 6vw rgba(0,0,0,.50)}
+#app{position:fixed;inset:0;pointer-events:none}#app button,#app input,#app a{pointer-events:auto}
+.top{position:absolute;top:0;left:0;right:0;padding:26px clamp(20px,4vw,66px);display:flex;justify-content:space-between;align-items:flex-start;gap:18px;background:linear-gradient(#03101bc7,transparent)}
+.brand{letter-spacing:.2em;font-size:12px;font-weight:700;color:#e6c787}.brand span{font-weight:400;color:#b2b9c5;margin-left:14px;letter-spacing:.13em}
+.exhibit-tag{font-size:10px;letter-spacing:.28em;color:#d1dce2a8;display:block;margin:4px 0 10px}.heading{margin:0;font-weight:500;letter-spacing:.11em;font-size:clamp(21px,2.2vw,34px);text-shadow:0 2px 18px #02060f}.subtitle{font-family:Georgia,'Times New Roman',serif;font-size:12px;color:#e1bd83;letter-spacing:.22em;margin-top:4px;text-transform:uppercase}
+.topright{display:flex;gap:8px;align-items:center}.quiet{padding:9px 14px;border:1px solid #b4c0d13b;color:#dce4ea;background:#051526b3;border-radius:999px;letter-spacing:.11em;font-size:11px}.quiet:hover{background:#26374c}
+.left{position:absolute;left:clamp(20px,4vw,66px);top:46%;transform:translateY(-30%);width:min(310px,31vw);max-height:46vh;overflow:auto;scrollbar-width:thin}
+.overline{font-size:10px;letter-spacing:.22em;color:var(--gold);margin:0 0 14px}.statement{font-family:Georgia,'Yu Mincho',serif;font-weight:400;letter-spacing:.14em;line-height:1.9;font-size:clamp(18px,1.9vw,29px);text-shadow:0 2px 19px #000d}.statement b{color:#f4d49c;font-weight:400}.desc{font-size:12px;line-height:2;color:#b6c5cc;max-width:270px;text-shadow:0 1px 15px #001}
+.captionbar{position:absolute;bottom:34px;left:clamp(20px,4vw,66px);display:flex;gap:15px;align-items:center;max-width:min(800px,70vw)}
+.lineicon{width:29px;height:29px;border:1px solid #a9c3d05a;border-radius:50%;flex:none;position:relative}.lineicon:after{content:'';display:block;position:absolute;left:5px;right:5px;top:13px;height:1px;background:var(--gold);transform:rotate(-34deg)}
+.narration{font-size:12px;letter-spacing:.08em;line-height:1.8;color:#f0e8d9;text-shadow:0 2px 12px #01040a}.narration .mini{display:block;color:#b2c0d2;font-size:10px;letter-spacing:.15em}
+.right{position:absolute;right:clamp(20px,4vw,66px);top:50%;transform:translateY(-32%);width:200px;display:flex;flex-direction:column;gap:16px;align-items:flex-end}
+#map{background:rgba(4,15,25,.57);border:1px solid #94adbc30;border-radius:50%;width:158px;height:158px;box-shadow:0 0 40px #0012}.maplabel{font-size:10px;color:#b9bec8;letter-spacing:.21em;text-align:right}
+.modes{display:flex;flex-direction:column;gap:8px;width:180px}.pillrow{display:flex;background:#041322bf;border:1px solid #9eaeaf52;border-radius:50px;padding:3px;gap:4px}.mode{flex:1;border:0;color:#a7b6c8;background:transparent;border-radius:40px;padding:10px 6px;font-size:11px;letter-spacing:.08em}.mode.active{background:#f2d59e;color:#172333;font-weight:700}.action{display:flex;align-items:center;gap:8px;justify-content:center;background:#0c2333cb;border:1px solid #abbbba5a;border-radius:25px;padding:11px 9px;color:#eae1cd;font-size:11px;letter-spacing:.10em}.action:hover{background:#16334a}
+.gravity-status{margin-top:7px;border-top:1px solid #c9d2dd28;padding-top:12px;text-align:right;font-size:11px;line-height:1.7;color:#a8bdd1;letter-spacing:.08em}.gravity-status strong{font-size:14px;color:var(--gold);font-weight:500;display:block}
+.bottom-right{position:absolute;bottom:30px;right:clamp(20px,4vw,66px);text-align:right;font-size:10px;color:#94a5b6;letter-spacing:.06em;line-height:1.9}.bottom-right strong{color:#d8e0e2;font-weight:500}
+#toast{position:absolute;left:50%;top:31%;transform:translateX(-50%);border:1px solid #f1d99a7e;border-radius:3px;background:rgba(4,14,28,.88);color:#ffe9b8;padding:22px 30px;text-align:center;font-family:Georgia,'Yu Mincho',serif;font-size:clamp(14px,1.9vw,24px);letter-spacing:.13em;line-height:1.8;max-width:80vw;box-shadow:0 12px 70px #000c;opacity:0;transition:opacity .65s;pointer-events:none}#toast.visible{opacity:1}
+#contrib{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,5,12,.75);backdrop-filter:blur(13px)}#contrib.show{display:flex}.modal{pointer-events:auto;width:min(520px,calc(100vw - 30px));padding:clamp(22px,4vw,42px);border:1px solid #d1c39b66;background:linear-gradient(145deg,#122537,#06111c);box-shadow:0 18px 80px #000b}.modal h2{font-size:24px;letter-spacing:.1em;font-weight:500;margin:0 0 12px}.modal p{font-size:13px;line-height:1.9;color:#b5c3d0}.modal label{font-size:12px;color:#e4c68c;display:block;margin:22px 0 8px}.modal input{width:100%;border:1px solid #99b0be66;color:white;background:#03111d;padding:15px;font-size:15px}.modal .row{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.modal button{border:1px solid #d8c39175;background:#152a38;color:#e9d6a8;padding:10px 18px}.modal button.primary{background:#ebcf98;color:#152334}.notice{font-size:11px;color:#aebdcc;margin-top:10px}
+#controls{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:none;align-items:center;gap:18px}.touchpad{width:148px;height:148px;display:grid;grid-template:repeat(3,1fr)/repeat(3,1fr);gap:4px}.touchpad button{user-select:none;-webkit-user-select:none;background:#102336b9;color:#fff0d4;border:1px solid #c3d2d455;font-size:19px;border-radius:10px;touch-action:none}.touchpad [data-key=w]{grid-column:2;grid-row:1}.touchpad [data-key=a]{grid-column:1;grid-row:2}.touchpad [data-key=s]{grid-column:2;grid-row:2}.touchpad [data-key=d]{grid-column:3;grid-row:2}.turnpad{display:flex;flex-direction:column;gap:8px}.turnpad button{user-select:none;-webkit-user-select:none;background:#102336b9;border:1px solid #c3d2d455;border-radius:14px;width:56px;height:52px;color:#fff4db;touch-action:none}
+.hidden-ui .top,.hidden-ui .left,.hidden-ui .right,.hidden-ui .bottom-right,.hidden-ui .captionbar,.hidden-ui .hint{opacity:0;pointer-events:none}.top,.left,.right,.bottom-right,.captionbar{transition:opacity .3s}
+.hint{color:#d8c7a4;font-size:11px;position:absolute;bottom:76px;left:50%;transform:translateX(-50%);white-space:nowrap;text-shadow:0 2px 10px #000a;pointer-events:none;opacity:.9}
+@media(max-width:900px){.left{top:185px;transform:none;width:min(220px,45vw)}.statement{font-size:19px}.desc{display:none}.right{top:auto;bottom:95px;transform:none;right:14px}.right #map,.right .maplabel{display:none}.top{padding:16px 20px}.topright{gap:3px}.topright .quiet{padding:8px 9px}.bottom-right{display:none}.captionbar{left:17px;bottom:26px;max-width:56vw}.narration{font-size:11px}.lineicon{display:none}}
+@media(pointer:coarse){#controls{display:flex}.captionbar{bottom:188px;max-width:65vw}.right{bottom:180px}.hint{display:none}.left{top:165px}}
+@media(max-width:540px){.brand span{display:none}#hint{display:none!important}#reduce{display:none}#hide{white-space:nowrap;font-size:10px;padding:8px 10px}.heading{font-size:20px}.subtitle{font-size:10px}.left{top:130px;width:70vw}.left .statement{font-size:16px;line-height:1.65}.left .overline{margin-bottom:4px}.right{right:10px;bottom:180px;width:148px}.modes{width:148px}.mode{font-size:10px;padding:8px 4px}.action{font-size:10px;padding:9px 6px}.gravity-status{display:none}.captionbar{bottom:181px;left:14px;max-width:calc(100vw - 180px)}.narration{font-size:10px}.narration .mini{font-size:9px}.topright .quiet{font-size:10px;padding:7px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:0.01ms!important}}
+</style>
+</head>
+<body>
+<canvas id="stage" aria-label="作品10・自由回遊型の円形展示室。床の光る境界を越えると変化します。"></canvas><div class="noise"></div><div class="vignette"></div>
+<button id="reveal" type="button">UI表示</button>
+<div id="app">
+  <header class="top"><div><div class="brand">CRITT <span>MUSEUM OF CRICKET &amp; CULTURE</span></div><span class="exhibit-tag">ROOM 05　/　WORK 10　/　PARTICIPATORY INSTALLATION</span><h1 class="heading">最後のバウンダリー</h1><div class="subtitle">THE LAST BOUNDARY</div></div><div class="topright"><button class="quiet" id="reduce" title="動きを弱める">静止モード OFF</button><button class="quiet" id="hide" title="Hキーでも切替">UI非表示 [H]</button></div></header>
+  <aside class="left"><p class="overline">WHO DRAWS THE LINE?</p><div class="statement">境界は、<br>そこに<b>あった</b>のか。<br>それとも、<br>誰かが<b>引いた</b>のか。</div><p class="desc">光の線を越えてください。あなたの一歩に応じて線は揺れ、増え、違う場所に生まれます。残った足跡が、次の境界になります。</p></aside>
+  <div class="right"><div class="maplabel">YOUR POSITION / 歩行位置</div><canvas id="map" width="316" height="316" aria-label="展示室の位置マップ"></canvas><div class="modes"><div class="pillrow"><button class="mode active" id="manual" aria-pressed="true">MANUAL</button><button class="mode" id="auto" aria-pressed="false">AUTO</button></div><button class="action" id="pause" hidden>Ⅱ　自動案内を一時停止</button><button class="action" id="reset">↺　入口へ戻る</button><button class="action" id="leave">✦　言葉を残す</button><div class="gravity-status">LINE TRANSFORMATIONS <strong id="counter">0 / 1st crossing</strong><span id="phase">まだ引き直されていない境界</span></div></div></div>
+  <div class="captionbar"><span class="lineicon"></span><div class="narration"><span class="mini" id="section">01 / PROLOGUE</span><span id="narration">境界の手前に立つ。まず、その線まで歩いてみてください。</span></div></div>
+  <div class="bottom-right"><strong>W A S D</strong> 移動　｜　マウスドラッグ 視点<br><strong>← →</strong> 視点　｜　<strong>SHIFT</strong> 速く歩く　｜　<strong>H</strong> UI表示<br>© CRITT MUSEUM · Fictional artwork / Concept prototype 1.0</div>
+  <div class="hint" id="hint">前方の黄金色の境界を越えてください　/　WASDで歩く</div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="controls"><div class="touchpad"><button data-key="w" aria-label="前へ">↑</button><button data-key="a" aria-label="左へ">←</button><button data-key="s" aria-label="後ろへ">↓</button><button data-key="d" aria-label="右へ">→</button></div><div class="turnpad"><button data-key="left" aria-label="左を向く">⟲</button><button data-key="right" aria-label="右を向く">⟳</button></div></div>
+  <div id="contrib"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modtitle"><p class="overline">A MARK LEFT IN THE ROOM</p><h2 id="modtitle">あなたの境界は、どこですか。</h2><p>短い言葉を残すと、展示室の光の層として現れます。ブラウザを閉じれば消える、この場所限りの記録です。</p><label for="phrase">あなたの言葉（40文字まで）</label><input id="phrase" maxlength="40" placeholder="たとえば、越えられないと思っていた線" /><div class="row"><button id="cancel">閉じる</button><button id="send" class="primary">境界に残す</button></div><div class="notice">入力した文章はサーバーへ送信されず、保存されません。</div></section></div>
+</div>
+<script>
+(()=>{'use strict';
+const canvas=document.getElementById('stage'),ctx=canvas.getContext('2d',{alpha:false});
+const mapCanvas=document.getElementById('map'),mc=mapCanvas.getContext('2d');
+const q=id=>document.getElementById(id), PI=Math.PI,TAU=2*PI;
+let W=1200,H=720,F=820,dpr=1;
+const cam={x:0,z:-13.4,yaw:0,eye:1.8};
+let now=0,last=0,artTime=0,mode='manual',autoT=0,autoPaused=false,quiet=false,crossCount=0,lastInside=false,hasMoved=false,toastExpire=0,uiHidden=false;
+const keys=new Set(),footprints=[],ripples=[],ghosts=[],phrases=[];
+const shades=['#0a2132','#0b2537','#102739','#102a3c','#0e2638','#102333'];
+const clamp=(n,a,b)=>Math.min(b,Math.max(a,n)),mix=(a,b,t)=>a+(b-a)*t,sm=(a,b,t)=>{t=clamp((t-a)/(b-a),0,1);return t*t*(3-2*t)},dist=(a,b)=>Math.hypot(a.x-b.x,a.z-b.z);
+let seed=123456789;function rand(){seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return (seed>>>0)/4294967296}
+const twinkles=Array.from({length:94},()=>({x:rand(),y:rand()*.58,size:rand()*1.4+.3,speed:rand()*2+1}));
+function resize(){dpr=Math.min(window.devicePixelRatio||1,1.5);W=Math.max(320,innerWidth);H=Math.max(300,innerHeight);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);F=Math.min(W*.89,H*1.5);}
+addEventListener('resize',resize);resize();
+function project(x,y,z){
+  const deltaX=Number(x)-Number(cam.x);
+  const deltaZ=Number(z)-Number(cam.z);
+  const cosine=Math.cos(Number(cam.yaw));
+  const sine=Math.sin(Number(cam.yaw));
+  const forwardDepth=(deltaZ*cosine)+(deltaX*sine);
+  const horizontal=(deltaX*cosine)-(deltaZ*sine);
+  if(!Number.isFinite(forwardDepth)||forwardDepth<.12)return null;
+  const ratio=F/forwardDepth;
+  return {x:(W/2)+(horizontal*ratio),y:(H*.49)+((cam.eye-Number(y))*ratio),z:forwardDepth,scale:ratio};
+}
+window.__proj=project;
+function path3(points,close=false){let begun=false;ctx.beginPath();for(let i=0;i<points.length;i++){const p=project(...points[i]);if(!p)return false;if(!begun){ctx.moveTo(p.x,p.y);begun=true}else ctx.lineTo(p.x,p.y)}if(close)ctx.closePath();return begun}
+function worldLine(a,b,color,width=1,alpha=1){const A=project(...a),B=project(...b);if(!A||!B)return;ctx.globalAlpha=alpha;ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(B.x,B.y);ctx.stroke();ctx.globalAlpha=1}
+function worldPoly(pts,color,alpha=1){if(!path3(pts,true))return;ctx.globalAlpha=alpha;ctx.fillStyle=color;ctx.fill();ctx.globalAlpha=1}
+function glowLine(points,color,width=2,blur=12,alpha=1){ctx.save();ctx.globalAlpha=alpha;if(!path3(points)) {ctx.restore();return};ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineJoin='round';ctx.lineCap='round';ctx.shadowColor=color;ctx.shadowBlur=blur;ctx.stroke();ctx.shadowBlur=0;ctx.restore()}
+function floorEllipse(r,scaleX=1,scaleZ=1,y=.015){const pts=[];for(let i=0;i<=220;i++){const t=i/220*TAU;pts.push([Math.cos(t)*r*scaleX,y,Math.sin(t)*r*scaleZ]);}return pts}
+function boundaryRadius(a){return 7.55*(1+.018*Math.sin(5*a+artTime*.24)+(.025*crossCount)*Math.sin(3*a-artTime*.5));}
+function boundaryPos(a,layer=0){const rr=boundaryRadius(a)+layer;return [Math.cos(a)*rr*1.04,.025+layer*.004,Math.sin(a)*rr*.94]}
+function boundaryLevel(x,z){const a=Math.atan2(z,x);return Math.hypot(x/1.04,z/.94)-boundaryRadius(a)}
+function drawSky(){let g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#061624');g.addColorStop(.39,'#10283a');g.addColorStop(.59,'#092030');g.addColorStop(1,'#030a12');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+const l=ctx.createRadialGradient(W*.50,H*.35,20,W*.50,H*.45,W*.67);l.addColorStop(0,'#2e435050');l.addColorStop(.5,'#21435717');l.addColorStop(1,'#00000000');ctx.fillStyle=l;ctx.fillRect(0,0,W,H);
+for(const s of twinkles){let x=((s.x*W+(cam.yaw*.03*W))%W+W)%W,y=s.y*H;ctx.fillStyle=`rgba(234,215,173,${.18+.16*Math.sin(artTime*s.speed+s.x*20)})`;ctx.fillRect(x,y,s.size,s.size)} }
+function drawArchitecture(){// Panoramic inner skin, illuminated niches and ribs
+const panels=[];
+for(let i=0;i<60;i++){const a=i/60*TAU,b=(i+1)/60*TAU,r=18.7;const pts=[[Math.sin(a)*r,0,Math.cos(a)*r],[Math.sin(b)*r,0,Math.cos(b)*r],[Math.sin(b)*r,11.7,Math.cos(b)*r],[Math.sin(a)*r,11.7,Math.cos(a)*r]];const mid=project(Math.sin((a+b)/2)*r,5.7,Math.cos((a+b)/2)*r);if(mid)panels.push({pts,depth:mid.z,i,a,b})}
+panels.sort((a,b)=>b.depth-a.depth);
+for(const p of panels){let n=p.i%10,alpha=.96;worldPoly(p.pts,n===0?'#244357':shades[Math.floor(p.i/10)%shades.length],alpha);if(n===0||n===9)worldLine(p.pts[0],p.pts[3],'#d2bc8960',1, .72);}
+// monumental radial columns & lit seams
+const ribs=[];for(let i=0;i<24;i++){let a=i/24*TAU,x=Math.sin(a)*18.52,z=Math.cos(a)*18.52,pr=project(x,4,z);if(pr)ribs.push({x,z,a,d:pr.z})}ribs.sort((a,b)=>b.d-a.d);
+for(const r of ribs){worldLine([r.x,.05,r.z],[r.x,10.2,r.z],'#839cad',2,.32);worldLine([r.x*.999,1.2,r.z*.999],[r.x*.999,8.7,r.z*.999],'#cda66b',r.d>10?1.6:.9,.53)}
+// suspended golden soffit ribbons
+for(const rad of [13.6,17.2]){const pts=[];for(let i=0;i<=172;i++){const a=i/172*TAU;pts.push([Math.sin(a)*rad,10.55+(rad===13.6?.35:0),Math.cos(a)*rad])}glowLine(pts,rad===13.6?'#edc178':'#7299a7',rad===13.6?1.7:1.1,9,.5)}
+for(let i=0;i<24;i++){const a=i/24*TAU;worldLine([Math.sin(a)*13.5,10.9,Math.cos(a)*13.5],[Math.sin(a)*17.5,10.4,Math.cos(a)*17.5],'#b7c8c1',1,.22)}
+}
+function drawFloor(){// deep blue stone with subtle reflection gradient
+const floorPts=[[-40,0,-40],[40,0,-40],[40,0,40],[-40,0,40]];
+// drawing huge plane may be clipped: use horizon-based screen wash
+const gr=ctx.createLinearGradient(0,H*.50,0,H);gr.addColorStop(0,'#1a2b34');gr.addColorStop(.46,'#0e1d2d');gr.addColorStop(1,'#071322');ctx.fillStyle=gr;ctx.fillRect(0,H*.52,W,H*.5);
+for(let r=3;r<18;r+=3){glowLine(floorEllipse(r,1,1,.016),'#7794aa',.75,1.5,.13)}
+for(let k=-18;k<=18;k+=2){worldLine([k,.02,-18],[k,.02,18],'#7c9daf',.7,.16);worldLine([-18,.02,k],[18,.02,k],'#7c9daf',.7,.16)}
+for(let r of [16.6,17.5])glowLine(floorEllipse(r,1,1,.027),'#d9bd82',r===17.5?1.1:1.7,5,.29);
+// faint projected cricket pitch; not substituting for artistic interactive boundary
+worldPoly([[-1.12,.05,-7.2],[1.12,.05,-7.2],[1.12,.05,7.2],[-1.12,.05,7.2]],'#476879',.10);
+for(let z of [-6.8,6.8])worldLine([-1.65,.056,z],[1.65,.056,z],'#e2e5d9',2,.28);
+for(let x of [-1.1,1.1])worldLine([x,.06,-6.8],[x,.06,6.8],'#c4ccbf',.8,.17);
+}
+function drawBoundary(){// old displaced boundaries are preserved as dim ghosts after crossing
+for(let i=0;i<ghosts.length;i++){const g=ghosts[i],points=[];for(let s=0;s<=180;s++){const a=s/180*TAU,r=7.3+g.shift+g.amplitude*Math.sin(a*4-g.phase+artTime*.21);points.push([Math.cos(a)*r*1.05,.024,Math.sin(a)*r*.94])}glowLine(points,i%2?'#66a5bb':'#d4ad70',.8,4,.10+.03*(i%3))}
+const points=[];for(let s=0;s<=280;s++){let a=s/280*TAU;points.push(boundaryPos(a))}
+glowLine(points,'#d89f4b',13,28,.19);
+glowLine(points,'#f2c986',5,14,.53);
+glowLine(points,'#ffebae',1.75,5,.92);
+for(let j=0;j<28;j++){const a=j/28*TAU+artTime*.015,x=boundaryPos(a),p=project(...x);if(!p||p.z>40)continue;let rr=clamp(p.scale*.017,1,4);ctx.fillStyle='#f8dc9c';ctx.globalAlpha=.36+.26*Math.sin(artTime*1.4+j);ctx.beginPath();ctx.arc(p.x,p.y,rr,0,TAU);ctx.fill();ctx.globalAlpha=1}
+// wave emanates from exact crossing footprint
+for(const r of ripples){let age=now-r.t,rad=age*2.5;if(age>4)continue;let points=[];for(let j=0;j<=72;j++){const a=j/72*TAU;points.push([r.x+Math.cos(a)*rad,.045,r.z+Math.sin(a)*rad])}glowLine(points,'#f1d4a4',2.6,14,(1-age/4)*.5)}
+}
+function drawFootprints(){for(let i=0;i<footprints.length;i++){const ft=footprints[i];let age=now-ft.t,op=clamp(1-age/190,.03,.7);const p=project(ft.x,.05,ft.z);if(!p||p.z>32)continue;const rx=clamp(.073*p.scale,1.2,12),ry=clamp(.035*p.scale,.5,7);ctx.save();ctx.globalAlpha=op;ctx.fillStyle='#edcd88';ctx.shadowColor='#ffe5a5';ctx.shadowBlur=12;ctx.beginPath();ctx.ellipse(p.x,p.y,rx,ry,-cam.yaw,0,TAU);ctx.fill();ctx.restore()}}
+function drawSculpture(){// a 9-metre floating split loop, the sculptural focal point of the chamber
+const ringPieces=[];for(let part=0;part<2;part++){const st=part===0?-.36:PI+.10,ed=part===0?PI-.12:TAU-.55;const ar=[];for(let j=0;j<=105;j++){const a=mix(st,ed,j/105),osc=Math.sin(a*3+artTime*.18)*.085*(crossCount>0?1:0);ar.push([Math.sin(a)*3.85,5+Math.cos(a)*(4.5+osc),1.8+Math.cos(a*1.8)*.20]);}ringPieces.push(ar)}
+for(const pts of ringPieces){glowLine(pts,'#fff0be',16,32,.10);glowLine(pts,'#b6dce0',8,18,.22);glowLine(pts,'#c7ae78',3.8,8,.76);glowLine(pts,'#fcebd0',1.0,2,.67)}
+// elongated shimmering suspension filaments
+for(let i=0;i<16;i++){const t=i/16*TAU,x=Math.sin(t)*2.8,z=1.8+Math.cos(t)*.15,y=5+Math.cos(t*2)*3.7;let p=project(x,y,z);if(!p)continue;worldLine([x,y,z],[x,Math.max(.3,y-1.15),z],'#f7d5a2',.8,.22)}
+// ribbon floating across slit, slowly reorienting when line is crossed
+const t=artTime*.21,offset=(crossCount%4)*.38;const ribbon=[];for(let i=0;i<=95;i++){let k=i/95,x=(k-.5)*6.5,y=4.45+.7*Math.sin(k*PI*2.6+t+offset),z=1.8+.45*Math.cos(k*PI*2.4+t);ribbon.push([x,y,z])}glowLine(ribbon,'#e5c989',1.5,8,.38);
+// boundary marker, a suspended solitary white cricket ball (no player)
+let bx=.7+Math.cos(artTime*.36)*.34,by=4.2+Math.sin(artTime*.41)*.36,bz=2.5;let P=project(bx,by,bz);if(P&&P.z>1){let r=clamp(P.scale*.16,2,66),g=ctx.createRadialGradient(P.x-r*.3,P.y-r*.37,.1,P.x,P.y,r);g.addColorStop(0,'#ffffff');g.addColorStop(.48,'#eae8dd');g.addColorStop(.83,'#acb9b8');g.addColorStop(1,'#344c60');ctx.save();ctx.shadowColor='#f2d59d';ctx.shadowBlur=22;ctx.fillStyle=g;ctx.beginPath();ctx.arc(P.x,P.y,r,0,TAU);ctx.fill();ctx.restore();ctx.strokeStyle='#c19f70';ctx.lineWidth=clamp(r*.065,.7,2.5);ctx.beginPath();ctx.arc(P.x,P.y,r*.76,-.66,1.52);ctx.stroke();}
+}
+function wallLabel(x,z,label,small){let p=project(x,4.4,z);if(!p||p.z<2||p.z>48||p.x<-200||p.x>W+200)return;ctx.save();ctx.globalAlpha=clamp(1-(p.z-14)/40,.12,.55);ctx.font='500 '+clamp(p.scale*.19,10,21)+'px Georgia, serif';ctx.textAlign='center';ctx.fillStyle='#edcea4';ctx.fillText(label,p.x,p.y);ctx.font='10px sans-serif';ctx.fillStyle='#aec5cd';ctx.fillText(small,p.x,p.y+20);ctx.restore()}
+function drawSuspendedWords(){wallLabel(-13,11,'WHO BELONGS?','誰が参加できるのか');wallLabel(13,10,'WHO REMAINS?','誰が記憶されるのか');wallLabel(0,18,'WHO DRAWS?','誰が線を引くのか');
+phrases.slice(-5).forEach((word,i)=>{let a=i*.85+.3,x=Math.cos(a)*8,z=5+Math.sin(a)*3,p=project(x,3.2+i*.38,z);if(!p)return;ctx.save();ctx.globalAlpha=.70;ctx.textAlign='center';ctx.font='500 '+clamp(p.scale*.17,11,23)+'px serif';ctx.fillStyle='#e9d0a2';ctx.shadowBlur=12;ctx.shadowColor='#d2ad69';ctx.fillText(word,p.x,p.y);ctx.restore()})}
+function drawMist(){const g=ctx.createLinearGradient(0,H*.45,0,H);g.addColorStop(0,'#aec5d000');g.addColorStop(.21,'#7899b017');g.addColorStop(.72,'#0b1c2b07');g.addColorStop(1,'#01050d57');ctx.fillStyle=g;ctx.fillRect(0,H*.45,W,H*.55);}
+function draw(){drawSky();drawArchitecture();drawFloor();drawBoundary();drawFootprints();drawSculpture();drawSuspendedWords();drawMist();}
+function updateMap(){const w=mapCanvas.width,h=mapCanvas.height;mc.clearRect(0,0,w,h);mc.save();mc.translate(w/2,h/2);const s=7.28;mc.strokeStyle='#698e9b';mc.lineWidth=1.8;mc.globalAlpha=.75;mc.beginPath();mc.arc(0,0,17.8*s,0,TAU);mc.stroke();mc.globalAlpha=1;
+mc.strokeStyle='#ddb873';mc.lineWidth=4;mc.shadowColor='#f2bd76';mc.shadowBlur=12;mc.beginPath();for(let i=0;i<=120;i++){const a=i/120*TAU,r=boundaryRadius(a);let x=r*1.04*s*Math.cos(a),z=r*.94*s*Math.sin(a);if(i===0)mc.moveTo(x,z);else mc.lineTo(x,z)}mc.stroke();mc.shadowBlur=0;
+mc.fillStyle='#d2d6d6';mc.beginPath();mc.arc(0,0,7,0,TAU);mc.fill();mc.globalAlpha=.5;for(const f of footprints.slice(-180)){mc.fillStyle='#edc78c';mc.fillRect(f.x*s-1,f.z*s-1,2,2)}mc.globalAlpha=1;
+mc.translate(cam.x*s,cam.z*s);mc.rotate(-cam.yaw);mc.fillStyle='#fcf2d0';mc.shadowColor='#ffdc94';mc.shadowBlur=8;mc.beginPath();mc.moveTo(0,-13);mc.lineTo(-8,10);mc.lineTo(8,10);mc.closePath();mc.fill();mc.restore()}
+function positionNarrative(){const r=Math.hypot(cam.x,cam.z);let text='境界の手前に立つ。まず、その線まで歩いてみてください。',sub='01 / PROLOGUE';if(crossCount>=2){text='あなたが動くたび、かつての線が残り、新しい線が生まれます。';sub='03 / RESIDUAL LINES'}else if(crossCount===1){text='あなたの一歩が、決まっていたはずの境界を動かした。';sub='02 / THE LINE MOVES'}else if(r<9){text='ここまで来たら、線を越えてみてください。';sub='01 / APPROACH'}q('narration').textContent=text;q('section').textContent=sub;q('phase').textContent=crossCount===0?'まだ引き直されていない境界':crossCount===1?'境界が最初に揺れた':'境界が増殖し、残像が生まれた';q('counter').textContent=crossCount+' CROSSING'+(crossCount===1?'':'S');q('hint').style.display=hasMoved?'none':'block'}
+function showToast(msg,secs=3.2){q('toast').textContent=msg;q('toast').classList.add('visible');toastExpire=now+secs}
+function crossed(){crossCount++;ghosts.push({shift:(rand()-.5)*2.0,amplitude:.3+rand()*.4,phase:rand()*TAU});if(ghosts.length>8)ghosts.shift();ripples.push({x:cam.x,z:cam.z,t:now});if(ripples.length>10)ripples.shift();showToast(crossCount===1?'あなたが越えた。境界は、もう同じ場所にはない。':crossCount===2?'線は一本ではなかった。あなたの足元から増えていく。':'残った痕跡が、新しい境界になる。');positionNarrative()}
+function update(dt){if(mode==='auto'){if(!autoPaused)autoT+=dt;const seg=autoT%45,points=[{x:0,z:-13.4},{x:-5.4,z:-9.8},{x:-7.9,z:-4.5},{x:-5,z:1.8},{x:1.4,z:5.2},{x:8.8,z:5.1},{x:11.7,z:9},{x:0,z:12.8}];let t=seg/45*(points.length-1),i=clamp(Math.floor(t),0,points.length-2),f=sm(0,1,t-i),p=points[i],n=points[i+1];cam.x=mix(p.x,n.x,f);cam.z=mix(p.z,n.z,f);let dx=n.x-p.x,dz=n.z-p.z,target=Math.atan2(dx,dz);let turn=((target-cam.yaw+PI*3)%TAU)-PI;cam.yaw+=turn*clamp(dt*2.4,0,1)}else{
+ let forward=Number(keys.has('w')||keys.has('arrowup'))-Number(keys.has('s')||keys.has('arrowdown'));
+ let side=Number(keys.has('d'))-Number(keys.has('a'));
+ const turn=Number(keys.has('right'))-Number(keys.has('left'));
+ cam.yaw=cam.yaw+turn*dt*1.6;
+ if(forward!==0||side!==0){
+   const norm=Math.max(1,Math.hypot(forward,side));
+   const speed=keys.has('shift')?6:3.4;
+   const fx=forward/norm;
+   const sx=side/norm;
+   const mx=(Math.sin(cam.yaw)*fx+Math.cos(cam.yaw)*sx)*speed*dt;
+   const mz=(Math.cos(cam.yaw)*fx-Math.sin(cam.yaw)*sx)*speed*dt;
+   if(Number.isFinite(mx)&&Number.isFinite(mz)){cam.x=cam.x+mx;cam.z=cam.z+mz;hasMoved=true;}
+ }
+}
+const rr=Math.hypot(cam.x,cam.z);if(rr>17.15){cam.x*=17.15/rr;cam.z*=17.15/rr}
+const inside=boundaryLevel(cam.x,cam.z)<0;if(inside!==lastInside){lastInside=inside;if(hasMoved||mode==='auto')crossed()}
+if(dist(cam,{x:footprints.length?footprints.at(-1).x:0,z:footprints.length?footprints.at(-1).z:-13.4})>.50){let offset=footprints.length%2?.13:-.13;footprints.push({x:cam.x+offset*Math.cos(cam.yaw),z:cam.z-offset*Math.sin(cam.yaw),t:now});if(footprints.length>850)footprints.shift()}
+if(toastExpire&&now>toastExpire){q('toast').classList.remove('visible');toastExpire=0}
+for(let i=ripples.length-1;i>=0;i--)if(now-ripples[i].t>4)ripples.splice(i,1);
+}
+function loop(ts){now=ts/1000;let dt=last?Math.min(.05,now-last):0;last=now;if(!quiet)artTime+=dt;if(!q('contrib').classList.contains('show'))update(dt);draw();updateMap();requestAnimationFrame(loop)}
+function setMode(m){mode=m;autoPaused=false;q('pause').hidden=(m!=='auto');q('pause').textContent='Ⅱ　自動案内を一時停止';q('manual').classList.toggle('active',m==='manual');q('auto').classList.toggle('active',m==='auto');q('manual').setAttribute('aria-pressed',m==='manual');q('auto').setAttribute('aria-pressed',m==='auto');if(m==='auto'){autoT=0;showToast('自動鑑賞を開始します。境界を越える道をたどってください。',2.5)}else showToast('自由回遊モード。歩いて、光の線を越えてください。',2.2)}
+q('pause').onclick=()=>{autoPaused=!autoPaused;q('pause').textContent=autoPaused?'▶　自動案内を再開':'Ⅱ　自動案内を一時停止';};q('manual').onclick=()=>setMode('manual');q('auto').onclick=()=>setMode('auto');q('reset').onclick=()=>{cam.x=0;cam.z=-13.4;cam.yaw=0;hasMoved=false;autoT=0;lastInside=false;crossCount=0;ghosts.length=0;footprints.length=0;ripples.length=0;phrases.length=0;setMode('manual');positionNarrative()};
+q('reduce').onclick=()=>{quiet=!quiet;q('reduce').textContent='静止モード '+(quiet?'ON':'OFF');showToast(quiet?'動きの少ない表示に切り替えました。':'動きのある展示に戻しました。',2)};
+function toggleUI(){uiHidden=!uiHidden;q('app').classList.toggle('hidden-ui',uiHidden);q('hide').textContent=uiHidden?'UI表示 [H]':'UI非表示 [H]';q('reveal').style.display=uiHidden?'block':'none';}
+q('hide').onclick=toggleUI;q('reveal').onclick=toggleUI;
+q('leave').onclick=()=>{setMode('manual');q('contrib').classList.add('show');q('phrase').focus()};q('cancel').onclick=()=>q('contrib').classList.remove('show');q('send').onclick=()=>{let v=q('phrase').value.trim();if(!v){q('phrase').focus();return;}phrases.push(v);q('phrase').value='';q('contrib').classList.remove('show');showToast('言葉が、この場所の光の一部になりました。',3)};
+addEventListener('keydown',e=>{if(q('contrib').classList.contains('show')){if(e.key==='Escape')q('contrib').classList.remove('show');return}if(e.key.toLowerCase()==='h'){toggleUI();return}if(e.key==='Escape'&&mode==='auto'){setMode('manual');return}const key=e.key.toLowerCase();if(['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','shift'].includes(key)){e.preventDefault();if(mode==='auto')setMode('manual');keys.add(key.replace('arrowleft','left').replace('arrowright','right'));}});
+addEventListener('keyup',e=>keys.delete(e.key.toLowerCase().replace('arrowleft','left').replace('arrowright','right')));addEventListener('blur',()=>keys.clear());
+let drag=null;canvas.addEventListener('pointerdown',e=>{if(e.button!==0&&e.pointerType!=='touch')return;drag={x:e.clientX,y:e.clientY,id:e.pointerId};canvas.setPointerCapture(e.pointerId);canvas.classList.add('dragging')});canvas.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;cam.yaw+=(e.clientX-drag.x)*.0046;drag.x=e.clientX;drag.y=e.clientY;});for(const name of ['pointerup','pointercancel'])canvas.addEventListener(name,()=>{drag=null;canvas.classList.remove('dragging')});
+for(const b of document.querySelectorAll('[data-key]')){const key=b.dataset.key;const down=e=>{e.preventDefault();try{b.setPointerCapture(e.pointerId)}catch(_captureError){}if(mode==='auto')setMode('manual');keys.add(key)},up=e=>{e.preventDefault();keys.delete(key)};b.addEventListener('pointerdown',down);b.addEventListener('pointerup',up);b.addEventListener('pointercancel',up);b.addEventListener('lostpointercapture',up)}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){quiet=true;q('reduce').textContent='静止モード ON'}
+positionNarrative();lastInside=boundaryLevel(cam.x,cam.z)<0;requestAnimationFrame(loop);
+// For testing and accessibility diagnostics; no external communication.
+window.CRITT_WORK10={getState:()=>({x:cam.x,z:cam.z,yaw:cam.yaw,crossCount,mode,autoPaused,ghostCount:ghosts.length,phrases:phrases.length}),goTo:(x,z)=>{cam.x=x;cam.z=z;hasMoved=true},setMode,reset:()=>q('reset').click()};
+})();
+</script>
+</body>
+</html>

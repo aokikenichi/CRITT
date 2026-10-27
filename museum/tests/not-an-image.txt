@@ -1,0 +1,1 @@
+TEST ONLY: This text is deliberately not an image. It verifies the viewer's image-load error message without a broken HTTP resource.

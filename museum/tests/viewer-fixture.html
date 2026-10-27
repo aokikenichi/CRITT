@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>TEST ONLY — 原画ビューア機能確認</title>
+  <link rel="stylesheet" href="../css/museum.css">
+  <link rel="stylesheet" href="../css/original-viewer.css">
+</head>
+<body style="padding:24px">
+  <h1>TEST ONLY — 原画ビューア機能確認</h1>
+  <p>このページは機能テスト専用です。以下の図形は作品原画ではなく、正式採用素材として登録されていません。本番の artworks.json は変更しません。</p>
+  <p><button id="open-approved">テスト画像2点を開く</button> <button id="open-failed">読込失敗をテスト</button> <button id="open-candidate">候補のみで開かないことを確認</button></p>
+  <p id="test-status" role="status">未実行</p>
+  <script type="module">
+    import { createOriginalViewer } from '../js/original-viewer.js';
+    const viewer = createOriginalViewer();
+    const status = document.getElementById('test-status');
+    const candidate = { src: 'tests/viewer-landscape.svg', title: 'TEST ONLY 候補', approval_status: 'candidate' };
+    document.getElementById('open-approved').addEventListener('click', event => {
+      viewer.open([
+        { src: 'tests/viewer-landscape.svg', alt: 'TEST ONLY 横長の緑色の図形', title: 'TEST ONLY A — 横長1600×900', description: 'QA機能確認用の単純図形。作品原画ではありません。', provenance: 'TEST ONLY：テスト用SVG、本番台帳への登録なし。', approval_status: 'approved' },
+        { src: 'tests/viewer-portrait.svg', alt: 'TEST ONLY 縦長の赤色の図形', title: 'TEST ONLY B — 縦長900×1600', description: 'QA機能確認用の単純図形。作品原画ではありません。', provenance: 'TEST ONLY：テスト用SVG、本番台帳への登録なし。', approval_status: 'approved' },
+        candidate
+      ], event.currentTarget);
+      status.textContent = 'TEST ONLY：approved 2点＋candidate 1点。ビューア内の件数は2点となること。';
+    });
+    document.getElementById('open-failed').addEventListener('click', event => {
+      viewer.open([{ src: 'tests/not-an-image.txt', title: 'TEST ONLY 読込失敗', approval_status: 'approved' }], event.currentTarget);
+      status.textContent = 'TEST ONLY：非画像ファイルで読込失敗メッセージを確認。';
+    });
+    document.getElementById('open-candidate').addEventListener('click', event => {
+      status.textContent = viewer.open([candidate], event.currentTarget) === false ? 'PASS：候補画像のみではビューアは開きません。' : 'FAIL：候補画像で開いてしまいました。';
+    });
+  </script>
+</body>
+</html>

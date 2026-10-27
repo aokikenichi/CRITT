@@ -1,0 +1,5 @@
+# Preserve received sources byte-for-byte on every checkout.
+source-backups/INPUT/** -text
+source-backups/CODEX_TASK_STEP03.md -text
+works/009/index.html -text
+works/010/index.html -text
