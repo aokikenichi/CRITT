@@ -1,0 +1,18 @@
+[
+  {
+    "id": "009",
+    "source": "works/009/index.html",
+    "autoPressed": "true",
+    "pauseText": "再開"
+  },
+  {
+    "id": "010",
+    "source": "works/010/index.html",
+    "autoPressed": "true",
+    "pauseText": "再開"
+  },
+  {
+    "rootPrefix": "/museum/review.html",
+    "cards": 10
+  }
+]

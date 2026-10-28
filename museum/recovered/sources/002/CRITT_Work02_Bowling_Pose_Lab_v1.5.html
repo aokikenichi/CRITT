@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CRITT Museum | Work 02 — Real Human 3D Lab v1.5</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif}*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:#0b1717;color:#e9e6dd}canvas{display:block;width:100%;height:100%;touch-action:none}.top{position:absolute;left:24px;top:20px;font-size:11px;letter-spacing:.2em;opacity:.84;pointer-events:none}.top strong{display:block;font-size:15px;letter-spacing:.12em;margin:8px 0 0;font-weight:500}.top small{display:block;color:#b5c6c0;letter-spacing:.08em;margin-top:5px}.hint{position:absolute;bottom:23px;left:24px;background:#0c1415d9;border:1px solid #52706866;padding:12px 14px;border-radius:5px;font-size:12px;color:#c9d8d3;max-width:min(650px,calc(100vw - 45px));line-height:1.8}.status{position:absolute;top:20px;right:20px;max-width:410px;background:#0d1719ee;border:1px solid #566b6655;border-radius:7px;box-shadow:0 6px 30px #0009;max-height:calc(100vh - 40px);overflow:auto;padding:15px 17px;font-size:12px}.status h2{font-weight:500;font-size:14px;letter-spacing:.09em;margin:0 0 10px}.status button,.status select,.status input[type=file]{font:inherit;color:inherit}.buttons{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.status button{border:1px solid #637e78;border-radius:4px;padding:8px 10px;background:#18302c;cursor:pointer}.status button:disabled{opacity:.35}.status button.selected{background:#4c7b73}.status input[type=file]{max-width:100%;font-size:11px}.status p{margin:8px 0;line-height:1.55}.label{color:#a9c4bb;font-size:11px;margin-top:14px}.run{font-variant-numeric:tabular-nums;font-size:11px;line-height:1.5;background:#0b2421;border:1px solid #3e5c54;padding:9px;margin:10px 0;white-space:pre-wrap;word-break:break-word}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.row input[type=range]{width:60%}.row output{width:37px;text-align:right;font-variant-numeric:tabular-nums}details{margin-top:12px;border-top:1px solid #556c6755;padding-top:10px}summary{cursor:pointer;color:#bce4d6}.small{font-size:11px;color:#aabeb7}.toggle{position:absolute;bottom:20px;right:20px;background:#18302c;border:1px solid #637e78;color:#fff;padding:9px 12px;border-radius:5px;cursor:pointer;display:none}@media(max-width:740px){.top{top:10px;left:10px}.status{top:52px;right:10px;left:10px;max-width:none;max-height:45vh}.hint{bottom:10px;left:10px;right:10px;font-size:11px}.toggle{display:block;top:10px;bottom:auto;right:10px}.status.hidden{display:none}} 
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
+</head><body>
+<div class="top">CRITT MUSEUM <strong>作品02｜投球姿勢の3D検証</strong><small>《22ヤードの永遠》— 試験展示（未完成）</small></div>
+<div class="hint">歩く：WASD／矢印キー　見回す：マウスドラッグ、Q / E（左右）、R / F（上下）<br/>作品は動かさず、鑑賞者が回り込みます。半透明像は質感の試作です。投球動作のフォームは未検証です。</div>
+<button class="toggle" id="toggle">実験操作</button>
+<section class="status" id="panel"><h2>HUMAN FORM LAB · v1.5</h2>
+<div id="state" class="run">初期化中…</div>
+<div class="label">本物のリグ付き人体モデル</div>
+<div class="buttons"><button id="auto">公開モデルを読み込む</button><button id="reset">入口へ戻る</button></div>
+<p><label>高品質なGLBモデルを追加：<input id="file" type="file" accept=".glb,model/gltf-binary" /></label></p>
+<p class="small">検証向き：前回読み込んだMakeHuman系GLB（CC0、ローカル保存したものを再選択）。初期サンプルKhronos / CesiumMan（CC BY 4.0）は動作確認用です。</p>
+<div class="label">材質比較</div><div class="buttons" id="modes"><button data-mode="original" class="selected">原モデル</button><button data-mode="clay">石膏彫刻</button><button data-mode="glass">半透明像</button></div>
+<div class="label">姿勢（リグ付きモデルでのみ有効）</div><div class="buttons"><button id="rest">元の姿勢</button><button id="pose">投球リリース直前（骨名対応版 IK試作）</button></div><div class="buttons"><button id="markers">IK目標点を表示</button><button id="turn">彫刻の向きを変える（検証用）</button></div><div id="poseinfo" class="small">骨格マッピングとIK誤差を表示します。</div>
+<details><summary>認識した骨名を確認する（診断用）</summary><pre id="bonemap" class="small" style="white-space:pre-wrap;word-break:break-word;max-height:240px;overflow:auto"></pre><button id="copybones" type="button">骨名と対応表をコピー</button></details>
+<p class="small">実在の投球動作を参考に、手首・足首の目標位置へ骨格を追従させます（IK）。骨名の表記揺れ（例: upperleg01.L / upperleg01L）を自動認識します。競技上の正確性は未検証です。</p>
+<details><summary>骨格の詳細調整（検証用）</summary><p>骨を選び、現在の初期姿勢からX・Y・Z方向へ回転を加えます。</p>
+<select id="joint" style="max-width:100%;width:100%;background:#162926;border:1px solid #587269;padding:8px"></select>
+<div id="sliders"></div><div class="buttons"><button id="zero">選択骨を初期状態に戻す</button></div>
+</details>
+<details><summary>検証情報・モデルの出典</summary><p id="stats" class="small">モデル待機中</p><p class="small">公開モデル：© Cesium / CC BY 4.0（商標部分は別途注意）。<a style="color:#b9dfd5" target="_blank" href="https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CesiumMan">出典</a>。高精細人体候補：<a style="color:#b9dfd5" target="_blank" href="https://www.innerscene.com/tools/library/3d-parts/male-base-mesh-3d-person-rigged-a-pose-380e6d89">MakeHuman由来・CC0のリグ付きGLB</a>。</p></details>
+</section>
+<script>
+// 外部モジュールの取得が失敗した場合、理由が見えないまま止まらないようにする。
+setTimeout(() => { const el = document.getElementById('state'); if(el && el.textContent.includes('初期化中')) el.textContent = '外部3Dライブラリを読み込めませんでした。インターネット接続のあるChromeでこのHTMLを開いてください。組織ネットワークのCDN制限がある場合は表示できません。'; }, 9500);
+</script><script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+const $=s=>document.querySelector(s),st=$('#state'),stat=$('#stats');
+let renderer,scene,camera,modelRoot=null,figure=null,bones=[],restQuats=new Map(),baseMats=new Map(),mode='original';
+let poseActive=false, refPose=null, turnQuarter=0, ball=null, targetGroup=null, targetPoints=[], targetResults=[];
+let yaw=0,pitch=0,lookMove=false,pt={x:0,y:0},drag=false; const keys=new Set();
+const loader=new GLTFLoader(); const NORMAL_HEIGHT=2.55;
+function note(s){st.textContent=s;}
+try{
+  scene=new THREE.Scene(); scene.background=new THREE.Color('#101e1c');scene.fog=new THREE.Fog('#101e1c',15,42);
+  camera=new THREE.PerspectiveCamera(66,innerWidth/innerHeight,.035,75);camera.position.set(0,1.65,7.4);
+  renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.5;document.body.prepend(renderer.domElement);
+  scene.add(new THREE.HemisphereLight(0xd5eee7,0x233734,2.1));
+  let top=new THREE.SpotLight(0xf7f6ec,450,23,Math.PI/5,.5);top.position.set(0,9,3.5);top.target.position.set(0,1.6,0);scene.add(top,top.target);
+  let side=new THREE.DirectionalLight(0x9fcfda,2.7);side.position.set(-5,4,-1);scene.add(side);
+  const floor=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshStandardMaterial({color:0x253331,metalness:.12,roughness:.44}));floor.rotation.x=-Math.PI/2;scene.add(floor);
+  function wall(x,y,z,sx,sy,sz,mat){let o=new THREE.Mesh(new THREE.BoxGeometry(sx,sy,sz),mat);o.position.set(x,y,z);scene.add(o)}
+  const wallmat=new THREE.MeshStandardMaterial({color:0x1c2928,roughness:1});wall(0,4,-11,24,8,.28,wallmat);wall(-12,4,0,.28,8,24,wallmat);wall(12,4,0,.28,8,24,wallmat);
+  let pedestal=new THREE.Mesh(new THREE.CylinderGeometry(1.3,1.3,.13,80),new THREE.MeshStandardMaterial({color:0x363e38,roughness:.31,metalness:.3}));pedestal.position.set(0,.06,0);scene.add(pedestal);
+  let l=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-4,.01,-8),new THREE.Vector3(-4,.01,7)]),new THREE.LineBasicMaterial({color:0x63756e}));scene.add(l);
+  const whiteBallMat=new THREE.MeshStandardMaterial({color:0xf5f2e8,roughness:.77,metalness:0});
+  ball=new THREE.Group();
+  ball.add(new THREE.Mesh(new THREE.SphereGeometry(.070,24,16),whiteBallMat));
+  const seam=new THREE.Mesh(new THREE.TorusGeometry(.0705,.0028,6,44),new THREE.MeshBasicMaterial({color:0x7f7770}));seam.rotation.y=Math.PI/2;ball.add(seam);
+  ball.visible=false;scene.add(ball);
+  targetGroup=new THREE.Group();scene.add(targetGroup);targetGroup.visible=false;
+  function materialChange(){if(!figure)return;figure.traverse(o=>{if(!o.isMesh)return;const orig=baseMats.get(o);if(!orig)return;let mat;if(mode==='original'){mat=orig.map(x=>x.clone());}
+    else if(mode==='clay'){mat=orig.map(()=>new THREE.MeshPhysicalMaterial({color:0xb4c1b7,roughness:.44,metalness:.05,side:THREE.DoubleSide}));}
+    else{mat=orig.map(()=>new THREE.MeshPhysicalMaterial({color:0xc3fff2,roughness:.19,metalness:.08,transparent:true,opacity:.28,depthWrite:false,side:THREE.DoubleSide,emissive:0x214d47,emissiveIntensity:.17}));}
+    o.material=Array.isArray(o.material)?mat:mat[0];});}
+  function fileLoad(buf,label){note('GLBを解析中：'+label);loader.parse(buf,'',g=>install(g,label),e=>note('GLBの読み込みに失敗：'+(e?.message||e)));}
+  function install(g,label){if(modelRoot)scene.remove(modelRoot);modelRoot=new THREE.Group();scene.add(modelRoot);figure=g.scene;modelRoot.add(figure);
+    figure.updateMatrixWorld(true);const b=new THREE.Box3().setFromObject(figure);const sz=new THREE.Vector3();b.getSize(sz);
+    if(sz.y<.01){note('高さが読み取れない3Dモデルです');return;}
+    const scale=NORMAL_HEIGHT/sz.y;figure.scale.setScalar(scale);figure.updateMatrixWorld(true);const b2=new THREE.Box3().setFromObject(figure);figure.position.x-= (b2.min.x+b2.max.x)/2;figure.position.y-=b2.min.y-.14;figure.position.z-=(b2.min.z+b2.max.z)/2;
+    figure.updateMatrixWorld(true);bones=[];baseMats.clear();restQuats.clear();poseActive=false;turnQuarter=0;ball.visible=false;targetGroup.clear();targetPoints=[];targetResults=[];let tri=0,skinned=0;
+    figure.traverse(o=>{if(o.isBone){bones.push(o);restQuats.set(o,o.quaternion.clone())} if(o.isMesh){if(o.isSkinnedMesh)skinned++;const m=Array.isArray(o.material)?o.material:[o.material];baseMats.set(o,m.map(x=>x.clone()));tri+=o.geometry.index?o.geometry.index.count/3:o.geometry.attributes.position.count/3}});
+    $('#joint').innerHTML='';bones.forEach((o,i)=>{const op=document.createElement('option');op.value=i;op.textContent=(o.name||'bone_'+i);$('#joint').append(op)});
+    materialChange();updateSliders();const ready=makeBoneMapping();note('読み込み成功：'+label+'\nメッシュ：'+Math.round(tri).toLocaleString()+' 三角形 / 骨：'+bones.length+' / スキン付き：'+skinned+' / IK認識 '+ready+'/4');
+    stat.textContent=`出典：${label}。三角形 ${Math.round(tri).toLocaleString()}、骨 ${bones.length}、スキン付きメッシュ ${skinned}。寸法を正規化して2.55mの記念碑的彫刻として表示。`;
+  }
+  $('#file').addEventListener('change',async e=>{const f=e.target.files?.[0];if(f)fileLoad(await f.arrayBuffer(),f.name)});
+  async function autoLoad(){note('Khronos公開GLBを取得中…（インターネット接続が必要）');try{let u='https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CesiumMan/glTF-Binary/CesiumMan.glb';const r=await fetch(u);if(!r.ok)throw Error('HTTP '+r.status);fileLoad(await r.arrayBuffer(),'Khronos / CesiumMan (CC BY 4.0)')}catch(e){note('公開モデルの取得に失敗：'+e.message+'\nモデルのGLBをダウンロードし、上のファイル入力から読み込んでください。')}}
+  $('#auto').onclick=autoLoad;
+  $('#reset').onclick=()=>{camera.position.set(0,1.65,7.4);yaw=0;pitch=0};
+  $('#modes').addEventListener('click',e=>{const t=e.target.closest('button[data-mode]');if(!t)return;mode=t.dataset.mode;$('#modes').querySelectorAll('button').forEach(x=>x.classList.toggle('selected',x===t));materialChange()});
+  // v1.5: リグごとの骨名を正規化して認識する。GLB変換時のピリオド削除にも対応。
+  const roleKeys=['armR','foreR','handR','armL','foreL','handL','thighR','calfR','footR','thighL','calfL','footL','chest'];
+  let boneMapping={};
+  const canon=n=>String(n||'').replace(/[^a-z0-9]/gi,'').toLowerCase();
+  const boneAliases={
+    armR:['upperarm01r','upperarm02r','upperarmr','rightupperarm','rightarm','mixamorigrightarm','skeletonarmjointr'],
+    foreR:['lowerarm01r','lowerarm02r','forearmr','lowerarmr','rightforearm','rightlowerarm','mixamorigrightforearm','skeletonarmjointr2'],
+    handR:['wristr','handr','righthand','mixamorigrighthand','skeletonarmjointr3'],
+    armL:['upperarm01l','upperarm02l','upperarml','leftupperarm','leftarm','mixamorigleftarm','skeletonarmjointl4'],
+    foreL:['lowerarm01l','lowerarm02l','forearml','lowerarml','leftforearm','leftlowerarm','mixamorigleftforearm','skeletonarmjointl3'],
+    handL:['wristl','handl','lefthand','mixamoriglefthand','skeletonarmjointl2'],
+    thighR:['upperleg01r','upperleg02r','thighr','rightupleg','rightthigh','mixamorigrightupleg','legjointr1'],
+    calfR:['lowerleg01r','lowerleg02r','calfr','rightleg','rightcalf','mixamorigrightleg','legjointr2'],
+    footR:['footr','rightfoot','mixamorigrightfoot','legjointr3'],
+    thighL:['upperleg01l','upperleg02l','thighl','leftupleg','leftthigh','mixamorigleftupleg','legjointl1'],
+    calfL:['lowerleg01l','lowerleg02l','calfl','leftleg','leftcalf','mixamorigleftleg','legjointl2'],
+    footL:['footl','leftfoot','mixamorigleftfoot','legjointl3'],
+    chest:['spine03','spine02','chest','upperchest','spine2','mixamorigspine2','skeletontorsojoint2']
+  };
+  function ancestorOf(a,b){for(let p=b?.parent;p;p=p.parent){if(p===a)return true;}return false;}
+  function getBone(key){return boneMapping[key]||null;}
+  function makeBoneMapping(){
+    boneMapping={};
+    for(const k of roleKeys){
+      const aliases=boneAliases[k], candidates=[];
+      for(const b of bones){
+        const name=canon(b.name);
+        let priority=aliases.findIndex(a=>name===a);
+        if(priority<0){ // Blender exporter sometimes adds .001 after an existing bone name
+          priority=aliases.findIndex(a=>name.startsWith(a)&&/^0*\d{1,3}$/.test(name.slice(a.length)));
+          if(priority>=0)priority+=30;
+        }
+        if(priority>=0)candidates.push({b,priority});
+      }
+      candidates.sort((x,y)=>x.priority-y.priority);
+      boneMapping[k]=candidates[0]?.b||null;
+    }
+    // 腕や脚は、上腕→前腕→手首の子孫関係を使える組合せを優先する。
+    for(const [base,mid,tip] of [['armR','foreR','handR'],['armL','foreL','handL'],['thighR','calfR','footR'],['thighL','calfL','footL']]){
+      const options=k=>bones.filter(b=>boneAliases[k].some(a=>canon(b.name)===a));
+      let found=null;
+      findChain: for(const a of options(base))for(const b of options(mid))for(const c of options(tip)){
+        if(ancestorOf(a,b)&&ancestorOf(b,c)){found={a,b,c};break findChain;}
+      }
+      if(found){boneMapping[base]=found.a;boneMapping[mid]=found.b;boneMapping[tip]=found.c;}
+      else if(!(getBone(base)&&getBone(mid)&&getBone(tip)&&ancestorOf(getBone(base),getBone(mid))&&ancestorOf(getBone(mid),getBone(tip)))){
+        boneMapping[base]=null;boneMapping[mid]=null;boneMapping[tip]=null;
+      }
+    }
+    const rows=roleKeys.map(k=>`${k.padEnd(7)} → ${boneMapping[k]?.name||'（未認識）'}`);
+    $('#bonemap').textContent=`骨の総数: ${bones.length}\n\n【役割と骨の対応】\n${rows.join('\n')}\n\n【全骨名】\n${bones.map(b=>b.name).join(', ')}`;
+    const ready=[['armR','foreR','handR'],['armL','foreL','handL'],['thighR','calfR','footR'],['thighL','calfL','footL']].filter(keys=>keys.every(k=>getBone(k))).length;
+    $('#poseinfo').textContent=`骨を自動認識: 手足 ${ready}/4 系統。${ready<4?'「認識した骨名」を開いて詳細を確認してください。':''}`;
+    return ready;
+  }
+  $('#copybones').onclick=async()=>{try{await navigator.clipboard.writeText($('#bonemap').textContent);note('骨名の診断結果をコピーしました。');}catch(e){note('コピーできませんでした。診断欄を選択してコピーしてください。')}};
+  function worldPoint(b){return b.getWorldPosition(new THREE.Vector3())}
+  function length(a,b){return worldPoint(a).distanceTo(worldPoint(b))}
+  const poseQuat=new THREE.Quaternion(),worldQuat=new THREE.Quaternion(),invParent=new THREE.Quaternion(),localDelta=new THREE.Quaternion();
+  function rotateToward(joint,endpoint,target,blend=0.82){
+    joint.updateWorldMatrix(true,true);
+    let origin=worldPoint(joint),end=worldPoint(endpoint),a=end.sub(origin),b=target.clone().sub(origin);
+    if(a.lengthSq()<1e-10||b.lengthSq()<1e-10)return;
+    a.normalize();b.normalize();const d=THREE.MathUtils.clamp(a.dot(b),-1,1);
+    const angle=Math.acos(d);if(angle<0.0002)return;
+    let axis=new THREE.Vector3().crossVectors(a,b);
+    if(axis.lengthSq()<1e-10)return;
+    axis.normalize();worldQuat.setFromAxisAngle(axis,Math.min(.29,angle*blend));
+    if(joint.parent)joint.parent.getWorldQuaternion(invParent).invert();else invParent.identity();
+    localDelta.copy(invParent).multiply(worldQuat).multiply(invParent.clone().invert());
+    joint.quaternion.premultiply(localDelta).normalize();joint.updateWorldMatrix(true,true);
+  }
+  function chainSolve(a,b,c,target){
+    for(let i=0;i<34;i++){
+      rotateToward(b,c,target,1);
+      rotateToward(a,c,target,1);
+    }
+    return Number(worldPoint(c).distanceTo(target).toFixed(3));
+  }
+  function resetPose(){bones.forEach(b=>b.quaternion.copy(restQuats.get(b)));figure.updateWorldMatrix(true,true);poseActive=false;ball.visible=false;targetGroup.clear();targetResults=[];updateSliders();$('#poseinfo').textContent='原姿勢（Aポーズ）を表示しています。';}
+  $('#rest').onclick=resetPose;
+  function addTarget(point,color){let marker=new THREE.Mesh(new THREE.SphereGeometry(.042,14,10),new THREE.MeshBasicMaterial({color,depthTest:false}));marker.position.copy(point);targetGroup.add(marker);targetPoints.push(marker)}
+  function clampReach(origin,lengths,direction){const maxReach=Math.max(.15,lengths-.045);const d=direction.length();return origin.clone().add(direction.multiplyScalar(Math.min(1,maxReach/d)));}
+  function poseRelease(){
+    if(!figure){note('モデルを読み込んでからお試しください。');return;}
+    resetPose();targetGroup.clear();targetPoints=[];targetResults=[];
+    const roles=['armR','foreR','handR','armL','foreL','handL','thighR','calfR','footR','thighL','calfL','footL','chest'];
+    const j=Object.fromEntries(roles.map(k=>[k,getBone(k)]));
+    const missing=roles.filter(k=>!j[k]);
+    const successes=[];
+    const moved=[];
+    // 体幹のわずかな前傾。前腕の操作だけでは生まれない投球時の身体の傾きを与える。
+    if(j.chest){j.chest.quaternion.copy(restQuats.get(j.chest)).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(.15,0,-.10)));figure.updateWorldMatrix(true,true);}
+    const tryLimb=(label,base,mid,tip,direction,color)=>{
+      if(!(base&&mid&&tip))return;
+      figure.updateWorldMatrix(true,true);
+      const before=worldPoint(tip);
+      const shoulder=worldPoint(base),reach=length(base,mid)+length(mid,tip);
+      const aim=clampReach(shoulder,reach,direction);
+      addTarget(aim,color);
+      const error=chainSolve(base,mid,tip,aim);
+      const delta=worldPoint(tip).distanceTo(before);
+      targetResults.push({label,error,delta});if(delta>.025){successes.push(label);moved.push(delta);}
+    };
+    // 右投手：投球腕をほぼ伸ばして頭上に、非投球腕を前方へ引く。
+    tryLimb('右投球腕',j.armR,j.foreR,j.handR,new THREE.Vector3(.11,.89,-.24),0xffc981);
+    tryLimb('左案内腕',j.armL,j.foreL,j.handL,new THREE.Vector3(-.38,.20,.53),0x7ce4d2);
+    // 左脚前方、右脚後方の大きいデリバリーストライド。
+    tryLimb('左前脚',j.thighL,j.calfL,j.footL,new THREE.Vector3(-.14,-1.12,.69),0xe0b9f9);
+    tryLimb('右後脚',j.thighR,j.calfR,j.footR,new THREE.Vector3(.11,-.93,-.63),0xe5f1a8);
+    figure.updateWorldMatrix(true,true);poseActive=successes.length>0;
+    if(j.handR&&successes.includes('右投球腕')){ball.position.copy(worldPoint(j.handR));ball.position.y+=.068;ball.visible=true;}
+    updateSliders();
+    const rms=targetResults.length?Math.sqrt(targetResults.reduce((a,b)=>a+b.error*b.error,0)/targetResults.length).toFixed(3):'—';
+    const poseMsg=`IKで実際に動いた部位：${successes.length}/4 / 最大変化 ${moved.length?Math.max(...moved).toFixed(3):'0.000'}m / 目標誤差RMS ${rms}m`;
+    const missingMsg=missing.length?`\n未認識の役割：${missing.join(', ')}（骨名一覧を確認してください）`:'';
+    const diagnostics=targetResults.map(r=>`${r.label}: 変化${r.delta.toFixed(2)}m・誤差${r.error}m`).join(' / ');
+    $('#poseinfo').textContent=poseMsg+'。'+missingMsg+'\n'+diagnostics;
+    note((poseActive?'投球直前の試作姿勢を適用しました。':'骨名を対応づけられず、姿勢を変更できませんでした。')+'\n'+poseMsg+missingMsg+'\nフォームの競技的な正確性は未検証です。');
+    targetGroup.visible=$('#markers').classList.contains('selected');
+  }
+  $('#pose').onclick=poseRelease;
+  $('#markers').onclick=()=>{const btn=$('#markers');btn.classList.toggle('selected');targetGroup.visible=btn.classList.contains('selected')};
+  $('#turn').onclick=()=>{if(!figure)return;turnQuarter=(turnQuarter+1)%4;modelRoot.rotation.y=turnQuarter*Math.PI/2;figure.updateWorldMatrix(true,true);if(poseActive)poseRelease();};
+  $('#joint').addEventListener('change',updateSliders);
+  function updateSliders(){const wrap=$('#sliders');wrap.innerHTML='';const b=bones[Number($('#joint').value)||0];if(!b)return;const rest=restQuats.get(b);const rel=rest.clone().invert().multiply(b.quaternion);const angles=new THREE.Euler().setFromQuaternion(rel,'XYZ');['x','y','z'].forEach((axis,i)=>{let row=document.createElement('div');row.className='row';let label=document.createElement('span');label.textContent=axis.toUpperCase();let inp=document.createElement('input');inp.type='range';inp.min=-160;inp.max=160;inp.step=1;inp.value=Math.round(THREE.MathUtils.radToDeg(angles[axis]));let output=document.createElement('output');output.textContent=inp.value+'°';inp.oninput=()=>{output.textContent=inp.value+'°';const vals=[...wrap.querySelectorAll('input')].map(x=>THREE.MathUtils.degToRad(Number(x.value)));b.quaternion.copy(rest).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(...vals,'XYZ')));};row.append(label,inp,output);wrap.append(row)})}
+  $('#zero').onclick=()=>{const b=bones[Number($('#joint').value)||0];if(b)b.quaternion.copy(restQuats.get(b));updateSliders()};
+  const canvas=renderer.domElement;canvas.onpointerdown=e=>{drag=true;pt={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)};
+  canvas.onpointermove=e=>{if(!drag)return;let dx=e.clientX-pt.x,dy=e.clientY-pt.y;pt={x:e.clientX,y:e.clientY};yaw-=dx*.0042;pitch=Math.max(-1.38,Math.min(1.38,pitch-dy*.0042));};
+  canvas.onpointerup=canvas.onpointercancel=()=>{drag=false};
+  window.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement?.tagName))return;const k=e.key.toLowerCase();keys.add(k);if(['arrowup','arrowdown','arrowleft','arrowright'].includes(k))e.preventDefault()});window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));window.addEventListener('blur',()=>keys.clear());
+  let prev=performance.now();function frame(now){const dt=Math.min(.04,(now-prev)/1000);prev=now;
+    if(keys.has('q'))yaw+=dt*1.25;if(keys.has('e'))yaw-=dt*1.25;
+    if(keys.has('r'))pitch=Math.min(1.38,pitch+dt*1.15);if(keys.has('f'))pitch=Math.max(-1.38,pitch-dt*1.15);
+    const forward=Number(keys.has('w')||keys.has('arrowup'))-Number(keys.has('s')||keys.has('arrowdown'));
+    const strafe=Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft'));
+    const sp=dt*2.8;camera.position.x+=(Math.sin(-yaw)*forward+Math.cos(yaw)*strafe)*sp;camera.position.z+=(-Math.cos(yaw)*forward+Math.sin(-yaw)*strafe)*sp;
+    camera.position.x=Math.max(-9.2,Math.min(9.2,camera.position.x));camera.position.z=Math.max(-8.9,Math.min(8.9,camera.position.z));
+    camera.quaternion.setFromEuler(new THREE.Euler(pitch,yaw,0,'YXZ'));renderer.render(scene,camera);requestAnimationFrame(frame)}requestAnimationFrame(frame);
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+  note('WebGL起動成功。公開モデルを読み込みます…');autoLoad();
+}catch(e){note('起動エラー：'+(e.stack||e.message||e));console.error(e)}
+$('#toggle').onclick=()=>$('#panel').classList.toggle('hidden');
+</script>
+</body></html>

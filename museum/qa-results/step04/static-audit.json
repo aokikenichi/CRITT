@@ -1,0 +1,128 @@
+{
+  "verified_on": "2026-10-28",
+  "source_note": "Matches recovered text files, NOT proof of original Library byte identity",
+  "sources": [
+    {
+      "id": "001",
+      "variant": "gallery_walk_v0.7",
+      "bytes": 3589495,
+      "sha256": "fd350a013bddc0da88746011973e5e26759f1866903d8517aaef18a38493c583",
+      "matches_received_manifest": true,
+      "embedded_images": 9
+    },
+    {
+      "id": "001",
+      "variant": "quality_lab_v1.1",
+      "bytes": 3746930,
+      "sha256": "7bfda0c0f005ff9a75f79611ca98cf05a1b34c9d4c8898094f6b96f6d0d26ccf",
+      "matches_received_manifest": true,
+      "embedded_images": 10
+    },
+    {
+      "id": "002",
+      "variant": "3d_lab_v1.2",
+      "bytes": 3757372,
+      "sha256": "d38a18dcca9e9ea3e1967e7488b2cc5f7770a92f797c0c9b2f4beb5d6a90926d",
+      "matches_received_manifest": true,
+      "embedded_images": 10
+    },
+    {
+      "id": "002",
+      "variant": "human_pipeline_lab_v1.3",
+      "bytes": 16468,
+      "sha256": "5739835e63ffad2815fabbd83763f3f75c8dcbe3a81d60ede5b6ffef0280d41c",
+      "matches_received_manifest": true,
+      "embedded_images": 0
+    },
+    {
+      "id": "002",
+      "variant": "bowling_lab_v1.5",
+      "bytes": 26105,
+      "sha256": "c1cc691c12a454ef83a6e8560c8869d208b908b22f3c96fcc020a93fd793aac0",
+      "matches_received_manifest": true,
+      "embedded_images": 0
+    },
+    {
+      "id": "003",
+      "variant": "boundary_rope_lab_v1.9",
+      "bytes": 138438,
+      "sha256": "34f7533d0bc8835d855086879462bdeee27a121974e9814d89522a5d40f6ee3b",
+      "matches_received_manifest": true,
+      "embedded_images": 1
+    },
+    {
+      "id": "004",
+      "variant": "hybrid_walk_v2.3",
+      "bytes": 2060972,
+      "sha256": "68aa0eaa80e39b6ce43e01537804838f67d26c2dade04232ed7671dbd865ee44",
+      "matches_received_manifest": true,
+      "embedded_images": 12
+    },
+    {
+      "id": "005",
+      "variant": "hybrid_walk_v2.4",
+      "bytes": 1229291,
+      "sha256": "612b49262e5d7bc05d903f083dff5e301b587383d32412bf079b5134ebfac9be",
+      "matches_received_manifest": true,
+      "embedded_images": 12
+    },
+    {
+      "id": "006",
+      "variant": "hybrid_walk_v2.5",
+      "bytes": 1188170,
+      "sha256": "45bc9b8447997a5afc38daa66f12ad1c9a498fcc38bebbccba271d2bfbaccc25",
+      "matches_received_manifest": true,
+      "embedded_images": 13
+    },
+    {
+      "id": "007",
+      "variant": "hybrid_walk_v2.6",
+      "bytes": 556448,
+      "sha256": "034eefa4a5d09378773647d098fd005690160f66b4cb92be23f72064182258be",
+      "matches_received_manifest": true,
+      "embedded_images": 21
+    },
+    {
+      "id": "008",
+      "variant": "pulse_wicket_v2.9",
+      "bytes": 596956,
+      "sha256": "1447c1680eddf08d96257b3deaad0d0cdbd9e31414ff6ae57b3f96f9a99de88a",
+      "matches_received_manifest": true,
+      "embedded_images": 3
+    },
+    {
+      "id": "009",
+      "variant": "legacy_dense_panorama_v3.3",
+      "bytes": 8254606,
+      "sha256": "9f96335d888d95f8090da63184d08da17c68c45e104c5bcec167cf30c9886c06",
+      "matches_received_manifest": true,
+      "embedded_images": 17
+    },
+    {
+      "id": "010",
+      "variant": "legacy_boundary_v3.4",
+      "bytes": 5632883,
+      "sha256": "6e89594d835d56623c24936d888945dead9f718df43840985b50609c1644a639",
+      "matches_received_manifest": true,
+      "embedded_images": 6
+    },
+    {
+      "id": "010",
+      "variant": "legacy_redesign_v3.5",
+      "bytes": 5634940,
+      "sha256": "49a6af58e74b573f4b269211ca4dec1ffbd2806842ad50df957008223b8a33ae",
+      "matches_received_manifest": true,
+      "embedded_images": 6
+    }
+  ],
+  "recovered_files": 14,
+  "embedded_images_decoded": 120,
+  "review_views": 16,
+  "connected_views": 14,
+  "held_views": [
+    "001 gallery_walk_v0.7",
+    "010 legacy_redesign_v3.5"
+  ],
+  "formal_originals": 0,
+  "step03_sources_and_local_protected_refs_unchanged": true
+}

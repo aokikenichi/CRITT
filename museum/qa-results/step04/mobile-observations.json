@@ -1,0 +1,257 @@
+[
+  {
+    "id": "001",
+    "variant": "quality_lab_v1.1",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 17,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "002",
+    "variant": "3d_lab_v1.2",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 17,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "002",
+    "variant": "human_pipeline_lab_v1.3",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 9,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "002",
+    "variant": "bowling_lab_v1.5",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 12,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "003",
+    "variant": "boundary_rope_lab_v1.9",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 9,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "004",
+    "variant": "hybrid_walk_v2.3",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 6,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "005",
+    "variant": "hybrid_walk_v2.4",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 5,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "006",
+    "variant": "hybrid_walk_v2.5",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 6,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "007",
+    "variant": "hybrid_walk_v2.6",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 7,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "008",
+    "variant": "pulse_wicket_v2.9",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 23,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "009",
+    "variant": "current_rebuild_v0.5",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 16,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "009",
+    "variant": "legacy_dense_panorama_v3.3",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 2,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "010",
+    "variant": "current_rebuild_v1.0",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 2,
+      "scrollWidth": 390,
+      "visibleButtons": 5,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "010",
+    "variant": "legacy_boundary_v3.4",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 1,
+      "width": 390
+    },
+    "logs": []
+  },
+  {
+    "id": "010",
+    "variant": "legacy_redesign_v3.5",
+    "viewport": "390x844",
+    "dims": {
+      "frameHeight": 658.3125,
+      "pageWidth": 390,
+      "viewportWidth": 390
+    },
+    "inner": {
+      "canvasCount": 1,
+      "scrollWidth": 390,
+      "visibleButtons": 5,
+      "width": 390
+    },
+    "logs": []
+  }
+]

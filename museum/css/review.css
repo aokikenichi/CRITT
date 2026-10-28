@@ -1,0 +1,39 @@
+body[data-review="true"] .review-intro { padding-top: 58px; padding-bottom: 65px; }
+.review-intro > .eyebrow { color: var(--accent); }
+.review-intro-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(260px, .9fr); gap: 70px; align-items: end; }
+.review-intro h1 { margin: 0; font: 400 clamp(38px, 5.2vw, 74px)/1.45 "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif; letter-spacing: .035em; }
+.review-intro h1 em { color: var(--accent); font-style: normal; }
+.review-intro .exhibition-subtitle { margin-top: 24px; font: 400 18px/1.7 Georgia, serif; letter-spacing: .08em; }
+.review-subtitle { margin: 9px 0 0; font-size: 12px; color: var(--muted); }
+.review-disclosure p { margin-block: 7px; max-width: 90em; line-height: 1.9; }
+.review-context { display: flex; align-items: baseline; gap: 12px 24px; border-top: 1px solid var(--line); padding: 4px 0 6px; }
+#review-note { margin: 0; color: var(--accent); font-size: 10px; line-height: 1.7; flex: 1; }
+.review-variants { position: relative; min-width: 170px; max-width: min(480px, 100%); font-size: 11px; }
+.review-variants summary { min-height: 32px; padding: 5px 0; cursor: pointer; color: var(--ink); text-underline-offset: .25em; }
+.review-variants summary:hover { text-decoration: underline; }
+.review-variants summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+#variant-panel { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 10px; }
+#variant-panel a { display: inline-flex; align-items: center; min-height: 44px; padding: 7px 10px; border: 1px solid var(--line); font-size: 11px; overflow-wrap: anywhere; }
+#variant-panel a:hover { background: #e8e3da; border-color: var(--ink); }
+#variant-panel a[aria-current="page"] { background: var(--accent); border-color: var(--accent); color: var(--paper-light); text-decoration: none; }
+body[data-review="true"] .work-card .card-actions { row-gap: 7px; }
+@media (max-width: 900px) {
+  .review-intro-layout { grid-template-columns: minmax(0, 1.4fr) minmax(230px, 1fr); gap: 35px; }
+}
+@media (max-width: 600px) {
+  body[data-review="true"] .review-intro { padding-top: 35px; padding-bottom: 40px; }
+  .review-intro-layout { grid-template-columns: 1fr; gap: 32px; }
+  .review-intro h1 { font-size: clamp(35px, 8.6vw, 50px); }
+  .review-intro .exhibition-subtitle { font-size: 15px; margin-top: 17px; }
+  .review-subtitle { font-size: 11px; }
+  .review-context { display: block; padding-bottom: 3px; }
+  #review-note { font-size: 9px; }
+  .review-variants { max-width: 100%; }
+  .review-variants summary { min-height: 36px; padding-block: 8px; font-size: 10px; }
+  #variant-panel { padding-top: 3px; }
+  #variant-panel a { font-size: 10px; }
+}
+@media (forced-colors: active) {
+  #variant-panel a { border-color: LinkText; }
+  #variant-panel a[aria-current="page"] { border-color: Highlight; }
+}

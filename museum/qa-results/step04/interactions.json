@@ -1,0 +1,160 @@
+[
+  {
+    "id": "001",
+    "result": "quality A-D selected, reference image loaded/unapproved, Esc closed, E held 600ms"
+  },
+  {
+    "id": "002",
+    "variant": "3d_lab_v1.2",
+    "result": "Auto jumped to work02, figure A/B/C selected, W 700ms and Q400ms"
+  },
+  {
+    "id": "002",
+    "variant": "human_pipeline_lab_v1.3",
+    "result": "External CesiumMan load successful, pose then rest controls accepted",
+    "logs": []
+  },
+  {
+    "id": "002",
+    "variant": "bowling_lab_v1.5",
+    "result": "External CesiumMan load successful, pose then rest controls accepted",
+    "logs": []
+  },
+  {
+    "id": "003",
+    "result": "A-D metrics, close view, reference/Esc/home and W650ms",
+    "levels": [
+      {
+        "level": "A",
+        "metrics": "現在：A / 滑らかな管\nロープ：44,370 面（三角形）\n参考画像（採用未承認）：別途生成されたコンセプト画像\n現在：3D試作／姿勢・位置は参考形状"
+      },
+      {
+        "level": "B",
+        "metrics": "現在：B / 三つ撚りの縄\nロープ：97,614 面（三角形）\n参考画像（採用未承認）：別途生成されたコンセプト画像\n現在：3D試作／姿勢・位置は参考形状"
+      },
+      {
+        "level": "C",
+        "metrics": "現在：C / 繊維方向の質感\nロープ：88,740 面（三角形）\n参考画像（採用未承認）：別途生成されたコンセプト画像\n現在：3D試作／姿勢・位置は参考形状"
+      },
+      {
+        "level": "D",
+        "metrics": "現在：D / 3束×9本の撚り糸\nロープ：559,062 面（三角形）\n参考画像（採用未承認）：別途生成されたコンセプト画像\n現在：3D試作／姿勢・位置は参考形状"
+      }
+    ]
+  },
+  {
+    "id": "004",
+    "guideClass": "selected",
+    "manualKey": "W 650ms",
+    "modalText": "×\nROOM 02\n展示配置図（概念）\n入口 → 01原型／02接ぎ木 → 03壊れやすい権威 → 04柔らかな反撃 → 05溶解／06不在の打者 → 07寄せ集めの発明 → 08鏡のルール → 09打撃の残響 → 10透過する記憶 → 11まだ存在しないバット。 一方向の順路ではなく、途中で横切ったり、前の作品へ戻ったりすることを想定しています。",
+    "modalClosed": true,
+    "restoreVisible": true,
+    "restored": true,
+    "logs": []
+  },
+  {
+    "id": "005",
+    "guideClass": "active",
+    "manualKey": "W 650ms",
+    "modalText": "作品05の初期イメージ（参考画像（採用未承認））\n閉じる\n\nこの初期イメージから人物部分を切り出し、11の薄い画像層として空間に配置しています。個々の像は独立した完成参考画像（採用未承認）ではなく、別々の実物3D彫刻でもありません。画像に現れる人物配置は芸術表現であり、実際の守備配置を厳密に再現したものではありません。",
+    "modalClosed": true,
+    "restoreVisible": true,
+    "restored": true,
+    "logs": []
+  },
+  {
+    "id": "006",
+    "guideClass": "active",
+    "manualKey": "W 650ms",
+    "modalText": "《十万人の声》初期展示イメージ\n閉じる\n\nこれは仮想展示のために制作した画像で、実際の記録写真や実在の観客の証言ではありません。本試作では、この画像の一部を薄い写真スクリーンとして分割配置しています。音源はまだありません。",
+    "modalClosed": true,
+    "restoreVisible": true,
+    "restored": true,
+    "logs": []
+  },
+  {
+    "id": "007",
+    "guideClass": "active",
+    "manualKey": "W 650ms",
+    "modalText": "作品07 — 初期コンセプト画像\n閉じる\n\nこの参考画像（採用未承認）は創作ビジュアルです。写っている書類や人物を実在の史料として引用していません。回遊展示ではその一部を切り出して再構成しています。",
+    "modalClosed": true,
+    "restoreVisible": true,
+    "restored": true,
+    "logs": []
+  },
+  {
+    "id": "009",
+    "variant": "legacy_dense_panorama_v3.3",
+    "result": "4 gravity modes, density, auto-gravity only, reference loaded, Esc; common Auto absent",
+    "gravity": [
+      {
+        "mode": "earth",
+        "text": "地球の重力\nピッチは沈み、一球は弧を描いて落ちていく。"
+      },
+      {
+        "mode": "low",
+        "text": "弱い重力\n一球は長く滞空し、島はゆっくり漂う。"
+      },
+      {
+        "mode": "zero",
+        "text": "無重力\nすべてが空中で静止しているように見える。"
+      },
+      {
+        "mode": "reverse",
+        "text": "反転する重力\n一球は上昇し、空間の秩序が反転する。"
+      }
+    ]
+  },
+  {
+    "id": "010",
+    "variant": "legacy_boundary_v3.4",
+    "result": "Guide toggle active, reset, reference loaded, Esc closed"
+  },
+  {
+    "id": "010",
+    "variant": "legacy_redesign_v3.5",
+    "result": "3 virtual worlds, autoplay toggle, restart; rules not independently verified",
+    "worlds": [
+      {
+        "world": "55",
+        "outcome": "FOUR\n境界 68m｜一度着地してから境界を越える"
+      },
+      {
+        "world": "68",
+        "outcome": "FOUR\n境界 68m｜一度着地してから境界を越える"
+      },
+      {
+        "world": "82",
+        "outcome": "FOUR\n境界 68m｜一度着地してから境界を越える"
+      }
+    ],
+    "autoText": "自動鑑賞を停止"
+  },
+  {
+    "id": "010",
+    "variant": "legacy_redesign_v3.5",
+    "result": "ISSUE: station proximity overwrites button selection at initial 68m station; after W1100ms 55/68/82 values work",
+    "movedWorlds": [
+      {
+        "world": "55",
+        "outcome": "SIX"
+      },
+      {
+        "world": "68",
+        "outcome": "FOUR"
+      },
+      {
+        "world": "82",
+        "outcome": "IN PLAY"
+      }
+    ]
+  },
+  {
+    "id": "001",
+    "result": "Manual canvas focus and W650ms; screenshot records viewpoint after movement"
+  },
+  {
+    "id": "008",
+    "result": "Manual canvas focus and W650ms; screenshot records viewpoint after movement"
+  }
+]

@@ -1,0 +1,271 @@
+{
+  "generated_at": "2026-10-28",
+  "source_note": "ChatGPT Library extracted text representations, not original byte-identical exports",
+  "assets": [
+    {
+      "id": "001",
+      "variant": "gallery_walk_v0.7",
+      "title": "CRITT Museum — Gallery Walk v0.7 | 上下視点対応",
+      "rel_path": "sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html",
+      "source_library_file_id": "file_000000000db88208a2adc6ce91668a53",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 3589495,
+      "sha256": "fd350a013bddc0da88746011973e5e26759f1866903d8517aaef18a38493c583",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 9,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 2656054,
+      "external_runtime_assets": [],
+      "self_contained_assets": true
+    },
+    {
+      "id": "001",
+      "variant": "quality_lab_v1.1",
+      "title": "CRITT Museum — 3D Quality Lab v1.1 | 表面・縫い目検証",
+      "rel_path": "sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+      "source_library_file_id": "file_00000000e11882068d3909a13ff04c23",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 3746930,
+      "sha256": "7bfda0c0f005ff9a75f79611ca98cf05a1b34c9d4c8898094f6b96f6d0d26ccf",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 10,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 2758025,
+      "external_runtime_assets": [],
+      "self_contained_assets": true
+    },
+    {
+      "id": "002",
+      "variant": "3d_lab_v1.2",
+      "title": "CRITT Museum — Work 02 3D Lab v1.2 | 人体・多視点検証",
+      "rel_path": "sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+      "source_library_file_id": "file_00000000891082068ef428647c195ec8",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 3757372,
+      "sha256": "d38a18dcca9e9ea3e1967e7488b2cc5f7770a92f797c0c9b2f4beb5d6a90926d",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 10,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 2758025,
+      "external_runtime_assets": [],
+      "self_contained_assets": true
+    },
+    {
+      "id": "002",
+      "variant": "human_pipeline_lab_v1.3",
+      "title": "CRITT Museum | Work 02 — Real Human 3D Lab v1.3",
+      "rel_path": "sources/002/CRITT_Work02_RealHuman_Pipeline_Lab_v1.3.html",
+      "source_library_file_id": "file_00000000d5248230a4d6cb11f441846e",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 16468,
+      "sha256": "5739835e63ffad2815fabbd83763f3f75c8dcbe3a81d60ede5b6ffef0280d41c",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 0,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 0,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/",
+        "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CesiumMan/glTF-Binary/CesiumMan.glb"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "002",
+      "variant": "bowling_lab_v1.5",
+      "title": "CRITT Museum | Work 02 — Real Human 3D Lab v1.5",
+      "rel_path": "sources/002/CRITT_Work02_Bowling_Pose_Lab_v1.5.html",
+      "source_library_file_id": "file_000000002404820690a567e24692044c",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 26105,
+      "sha256": "c1cc691c12a454ef83a6e8560c8869d208b908b22f3c96fcc020a93fd793aac0",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 0,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 0,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/",
+        "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CesiumMan/glTF-Binary/CesiumMan.glb"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "003",
+      "variant": "boundary_rope_lab_v1.9",
+      "title": "CRITT Museum | Work 03 — Boundary Rope Lab v1.9",
+      "rel_path": "sources/003/CRITT_Museum_Work03_Boundary_Rope_3D_Lab_v1.9.html",
+      "source_library_file_id": "file_00000000dc2881f8921b55f7422073d8",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 138438,
+      "sha256": "34f7533d0bc8835d855086879462bdeee27a121974e9814d89522a5d40f6ee3b",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 1,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 86763,
+      "external_runtime_assets": [],
+      "self_contained_assets": true
+    },
+    {
+      "id": "004",
+      "variant": "hybrid_walk_v2.3",
+      "title": "CRITT Museum — Work 04 Hybrid Walk v2.3",
+      "rel_path": "sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+      "source_library_file_id": "file_00000000f0a88209845a135bf7e780b3",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 2060972,
+      "sha256": "68aa0eaa80e39b6ce43e01537804838f67d26c2dade04232ed7671dbd865ee44",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 12,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 1525408,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "005",
+      "variant": "hybrid_walk_v2.4",
+      "title": "CRITT Museum — Work 05 Eleven Bodies / 2.5D Walk v2.4",
+      "rel_path": "sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+      "source_library_file_id": "file_00000000dd2881f89d3b7ed221105400",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 1229291,
+      "sha256": "612b49262e5d7bc05d903f083dff5e301b587383d32412bf079b5134ebfac9be",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 12,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 908945,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "006",
+      "variant": "hybrid_walk_v2.5",
+      "title": "CRITT Museum｜作品06 十万人の声 — 光の展示試作 v2.5",
+      "rel_path": "sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+      "source_library_file_id": "file_00000000b1f481f892330d5fbf8a9dc0",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 1188170,
+      "sha256": "45bc9b8447997a5afc38daa66f12ad1c9a498fcc38bebbccba271d2bfbaccc25",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 13,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 877530,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "007",
+      "variant": "hybrid_walk_v2.6",
+      "title": "CRITT Museum｜作品07 スコアカードにない名前 — ハイブリッド回遊 v2.6",
+      "rel_path": "sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+      "source_library_file_id": "file_0000000047808206b973006fe3a4b245",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 556448,
+      "sha256": "034eefa4a5d09378773647d098fd005690160f66b4cb92be23f72064182258be",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 21,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 401336,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "008",
+      "variant": "pulse_wicket_v2.9",
+      "title": "CRITT Museum｜作品08《球の星座》v2.9",
+      "rel_path": "sources/008/CRITT_Museum_Work08_Pulse_Wicket_Art_v2.9.html",
+      "source_library_file_id": "file_000000000fa082069171fdf290d8d935",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 596956,
+      "sha256": "1447c1680eddf08d96257b3deaad0d0cdbd9e31414ff6ae57b3f96f9a99de88a",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 3,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 412524,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js",
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "https://cricsheet.org/downloads/t20s_json.zip"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "009",
+      "variant": "legacy_dense_panorama_v3.3",
+      "title": "CRITT Museum — 作品09 重力のないクリケット v3.3",
+      "rel_path": "sources/009/CRITT_Museum_Work09_Gravity_Gallery_Dense_Panorama_v3.3.html",
+      "source_library_file_id": "file_00000000272c820699a03c1f7c5b6751",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 8254606,
+      "sha256": "9f96335d888d95f8090da63184d08da17c68c45e104c5bcec167cf30c9886c06",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 17,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 6173170,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "010",
+      "variant": "legacy_boundary_v3.4",
+      "title": "CRITT Museum — 作品10《最後のバウンダリー》v3.4",
+      "rel_path": "sources/010/CRITT_Museum_Work10_Final_Boundary_Walk_v3.4.html",
+      "source_library_file_id": "file_000000003de48206a3a294751c6a9e87",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 5632883,
+      "sha256": "6e89594d835d56623c24936d888945dead9f718df43840985b50609c1644a639",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 6,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 4208166,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      ],
+      "self_contained_assets": false
+    },
+    {
+      "id": "010",
+      "variant": "legacy_redesign_v3.5",
+      "title": "CRITT Museum — 作品10《最後のバウンダリー》v3.5",
+      "rel_path": "sources/010/CRITT_Museum_Work10_Final_Boundary_Redesign_v3.5.html",
+      "source_library_file_id": "file_000000008a04821188af8706b3a026c4",
+      "representation": "library_extracted_utf8_text_to_html",
+      "bytes": 5634940,
+      "sha256": "49a6af58e74b573f4b269211ca4dec1ffbd2806842ad50df957008223b8a33ae",
+      "contains_html_root": true,
+      "ends_html": true,
+      "embedded_data_image_count": 6,
+      "invalid_embedded_image_count": 0,
+      "embedded_data_decoded_bytes": 4208166,
+      "external_runtime_assets": [
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      ],
+      "self_contained_assets": false
+    }
+  ]
+}

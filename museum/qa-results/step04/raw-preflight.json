@@ -1,0 +1,340 @@
+[
+  {
+    "id": "001",
+    "variant": "gallery_walk_v0.7",
+    "viewport": "1440x1000",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 0,
+          "cssWidth": 0,
+          "height": 150,
+          "id": "canvas",
+          "width": 300
+        },
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "fallbackWalk",
+          "width": 1440
+        }
+      ],
+      "images": [
+        {
+          "id": "referenceImage",
+          "loaded": true
+        }
+      ],
+      "text": "CRITT MUSEUM\nROOM 01 · WALK THROUGH\n入口に戻る\n原画と比較\n作品情報\n館内案内\n01 / A BALL SUSPENDED IN TIME\n空中で止まった一球\nWASD／矢印：歩く・Q E：左右・R F：上下・ドラッグ：自由視線\nROOM 01 · GALLERY WALK\n右方向へ進むと作品02へ\n軽量回遊モードで起動しました。WASD／矢印キーで歩行・ドラッグで見回せます。\n視線を動かす\n↶\n↷\n⤒\n⤓\n左右 0°\n上下 +3°\n×\nCRITT MUSEUM · ROOM 01 / 01\n空中で止まった一球\nA Ball Suspended in Time\n\n投じられた一球は、本来なら一瞬で過ぎ去る。ここではその時間が引き延ばされ、巨大化され、空中に静止する。\n\n数秒にも満たない一球に、勝敗、選手の判断、観客の期待が凝縮されている。物理的な重さと、意味としての重さ。その二つを重ねる仮想彫刻。\n\nCRITTによる架空の現代美術作品。ブラウザ内の3D表現は試作です。既存の高精細画像を完全再現したものではありません。",
+      "title": "CRITT Museum — Gallery Walk v0.7 | 上下視点対応"
+    },
+    "logs": [
+      {
+        "level": "error",
+        "message": "Error: ERROR: 0:2: '\n' : #version directive must occur on the first line of the shader\nERROR: 0:4: 'out' : storage qualifier supported in GLSL ES 3.00 and above only\nERROR: 0:60: 'texture' : no matching overloaded function found\nERROR: 0:60: 'rgb' :  field selection requires structure or vector on left hand side\nERROR: 0:60: '=' : dimension mismatch\nERROR: 0:60: '=' : cannot convert from 'const mediump float' to 'highp 3-component vector of float'\nERROR: 0:166: 'texture' : no matching overloaded function found\nERROR: 0:166: 'return' : function return is not matching type:\nERROR: 0:167: 'texture' : no matching overloaded function found\nERROR: 0:167: 'return' : function return is not matching type:\nERROR: 0:168: 'texture' : no matching overloaded function found\nERROR: 0:168: 'return' : function return is not matching type:\nERROR: 0:169: 'texture' : no matching overloaded function found\nERROR: 0:169: 'return' : function return is not matching type:\nERROR: 0:170: 'texture' : no matching overloaded function found\nERROR: 0:170: 'return' : function return is not matching type:\n\n    at shader (http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:400:143)\n    at http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:401:121\n    at http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:475:3",
+        "timestamp": "2026-10-28T11:57:44.732Z",
+        "url": "http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html"
+      }
+    ]
+  },
+  {
+    "id": "001",
+    "variant": "quality_lab_v1.1",
+    "viewport": "1440x1000",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 840,
+          "id": "canvas",
+          "width": 1350
+        }
+      ],
+      "images": [
+        {
+          "id": "referenceImage",
+          "loaded": true
+        }
+      ],
+      "text": "CRITT MUSEUM\nROOM 01 · WALK THROUGH\n入口に戻る\n原画と比較\n作品情報\n館内案内\n01 / A BALL SUSPENDED IN TIME\n空中で止まった一球\nWASD／矢印：歩く · ドラッグ：上下左右を見回す · Q／E：左右 · R／F：見上げる／見下ろす\nROOM 01 · GALLERY WALK\n右方向へ進むと作品02へ\n視線を動かす\n↶\n↷\n⤒\n⤓\n左右 0°\n上下 +10°\n×\nCRITT MUSEUM · ROOM 01 / 01\n空中で止まった一球\nA Ball Suspended in Time\n\n投じられた一球は、本来なら一瞬で過ぎ去る。ここではその時間が引き延ばされ、巨大化され、空中に静止する。\n\n数秒にも満たない一球に、勝敗、選手の判断、観客の期待が凝縮されている。物理的な重さと、意味としての重さ。その二つを重ねる仮想彫刻。\n\nCRITTによる架空の現代美術作品。ブラウザ内の3D表現は試作です。既存の高精細画像を完全再現したものではありません。\n\n3D QUALITY LAB v1.1 · 作品01 / 比較実験\nA 現行（v0.7）\nB 縫い目の起伏\nC 旧版（v1.0）\nD 改良版（v1.1）\nD：原画由来の微細凹凸＋球面に連続する縫い目を併用。側面・背面は推定表現です。",
+      "title": "CRITT Museum — 3D Quality Lab v1.1 | 表面・縫い目検証"
+    },
+    "logs": [
+      {
+        "level": "error",
+        "message": "Error: ERROR: 0:2: '\n' : #version directive must occur on the first line of the shader\nERROR: 0:4: 'out' : storage qualifier supported in GLSL ES 3.00 and above only\nERROR: 0:60: 'texture' : no matching overloaded function found\nERROR: 0:60: 'rgb' :  field selection requires structure or vector on left hand side\nERROR: 0:60: '=' : dimension mismatch\nERROR: 0:60: '=' : cannot convert from 'const mediump float' to 'highp 3-component vector of float'\nERROR: 0:166: 'texture' : no matching overloaded function found\nERROR: 0:166: 'return' : function return is not matching type:\nERROR: 0:167: 'texture' : no matching overloaded function found\nERROR: 0:167: 'return' : function return is not matching type:\nERROR: 0:168: 'texture' : no matching overloaded function found\nERROR: 0:168: 'return' : function return is not matching type:\nERROR: 0:169: 'texture' : no matching overloaded function found\nERROR: 0:169: 'return' : function return is not matching type:\nERROR: 0:170: 'texture' : no matching overloaded function found\nERROR: 0:170: 'return' : function return is not matching type:\n\n    at shader (http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:400:143)\n    at http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:401:121\n    at http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:475:3",
+        "timestamp": "2026-10-28T11:57:44.732Z",
+        "url": "http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html"
+      }
+    ]
+  },
+  {
+    "id": "002",
+    "variant": "3d_lab_v1.2",
+    "viewport": "1440x1000",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 840,
+          "id": "canvas",
+          "width": 1350
+        }
+      ],
+      "images": [
+        {
+          "id": "referenceImage",
+          "loaded": true
+        }
+      ],
+      "text": "CRITT MUSEUM\nROOM 01 · WALK THROUGH\n入口に戻る\n作品02へ（検証用）\n原画と比較\n作品情報\n館内案内\n01 / A BALL SUSPENDED IN TIME\n空中で止まった一球\nWASD／矢印：歩く · ドラッグ：上下左右を見回す · Q／E：左右 · R／F：見上げる／見下ろす\nROOM 01 · GALLERY WALK\n右方向へ進むと作品02へ\n視線を動かす\n↶\n↷\n⤒\n⤓\n左右 0°\n上下 +10°\n×\nCRITT MUSEUM · ROOM 01 / 01\n空中で止まった一球\nA Ball Suspended in Time\n\n投じられた一球は、本来なら一瞬で過ぎ去る。ここではその時間が引き延ばされ、巨大化され、空中に静止する。\n\n数秒にも満たない一球に、勝敗、選手の判断、観客の期待が凝縮されている。物理的な重さと、意味としての重さ。その二つを重ねる仮想彫刻。\n\nCRITTによる架空の現代美術作品。ブラウザ内の3D表現は試作です。既存の高精細画像を完全再現したものではありません。",
+      "title": "CRITT Museum — Work 02 3D Lab v1.2 | 人体・多視点検証"
+    },
+    "logs": [
+      {
+        "level": "error",
+        "message": "Error: ERROR: 0:2: '\n' : #version directive must occur on the first line of the shader\nERROR: 0:4: 'out' : storage qualifier supported in GLSL ES 3.00 and above only\nERROR: 0:60: 'texture' : no matching overloaded function found\nERROR: 0:60: 'rgb' :  field selection requires structure or vector on left hand side\nERROR: 0:60: '=' : dimension mismatch\nERROR: 0:60: '=' : cannot convert from 'const mediump float' to 'highp 3-component vector of float'\nERROR: 0:166: 'texture' : no matching overloaded function found\nERROR: 0:166: 'return' : function return is not matching type:\nERROR: 0:167: 'texture' : no matching overloaded function found\nERROR: 0:167: 'return' : function return is not matching type:\nERROR: 0:168: 'texture' : no matching overloaded function found\nERROR: 0:168: 'return' : function return is not matching type:\nERROR: 0:169: 'texture' : no matching overloaded function found\nERROR: 0:169: 'return' : function return is not matching type:\nERROR: 0:170: 'texture' : no matching overloaded function found\nERROR: 0:170: 'return' : function return is not matching type:\n\n    at shader (http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:400:143)\n    at http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:401:121\n    at http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html:475:3",
+        "timestamp": "2026-10-28T11:57:44.732Z",
+        "url": "http://127.0.0.1:8000/CRITT/museum/recovered/sources/001/CRITT_Museum_Room01_Gallery_Walk_v0.7.html"
+      }
+    ]
+  },
+  {
+    "id": "002",
+    "variant": "human_pipeline_lab_v1.3",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:13.273Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "text": "CRITT MUSEUM\n作品02｜人体3D 制作検証\n《22ヤードの永遠》— 試験展示（未完成）\n歩く：WASD／矢印キー　見回す：マウスドラッグ、Q / E（左右）、R / F（上下）\n作品は動かさず、鑑賞者が回り込みます。半透明像は実物の彫刻素材に関する予備実験です。\nHUMAN FORM LAB · v1.3\nKhronos公開GLBを取得中…（インターネット接続が必要）\n本物のリグ付き人体モデル\n公開モデルを読み込む\n入口へ戻る\n\n高品質なGLBモデルを追加：\n\n初期サンプル：Khronos / CesiumMan（CC BY 4.0）。本番のアート品質評価にはMakeHuman系などの高精細モデルを使います。\n\n材質比較\n原モデル\n石膏彫刻\n半透明像\n姿勢（リグ付きモデルでのみ有効）\n元の姿勢\n投球動作の概念ポーズ\n\n概念ポーズは骨格ごとに調整が必要な初期値です。現実のボウリングフォームや本番作品の姿勢を保証しません。\n\n骨格の詳細調整（検証用）\n検証情報・モデルの出典",
+      "title": "CRITT Museum | Work 02 — Real Human 3D Lab v1.3"
+    },
+    "logs": []
+  },
+  {
+    "id": "002",
+    "variant": "bowling_lab_v1.5",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:14.196Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "text": "CRITT MUSEUM\n作品02｜投球姿勢の3D検証\n《22ヤードの永遠》— 試験展示（未完成）\n歩く：WASD／矢印キー　見回す：マウスドラッグ、Q / E（左右）、R / F（上下）\n作品は動かさず、鑑賞者が回り込みます。半透明像は質感の試作です。投球動作のフォームは未検証です。\nHUMAN FORM LAB · v1.5\n読み込み成功：Khronos / CesiumMan (CC BY 4.0)\nメッシュ：4,672 三角形 / 骨：19 / スキン付き：1 / IK認識 4/4\n本物のリグ付き人体モデル\n公開モデルを読み込む\n入口へ戻る\n\n高品質なGLBモデルを追加：\n\n検証向き：前回読み込んだMakeHuman系GLB（CC0、ローカル保存したものを再選択）。初期サンプルKhronos / CesiumMan（CC BY 4.0）は動作確認用です。\n\n材質比較\n原モデル\n石膏彫刻\n半透明像\n姿勢（リグ付きモデルでのみ有効）\n元の姿勢\n投球リリース直前（骨名対応版 IK試作）\nIK目標点を表示\n彫刻の向きを変える（検証用）\n骨を自動認識: 手足 4/4 系統。\n認識した骨名を確認する（診断用）\n\n実在の投球動作を参考に、手首・足首の目標位置へ骨格を追従させます（IK）。骨名の表記揺れ（例: upperleg01.L / upperleg01L）を自動認識します。競技上の正確性は未検証です。\n\n骨格の詳細調整（検証用）\n検証情報・モデルの出典",
+      "title": "CRITT Museum | Work 02 — Real Human 3D Lab v1.5"
+    },
+    "logs": []
+  },
+  {
+    "id": "003",
+    "variant": "boundary_rope_lab_v1.9",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:14.712Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "stage",
+          "width": 1440
+        }
+      ],
+      "text": "CRITT MUSEUM　/　WORK 03\n《境界線を引く者》\n3D造形・自由回遊の品質検証 v1.9\nBOUNDARY ROPE / MATERIAL LAB\n\n作品の周囲を実際に歩きながら、ロープの質感を切り替えて比較します。作品自体は回転しません。\n\nA｜滑らかな管（比較基準）\nB｜三つ撚りの縄\nC｜三つ撚り＋線状テクスチャ\nD｜細い撚り糸を束ねた縄（新方式）\n入口へ戻る\n近接位置へ（検証用）\n原画と比較\n操作説明\n\n現在：D / 3束×9本の撚り糸\nロープ：559,062 面（三角形）\n原画：別途生成されたコンセプト画像\n現在：3D試作／姿勢・位置は参考形状\n\n※Dでは三つの太い束それぞれを、さらに9本の細い撚り糸と芯材で構成します。単に溝を描くCとは異なります。原画から裏側の正確な形状は分からないため、推定による試作です。\n\n検証操作（H）\nWASD／矢印キー：前後左右に歩く　Q / E：左右を向く　R / F：見上げる／見下ろす\nマウス・タッチドラッグ：自由に見回す　作品に近づき、横・裏・天井方向から鑑賞できます。",
+      "title": "CRITT Museum | Work 03 — Boundary Rope Lab v1.9"
+    },
+    "logs": []
+  },
+  {
+    "id": "004",
+    "variant": "hybrid_walk_v2.3",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:35.789Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "images": [],
+      "text": "視線の交差を巡る\nガイド回遊\n入口へ戻る\n配置図\nUIを隠す\nWASD・矢印キー：歩く ｜ ドラッグ：見回す ｜ Q/E：左右を向く ｜ R/F：見上げる・見下ろす\n作品の近くで I：プレートを読む ｜ H：操作表示を消す ｜ Esc：ガイド終了\n展示の考え方\n写真の層を歩いて鑑賞する実験です。",
+      "title": "CRITT Museum — Work 04 Hybrid Walk v2.3"
+    },
+    "logs": []
+  },
+  {
+    "id": "005",
+    "variant": "hybrid_walk_v2.4",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:37.499Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "images": [
+        {
+          "id": "referenceImage",
+          "loaded": false
+        }
+      ],
+      "text": "CRITT MUSEUM\n作品05《11の身体》\nELEVEN BODIES — ROOM 03 / 身体と群衆\n身体の間を巡る\nつながりを見る\n入口に戻る\n原画と比較\nUIを隠す\nWASD／矢印キー：歩く　｜　マウスドラッグ：見回す　｜　Q/E：左右　｜　R/F：上下\nG：ガイド開始／停止　｜　L：つながり表示　｜　H：UI非表示　｜　Esc：ガイド終了\n作品そのものは回転しません。鑑賞者が歩いて、身体の間を通り抜けます。\n作品を回転させず、身体の間を歩いて鑑賞します。",
+      "title": "CRITT Museum — Work 05 Eleven Bodies / 2.5D Walk v2.4"
+    },
+    "logs": []
+  },
+  {
+    "id": "006",
+    "variant": "hybrid_walk_v2.5",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:38.231Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "images": [
+        {
+          "id": "fullsrc",
+          "loaded": true
+        }
+      ],
+      "text": "CRITT MUSEUM\n作品06《十万人の声》\nA HUNDRED THOUSAND VOICES · ROOM 03 / 身体と群衆\n光の層を巡る\n中央の静寂へ\n光の反応 ON\n入口へ戻る\n原画と比較\nUIを隠す\nWASD／矢印キー：歩く　｜　ドラッグ：見回す　｜　Q/E：左右　｜　R/F：上下\nG：ガイド回遊　｜　C：中央へ　｜　L：光の反応切替　｜　H：表示切替　｜　Esc：ガイド終了\n※音源は未導入。群衆と静寂を光の密度で表現した検証版です。\nVISUAL SOUND FIELD · NO AUDIO\n外周｜群衆のうねり\n光の密度が高まる場所\n展示室へようこそ。中心へ歩くと光の密度が変化します。",
+      "title": "CRITT Museum｜作品06 十万人の声 — 光の展示試作 v2.5"
+    },
+    "logs": []
+  },
+  {
+    "id": "007",
+    "variant": "hybrid_walk_v2.6",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:39.370Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "images": [],
+      "text": "CRITT MUSEUM\n作品07《スコアカードにない名前》\nUNWRITTEN NAMES · ROOM 04 / 記録と記憶\n記録の回廊を巡る\n空白の中心へ\n近くの資料を見る\n作品情報\n原画と比較\n入口へ戻る\nUIを隠す\nWASD／矢印キー：歩く ｜ ドラッグ：見回す ｜ Q/E：左右 ｜ R/F：見上げる・見下ろす\nG：回廊ガイド ｜ C：中央へ歩く ｜ Enter：近くの資料 ｜ H：UI ｜ Esc：ガイド終了\n※史料風の画像は生成された創作ビジュアルです。実在する試合の証拠資料ではありません。\nDOCUMENTS / ABSENCE\n回廊｜吊り下げられた記録\n史料風の画像へ近づけます\n回廊を歩き、中央の空白へ向かってください。",
+      "title": "CRITT Museum｜作品07 スコアカードにない名前 — ハイブリッド回遊 v2.6"
+    },
+    "logs": []
+  },
+  {
+    "id": "008",
+    "variant": "pulse_wicket_v2.9",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:40.298Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "images": [],
+      "text": "CRITT MUSEUM\n作品08《球の星座》\nCONSTELLATIONS OF THE BALL · ROOM 04 / 記録と記憶\nCONSTELLATIONS · EXPERIMENT\n芸術的変換\n連なり\n脈動\n余白\n光の種類\nすべて\n0\n4\n6\nW\n光の脈動｜強度\n弱\n中\n強\nアウト種別の演出：ON\n得点・アウトの色：ON\nアウトの内訳\nすべてのアウト種別\nCaught / キャッチ\nBowled / ボウルド\nLBW\nRun out / ランアウト\nStumped / スタンプト\nその他（退場等）\n「脈動」に切り替えると重要イベントを順に強調します。\n● Caught：二つの光が収束　◆ Bowled：破裂　▣ LBW：閃光　↗↙ Run out：交差　◎ Stumped：収縮\n一球に近づく\n最寄りの一球を読む\n星の回廊を巡る\n中央へ\n入口へ戻る\nCURATED MATCHES · 名勝負を巡る\n試合を選択\n○ 2016 世界T20決勝｜西インド諸島 vs イングランド（未確認／未収録）\n○ 2022 MCG｜インド vs パキスタン（未確認／未収録）\n○ 2024 佐野｜日本 vs モンゴル（第2戦）（未確認／未収録）\n○ 2024 ワールドカップ｜米国 vs パキスタン（未確認／未収録）\n○ 2024 男子T20W杯決勝｜インド vs 南アフリカ（未確認／未収録）\n○ 2024 女子T20W杯決勝｜NZ vs 南アフリカ（未確認／未収録）\n6試合を選定。公式T20I JSONのZIPを読み込むと選択できます。\n▶ オート展示開始\n次の試合へ\n切替間隔\n10秒 / イニング\n18秒 / イニング\n30秒 / イニング\n手動モード。オートでは各イニングを表示してから次の試合へ。\nCricsheet公式データの取り込み（初回のみ）\nT20国際試合のJSON ZIPを入手\n現在：未読み込み。ZIP内の試合を照合して選びます。\n実際の投球記録が見つかった試合だけ再生します。光の座標は抽象的な作品表現です。\nData: Cricsheet（ODC-BY 1.0）。ライセンス\nオーバーを絞る\n全オーバー\n1オーバー目\n2オーバー目\n3オーバー目\n4オーバー目\n5オーバー目\n6オーバー目\n7オーバー目\n8オーバー目\n9オーバー目\n10オーバー目\n11オーバー目\n12オーバー目\n13オーバー目\n14オーバー目\n15オーバー目\n16オーバー目\n17オーバー目\n18オーバー目\n19オーバー目\n20オーバー目\n\n架空の試作データ｜1イニング・20オーバー／120球（作成データ）\n\n120球表示 / 記録120球\n\n表示：連なり ／ 全オーバー ／ 162ラン（選択イニング合計・記録分）\n\n任意：単一試合のCricsheet形式JSONも読み込めます\n次のイニング\n試作用データへ戻す\n作品情報\nUIを隠す\n\n光の座標は作品独自の抽象表現です。実際の打球の軌道・飛距離・球速を再現したものではありません。オート展示は館内画面を開いている間だけ進みます。\n\nWASD／矢印：歩く ｜ ドラッグ：見回す ｜ Q / E：左右 ｜ R / F：上下\nG：星の回廊を巡る ｜ Enter：最寄りの一球 ｜ Esc：ガイド停止 ｜ H：UI切替\n試作データ　＊ 音源は未実装\n架空の試作データで表示しています",
+      "title": "CRITT Museum｜作品08《球の星座》v2.9"
+    },
+    "logs": []
+  },
+  {
+    "id": "009",
+    "variant": "legacy_dense_panorama_v3.3",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:55.507Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "text": "展示操作",
+      "title": "CRITT Museum — 作品09 重力のないクリケット v3.3"
+    },
+    "logs": []
+  },
+  {
+    "id": "010",
+    "variant": "legacy_boundary_v3.4",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:58:59.360Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "text": "CRITT MUSEUM\n作品10《最後のバウンダリー》\nROOM 05 / THE FINAL BOUNDARY\n展示操作\nWASD／矢印キー：歩く　ドラッグ：見回す\nQ・E：左右　R・F：見上げる／見下ろす　H：表示切替",
+      "title": "CRITT Museum — 作品10《最後のバウンダリー》v3.4"
+    },
+    "logs": []
+  },
+  {
+    "id": "010",
+    "variant": "legacy_redesign_v3.5",
+    "viewport": "1440x1000",
+    "started": "2026-10-28T11:59:01.219Z",
+    "metrics": {
+      "canvases": [
+        {
+          "cssHeight": 1000,
+          "cssWidth": 1440,
+          "height": 1000,
+          "id": "",
+          "width": 1440
+        }
+      ],
+      "text": "CRITT MUSEUM\n作品10《最後のバウンダリー》\nTHE SAME BALL / THREE BOUNDARIES\n展示操作\nFOUR\n境界 68m｜一度着地してから境界を越える\n歩く：WASD／矢印　見回す：ドラッグ・Q/E　上下：R/F\n入口の3つの光の円へ歩いて入ると、別の仮想競技場へ。Hで表示を隠す。",
+      "title": "CRITT Museum — 作品10《最後のバウンダリー》v3.5"
+    },
+    "logs": []
+  }
+]
