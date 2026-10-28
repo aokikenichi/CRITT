@@ -1,0 +1,28 @@
+[
+  {
+    "query": "id=001&variant=gallery_walk_v0.7",
+    "held": true,
+    "text": "この候補の共通接続は保留中です\n\nGLSLコンパイルエラー→2D代替のみ。接続保留。\n\n原本の再制作や不具合の自動修正は行っていません。比較候補メニューで別の版を選択できます。"
+  },
+  {
+    "query": "id=010&variant=legacy_redesign_v3.5",
+    "held": true,
+    "text": "この候補の共通接続は保留中です\n\n入口68m地点の判定が競技場ボタンを上書き。接続保留。\n\n原本の再制作や不具合の自動修正は行っていません。比較候補メニューで別の版を選択できます。"
+  },
+  {
+    "query": "id=999",
+    "returnedToReviewList": true
+  },
+  {
+    "query": "id=009&id=010",
+    "returnedToReviewList": true
+  },
+  {
+    "query": "id=002&variant=unknown",
+    "returnedToReviewList": true
+  },
+  {
+    "query": "id=002&variant=3d_lab_v1.2&variant=bowling_lab_v1.5",
+    "returnedToReviewList": true
+  }
+]

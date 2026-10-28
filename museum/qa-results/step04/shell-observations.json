@@ -1,0 +1,82 @@
+[
+  {
+    "id": "001",
+    "viewport": "1440x1000",
+    "connected": true,
+    "title": "空中で止まった一球",
+    "commonModesVisible": false,
+    "originalsEnabled": false,
+    "frameText": "CRITT MUSEUM\nROOM 01 · WALK THROUGH\n入口に戻る\n参考画像（採用未承認）と比較\n作品情報\n館内案内\n01 / A BALL SUSPENDED IN TIME\n空中で止まった一球\nWASD／矢印：歩く · ドラッグ：上下左右を見回す · Q／E：左右 · R／F：見上げる／見下ろす\nROOM 01 · GALLERY WALK\n右方向へ進むと作品02へ\n視線を動かす\n↶\n↷\n⤒\n⤓\n左右 0°\n上下 +10°\n×\nCRITT MUSEUM · ROOM 01 / 01\n空中で止まった一球\nA Ball Suspended in Time\n\n投じられた一球は、本来なら一瞬で過ぎ去る。ここではその時間が引き延ばされ、巨大化され、空中に静止する。\n\n数秒にも満たない一球に、勝敗、選手の判断、観客の期待が凝縮されている。物理的な重さと、意味としての重さ。その二つを重ねる仮想彫刻。\n\nCRITTによる架空の現代美術作品。ブラウザ内の3D表現は試作です。既存の高精細画像を完全再現したものではありません。\n\n3D QUALITY LAB v1.1 · 作品01 / 比較実験\nA 現行（v0.7）\nB 縫い目の起伏\nC 旧版（v1.0）\nD 改良版（v1.1）\nD：参考画像（採用未承認）由来の微細凹凸＋球面に連続する縫い目を併用。側面・背面は推定表現です。",
+    "logs": []
+  },
+  {
+    "id": "002",
+    "viewport": "1440x1000",
+    "connected": true,
+    "title": "22ヤードの永遠",
+    "commonModesVisible": false,
+    "originalsEnabled": false,
+    "frameText": "CRITT MUSEUM\nROOM 01 · WALK THROUGH\n入口に戻る\n作品02へ（検証用）\n構想画像を見る\n作品情報\n館内案内\n02 / THE 22 YARDS OF ETERNITY\n22ヤードの永遠\nWASD／矢印：歩く · ドラッグ：上下左右を見回す · Q／E：左右 · R／F：見上げる／見下ろす\nROOM 01 · INSTALLATION 02\n歩く距離が、時間の進み方を変える\n作品02の検証位置に移動しました\n視線を動かす\n↶\n↷\n⤒\n⤓\n左右 0°\n上下 +7°\n×\nCRITT MUSEUM · ROOM 01 / 01\n22ヤードの永遠\nThe 22 Yards of Eternity\n\n投球の一瞬を、鑑賞者が歩いてたどる。半透明の身体が時間の断片として並び、進むにつれてひとつの動作に変わってゆく。\n\nここで歩くことは、時間を進めること。立ち止まれば、投球は再び静止する。\n\n元の高精細コンセプト画像から抽出した複数の半透明像を、奥行きのある展示空間に配置した2.5D実験です。人体を完全に立体化したものではありません。\n\nWORK 02 · HUMAN FORM LAB v1.2\nA 現行2.5D\nB 立体ワイヤー彫刻\nC 立体ガラス彫刻\nA：従来の人物切り抜き画像。正面方向の見栄えは高いが、横からは平面です。\n実験UI（完成版では非表示）。作品は固定、鑑賞者が歩いて見回します。",
+    "logs": []
+  },
+  {
+    "id": "003",
+    "viewport": "1440x1000",
+    "connected": true,
+    "title": "境界線を引く者",
+    "commonModesVisible": false,
+    "originalsEnabled": false,
+    "frameText": "CRITT MUSEUM　/　WORK 03\n《境界線を引く者》\n3D造形・自由回遊の品質検証 v1.9\nBOUNDARY ROPE / MATERIAL LAB\n\n作品の周囲を実際に歩きながら、ロープの質感を切り替えて比較します。作品自体は回転しません。\n\nA｜滑らかな管（比較基準）\nB｜三つ撚りの縄\nC｜三つ撚り＋線状テクスチャ\nD｜細い撚り糸を束ねた縄（新方式）\n入口へ戻る\n近接位置へ（検証用）\n参考画像（採用未承認）と比較\n操作説明\n\n現在：D / 3束×9本の撚り糸\nロープ：559,062 面（三角形）\n参考画像（採用未承認）：別途生成されたコンセプト画像\n現在：3D試作／姿勢・位置は参考形状\n\n※Dでは三つの太い束それぞれを、さらに9本の細い撚り糸と芯材で構成します。単に溝を描くCとは異なります。参考画像（採用未承認）から裏側の正確な形状は分からないため、推定による試作です。\n\n検証操作（H）\nWASD／矢印キー：前後左右に歩く　Q / E：左右を向く　R / F：見上げる／見下ろす\nマウス・タッチドラッグ：自由に見回す　作品に近づき、横・裏・天井方向から鑑賞できます。",
+    "logs": []
+  },
+  {
+    "id": "004",
+    "viewport": "1440x1000",
+    "connected": true,
+    "title": "奪い返されたゲーム",
+    "commonModesVisible": false,
+    "originalsEnabled": false,
+    "frameText": "視線の交差を巡る\nガイド回遊\n入口へ戻る\n配置図\nUIを隠す\nWASD・矢印キー：歩く ｜ ドラッグ：見回す ｜ Q/E：左右を向く ｜ R/F：見上げる・見下ろす\n作品の近くで I：プレートを読む ｜ H：操作表示を消す ｜ Esc：ガイド終了\n展示の考え方\n写真の層を歩いて鑑賞する実験です。",
+    "logs": []
+  },
+  {
+    "id": "005",
+    "viewport": "1440x1000",
+    "connected": true,
+    "title": "11の身体",
+    "commonModesVisible": false,
+    "originalsEnabled": false,
+    "frameText": "CRITT MUSEUM\n作品05《11の身体》\nELEVEN BODIES — ROOM 03 / 身体と群衆\n身体の間を巡る\nつながりを見る\n入口に戻る\n参考画像（採用未承認）と比較\nUIを隠す\nWASD／矢印キー：歩く　｜　マウスドラッグ：見回す　｜　Q/E：左右　｜　R/F：上下\nG：ガイド開始／停止　｜　L：つながり表示　｜　H：UI非表示　｜　Esc：ガイド終了\n作品そのものは回転しません。鑑賞者が歩いて、身体の間を通り抜けます。\n作品を回転させず、身体の間を歩いて鑑賞します。",
+    "logs": []
+  },
+  {
+    "id": "006",
+    "viewport": "1440x1000",
+    "connected": true,
+    "title": "十万人の声",
+    "commonModesVisible": false,
+    "originalsEnabled": false,
+    "frameText": "CRITT MUSEUM\n作品06《十万人の声》\nA HUNDRED THOUSAND VOICES · ROOM 03 / 身体と群衆\n光の層を巡る\n中央の静寂へ\n光の反応 ON\n入口へ戻る\n参考画像（採用未承認）と比較\nUIを隠す\nWASD／矢印キー：歩く　｜　ドラッグ：見回す　｜　Q/E：左右　｜　R/F：上下\nG：ガイド回遊　｜　C：中央へ　｜　L：光の反応切替　｜　H：表示切替　｜　Esc：ガイド終了\n※音源は未導入。群衆と静寂を光の密度で表現した検証版です。\nVISUAL SOUND FIELD · NO AUDIO\n外周｜群衆のうねり\n光の密度が高まる場所\n展示室へようこそ。中心へ歩くと光の密度が変化します。",
+    "logs": []
+  },
+  {
+    "id": "007",
+    "viewport": "1440x1000",
+    "connected": true,
+    "title": "スコアカードにない名前",
+    "commonModesVisible": false,
+    "originalsEnabled": false,
+    "frameText": "CRITT MUSEUM\n作品07《スコアカードにない名前》\nUNWRITTEN NAMES · ROOM 04 / 記録と記憶\n記録の回廊を巡る\n空白の中心へ\n近くの資料を見る\n作品情報\n参考画像（採用未承認）と比較\n入口へ戻る\nUIを隠す\nWASD／矢印キー：歩く ｜ ドラッグ：見回す ｜ Q/E：左右 ｜ R/F：見上げる・見下ろす\nG：回廊ガイド ｜ C：中央へ歩く ｜ Enter：近くの資料 ｜ H：UI ｜ Esc：ガイド終了\n※史料風の画像は生成された創作ビジュアルです。実在する試合の証拠資料ではありません。\nDOCUMENTS / ABSENCE\n回廊｜吊り下げられた記録\n史料風の画像へ近づけます\n回廊を歩き、中央の空白へ向かってください。",
+    "logs": []
+  },
+  {
+    "id": "008",
+    "viewport": "1440x1000",
+    "connected": true,
+    "title": "球の星座",
+    "commonModesVisible": false,
+    "originalsEnabled": false,
+    "frameText": "CRITT MUSEUM\n作品08《球の星座》\nCONSTELLATIONS OF THE BALL · ROOM 04 / 記録と記憶\nCONSTELLATIONS · EXPERIMENT\n芸術的変換\n連なり\n脈動\n余白\n光の種類\nすべて\n0\n4\n6\nW\n光の脈動｜強度\n弱\n中\n強\nアウト種別の演出：ON\n得点・アウトの色：ON\nアウトの内訳\nすべてのアウト種別\nCaught / キャッチ\nBowled / ボウルド\nLBW\nRun out / ランアウト\nStumped / スタンプト\nその他（退場等）\n「脈動」に切り替えると重要イベントを順に強調します。\n● Caught：二つの光が収束　◆ Bowled：破裂　▣ LBW：閃光　↗↙ Run out：交差　◎ Stumped：収縮\n一球に近づく\n最寄りの一球を読む\n星の回廊を巡る\n中央へ\n入口へ戻る\nCURATED MATCHES · 名勝負を巡る\n試合を選択\n○ 2016 世界T20決勝｜西インド諸島 vs イングランド（未確認／未収録）\n○ 2022 MCG｜インド vs パキスタン（未確認／未収録）\n○ 2024 佐野｜日本 vs モンゴル（第2戦）（未確認／未収録）\n○ 2024 ワールドカップ｜米国 vs パキスタン（未確認／未収録）\n○ 2024 男子T20W杯決勝｜インド vs 南アフリカ（未確認／未収録）\n○ 2024 女子T20W杯決勝｜NZ vs 南アフリカ（未確認／未収録）\n6試合を選定。公式T20I JSONのZIPを読み込むと選択できます。\n▶ オート展示開始\n次の試合へ\n切替間隔\n10秒 / イニング\n18秒 / イニング\n30秒 / イニング\n手動モード。オートでは各イニングを表示してから次の試合へ。\nCricsheet公式データの取り込み（初回のみ）\nT20国際試合のJSON ZIPを入手\n現在：未読み込み。ZIP内の試合を照合して選びます。\n実際の投球記録が見つかった試合だけ再生します。光の座標は抽象的な作品表現です。\nData: Cricsheet（ODC-BY 1.0）。ライセンス\nオーバーを絞る\n全オーバー\n1オーバー目\n2オーバー目\n3オーバー目\n4オーバー目\n5オーバー目\n6オーバー目\n7オーバー目\n8オーバー目\n9オーバー目\n10オーバー目\n11オーバー目\n12オーバー目\n13オーバー目\n14オーバー目\n15オーバー目\n16オーバー目\n17オーバー目\n18オーバー目\n19オーバー目\n20オーバー目\n\n架空の試作データ｜1イニング・20オーバー／120球（作成データ）\n\n120球表示 / 記録120球\n\n表示：連なり ／ 全オーバー ／ 162ラン（選択イニング合計・記録分）\n\n任意：単一試合のCricsheet形式JSONも読み込めます\n次のイニング\n試作用データへ戻す\n作品情報\nUIを隠す\n\n光の座標は作品独自の抽象表現です。実際の打球の軌道・飛距離・球速を再現したものではありません。オート展示は館内画面を開いている間だけ進みます。\n\nWASD／矢印：歩く ｜ ドラッグ：見回す ｜ Q / E：左右 ｜ R / F：上下\nG：星の回廊を巡る ｜ Enter：最寄りの一球 ｜ Esc：ガイド停止 ｜ H：UI切替\n試作データ　＊ 音源は未実装\n架空の試作データで表示しています",
+    "logs": []
+  }
+]
