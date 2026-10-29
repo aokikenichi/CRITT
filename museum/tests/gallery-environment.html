@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><title>Gallery environment QA fixture</title>
+<p>Production markup with a controlled environment override, only for local QA.</p>
+<script>
+(async()=>{
+ const mode=new URLSearchParams(location.search).get('mode');
+ const overrides={
+  'no-webgl':`const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/i.test(type)?null:original.call(this,type,...args)};`,
+  'reduced':`const original=window.matchMedia.bind(window);window.matchMedia=query=>query==='(prefers-reduced-motion: reduce)'?{matches:true}:original(query);`
+ };
+ if(!overrides[mode])return;
+ const html=await (await fetch('../gallery.html')).text();
+ document.open();document.write(html.replace('<head>','<head><base href="../"><script>'+overrides[mode]+'<\/script>'));document.close();
+})();
+</script>

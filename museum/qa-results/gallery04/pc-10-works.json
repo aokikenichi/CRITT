@@ -1,0 +1,192 @@
+[
+  {
+    "id": "001",
+    "room": "第1展示室 — 静止と時間",
+    "url": "http://127.0.0.1:8000/CRITT/museum/review-work.html?id=001&variant=quality_lab_v1.1",
+    "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+    "dims": {
+      "height": 713,
+      "rect": [
+        1440,
+        758
+      ],
+      "width": 1350
+    },
+    "before": "x -13.600 / z -13.100 / yaw 1.5708 / pitch 0.0000",
+    "frozen": "x -13.600 / z -13.100 / yaw 1.5708 / pitch 0.0000",
+    "after": "x -13.600 / z -13.100 / yaw 1.5708 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "002",
+    "room": "第1展示室 — 静止と時間",
+    "url": "http://127.0.0.1:8000/CRITT/museum/review-work.html?id=002&variant=3d_lab_v1.2",
+    "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+    "dims": {
+      "height": 713,
+      "rect": [
+        1440,
+        758
+      ],
+      "width": 1350
+    },
+    "before": "x -13.600 / z -6.900 / yaw 1.5708 / pitch 0.0000",
+    "frozen": "x -13.600 / z -6.900 / yaw 1.5708 / pitch 0.0000",
+    "after": "x -13.600 / z -6.900 / yaw 1.5708 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "003",
+    "room": "第2展示室 — 線と所有",
+    "url": "http://127.0.0.1:8000/CRITT/museum/review-work.html?id=003&variant=boundary_rope_lab_v1.9",
+    "source": "recovered/sources/003/CRITT_Museum_Work03_Boundary_Rope_3D_Lab_v1.9.html",
+    "dims": {
+      "height": 758,
+      "rect": [
+        1440,
+        758
+      ],
+      "width": 1440
+    },
+    "before": "x 14.600 / z -25.100 / yaw -1.5708 / pitch 0.0000",
+    "frozen": "x 14.600 / z -25.100 / yaw -1.5708 / pitch 0.0000",
+    "after": "x 14.600 / z -25.100 / yaw -1.5708 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "004",
+    "room": "第2展示室 — 線と所有",
+    "url": "http://127.0.0.1:8000/CRITT/museum/review-work.html?id=004&variant=hybrid_walk_v2.3",
+    "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+    "dims": {
+      "height": 758,
+      "rect": [
+        1440,
+        758
+      ],
+      "width": 1440
+    },
+    "before": "x 14.600 / z -18.900 / yaw -1.5708 / pitch 0.0000",
+    "frozen": "x 14.600 / z -18.900 / yaw -1.5708 / pitch 0.0000",
+    "after": "x 14.600 / z -18.900 / yaw -1.5708 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "005",
+    "room": "第3展示室 — 身体と群衆",
+    "url": "http://127.0.0.1:8000/CRITT/museum/review-work.html?id=005&variant=hybrid_walk_v2.4",
+    "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+    "dims": {
+      "height": 758,
+      "rect": [
+        1440,
+        758
+      ],
+      "width": 1440
+    },
+    "before": "x -16.600 / z -37.100 / yaw 1.5708 / pitch 0.0000",
+    "frozen": "x -16.600 / z -37.100 / yaw 1.5708 / pitch 0.0000",
+    "after": "x -16.600 / z -37.100 / yaw 1.5708 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "006",
+    "room": "第3展示室 — 身体と群衆",
+    "url": "http://127.0.0.1:8000/CRITT/museum/review-work.html?id=006&variant=hybrid_walk_v2.5",
+    "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+    "dims": {
+      "height": 758,
+      "rect": [
+        1440,
+        758
+      ],
+      "width": 1440
+    },
+    "before": "x -16.600 / z -30.900 / yaw 1.5708 / pitch 0.0000",
+    "frozen": "x -16.600 / z -30.900 / yaw 1.5708 / pitch 0.0000",
+    "after": "x -16.600 / z -30.900 / yaw 1.5708 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "007",
+    "room": "第4展示室 — 記憶と軌跡",
+    "url": "http://127.0.0.1:8000/CRITT/museum/review-work.html?id=007&variant=hybrid_walk_v2.6",
+    "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+    "dims": {
+      "height": 758,
+      "rect": [
+        1440,
+        758
+      ],
+      "width": 1440
+    },
+    "before": "x 14.600 / z -49.100 / yaw -1.5708 / pitch 0.0000",
+    "frozen": "x 14.600 / z -49.100 / yaw -1.5708 / pitch 0.0000",
+    "after": "x 14.600 / z -49.100 / yaw -1.5708 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "008",
+    "room": "第4展示室 — 記憶と軌跡",
+    "url": "http://127.0.0.1:8000/CRITT/museum/review-work.html?id=008&variant=pulse_wicket_v2.9",
+    "source": "recovered/sources/008/CRITT_Museum_Work08_Pulse_Wicket_Art_v2.9.html",
+    "dims": {
+      "height": 758,
+      "rect": [
+        1440,
+        758
+      ],
+      "width": 1440
+    },
+    "before": "x 14.600 / z -42.900 / yaw -1.5708 / pitch 0.0000",
+    "frozen": "x 14.600 / z -42.900 / yaw -1.5708 / pitch 0.0000",
+    "after": "x 14.600 / z -42.900 / yaw -1.5708 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "009",
+    "room": "第5展示室 — 重力と境界",
+    "url": "http://127.0.0.1:8000/CRITT/museum/work.html?id=009",
+    "source": "works/009/index.html",
+    "dims": {
+      "height": 600,
+      "rect": [
+        1440,
+        599.5
+      ],
+      "width": 1440
+    },
+    "before": "x -5.000 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "frozen": "x -5.000 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "after": "x -5.000 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  },
+  {
+    "id": "010",
+    "room": "第5展示室 — 重力と境界",
+    "url": "http://127.0.0.1:8000/CRITT/museum/work.html?id=010",
+    "source": "works/010/index.html",
+    "dims": {
+      "height": 714,
+      "rect": [
+        1440,
+        714
+      ],
+      "width": 1440
+    },
+    "before": "x 5.000 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "frozen": "x 5.000 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "after": "x 5.000 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "preserved": true,
+    "iframes": 0
+  }
+]
