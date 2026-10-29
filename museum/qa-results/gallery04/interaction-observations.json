@@ -1,0 +1,67 @@
+[
+  {
+    "case": "manual-walk-room1-open001-return",
+    "before": "x -13.680 / z -12.403 / yaw 1.5600 / pitch 0.0000",
+    "frozen": "x -13.680 / z -12.403 / yaw 1.5600 / pitch 0.0000",
+    "after": "x -13.680 / z -12.403 / yaw 1.5600 / pitch 0.0000",
+    "iframeRemoved": true
+  },
+  {
+    "case": "auto-completed",
+    "notice": "館内Autoが完了しました。10作品の前を巡りました。",
+    "manual": "true",
+    "stops": [
+      "001",
+      "002",
+      "003",
+      "004",
+      "005",
+      "006",
+      "007",
+      "008",
+      "009",
+      "010"
+    ]
+  },
+  {
+    "case": "mobile-pad-walk-lobby-corridor-room1",
+    "pose": "x -10.900 / z -10.100 / yaw 0.7600 / pitch 0.0000",
+    "room": "第1展示室 — 静止と時間"
+  },
+  {
+    "case": "mobile-pad-room1-corridor-room2",
+    "pose": "x 10.900 / z -22.200 / yaw 0.0000 / pitch 0.0000",
+    "room": "第2展示室 — 線と所有"
+  },
+  {
+    "case": "mobile-near009-and-browser-back",
+    "before": "x -5.001 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "after": "x -5.001 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "focus": "viewport"
+  },
+  {
+    "case": "forward-reload-return009",
+    "before": "x -5.001 / z -72.500 / yaw 0.0000 / pitch 0.0000",
+    "after": "x -5.001 / z -72.500 / yaw 0.0000 / pitch 0.0000"
+  },
+  {
+    "case": "inner-Esc-does-not-close-gallery-viewer",
+    "viewer": true,
+    "innerModal": "modal"
+  },
+  {
+    "case": "auto-paused-mobile",
+    "before": "x 0.000 / z 6.429 / yaw 0.0000 / pitch 0.0000",
+    "after": "x 0.000 / z 6.429 / yaw 0.0000 / pitch 0.0000",
+    "label": "再開"
+  },
+  {
+    "case": "auto-resume-manual-mobile",
+    "manual": "true"
+  },
+  {
+    "case": "manual-wall-block",
+    "before": "x 2.567 / z -4.951 / yaw 0.0000 / pitch 0.0000",
+    "after": "x 2.567 / z -4.951 / yaw 0.0000 / pitch 0.0000"
+  }
+]

@@ -1,0 +1,12 @@
+✔ specified 10 URLs, allowed defaults, local previews and originals=0 (5.685375ms)
+✔ all 5 rooms connected by continuous collision-safe paths, 10 tour stops (24.092042ms)
+✔ walls block long steps, doorways pass, invalid persisted poses reset (2.533875ms)
+✔ protected source, historical QA, comparison UI and CRITT unchanged (72.837375ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 218.851667
