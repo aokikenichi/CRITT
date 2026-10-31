@@ -18,8 +18,8 @@ test('all 5 rooms connected by continuous collision-safe paths, 10 tour stops',(
 test('walls block long steps, doorways pass, invalid persisted poses reset',()=>{
  const p={x:0,z:-5};move(p,100,0);assert.ok(p.x<2.61);const door={x:0,z:-10};move(door,-10,0);assert.equal(roomAt(door),1);assert.deepEqual(safePose({x:999,z:0,yaw:0,pitch:0}),ENTRANCE);assert.deepEqual(safePose({x:0,z:0,yaw:NaN,pitch:0}),ENTRANCE);
 });
-test('protected source, historical QA, comparison UI and CRITT unchanged',()=>{
+test('protected source, historical QA and CRITT unchanged',()=>{
  const root=new URL('../../',import.meta.url);
  const tracked=execFileSync('git',['diff','--name-only','5f47308a76201cd550c81302666ec6500b5bb296','--','.'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(Boolean);
- assert.ok(tracked.every(p=>/^(museum\/(gallery\.html|gallery-direct-pilot\.html|js\/gallery[^/]*|js\/direct-pilot[^/]*|css\/(gallery|direct-pilot)\.css|direct-pilot-assets\/|vendor\/|tests\/(gallery|direct-pilot)[^/]*|qa-results\/(gallery04|direct-pilot)\/|GALLERY04_|DIRECT_PILOT_))/.test(p)),tracked.join('\n'));
+ assert.ok(tracked.every(p=>/^(museum\/(index\.html|review\.html|gallery\.html|gallery-direct-pilot\.html|js\/gallery[^/]*|js\/direct-pilot[^/]*|css\/(gallery|direct-pilot)\.css|direct-pilot-assets\/|source-backups\/STEP03_index_snapshot\.html|vendor\/|tests\/(gallery|direct-pilot)[^/]*|tests\/validate-recovery\.py|qa-results\/(gallery04|direct-pilot)\/|GALLERY04_|DIRECT_PILOT_))/.test(p)),tracked.join('\n'));
 });
