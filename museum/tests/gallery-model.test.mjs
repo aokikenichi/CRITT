@@ -21,5 +21,5 @@ test('walls block long steps, doorways pass, invalid persisted poses reset',()=>
 test('protected source, historical QA, comparison UI and CRITT unchanged',()=>{
  const root=new URL('../../',import.meta.url);
  const tracked=execFileSync('git',['diff','--name-only','5f47308a76201cd550c81302666ec6500b5bb296','--','.'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(Boolean);
- assert.ok(tracked.every(p=>/^(museum\/(gallery\.html|js\/gallery[^/]*|css\/gallery\.css|vendor\/|tests\/gallery[^/]*|qa-results\/gallery04\/|GALLERY04_))/.test(p)),tracked.join('\n'));
+ assert.ok(tracked.every(p=>/^(museum\/(gallery\.html|gallery-direct-pilot\.html|js\/gallery[^/]*|js\/direct-pilot[^/]*|css\/(gallery|direct-pilot)\.css|direct-pilot-assets\/|vendor\/|tests\/(gallery|direct-pilot)[^/]*|qa-results\/(gallery04|direct-pilot)\/|GALLERY04_|DIRECT_PILOT_))/.test(p)),tracked.join('\n'));
 });

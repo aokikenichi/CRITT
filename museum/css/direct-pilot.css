@@ -1,0 +1,32 @@
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;background:#080b0d;color:#e8e6e0}
+*{box-sizing:border-box}
+html,body,main{width:100%;height:100%;margin:0;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,summary:focus-visible{outline:2px solid #e7cfa5;outline-offset:3px}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+canvas:active{cursor:grabbing}
+canvas:focus-visible{outline:2px solid #e7cfa5;outline-offset:-3px}
+.vignette{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 44%,transparent 45%,rgba(0,0,0,.22) 100%)}
+.masthead{position:fixed;z-index:2;top:max(22px,env(safe-area-inset-top));left:26px;right:26px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.identity{display:flex;align-items:center;gap:12px;padding-top:10px;font-size:10px;letter-spacing:.2em;color:#e9e7e1;text-shadow:0 2px 6px #000}
+.identity b{color:#a99d88;font-weight:400}.identity-rule{width:1px;height:17px;background:#aea99c80}
+nav{display:flex;gap:8px}nav button{border:1px solid #e4ded04a;border-radius:3px;padding:10px 13px;background:#111718b8;backdrop-filter:blur(12px);font-size:11px;letter-spacing:.04em}nav button:hover{background:#3b403ecc}
+.location{position:fixed;z-index:1;left:28px;bottom:max(28px,env(safe-area-inset-bottom));max-width:min(520px,60vw);pointer-events:none;text-shadow:0 2px 8px #000}
+.location-kicker,.dialog-kicker{font-size:10px;letter-spacing:.18em;color:#c4b9a4}.location-kicker span{color:#85857e}
+h1{font:400 clamp(24px,2.5vw,34px)/1.4 Georgia,"Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.12em;margin:9px 0 4px}
+.location p{margin:0;font-size:12px;color:#d0cbc1;line-height:1.8}.location .instructions{margin-top:11px;font-size:10px;letter-spacing:.04em;color:#aaa99f}.instructions span{margin:0 4px;color:#b3a17f}
+.touch-instructions{display:none}
+.room-mark{position:fixed;right:28px;bottom:32px;display:flex;align-items:center;gap:9px;color:#ccc3b1;font:10px Georgia,serif;letter-spacing:.12em;text-shadow:0 1px 5px #000}.room-mark i{width:30px;height:1px;background:#b7ae9a}
+.movement{display:none;position:fixed;z-index:3;right:15px;bottom:max(25px,env(safe-area-inset-bottom));grid-template-columns:repeat(3,45px);gap:4px;touch-action:none}
+.movement button{width:45px;height:45px;border:1px solid #d8d3c96b;border-radius:5px;background:#11191bd6;touch-action:none;user-select:none;font-size:18px;backdrop-filter:blur(8px)}
+.movement button:active,.movement button.held{background:#ded6c65c}.movement button:first-child{grid-column:2}.movement button:nth-child(2){grid-column:1;grid-row:2}.movement button:nth-child(3){grid-column:2;grid-row:2}.movement button:nth-child(4){grid-column:3;grid-row:2}
+.loading,.error{position:fixed;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);max-width:min(520px,88vw);padding:16px 20px;border:1px solid #bdb8aa55;border-radius:4px;background:#111719eb;color:#ebe8df;font-size:13px;line-height:1.8;text-align:center;box-shadow:0 12px 60px #0008}.error{width:min(520px,88vw);border-color:#cf947f;text-align:left;white-space:pre-wrap}.error[hidden],.loading[hidden]{display:none}
+dialog{width:min(680px,calc(100vw - 28px));max-height:min(85vh,900px);padding:30px 36px;border:1px solid #c0b6a35c;background:#171d1e;color:#e7e5de;box-shadow:0 24px 100px #000b}dialog::backdrop{background:#030708c9;backdrop-filter:blur(5px)}
+.dialog-heading{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.dialog-kicker{margin:0 0 12px}h2{margin:0;font:400 28px/1.5 Georgia,"Yu Mincho",serif;letter-spacing:.07em}.dialog-heading button{border:0;background:none;color:#cac5b9;font-size:29px;line-height:1}dialog p{font-size:13px;line-height:1.9;color:#c8c9c2}dialog>p{margin:22px 0}
+.help-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:15px 0 24px;border-bottom:1px solid #c2b9a538}.help-grid h3,.artwork-detail h3{font-size:13px;letter-spacing:.05em;margin:0 0 8px}.help-grid p,.artwork-detail p{margin:0;font-size:12px}
+.artwork-detail{display:grid;grid-template-columns:42px 1fr;gap:10px;padding:25px 0;border-bottom:1px solid #c2b9a538}.artwork-detail>span{color:#bdae93;font:14px Georgia,serif}.artwork-detail h3{font:400 18px/1.5 Georgia,"Yu Mincho",serif}
+details{margin-top:14px;font-size:12px;color:#d2c2a5}summary{cursor:pointer}details img{display:block;max-width:100%;max-height:50vh;margin-top:14px;object-fit:contain}small{display:block;color:#aeb1aa;line-height:1.7;margin-top:8px}
+fieldset{display:flex;flex-wrap:wrap;gap:8px;border:0;padding:0;margin:15px 0 0}legend{font-size:11px;color:#aaa99f;margin-bottom:8px}fieldset button{font-size:11px;padding:8px 10px;border:1px solid #b8b3a469;background:#283032}fieldset button[aria-pressed="true"]{background:#e5decf;color:#1a2020}
+.disclosure{color:#aaa99f;font-size:11px}
+@media(max-width:700px),(pointer:coarse){.masthead{top:max(14px,env(safe-area-inset-top));left:15px;right:15px;display:block}.identity{padding-top:0;font-size:9px}.identity-rule{height:14px}nav{position:absolute;right:0;top:31px}nav button{font-size:10px;padding:9px}.location{left:16px;bottom:max(24px,env(safe-area-inset-bottom));max-width:calc(100vw - 178px)}h1{font-size:22px;margin:7px 0 4px}.location p{font-size:11px}.location .instructions{font-size:10px;line-height:1.6}.desktop-instructions,.room-mark{display:none}.touch-instructions{display:block}.movement{display:grid}dialog{padding:24px 20px}.help-grid{grid-template-columns:1fr;gap:15px}}
+@media(max-width:360px){.location{max-width:calc(100vw - 164px)}.location .instructions{display:none}.movement{grid-template-columns:repeat(3,41px)}.movement button{width:41px;height:41px}}

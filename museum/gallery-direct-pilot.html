@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="球と投球の身体を、同じ空間を歩いて鑑賞する第1展示室のパイロット。">
+  <title>第1展示室 パイロット | CRITT MUSEUM</title>
+  <link rel="stylesheet" href="css/direct-pilot.css">
+</head>
+<body>
+  <main aria-label="CRITT Museum 第1展示室">
+    <canvas id="gallery" tabindex="0" aria-label="入口から球と投球する人物へ歩ける3D展示空間"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header class="masthead">
+      <div class="identity"><span>CRITT MUSEUM</span><span class="identity-rule"></span><span>ROOM 01 <b> / </b> PILOT</span></div>
+      <nav aria-label="展示室の操作">
+        <button id="help-button" type="button">操作・作品について</button>
+        <button id="reset-button" type="button">入口に戻る</button>
+      </nav>
+    </header>
+
+    <div class="location" aria-live="polite">
+      <div class="location-kicker" id="location-kicker">ENTRANCE HALL <span> / </span> ROOM 01</div>
+      <h1 id="location-title">静止と時間</h1>
+      <p id="location-note">球の先、右手の開口部から投球の軌跡へ。</p>
+      <p class="instructions desktop-instructions">WASD / 矢印で歩く <span>·</span> ドラッグで見回す <span>·</span> Q / E で旋回</p>
+      <p class="instructions touch-instructions">矢印を押して歩く <span>·</span> 画面をドラッグして見回す</p>
+    </div>
+    <div class="room-mark" aria-hidden="true"><span>01</span><i></i><span>02</span></div>
+
+    <div class="movement" aria-label="移動操作">
+      <button type="button" data-move="forward" aria-label="前へ進む">↑</button>
+      <button type="button" data-move="left" aria-label="左へ移動">←</button>
+      <button type="button" data-move="back" aria-label="後ろへ進む">↓</button>
+      <button type="button" data-move="right" aria-label="右へ移動">→</button>
+    </div>
+    <div id="loading" class="loading" role="status">展示空間を準備しています…</div>
+    <div id="error" class="error" role="alert" hidden></div>
+  </main>
+
+  <dialog id="help" aria-labelledby="help-title">
+    <div class="dialog-heading">
+      <div><p class="dialog-kicker">CRITT MUSEUM / ROOM 01</p><h2 id="help-title">歩いて、時間を見る。</h2></div>
+      <button id="close-help" type="button" aria-label="閉じる">×</button>
+    </div>
+    <p>入口から球のまわりを歩き、右手の開口部を通ると、投球の連続した身体に出会います。作品を開く操作は必要ありません。</p>
+    <div class="help-grid">
+      <section><h3>パソコン</h3><p>WASD または矢印キーで移動。画面をドラッグして見回します。Q / E で左右、R / F で上下へ視線を動かせます。Shift を押すと速く歩きます。</p></section>
+      <section><h3>タッチ画面</h3><p>右下の矢印を押し続けて移動。展示画面をドラッグすると見回せます。</p></section>
+    </div>
+    <section class="artwork-detail"><span>001</span><div><h3>空中で止まった一球</h3><p>巨大化された一球が空中にとどまり、その一瞬の重さを見せます。正面の質感には参考画像由来の素材を使い、側面と背面は推定表現です。</p>
+      <details><summary>球の参考画像を見る</summary><img src="direct-pilot-assets/ball-reference.jpg" alt="白いクリケットボールの展示構想を示す参考画像"><small>元のラボに埋め込まれた参考画像。正式承認原画ではありません。</small></details></div></section>
+    <section class="artwork-detail"><span>002</span><div><h3>22ヤードの永遠</h3><p>ひとつの投球動作を5つの立体的な姿勢として配置。歩く距離と視点によって、身体の重なりが変わります。</p>
+      <fieldset><legend>人物の立体表現</legend><button type="button" data-figure="2" aria-pressed="true">半透明の彫刻</button><button type="button" data-figure="1" aria-pressed="false">発光ワイヤー</button></fieldset>
+      <details><summary>投球の構想画像を見る</summary><img src="direct-pilot-assets/bowling-reference.jpg" alt="投球動作の展示構想を示す参考画像"><small>元のラボに埋め込まれた構想画像。正式承認原画ではありません。</small></details></div></section>
+    <p class="disclosure">このパイロットは元の002 v1.2の球と立体人物の試作を基にしています。人物は画像から再現した人体モデルではなく、元のラボに含まれる立体表現です。</p>
+  </dialog>
+  <script type="module" src="js/direct-pilot.js"></script>
+</body>
+</html>

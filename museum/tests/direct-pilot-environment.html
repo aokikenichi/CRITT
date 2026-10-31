@@ -1,0 +1,13 @@
+<!doctype html><meta charset="utf-8"><title>Direct pilot environment QA fixture</title>
+<p>Local QA fixture: the production page with WebGL 2 deliberately unavailable.</p>
+<script>
+(async () => {
+  const response = await fetch('../gallery-direct-pilot.html');
+  if (!response.ok) throw new Error(`Fixture could not load page: ${response.status}`);
+  const html = await response.text();
+  const override = `const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return type==='webgl2'?null:original.call(this,type,...args)};`;
+  document.open();
+  document.write(html.replace('<head>', '<head><base href="../"><script>' + override + '<\/script>'));
+  document.close();
+})();
+</script>
