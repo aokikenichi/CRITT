@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "created_from": {
+    "repository": "aokikenichi/CRITT",
+    "branch": "codex/museum-ten-exhibits-v2",
+    "commit": "199cb03c97102cf22c2f1adfff9ee9c89a88d0b0"
+  },
+  "purpose": "One stable location for all ten selected source HTML files (001-010), preserving original Git blobs",
+  "notes": "Source snapshots, not assertion that 001-002 rebuild or full museum walkthrough is finished. Some HTML versions use CDN dependencies.",
+  "items": [
+    {
+      "id": "001",
+      "title": "空中で止まった一球",
+      "source_path": "museum/recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+      "collection_path": "museum/collection/001/index.html",
+      "git_blob_sha": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+      "size_bytes": 3746930
+    },
+    {
+      "id": "002",
+      "title": "22ヤードの永遠",
+      "source_path": "museum/recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+      "collection_path": "museum/collection/002/index.html",
+      "git_blob_sha": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+      "size_bytes": 3757372
+    },
+    {
+      "id": "003",
+      "title": "境界線を引く者",
+      "source_path": "museum/recovered/sources/003/CRITT_Museum_Work03_Boundary_Rope_3D_Lab_v1.9.html",
+      "collection_path": "museum/collection/003/index.html",
+      "git_blob_sha": "53a180529389326854095bfc8580ca4fd6e1e672",
+      "size_bytes": 138438
+    },
+    {
+      "id": "004",
+      "title": "奪い返されたゲーム",
+      "source_path": "museum/recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+      "collection_path": "museum/collection/004/index.html",
+      "git_blob_sha": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+      "size_bytes": 2060972
+    },
+    {
+      "id": "005",
+      "title": "11の身体",
+      "source_path": "museum/recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+      "collection_path": "museum/collection/005/index.html",
+      "git_blob_sha": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+      "size_bytes": 1229291
+    },
+    {
+      "id": "006",
+      "title": "十万人の声",
+      "source_path": "museum/recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+      "collection_path": "museum/collection/006/index.html",
+      "git_blob_sha": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+      "size_bytes": 1188170
+    },
+    {
+      "id": "007",
+      "title": "スコアカードにない名前",
+      "source_path": "museum/recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+      "collection_path": "museum/collection/007/index.html",
+      "git_blob_sha": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+      "size_bytes": 556448
+    },
+    {
+      "id": "008",
+      "title": "球の星座",
+      "source_path": "museum/recovered/sources/008/CRITT_Museum_Work08_Pulse_Wicket_Art_v2.9.html",
+      "collection_path": "museum/collection/008/index.html",
+      "git_blob_sha": "1ffa577e1017713b57ace61d6270016159fa5c17",
+      "size_bytes": 596956
+    },
+    {
+      "id": "009",
+      "title": "重力のないクリケット",
+      "source_path": "museum/works/009/index.html",
+      "collection_path": "museum/collection/009/index.html",
+      "git_blob_sha": "ef621b237d7cd651c20d66df6f4e267c6b266126",
+      "size_bytes": 1820624
+    },
+    {
+      "id": "010",
+      "title": "最後のバウンダリー",
+      "source_path": "museum/works/010/index.html",
+      "collection_path": "museum/collection/010/index.html",
+      "git_blob_sha": "e00edaaeb772d49be1df8eb03f40fd348e717cef",
+      "size_bytes": 32459
+    }
+  ]
+}
