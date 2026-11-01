@@ -1,0 +1,433 @@
+{
+  "active": "007",
+  "exhibits": [
+    {
+      "entered": false,
+      "id": "001",
+      "loaded": true,
+      "materialMode": 3,
+      "objects": 2,
+      "photo": true,
+      "vertices": 1255,
+      "visible": false
+    },
+    {
+      "entered": false,
+      "figureMode": "A",
+      "id": "002",
+      "layers": 5,
+      "loaded": true,
+      "objects": 5,
+      "vertices": 20,
+      "visible": false,
+      "worldFixed": true
+    },
+    {
+      "entered": false,
+      "id": "003",
+      "loaded": true,
+      "material": "3束×9本の撚り糸",
+      "objects": 1,
+      "triangles": 559062,
+      "vertices": 324120,
+      "visible": false
+    },
+    {
+      "entered": false,
+      "id": "004",
+      "layers": 11,
+      "loaded": true,
+      "objects": 96,
+      "stations": 3,
+      "vertices": 2306,
+      "visible": false
+    },
+    {
+      "bodies": 11,
+      "entered": false,
+      "id": "005",
+      "loaded": true,
+      "objects": 56,
+      "relations": false,
+      "vertices": 2262,
+      "visible": true
+    },
+    {
+      "entered": false,
+      "filaments": 86,
+      "id": "006",
+      "loaded": true,
+      "objects": 131,
+      "particles": 4200,
+      "reflect": true,
+      "scrims": 12,
+      "vertices": 10725,
+      "visible": true
+    },
+    {
+      "blankSheets": 13,
+      "documents": 20,
+      "entered": true,
+      "id": "007",
+      "loaded": true,
+      "objects": 162,
+      "vertices": 4568,
+      "visible": true
+    },
+    {
+      "balls": 120,
+      "curatedFound": 0,
+      "demo": true,
+      "entered": false,
+      "events": 25,
+      "id": "008",
+      "inning": 0,
+      "innings": [],
+      "loaded": true,
+      "matches": [],
+      "mode": "trace",
+      "objects": 146,
+      "overs": [
+        [
+          "0",
+          "1オーバー目"
+        ],
+        [
+          "1",
+          "2オーバー目"
+        ],
+        [
+          "2",
+          "3オーバー目"
+        ],
+        [
+          "3",
+          "4オーバー目"
+        ],
+        [
+          "4",
+          "5オーバー目"
+        ],
+        [
+          "5",
+          "6オーバー目"
+        ],
+        [
+          "6",
+          "7オーバー目"
+        ],
+        [
+          "7",
+          "8オーバー目"
+        ],
+        [
+          "8",
+          "9オーバー目"
+        ],
+        [
+          "9",
+          "10オーバー目"
+        ],
+        [
+          "10",
+          "11オーバー目"
+        ],
+        [
+          "11",
+          "12オーバー目"
+        ],
+        [
+          "12",
+          "13オーバー目"
+        ],
+        [
+          "13",
+          "14オーバー目"
+        ],
+        [
+          "14",
+          "15オーバー目"
+        ],
+        [
+          "15",
+          "16オーバー目"
+        ],
+        [
+          "16",
+          "17オーバー目"
+        ],
+        [
+          "17",
+          "18オーバー目"
+        ],
+        [
+          "18",
+          "19オーバー目"
+        ],
+        [
+          "19",
+          "20オーバー目"
+        ]
+      ],
+      "shown": 120,
+      "vertices": 26542,
+      "visible": true
+    },
+    {
+      "balls": 12,
+      "bats": 9,
+      "dense": true,
+      "entered": false,
+      "gravity": 1,
+      "id": "009",
+      "islands": 17,
+      "loaded": true,
+      "objects": 174,
+      "rocks": 28,
+      "spatial": true,
+      "target": 1,
+      "vertices": 1990,
+      "visible": true
+    },
+    {
+      "crossCount": 0,
+      "entered": false,
+      "footprints": 0,
+      "ghosts": 0,
+      "id": "010",
+      "loaded": true,
+      "objects": 40,
+      "phrases": 0,
+      "quiet": false,
+      "vertices": 14212,
+      "visible": true
+    }
+  ],
+  "failures": [],
+  "fps": 60,
+  "highlight": 18,
+  "mode": "auto",
+  "paused": true,
+  "phase": "dwell",
+  "pitch": 0.4491868448680413,
+  "position": [
+    -7,
+    1.7,
+    -203
+  ],
+  "ready": true,
+  "room": 4,
+  "scope": "all",
+  "visits": [
+    {
+      "highlight": 0,
+      "id": "001",
+      "position": [
+        0,
+        1.7,
+        8
+      ],
+      "time": "2026-11-01T00:55:23.836Z",
+      "title": "止まった時間"
+    },
+    {
+      "highlight": 1,
+      "id": "001",
+      "position": [
+        5,
+        1.7,
+        1
+      ],
+      "time": "2026-11-01T00:55:26.518Z",
+      "title": "縫い目を横から"
+    },
+    {
+      "highlight": 2,
+      "id": "001",
+      "position": [
+        -3,
+        1.7,
+        -5
+      ],
+      "time": "2026-11-01T00:55:29.468Z",
+      "title": "見えない裏側"
+    },
+    {
+      "highlight": 0,
+      "id": "002",
+      "position": [
+        30,
+        1.7,
+        7
+      ],
+      "time": "2026-11-01T00:55:38.669Z",
+      "title": "運動の連なり"
+    },
+    {
+      "highlight": 1,
+      "id": "002",
+      "position": [
+        43,
+        1.7,
+        5
+      ],
+      "time": "2026-11-01T00:55:41.867Z",
+      "title": "瞬間の間を歩く"
+    },
+    {
+      "highlight": 2,
+      "id": "002",
+      "position": [
+        58,
+        1.7,
+        -6
+      ],
+      "time": "2026-11-01T00:55:45.535Z",
+      "title": "反対側からの時間"
+    },
+    {
+      "highlight": 0,
+      "id": "003",
+      "position": [
+        3,
+        1.7,
+        -59
+      ],
+      "time": "2026-11-01T00:55:55.851Z",
+      "title": "足元から始まる線"
+    },
+    {
+      "highlight": 1,
+      "id": "003",
+      "position": [
+        -6,
+        1.7,
+        -65
+      ],
+      "time": "2026-11-01T00:55:58.734Z",
+      "title": "境界の立ち上がり"
+    },
+    {
+      "highlight": 2,
+      "id": "003",
+      "position": [
+        6,
+        1.7,
+        -68
+      ],
+      "time": "2026-11-01T00:56:01.800Z",
+      "title": "頭上の輪"
+    },
+    {
+      "highlight": 0,
+      "id": "004",
+      "position": [
+        51.7,
+        1.7,
+        -58.2
+      ],
+      "time": "2026-11-01T00:56:33.521Z",
+      "title": "受け渡された形と、溶けゆく形"
+    },
+    {
+      "highlight": 1,
+      "id": "004",
+      "position": [
+        38.2,
+        1.7,
+        -64.6
+      ],
+      "time": "2026-11-01T00:56:36.787Z",
+      "title": "硬い道具と、柔らかな抵抗"
+    },
+    {
+      "highlight": 2,
+      "id": "004",
+      "position": [
+        41.5,
+        1.7,
+        -69.3
+      ],
+      "time": "2026-11-01T00:56:39.287Z",
+      "title": "不在と、残された響き"
+    },
+    {
+      "highlight": 0,
+      "id": "005",
+      "position": [
+        -2.8,
+        1.7,
+        -129.6
+      ],
+      "time": "2026-11-01T00:56:49.471Z",
+      "title": "空へ投げる身体"
+    },
+    {
+      "highlight": 1,
+      "id": "005",
+      "position": [
+        0,
+        1.7,
+        -134.2
+      ],
+      "time": "2026-11-01T00:56:51.987Z",
+      "title": "打つ身体と、その周囲"
+    },
+    {
+      "highlight": 2,
+      "id": "005",
+      "position": [
+        1.4,
+        1.7,
+        -150.1
+      ],
+      "time": "2026-11-01T00:56:55.372Z",
+      "title": "飛び上がる身体"
+    },
+    {
+      "highlight": 0,
+      "id": "006",
+      "position": [
+        37.5,
+        1.7,
+        -135.3
+      ],
+      "time": "2026-11-01T00:57:05.304Z",
+      "title": "群衆のうねり"
+    },
+    {
+      "highlight": 1,
+      "id": "006",
+      "position": [
+        41,
+        1.7,
+        -146.8
+      ],
+      "time": "2026-11-01T00:57:08.304Z",
+      "title": "ひとつの声の間へ"
+    },
+    {
+      "highlight": 2,
+      "id": "006",
+      "position": [
+        46,
+        1.7,
+        -138.8
+      ],
+      "time": "2026-11-01T00:57:11.287Z",
+      "title": "中央の静寂"
+    },
+    {
+      "highlight": 0,
+      "id": "007",
+      "position": [
+        -7,
+        1.7,
+        -203
+      ],
+      "time": "2026-11-01T00:57:22.287Z",
+      "title": "記録の回廊"
+    }
+  ],
+  "yaw": 0.3782087080424227
+}

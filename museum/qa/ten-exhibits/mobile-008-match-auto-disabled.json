@@ -1,0 +1,118 @@
+{
+  "disabled": true,
+  "state": {
+    "balls": 120,
+    "curatedFound": 0,
+    "currentMatch": "",
+    "dataAuto": false,
+    "demo": true,
+    "dwellSeconds": 30,
+    "entered": true,
+    "events": 25,
+    "id": "008",
+    "inning": 0,
+    "innings": [],
+    "loaded": true,
+    "matches": [],
+    "mode": "trace",
+    "objects": 146,
+    "overs": [
+      [
+        "0",
+        "1オーバー目"
+      ],
+      [
+        "1",
+        "2オーバー目"
+      ],
+      [
+        "2",
+        "3オーバー目"
+      ],
+      [
+        "3",
+        "4オーバー目"
+      ],
+      [
+        "4",
+        "5オーバー目"
+      ],
+      [
+        "5",
+        "6オーバー目"
+      ],
+      [
+        "6",
+        "7オーバー目"
+      ],
+      [
+        "7",
+        "8オーバー目"
+      ],
+      [
+        "8",
+        "9オーバー目"
+      ],
+      [
+        "9",
+        "10オーバー目"
+      ],
+      [
+        "10",
+        "11オーバー目"
+      ],
+      [
+        "11",
+        "12オーバー目"
+      ],
+      [
+        "12",
+        "13オーバー目"
+      ],
+      [
+        "13",
+        "14オーバー目"
+      ],
+      [
+        "14",
+        "15オーバー目"
+      ],
+      [
+        "15",
+        "16オーバー目"
+      ],
+      [
+        "16",
+        "17オーバー目"
+      ],
+      [
+        "17",
+        "18オーバー目"
+      ],
+      [
+        "18",
+        "19オーバー目"
+      ],
+      [
+        "19",
+        "20オーバー目"
+      ]
+    ],
+    "shown": 120,
+    "values": {
+      "autoMatches": false,
+      "dismissal": "all",
+      "filter": "all",
+      "inning": "0",
+      "intensity": "high",
+      "match": "",
+      "mode": "trace",
+      "over": "all",
+      "scoreColors": true,
+      "sourceDwell": "30",
+      "wicketKinds": true
+    },
+    "vertices": 26542,
+    "visible": true
+  }
+}

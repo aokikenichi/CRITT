@@ -1,0 +1,97 @@
+[
+  {
+    "selection": "1",
+    "state": {
+      "balls": 12,
+      "bats": 9,
+      "dense": true,
+      "entered": true,
+      "gravity": 2.628749373342466e-13,
+      "id": "009",
+      "islands": 17,
+      "loaded": true,
+      "objects": 202,
+      "rocks": 28,
+      "spatial": false,
+      "target": 1,
+      "vertices": 1236,
+      "visible": true
+    }
+  },
+  {
+    "selection": "0.25",
+    "state": {
+      "balls": 12,
+      "bats": 9,
+      "dense": true,
+      "entered": true,
+      "gravity": 2.628749373342466e-13,
+      "id": "009",
+      "islands": 17,
+      "loaded": true,
+      "objects": 202,
+      "rocks": 28,
+      "spatial": false,
+      "target": 0.25,
+      "vertices": 1236,
+      "visible": true
+    }
+  },
+  {
+    "selection": "0",
+    "state": {
+      "balls": 12,
+      "bats": 9,
+      "dense": true,
+      "entered": true,
+      "gravity": 2.628749373342466e-13,
+      "id": "009",
+      "islands": 17,
+      "loaded": true,
+      "objects": 202,
+      "rocks": 28,
+      "spatial": false,
+      "target": 0,
+      "vertices": 1236,
+      "visible": true
+    }
+  },
+  {
+    "selection": "-1",
+    "state": {
+      "balls": 12,
+      "bats": 9,
+      "dense": true,
+      "entered": true,
+      "gravity": 2.628749373342466e-13,
+      "id": "009",
+      "islands": 17,
+      "loaded": true,
+      "objects": 202,
+      "rocks": 28,
+      "spatial": false,
+      "target": -1,
+      "vertices": 1236,
+      "visible": true
+    }
+  },
+  {
+    "selection": "spatial",
+    "state": {
+      "balls": 12,
+      "bats": 9,
+      "dense": true,
+      "entered": true,
+      "gravity": 2.628749373342466e-13,
+      "id": "009",
+      "islands": 17,
+      "loaded": true,
+      "objects": 202,
+      "rocks": 28,
+      "spatial": true,
+      "target": 0,
+      "vertices": 1236,
+      "visible": true
+    }
+  }
+]

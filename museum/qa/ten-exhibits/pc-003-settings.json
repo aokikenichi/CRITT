@@ -1,0 +1,54 @@
+[
+  {
+    "level": "0",
+    "state": {
+      "entered": true,
+      "id": "003",
+      "loaded": true,
+      "material": "3束×9本の撚り糸",
+      "objects": 1,
+      "triangles": 44370,
+      "vertices": 23680,
+      "visible": true
+    }
+  },
+  {
+    "level": "1",
+    "state": {
+      "entered": true,
+      "id": "003",
+      "loaded": true,
+      "material": "3束×9本の撚り糸",
+      "objects": 1,
+      "triangles": 97614,
+      "vertices": 53280,
+      "visible": true
+    }
+  },
+  {
+    "level": "2",
+    "state": {
+      "entered": true,
+      "id": "003",
+      "loaded": true,
+      "material": "3束×9本の撚り糸",
+      "objects": 1,
+      "triangles": 88740,
+      "vertices": 48840,
+      "visible": true
+    }
+  },
+  {
+    "level": "3",
+    "state": {
+      "entered": true,
+      "id": "003",
+      "loaded": true,
+      "material": "3束×9本の撚り糸",
+      "objects": 1,
+      "triangles": 559062,
+      "vertices": 324120,
+      "visible": true
+    }
+  }
+]

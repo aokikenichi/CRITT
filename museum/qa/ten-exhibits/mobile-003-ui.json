@@ -1,0 +1,15 @@
+{
+  "id": "003",
+  "viewport": "mobile",
+  "details": "太いロープが床を辿り、壁に沿って立ち上がり、頭上で大きな輪を描きます。元v1.9の曲線、移動フレーム、3束×9本の撚り糸をそのまま移植。材質比較で、滑らかな管から実形状の撚り糸まで切り替えられます。",
+  "image": {
+    "image": {
+      "complete": true,
+      "src": "exhibition-assets/003/01.jpg",
+      "width": 650
+    },
+    "text": "1 / 1 — 元HTML内の制作参考画像・展示レイヤー拡大全体制作参考画像（正式原画としては未確認）元HTML内の制作参考画像・展示レイヤー出所：museum/recovered/sources/003/CRITT_Museum_Work03_Boundary_Rope_3D_Lab_v1.9.html · 行14埋め込み実データ 86,763 bytes / image/jpegSHA-256: 235a6d8df32d8f971fa92defedfc57f09d8386fe79122c757ec0537cf32e71cf画像ファイルを開く"
+  },
+  "positionPreserved": true,
+  "focus": "details"
+}

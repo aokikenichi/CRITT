@@ -1,0 +1,15 @@
+{
+  "id": "002",
+  "viewport": "pc",
+  "details": "投げる、構える、打つ。ひとつの運動が5つの瞬間へほどけ、歩く位置によって再び重なります。元v1.2のfigureMode Aに含まれる5枚の透過人物画像を、元の大きさ・間隔・面の向きで配置しています。人物は鑑賞者に追従して回転しません。初期展示は2.5Dの画像レイヤーです。",
+  "image": {
+    "image": {
+      "complete": true,
+      "src": "exhibition-assets/002/08.jpg",
+      "width": 1120
+    },
+    "text": "1 / 6 — 初期構想画像2 / 6 — 人物透過レイヤー 1 / figureMode A3 / 6 — 人物透過レイヤー 2 / figureMode A4 / 6 — 人物透過レイヤー 3 / figureMode A5 / 6 — 人物透過レイヤー 4 / figureMode A6 / 6 — 人物透過レイヤー 5 / figureMode A拡大全体制作参考画像（正式原画としては未確認）初期構想画像出所：museum/recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html · 行82埋め込み実データ 227,659 bytes / image/jpegSHA-256: 6d94d9d2ae669bc2bb1528cbd2518467f57e51085eab8ed9d78a585355600a47画像ファイルを開く"
+  },
+  "positionPreserved": true,
+  "focus": "details"
+}

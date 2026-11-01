@@ -1,0 +1,15 @@
+{
+  "id": "008",
+  "viewport": "mobile",
+  "details": "元v2.9の創作120球を、投球順のらせん・オーバー番号の高さ・得点とアウトの色と形へ変換します。光の位置は象徴的な配置で、実際の打球軌道ではありません。初期データは実試合ではなく架空。連なり・脈動・余白、種別フィルターを切り替えられ、手元のCricsheet JSONも読み込めます。",
+  "image": {
+    "image": {
+      "complete": true,
+      "src": "exhibition-assets/008/01.webp",
+      "width": 1150
+    },
+    "text": "1 / 3 — 元HTML内の制作参考画像・展示レイヤー2 / 3 — 元HTML内の制作参考画像・展示レイヤー3 / 3 — 元HTML内の制作参考画像・展示レイヤー拡大全体制作参考画像（正式原画としては未確認）元HTML内の制作参考画像・展示レイヤー出所：museum/recovered/sources/008/CRITT_Museum_Work08_Pulse_Wicket_Art_v2.9.html · 行69埋め込み実データ 178,516 bytes / image/webpSHA-256: d9a0842eee92a78c5623d4b2c859de5e779dd8892dd904582da88bb08160668d画像ファイルを開く"
+  },
+  "positionPreserved": true,
+  "focus": "details"
+}

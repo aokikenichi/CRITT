@@ -1,0 +1,268 @@
+{
+  "active": "002",
+  "exhibits": [
+    {
+      "entered": false,
+      "id": "001",
+      "loaded": true,
+      "materialMode": 3,
+      "objects": 2,
+      "photo": true,
+      "vertices": 1255,
+      "visible": true
+    },
+    {
+      "entered": true,
+      "figureMode": "A",
+      "id": "002",
+      "layers": 5,
+      "loaded": true,
+      "objects": 5,
+      "vertices": 20,
+      "visible": true,
+      "worldFixed": true
+    },
+    {
+      "entered": false,
+      "id": "003",
+      "loaded": true,
+      "material": "3束×9本の撚り糸",
+      "objects": 1,
+      "triangles": 559062,
+      "vertices": 324120,
+      "visible": true
+    },
+    {
+      "entered": false,
+      "id": "004",
+      "layers": 11,
+      "loaded": true,
+      "objects": 96,
+      "stations": 3,
+      "vertices": 2306,
+      "visible": true
+    },
+    {
+      "bodies": 11,
+      "entered": false,
+      "id": "005",
+      "loaded": true,
+      "objects": 56,
+      "relations": false,
+      "vertices": 2262,
+      "visible": false
+    },
+    {
+      "entered": false,
+      "filaments": 86,
+      "id": "006",
+      "loaded": true,
+      "objects": 131,
+      "particles": 4200,
+      "reflect": true,
+      "scrims": 12,
+      "vertices": 10725,
+      "visible": false
+    },
+    {
+      "blankSheets": 13,
+      "documents": 20,
+      "entered": false,
+      "id": "007",
+      "loaded": true,
+      "objects": 162,
+      "vertices": 4568,
+      "visible": false
+    },
+    {
+      "balls": 120,
+      "curatedFound": 0,
+      "demo": true,
+      "entered": false,
+      "events": 25,
+      "id": "008",
+      "inning": 0,
+      "innings": [],
+      "loaded": true,
+      "matches": [],
+      "mode": "trace",
+      "objects": 146,
+      "overs": [
+        [
+          "0",
+          "1オーバー目"
+        ],
+        [
+          "1",
+          "2オーバー目"
+        ],
+        [
+          "2",
+          "3オーバー目"
+        ],
+        [
+          "3",
+          "4オーバー目"
+        ],
+        [
+          "4",
+          "5オーバー目"
+        ],
+        [
+          "5",
+          "6オーバー目"
+        ],
+        [
+          "6",
+          "7オーバー目"
+        ],
+        [
+          "7",
+          "8オーバー目"
+        ],
+        [
+          "8",
+          "9オーバー目"
+        ],
+        [
+          "9",
+          "10オーバー目"
+        ],
+        [
+          "10",
+          "11オーバー目"
+        ],
+        [
+          "11",
+          "12オーバー目"
+        ],
+        [
+          "12",
+          "13オーバー目"
+        ],
+        [
+          "13",
+          "14オーバー目"
+        ],
+        [
+          "14",
+          "15オーバー目"
+        ],
+        [
+          "15",
+          "16オーバー目"
+        ],
+        [
+          "16",
+          "17オーバー目"
+        ],
+        [
+          "17",
+          "18オーバー目"
+        ],
+        [
+          "18",
+          "19オーバー目"
+        ],
+        [
+          "19",
+          "20オーバー目"
+        ]
+      ],
+      "shown": 120,
+      "vertices": 26542,
+      "visible": false
+    },
+    {
+      "balls": 12,
+      "bats": 9,
+      "dense": true,
+      "entered": false,
+      "gravity": 1,
+      "id": "009",
+      "islands": 17,
+      "loaded": true,
+      "objects": 174,
+      "rocks": 28,
+      "spatial": true,
+      "target": 1,
+      "vertices": 1990,
+      "visible": false
+    },
+    {
+      "crossCount": 0,
+      "entered": false,
+      "footprints": 0,
+      "ghosts": 0,
+      "id": "010",
+      "loaded": true,
+      "objects": 40,
+      "phrases": 0,
+      "quiet": false,
+      "vertices": 14212,
+      "visible": false
+    }
+  ],
+  "failures": [],
+  "fps": 60,
+  "highlight": 3,
+  "mode": "auto",
+  "paused": true,
+  "phase": "dwell",
+  "pitch": 0.09926552747469285,
+  "position": [
+    30,
+    1.7,
+    7
+  ],
+  "ready": true,
+  "room": 1,
+  "scope": "all",
+  "visits": [
+    {
+      "highlight": 0,
+      "id": "001",
+      "position": [
+        0,
+        1.7,
+        8
+      ],
+      "time": "2026-11-01T00:55:23.836Z",
+      "title": "止まった時間"
+    },
+    {
+      "highlight": 1,
+      "id": "001",
+      "position": [
+        5,
+        1.7,
+        1
+      ],
+      "time": "2026-11-01T00:55:26.518Z",
+      "title": "縫い目を横から"
+    },
+    {
+      "highlight": 2,
+      "id": "001",
+      "position": [
+        -3,
+        1.7,
+        -5
+      ],
+      "time": "2026-11-01T00:55:29.468Z",
+      "title": "見えない裏側"
+    },
+    {
+      "highlight": 0,
+      "id": "002",
+      "position": [
+        30,
+        1.7,
+        7
+      ],
+      "time": "2026-11-01T00:55:38.669Z",
+      "title": "運動の連なり"
+    }
+  ],
+  "yaw": -5.277842225112682
+}

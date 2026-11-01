@@ -1,0 +1,15 @@
+{
+  "id": "001",
+  "viewport": "mobile",
+  "details": "本来なら一瞬で過ぎ去る一球の時間を引き延ばし、巨大な白球として空中に留めます。勝敗、判断、観客の期待が凝縮された重さを、表面の傷と縫い目から読み取る展示です。元v1.1の写真テクスチャ、革の微細法線、全周の縫い目の式を使用しています。裏側は元作品と同じ手続き的推定です。複合ソース中の人物像は002だけに配置しています。",
+  "image": {
+    "image": {
+      "complete": true,
+      "src": "exhibition-assets/001/01.jpg",
+      "width": 1122
+    },
+    "text": "1 / 3 — 初期構想画像2 / 3 — 球面の写真テクスチャ3 / 3 — 革の微細法線拡大全体制作参考画像（正式原画としては未確認）初期構想画像出所：museum/recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html · 行69埋め込み実データ 157,471 bytes / image/jpegSHA-256: cfceadcb974d68fbda0dc5300dbc19646659862e9f117708682f26ea4a8b74bf画像ファイルを開く"
+  },
+  "positionPreserved": true,
+  "focus": "details"
+}

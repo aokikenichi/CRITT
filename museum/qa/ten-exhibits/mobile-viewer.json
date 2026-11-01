@@ -1,0 +1,19 @@
+{
+  "zoom": {
+    "position": [
+      53,
+      1.7,
+      -204
+    ],
+    "stage": {
+      "clientWidth": 325,
+      "scrollWidth": 1298
+    },
+    "value": "4"
+  },
+  "second": {
+    "complete": true,
+    "src": "exhibition-assets/008/02.webp",
+    "width": 500
+  }
+}

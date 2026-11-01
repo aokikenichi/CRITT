@@ -1,0 +1,50 @@
+[
+  {
+    "case": "after-three-viewpoints",
+    "state": {
+      "crossCount": 2,
+      "entered": true,
+      "footprints": 75,
+      "ghosts": 2,
+      "id": "010",
+      "loaded": true,
+      "objects": 118,
+      "phrases": 0,
+      "quiet": false,
+      "vertices": 15547,
+      "visible": true
+    }
+  },
+  {
+    "case": "quiet-and-phrase",
+    "state": {
+      "crossCount": 2,
+      "entered": true,
+      "footprints": 75,
+      "ghosts": 2,
+      "id": "010",
+      "loaded": true,
+      "objects": 119,
+      "phrases": 1,
+      "quiet": true,
+      "vertices": 15551,
+      "visible": true
+    }
+  },
+  {
+    "case": "reset",
+    "state": {
+      "crossCount": 0,
+      "entered": true,
+      "footprints": 1,
+      "ghosts": 0,
+      "id": "010",
+      "loaded": true,
+      "objects": 41,
+      "phrases": 0,
+      "quiet": true,
+      "vertices": 14224,
+      "visible": true
+    }
+  }
+]

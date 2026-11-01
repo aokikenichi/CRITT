@@ -1,0 +1,204 @@
+{
+  "viewports": {
+    "pc": [
+      1440,
+      900
+    ],
+    "mobile": [
+      390,
+      844
+    ]
+  },
+  "works": [
+    {
+      "id": "001",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-001-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-001-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.26
+    },
+    {
+      "id": "002",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-002-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-002-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.26
+    },
+    {
+      "id": "003",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-003-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-003-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.261
+    },
+    {
+      "id": "004",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-004-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-004-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.264
+    },
+    {
+      "id": "005",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-005-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-005-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.324
+    },
+    {
+      "id": "006",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-006-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-006-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.322
+    },
+    {
+      "id": "007",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-007-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-007-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.26
+    },
+    {
+      "id": "008",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 39,
+        "fps_max": 60,
+        "images": "pc-008-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-008-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.264
+    },
+    {
+      "id": "009",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-009-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "mobile-009-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.263
+    },
+    {
+      "id": "010",
+      "pc": {
+        "highlights": 3,
+        "fps_min": 60,
+        "fps_max": 60,
+        "images": "pc-010-images.jpg",
+        "ui": "PASS"
+      },
+      "mobile": {
+        "highlights": 3,
+        "fps_min": 44,
+        "fps_max": 60,
+        "images": "mobile-010-images.jpg",
+        "ui": "PASS"
+      },
+      "manual_lateral_m": 1.264
+    }
+  ],
+  "highlightScreenshots": 60,
+  "fullTours": {
+    "pc": 31,
+    "mobile": 31
+  },
+  "scope": "IAB desktop browser with viewport override; not physical iOS/Android",
+  "unverified": [
+    "Real Cricsheet ZIP positive matches and match Auto with actual records",
+    "Physical mobile devices / low-memory WebGL GPUs"
+  ]
+}

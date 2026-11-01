@@ -1,0 +1,1053 @@
+{
+  "schemaVersion": 1,
+  "approval": "正式原画としての承認は未確認",
+  "items": [
+    {
+      "id": "001",
+      "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+      "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+      "sourceSHA256": "7bfda0c0f005ff9a75f79611ca98cf05a1b34c9d4c8898094f6b96f6d0d26ccf",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/001/01.jpg",
+          "mime": "image/jpeg",
+          "bytes": 157471,
+          "sha256": "cfceadcb974d68fbda0dc5300dbc19646659862e9f117708682f26ea4a8b74bf",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 69,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 2,
+          "path": "exhibition-assets/001/02.jpg",
+          "mime": "image/jpeg",
+          "bytes": 86024,
+          "sha256": "748fa38dd45b443db8d1159ea49a74ed3bdfd706e4bb27ee8e04f7144b41f3ec",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 71,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 3,
+          "path": "exhibition-assets/001/03.png",
+          "mime": "image/png",
+          "bytes": 805279,
+          "sha256": "7b3d552c963b8c3683d5133b4d9a3c9d0abc84ee2ee98812f81cd238032bbcdf",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 72,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 4,
+          "path": "exhibition-assets/001/04.png",
+          "mime": "image/png",
+          "bytes": 401750,
+          "sha256": "ffa2a700fe39eeeb46f8a5a0532af95ec22f02b702ef4992192f285be141d6c3",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 72,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 5,
+          "path": "exhibition-assets/001/05.png",
+          "mime": "image/png",
+          "bytes": 253597,
+          "sha256": "4c717e8a7ba48529be11653db0f29fc85850c4e41ac2f68c1e248f12f45969c0",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 72,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 6,
+          "path": "exhibition-assets/001/06.png",
+          "mime": "image/png",
+          "bytes": 170351,
+          "sha256": "44a661bb75fb3b56001e33717212845af3d3bd54e37d504f6f36c0da2b35e658",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 72,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 7,
+          "path": "exhibition-assets/001/07.png",
+          "mime": "image/png",
+          "bytes": 48954,
+          "sha256": "57b445c4c41d94398344b2cd0efdae92d48886f0b3dbaa90c9686c7b3f980901",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 72,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 8,
+          "path": "exhibition-assets/001/08.jpg",
+          "mime": "image/jpeg",
+          "bytes": 227659,
+          "sha256": "6d94d9d2ae669bc2bb1528cbd2518467f57e51085eab8ed9d78a585355600a47",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 73,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 9,
+          "path": "exhibition-assets/001/09.jpg",
+          "mime": "image/jpeg",
+          "bytes": 101971,
+          "sha256": "a93111efde56cc00fdecb3b5b72173fbd3b689084502ba0ef3c2033fd203f02b",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 76,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 10,
+          "path": "exhibition-assets/001/10.png",
+          "mime": "image/png",
+          "bytes": 504969,
+          "sha256": "8b501034b6976063369cbb0cdc9ce6ee6c724cdc5b215eed382e1d11f2b74fce",
+          "source": "recovered/sources/001/CRITT_Museum_3D_Quality_Lab_v1.1.html",
+          "sourceBlob": "48521d4584e2fe6f2018d6d550401a9d2602aa14",
+          "sourceLine": 652,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "002",
+      "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+      "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+      "sourceSHA256": "d38a18dcca9e9ea3e1967e7488b2cc5f7770a92f797c0c9b2f4beb5d6a90926d",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/002/01.jpg",
+          "mime": "image/jpeg",
+          "bytes": 157471,
+          "sha256": "cfceadcb974d68fbda0dc5300dbc19646659862e9f117708682f26ea4a8b74bf",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 78,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 2,
+          "path": "exhibition-assets/002/02.jpg",
+          "mime": "image/jpeg",
+          "bytes": 86024,
+          "sha256": "748fa38dd45b443db8d1159ea49a74ed3bdfd706e4bb27ee8e04f7144b41f3ec",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 80,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 3,
+          "path": "exhibition-assets/002/03.png",
+          "mime": "image/png",
+          "bytes": 805279,
+          "sha256": "7b3d552c963b8c3683d5133b4d9a3c9d0abc84ee2ee98812f81cd238032bbcdf",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 81,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 4,
+          "path": "exhibition-assets/002/04.png",
+          "mime": "image/png",
+          "bytes": 401750,
+          "sha256": "ffa2a700fe39eeeb46f8a5a0532af95ec22f02b702ef4992192f285be141d6c3",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 81,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 5,
+          "path": "exhibition-assets/002/05.png",
+          "mime": "image/png",
+          "bytes": 253597,
+          "sha256": "4c717e8a7ba48529be11653db0f29fc85850c4e41ac2f68c1e248f12f45969c0",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 81,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 6,
+          "path": "exhibition-assets/002/06.png",
+          "mime": "image/png",
+          "bytes": 170351,
+          "sha256": "44a661bb75fb3b56001e33717212845af3d3bd54e37d504f6f36c0da2b35e658",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 81,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 7,
+          "path": "exhibition-assets/002/07.png",
+          "mime": "image/png",
+          "bytes": 48954,
+          "sha256": "57b445c4c41d94398344b2cd0efdae92d48886f0b3dbaa90c9686c7b3f980901",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 81,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 8,
+          "path": "exhibition-assets/002/08.jpg",
+          "mime": "image/jpeg",
+          "bytes": 227659,
+          "sha256": "6d94d9d2ae669bc2bb1528cbd2518467f57e51085eab8ed9d78a585355600a47",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 82,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 9,
+          "path": "exhibition-assets/002/09.jpg",
+          "mime": "image/jpeg",
+          "bytes": 101971,
+          "sha256": "a93111efde56cc00fdecb3b5b72173fbd3b689084502ba0ef3c2033fd203f02b",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 85,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 10,
+          "path": "exhibition-assets/002/10.png",
+          "mime": "image/png",
+          "bytes": 504969,
+          "sha256": "8b501034b6976063369cbb0cdc9ce6ee6c724cdc5b215eed382e1d11f2b74fce",
+          "source": "recovered/sources/002/CRITT_Museum_Work02_3D_Lab_v1.2.html",
+          "sourceBlob": "bc3c828e4bb2a3289cd0a15b8b4c4f8c4223a048",
+          "sourceLine": 687,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "003",
+      "source": "recovered/sources/003/CRITT_Museum_Work03_Boundary_Rope_3D_Lab_v1.9.html",
+      "sourceBlob": "53a180529389326854095bfc8580ca4fd6e1e672",
+      "sourceSHA256": "34f7533d0bc8835d855086879462bdeee27a121974e9814d89522a5d40f6ee3b",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/003/01.jpg",
+          "mime": "image/jpeg",
+          "bytes": 86763,
+          "sha256": "235a6d8df32d8f971fa92defedfc57f09d8386fe79122c757ec0537cf32e71cf",
+          "source": "recovered/sources/003/CRITT_Museum_Work03_Boundary_Rope_3D_Lab_v1.9.html",
+          "sourceBlob": "53a180529389326854095bfc8580ca4fd6e1e672",
+          "sourceLine": 14,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "004",
+      "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+      "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+      "sourceSHA256": "68aa0eaa80e39b6ce43e01537804838f67d26c2dade04232ed7671dbd865ee44",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/004/01.png",
+          "mime": "image/png",
+          "bytes": 35282,
+          "sha256": "19ce44f97187c47559585762023d210a726a965bac148934c886f2956e697212",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 2,
+          "path": "exhibition-assets/004/02.jpg",
+          "mime": "image/jpeg",
+          "bytes": 178797,
+          "sha256": "bfa8b46badc6d7e515a260979f2f61abc513399992f2ad8738fe84c60117a846",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 3,
+          "path": "exhibition-assets/004/03.png",
+          "mime": "image/png",
+          "bytes": 58337,
+          "sha256": "3ef542e99b0433bd0063859862eaeb8abfcf9f0ac48eef1a52b8dc8abd581ecd",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 4,
+          "path": "exhibition-assets/004/04.png",
+          "mime": "image/png",
+          "bytes": 66820,
+          "sha256": "9ea5bb75eebb2b79ff1beb4d508afe841b66b1e90a1c68ce7ab0f218bc72e875",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 5,
+          "path": "exhibition-assets/004/05.png",
+          "mime": "image/png",
+          "bytes": 108806,
+          "sha256": "633378656f50d5612f79fcc1aea2f0319fc2f185f46ea91cc8db8a93cce74687",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 6,
+          "path": "exhibition-assets/004/06.png",
+          "mime": "image/png",
+          "bytes": 95832,
+          "sha256": "0392843decc41171905e7e81c627eb533a0e5b253583d6a072ca0a20db2d8acd",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 7,
+          "path": "exhibition-assets/004/07.png",
+          "mime": "image/png",
+          "bytes": 421085,
+          "sha256": "bb84d7c644970056cc5cf30414b621e8c12997776acfcb39203356caed03b2a6",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 8,
+          "path": "exhibition-assets/004/08.png",
+          "mime": "image/png",
+          "bytes": 34124,
+          "sha256": "d4f93cd3e80295536adecbf5c71525cfad73af13af85e4ed8e3427c31637db27",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 9,
+          "path": "exhibition-assets/004/09.jpg",
+          "mime": "image/jpeg",
+          "bytes": 200261,
+          "sha256": "5bc033de43dcd0a6014cf8b4f21f7dcc3156c73f00718fa4baf23a71d3508dc3",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 10,
+          "path": "exhibition-assets/004/10.png",
+          "mime": "image/png",
+          "bytes": 62782,
+          "sha256": "48db0e334efd64e1887dd9f9704848548e59474723d03e1b6b6ca892e5b127b5",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 11,
+          "path": "exhibition-assets/004/11.png",
+          "mime": "image/png",
+          "bytes": 39770,
+          "sha256": "8c8327405e26da49f66ba54682d67ad31f6b0de3220bfaf1b8ac8b37c993473f",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 12,
+          "path": "exhibition-assets/004/12.png",
+          "mime": "image/png",
+          "bytes": 223512,
+          "sha256": "4ed750a31aa0edda755b4f260923509f358adaf2ace7e5ddd781b1195b0649ca",
+          "source": "recovered/sources/004/CRITT_Museum_Work04_Hybrid_Gallery_Walk_v2.3.html",
+          "sourceBlob": "6426f9ee12b20601725cb3c12884e00ed1b04630",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "005",
+      "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+      "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+      "sourceSHA256": "612b49262e5d7bc05d903f083dff5e301b587383d32412bf079b5134ebfac9be",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/005/01.webp",
+          "mime": "image/webp",
+          "bytes": 169268,
+          "sha256": "4d16998da5b910ae9c4185359dea1cdf08cd6f4eda1c397407ec817668aaf66a",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 2,
+          "path": "exhibition-assets/005/02.webp",
+          "mime": "image/webp",
+          "bytes": 45658,
+          "sha256": "590c157a07945b93a781edfa78f208380539184f3bf548b5887fb0db310d6012",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 3,
+          "path": "exhibition-assets/005/03.webp",
+          "mime": "image/webp",
+          "bytes": 57202,
+          "sha256": "09aa4cb13b2d1da8ba6abd3a651752f6653ad763a1d6aa66929a8d0cc85e5251",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 4,
+          "path": "exhibition-assets/005/04.webp",
+          "mime": "image/webp",
+          "bytes": 36810,
+          "sha256": "17ea6548b0da6bf11f36de75bebf675feed92102801042f69bc0d1895a4dc078",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 5,
+          "path": "exhibition-assets/005/05.webp",
+          "mime": "image/webp",
+          "bytes": 26794,
+          "sha256": "1ea54685fcbbee5af12b6781949dd3419cbd360a02d174da126d0e10f639e4e6",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 6,
+          "path": "exhibition-assets/005/06.webp",
+          "mime": "image/webp",
+          "bytes": 71182,
+          "sha256": "e0bf0ee1b62de760d289e3b80f2726e780a21e3ff3ee8ffb165b0718d97bdf25",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 7,
+          "path": "exhibition-assets/005/07.webp",
+          "mime": "image/webp",
+          "bytes": 39494,
+          "sha256": "57c807145a982da9261dd71687baddaac31354d26c5f82463795d3c5eae95380",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 8,
+          "path": "exhibition-assets/005/08.webp",
+          "mime": "image/webp",
+          "bytes": 34244,
+          "sha256": "188b057a4fe13506e3af700dce00da2ee30e0024ee9ea8073091c7aaa08b1072",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 9,
+          "path": "exhibition-assets/005/09.webp",
+          "mime": "image/webp",
+          "bytes": 64668,
+          "sha256": "47983aae2c48b9fcde8723e3cfbbc203c658178d32493a72d1b18735cbc3202e",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 10,
+          "path": "exhibition-assets/005/10.webp",
+          "mime": "image/webp",
+          "bytes": 127248,
+          "sha256": "72e16164c9de433662649a3b885b27e770743e6ea03f19c9fc4622ee2aaa8e10",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 11,
+          "path": "exhibition-assets/005/11.webp",
+          "mime": "image/webp",
+          "bytes": 25466,
+          "sha256": "a966ff32d18d0b83a99cb2c3efd9c0b6dfe76dd92d7430e48e2fd9a6c994a4a8",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 26,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 12,
+          "path": "exhibition-assets/005/12.jpg",
+          "mime": "image/jpeg",
+          "bytes": 210911,
+          "sha256": "ddd92392cba0b52e7c7016bbd13b46b8c67f92442920ed348c1742e30fa4db08",
+          "source": "recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html",
+          "sourceBlob": "30f21a18d5cb7a3bee318ba66b3ce0628417db82",
+          "sourceLine": 28,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "006",
+      "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+      "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+      "sourceSHA256": "45bc9b8447997a5afc38daa66f12ad1c9a498fcc38bebbccba271d2bfbaccc25",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/006/01.webp",
+          "mime": "image/webp",
+          "bytes": 42190,
+          "sha256": "e0ddbe9272091605ecb2e61ac96a106ad7e91486d5500997b23a97515bce4030",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 2,
+          "path": "exhibition-assets/006/02.webp",
+          "mime": "image/webp",
+          "bytes": 45408,
+          "sha256": "e745e2c0e659816cf9fab7fc9236902ac786feaf2284e9a6c57e3fd715332138",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 3,
+          "path": "exhibition-assets/006/03.webp",
+          "mime": "image/webp",
+          "bytes": 48612,
+          "sha256": "baabd71c156d5a171bb93ea70bac3769e4a27a252f38baa1b6e0c6d6195bb9d9",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 4,
+          "path": "exhibition-assets/006/04.webp",
+          "mime": "image/webp",
+          "bytes": 41284,
+          "sha256": "291779bcaf37ea5d65892d6e8b79c66d46acffd44fedd6ba8d4fa86da82246e4",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 5,
+          "path": "exhibition-assets/006/05.webp",
+          "mime": "image/webp",
+          "bytes": 41972,
+          "sha256": "902e906bd47335455d42c153d6dec9ed091470e5e0743d400b632f67961523c6",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 6,
+          "path": "exhibition-assets/006/06.webp",
+          "mime": "image/webp",
+          "bytes": 49132,
+          "sha256": "3090630015846c775834e16b408aef6a949e3904a7dda46d4b2a3d34a8c10cd9",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 7,
+          "path": "exhibition-assets/006/07.webp",
+          "mime": "image/webp",
+          "bytes": 47900,
+          "sha256": "7539b1f552f065c7a8094a7cb3355e0c7f9738505c33c97f5a18803fede5bec7",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 8,
+          "path": "exhibition-assets/006/08.webp",
+          "mime": "image/webp",
+          "bytes": 50152,
+          "sha256": "2304019b1cdb0318c9238c39eb781807447079d7e65a732b7affedc3c298ce89",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 9,
+          "path": "exhibition-assets/006/09.webp",
+          "mime": "image/webp",
+          "bytes": 49696,
+          "sha256": "58df9b0d06c78f5b375d53188d70382e91a215ef69e4f011832ace7a7791d116",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 10,
+          "path": "exhibition-assets/006/10.webp",
+          "mime": "image/webp",
+          "bytes": 51976,
+          "sha256": "7c125b0c3d55a94343a676bbd77dc0465b89f0d6356278dbfdba840ba7a973fb",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 11,
+          "path": "exhibition-assets/006/11.webp",
+          "mime": "image/webp",
+          "bytes": 48758,
+          "sha256": "3f276f081574cffa3d6f575d8fc2fa6d26cfa7314192e9d4a82305af247cf664",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 12,
+          "path": "exhibition-assets/006/12.webp",
+          "mime": "image/webp",
+          "bytes": 57936,
+          "sha256": "d8caf3a20f93b726a943f45f70666ee64e342b36694c2d12e4f5438ed64c72ff",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 13,
+          "path": "exhibition-assets/006/13.webp",
+          "mime": "image/webp",
+          "bytes": 302514,
+          "sha256": "fde729894369359b970f1b92a8033c6f520570f54f360eadb0ade41ee82ee49c",
+          "source": "recovered/sources/006/CRITT_Museum_Work06_Hundred_Thousand_Voices_Hybrid_Walk_v2.5.html",
+          "sourceBlob": "ce961a33fa9afaf2eb4cf65f6649e3a00efd080c",
+          "sourceLine": 30,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "007",
+      "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+      "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+      "sourceSHA256": "034eefa4a5d09378773647d098fd005690160f66b4cb92be23f72064182258be",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/007/01.webp",
+          "mime": "image/webp",
+          "bytes": 264730,
+          "sha256": "9d3e8580a59ed8af3203a01a03b3b5795f0c10c2ac843702952ce0c17b796265",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 2,
+          "path": "exhibition-assets/007/02.webp",
+          "mime": "image/webp",
+          "bytes": 14496,
+          "sha256": "859e16f33990847013eed03ed3cbde267c1993bd83be8bd39d4cf9f3775725bf",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 3,
+          "path": "exhibition-assets/007/03.webp",
+          "mime": "image/webp",
+          "bytes": 15054,
+          "sha256": "827c39f45d93beb7c0e1017ad6663bc4a93a098f08d257e3b979b63976d502a8",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 4,
+          "path": "exhibition-assets/007/04.webp",
+          "mime": "image/webp",
+          "bytes": 8312,
+          "sha256": "4db14f1c3008a90205d8d545a2bf33dcc8ca671bd000f234b35463ada08d7321",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 5,
+          "path": "exhibition-assets/007/05.webp",
+          "mime": "image/webp",
+          "bytes": 6696,
+          "sha256": "c8d2e04e2846157d153bff865687079c305488cb33215219b5525d861da5a4ae",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 6,
+          "path": "exhibition-assets/007/06.webp",
+          "mime": "image/webp",
+          "bytes": 9352,
+          "sha256": "b509661f4bc353a593fceaa53632ffc771bab10ae7344e292f4d79c8fd9fdaa2",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 7,
+          "path": "exhibition-assets/007/07.webp",
+          "mime": "image/webp",
+          "bytes": 8200,
+          "sha256": "f2b3612f3e3e17dda2fd11656a6eacfc875623bbbe9c93e1f73fea30cf532675",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 8,
+          "path": "exhibition-assets/007/08.webp",
+          "mime": "image/webp",
+          "bytes": 9170,
+          "sha256": "482e2abd0612f906bc8e22b0c35c3b6be407f64499d3ba1414d0d0beaf221115",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 9,
+          "path": "exhibition-assets/007/09.webp",
+          "mime": "image/webp",
+          "bytes": 4174,
+          "sha256": "28097a19b249dc167c3226cc31da0f622141930c91d9660bac29f3aac0be99c8",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 10,
+          "path": "exhibition-assets/007/10.webp",
+          "mime": "image/webp",
+          "bytes": 10942,
+          "sha256": "3a814c05420b4509c1d08d334131223652dc96deb2bffc92a1d9ca80031ebb8c",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 11,
+          "path": "exhibition-assets/007/11.webp",
+          "mime": "image/webp",
+          "bytes": 4916,
+          "sha256": "d4237de40077a5c841477350ef469ac15d0205f2c936c511079781ac85e1a854",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 12,
+          "path": "exhibition-assets/007/12.webp",
+          "mime": "image/webp",
+          "bytes": 3036,
+          "sha256": "35ee34eefbb7777e186e9576db30728016f8ab0a55cbaba67820fe589200b9f4",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 13,
+          "path": "exhibition-assets/007/13.webp",
+          "mime": "image/webp",
+          "bytes": 6294,
+          "sha256": "99d5f9ddebbefdefec703ce898b6d5827db30b30a63cdee4f0d138595e39b741",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 14,
+          "path": "exhibition-assets/007/14.webp",
+          "mime": "image/webp",
+          "bytes": 6318,
+          "sha256": "6c7d802220093a9fd97b03f4bd5981720e48c0980c6df4b6c8901741f2cd1792",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 15,
+          "path": "exhibition-assets/007/15.webp",
+          "mime": "image/webp",
+          "bytes": 5076,
+          "sha256": "c03484001d50653b4860c30061505345cacdaa0e70111e087224368d1615fa04",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 16,
+          "path": "exhibition-assets/007/16.webp",
+          "mime": "image/webp",
+          "bytes": 4938,
+          "sha256": "a110b1912e548b981e9f83faea14b55183653640903e8b1a9947fb5075c4d265",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 17,
+          "path": "exhibition-assets/007/17.webp",
+          "mime": "image/webp",
+          "bytes": 3284,
+          "sha256": "77f3db718cfad73dd57ef27fef3e57e83e78a71dcfb8f915e83c62c3b9019483",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 18,
+          "path": "exhibition-assets/007/18.webp",
+          "mime": "image/webp",
+          "bytes": 5800,
+          "sha256": "a9c3673b9e2e586753089e778e9d7472beee6079fb297b55ba427a1fc39342a7",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 19,
+          "path": "exhibition-assets/007/19.webp",
+          "mime": "image/webp",
+          "bytes": 5328,
+          "sha256": "0edb6353167f322febf74b5b8bff9adcab683ab7aaa4d9fe074e27a49b8d8c4f",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 20,
+          "path": "exhibition-assets/007/20.webp",
+          "mime": "image/webp",
+          "bytes": 2636,
+          "sha256": "55eb7ac04a360b00f1da2f1973133937dbb977c8136c034e90cb7e9aba41d9fb",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 21,
+          "path": "exhibition-assets/007/21.webp",
+          "mime": "image/webp",
+          "bytes": 2584,
+          "sha256": "6ee21bb69e3ac98ecbdb5abf325110f32afdebd6b05867501db99f3a6495de00",
+          "source": "recovered/sources/007/CRITT_Museum_Work07_Unwritten_Names_Hybrid_Walk_v2.6.html",
+          "sourceBlob": "49d7d41bf7f91310b482e5e45e8d4fc897bdaa36",
+          "sourceLine": 33,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "008",
+      "source": "recovered/sources/008/CRITT_Museum_Work08_Pulse_Wicket_Art_v2.9.html",
+      "sourceBlob": "1ffa577e1017713b57ace61d6270016159fa5c17",
+      "sourceSHA256": "1447c1680eddf08d96257b3deaad0d0cdbd9e31414ff6ae57b3f96f9a99de88a",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/008/01.webp",
+          "mime": "image/webp",
+          "bytes": 178516,
+          "sha256": "d9a0842eee92a78c5623d4b2c859de5e779dd8892dd904582da88bb08160668d",
+          "source": "recovered/sources/008/CRITT_Museum_Work08_Pulse_Wicket_Art_v2.9.html",
+          "sourceBlob": "1ffa577e1017713b57ace61d6270016159fa5c17",
+          "sourceLine": 69,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 2,
+          "path": "exhibition-assets/008/02.webp",
+          "mime": "image/webp",
+          "bytes": 62614,
+          "sha256": "9c9baec25995b9133275c1d19d6d968a8b6d8d95796106bda3d0315d5d292432",
+          "source": "recovered/sources/008/CRITT_Museum_Work08_Pulse_Wicket_Art_v2.9.html",
+          "sourceBlob": "1ffa577e1017713b57ace61d6270016159fa5c17",
+          "sourceLine": 69,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 3,
+          "path": "exhibition-assets/008/03.webp",
+          "mime": "image/webp",
+          "bytes": 171394,
+          "sha256": "9c92cec0ff882302ad3b918241faa2cc6a107f7d1cde3772f33baad31745059e",
+          "source": "recovered/sources/008/CRITT_Museum_Work08_Pulse_Wicket_Art_v2.9.html",
+          "sourceBlob": "1ffa577e1017713b57ace61d6270016159fa5c17",
+          "sourceLine": 69,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "009",
+      "source": "works/009/index.html",
+      "sourceBlob": "ef621b237d7cd651c20d66df6f4e267c6b266126",
+      "sourceSHA256": "43ac21fd5175024933878750366ae88ebd3bfa74cc7335de90f7ee4f022b0078",
+      "images": [
+        {
+          "index": 1,
+          "path": "exhibition-assets/009/01.jpg",
+          "mime": "image/jpeg",
+          "bytes": 272530,
+          "sha256": "9f07b1ba95151e61d0e91e4bf0cbcf1cda76e902960c5e6f856ac6f4aa4e5c40",
+          "source": "works/009/index.html",
+          "sourceBlob": "ef621b237d7cd651c20d66df6f4e267c6b266126",
+          "sourceLine": 46,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 2,
+          "path": "exhibition-assets/009/02.png",
+          "mime": "image/png",
+          "bytes": 242599,
+          "sha256": "1fb19a49aa3874ffe85722c6ace46657696b3b0267c1496ec13c833df7934311",
+          "source": "works/009/index.html",
+          "sourceBlob": "ef621b237d7cd651c20d66df6f4e267c6b266126",
+          "sourceLine": 46,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 3,
+          "path": "exhibition-assets/009/03.jpg",
+          "mime": "image/jpeg",
+          "bytes": 300048,
+          "sha256": "642a3b63b233b273e944c34f0b8dbef5ca9e16402b78ee043183a7328b996293",
+          "source": "works/009/index.html",
+          "sourceBlob": "ef621b237d7cd651c20d66df6f4e267c6b266126",
+          "sourceLine": 46,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 4,
+          "path": "exhibition-assets/009/04.jpg",
+          "mime": "image/jpeg",
+          "bytes": 116164,
+          "sha256": "16a8d43dbe7c666feffc30028fc7bdd1722ebe01afbdc243967983a0d22febf3",
+          "source": "works/009/index.html",
+          "sourceBlob": "ef621b237d7cd651c20d66df6f4e267c6b266126",
+          "sourceLine": 46,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 5,
+          "path": "exhibition-assets/009/05.jpg",
+          "mime": "image/jpeg",
+          "bytes": 320621,
+          "sha256": "8af4684dfc73bda9d9039756794580fe2aab97b53df91d9c394a2b0de2323275",
+          "source": "works/009/index.html",
+          "sourceBlob": "ef621b237d7cd651c20d66df6f4e267c6b266126",
+          "sourceLine": 46,
+          "category": "制作参考画像（正式原画としては未確認）"
+        },
+        {
+          "index": 6,
+          "path": "exhibition-assets/009/06.png",
+          "mime": "image/png",
+          "bytes": 92269,
+          "sha256": "0bf4ea00ee745cdc1ecd31c46f778a0f52f8745bdd4966f91a23465178dbd87b",
+          "source": "works/009/index.html",
+          "sourceBlob": "ef621b237d7cd651c20d66df6f4e267c6b266126",
+          "sourceLine": 46,
+          "category": "制作参考画像（正式原画としては未確認）"
+        }
+      ]
+    },
+    {
+      "id": "010",
+      "source": "works/010/index.html",
+      "sourceBlob": "e00edaaeb772d49be1df8eb03f40fd348e717cef",
+      "sourceSHA256": "c023f68a4a41a86161a01eca731cb4e16412d01c50d225892cc53c071190395b",
+      "images": []
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "first": {
+    "balls": 2,
+    "curatedFound": 0,
+    "demo": false,
+    "entered": true,
+    "events": 2,
+    "id": "008",
+    "inning": 0,
+    "innings": [
+      [
+        "0",
+        "第1イニング TEST A"
+      ],
+      [
+        "1",
+        "第2イニング TEST B"
+      ]
+    ],
+    "loaded": true,
+    "matches": [],
+    "mode": "trace",
+    "objects": 11,
+    "overs": [
+      [
+        "0",
+        "1オーバー目"
+      ]
+    ],
+    "shown": 2,
+    "values": {
+      "dismissal": "all",
+      "filter": "all",
+      "inning": "0",
+      "intensity": "high",
+      "match": "",
+      "mode": "trace",
+      "over": "all",
+      "scoreColors": true,
+      "wicketKinds": true
+    },
+    "vertices": 653,
+    "visible": true
+  },
+  "second": {
+    "balls": 1,
+    "curatedFound": 0,
+    "demo": false,
+    "entered": true,
+    "events": 1,
+    "id": "008",
+    "inning": 1,
+    "innings": [
+      [
+        "0",
+        "第1イニング TEST A"
+      ],
+      [
+        "1",
+        "第2イニング TEST B"
+      ]
+    ],
+    "loaded": true,
+    "matches": [],
+    "mode": "trace",
+    "objects": 4,
+    "overs": [
+      [
+        "0",
+        "1オーバー目"
+      ]
+    ],
+    "shown": 1,
+    "values": {
+      "dismissal": "all",
+      "filter": "all",
+      "inning": "1",
+      "intensity": "high",
+      "match": "",
+      "mode": "trace",
+      "over": "all",
+      "scoreColors": true,
+      "wicketKinds": true
+    },
+    "vertices": 129,
+    "visible": true
+  }
+}

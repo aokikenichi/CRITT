@@ -1,0 +1,1168 @@
+{
+  "state": {
+    "active": "010",
+    "exhibits": [
+      {
+        "entered": false,
+        "id": "001",
+        "loaded": true,
+        "materialMode": 3,
+        "objects": 2,
+        "photo": true,
+        "vertices": 1255,
+        "visible": false
+      },
+      {
+        "entered": false,
+        "figureMode": "A",
+        "id": "002",
+        "layers": 5,
+        "loaded": true,
+        "objects": 5,
+        "vertices": 20,
+        "visible": false,
+        "worldFixed": true
+      },
+      {
+        "entered": false,
+        "id": "003",
+        "loaded": true,
+        "material": "3束×9本の撚り糸",
+        "objects": 1,
+        "triangles": 559062,
+        "vertices": 324120,
+        "visible": false
+      },
+      {
+        "entered": false,
+        "id": "004",
+        "layers": 11,
+        "loaded": true,
+        "objects": 96,
+        "stations": 3,
+        "vertices": 2306,
+        "visible": false
+      },
+      {
+        "bodies": 11,
+        "entered": false,
+        "id": "005",
+        "loaded": true,
+        "objects": 56,
+        "relations": false,
+        "vertices": 2262,
+        "visible": false
+      },
+      {
+        "entered": false,
+        "filaments": 86,
+        "id": "006",
+        "loaded": true,
+        "objects": 131,
+        "particles": 4200,
+        "reflect": true,
+        "scrims": 12,
+        "vertices": 10725,
+        "visible": false
+      },
+      {
+        "blankSheets": 13,
+        "documents": 20,
+        "entered": false,
+        "id": "007",
+        "loaded": true,
+        "objects": 162,
+        "vertices": 4568,
+        "visible": false
+      },
+      {
+        "balls": 120,
+        "curatedFound": 0,
+        "demo": true,
+        "entered": false,
+        "events": 25,
+        "id": "008",
+        "inning": 0,
+        "innings": [],
+        "loaded": true,
+        "matches": [],
+        "mode": "pulse",
+        "objects": 65,
+        "overs": [
+          [
+            "0",
+            "1オーバー目"
+          ],
+          [
+            "1",
+            "2オーバー目"
+          ],
+          [
+            "2",
+            "3オーバー目"
+          ],
+          [
+            "3",
+            "4オーバー目"
+          ],
+          [
+            "4",
+            "5オーバー目"
+          ],
+          [
+            "5",
+            "6オーバー目"
+          ],
+          [
+            "6",
+            "7オーバー目"
+          ],
+          [
+            "7",
+            "8オーバー目"
+          ],
+          [
+            "8",
+            "9オーバー目"
+          ],
+          [
+            "9",
+            "10オーバー目"
+          ],
+          [
+            "10",
+            "11オーバー目"
+          ],
+          [
+            "11",
+            "12オーバー目"
+          ],
+          [
+            "12",
+            "13オーバー目"
+          ],
+          [
+            "13",
+            "14オーバー目"
+          ],
+          [
+            "14",
+            "15オーバー目"
+          ],
+          [
+            "15",
+            "16オーバー目"
+          ],
+          [
+            "16",
+            "17オーバー目"
+          ],
+          [
+            "17",
+            "18オーバー目"
+          ],
+          [
+            "18",
+            "19オーバー目"
+          ],
+          [
+            "19",
+            "20オーバー目"
+          ]
+        ],
+        "shown": 120,
+        "vertices": 8309,
+        "visible": false
+      },
+      {
+        "balls": 12,
+        "bats": 9,
+        "dense": true,
+        "entered": false,
+        "gravity": 1.1602445852594145e-13,
+        "id": "009",
+        "islands": 17,
+        "loaded": true,
+        "objects": 174,
+        "rocks": 28,
+        "spatial": true,
+        "target": 0,
+        "vertices": 1990,
+        "visible": true
+      },
+      {
+        "crossCount": 2,
+        "entered": true,
+        "footprints": 50,
+        "ghosts": 2,
+        "id": "010",
+        "loaded": true,
+        "objects": 92,
+        "phrases": 0,
+        "quiet": false,
+        "vertices": 15174,
+        "visible": true
+      }
+    ],
+    "failures": [],
+    "fps": 60,
+    "mode": "manual",
+    "paused": false,
+    "pitch": 0.09966865248300012,
+    "position": [
+      22.5,
+      1.7,
+      -317
+    ],
+    "ready": true,
+    "room": 5,
+    "visits": [
+      {
+        "highlight": 0,
+        "id": "001",
+        "position": [
+          0,
+          1.7,
+          8
+        ],
+        "time": "2026-11-01T00:55:23.836Z",
+        "title": "止まった時間"
+      },
+      {
+        "highlight": 1,
+        "id": "001",
+        "position": [
+          5,
+          1.7,
+          1
+        ],
+        "time": "2026-11-01T00:55:26.518Z",
+        "title": "縫い目を横から"
+      },
+      {
+        "highlight": 2,
+        "id": "001",
+        "position": [
+          -3,
+          1.7,
+          -5
+        ],
+        "time": "2026-11-01T00:55:29.468Z",
+        "title": "見えない裏側"
+      },
+      {
+        "highlight": 0,
+        "id": "002",
+        "position": [
+          30,
+          1.7,
+          7
+        ],
+        "time": "2026-11-01T00:55:38.669Z",
+        "title": "運動の連なり"
+      },
+      {
+        "highlight": 1,
+        "id": "002",
+        "position": [
+          43,
+          1.7,
+          5
+        ],
+        "time": "2026-11-01T00:55:41.867Z",
+        "title": "瞬間の間を歩く"
+      },
+      {
+        "highlight": 2,
+        "id": "002",
+        "position": [
+          58,
+          1.7,
+          -6
+        ],
+        "time": "2026-11-01T00:55:45.535Z",
+        "title": "反対側からの時間"
+      },
+      {
+        "highlight": 0,
+        "id": "003",
+        "position": [
+          3,
+          1.7,
+          -59
+        ],
+        "time": "2026-11-01T00:55:55.851Z",
+        "title": "足元から始まる線"
+      },
+      {
+        "highlight": 1,
+        "id": "003",
+        "position": [
+          -6,
+          1.7,
+          -65
+        ],
+        "time": "2026-11-01T00:55:58.734Z",
+        "title": "境界の立ち上がり"
+      },
+      {
+        "highlight": 2,
+        "id": "003",
+        "position": [
+          6,
+          1.7,
+          -68
+        ],
+        "time": "2026-11-01T00:56:01.800Z",
+        "title": "頭上の輪"
+      },
+      {
+        "highlight": 0,
+        "id": "004",
+        "position": [
+          51.7,
+          1.7,
+          -58.2
+        ],
+        "time": "2026-11-01T00:56:33.521Z",
+        "title": "受け渡された形と、溶けゆく形"
+      },
+      {
+        "highlight": 1,
+        "id": "004",
+        "position": [
+          38.2,
+          1.7,
+          -64.6
+        ],
+        "time": "2026-11-01T00:56:36.787Z",
+        "title": "硬い道具と、柔らかな抵抗"
+      },
+      {
+        "highlight": 2,
+        "id": "004",
+        "position": [
+          41.5,
+          1.7,
+          -69.3
+        ],
+        "time": "2026-11-01T00:56:39.287Z",
+        "title": "不在と、残された響き"
+      },
+      {
+        "highlight": 0,
+        "id": "005",
+        "position": [
+          -2.8,
+          1.7,
+          -129.6
+        ],
+        "time": "2026-11-01T00:56:49.471Z",
+        "title": "空へ投げる身体"
+      },
+      {
+        "highlight": 1,
+        "id": "005",
+        "position": [
+          0,
+          1.7,
+          -134.2
+        ],
+        "time": "2026-11-01T00:56:51.987Z",
+        "title": "打つ身体と、その周囲"
+      },
+      {
+        "highlight": 2,
+        "id": "005",
+        "position": [
+          1.4,
+          1.7,
+          -150.1
+        ],
+        "time": "2026-11-01T00:56:55.372Z",
+        "title": "飛び上がる身体"
+      },
+      {
+        "highlight": 0,
+        "id": "006",
+        "position": [
+          37.5,
+          1.7,
+          -135.3
+        ],
+        "time": "2026-11-01T00:57:05.304Z",
+        "title": "群衆のうねり"
+      },
+      {
+        "highlight": 1,
+        "id": "006",
+        "position": [
+          41,
+          1.7,
+          -146.8
+        ],
+        "time": "2026-11-01T00:57:08.304Z",
+        "title": "ひとつの声の間へ"
+      },
+      {
+        "highlight": 2,
+        "id": "006",
+        "position": [
+          46,
+          1.7,
+          -138.8
+        ],
+        "time": "2026-11-01T00:57:11.287Z",
+        "title": "中央の静寂"
+      },
+      {
+        "highlight": 0,
+        "id": "007",
+        "position": [
+          -7,
+          1.7,
+          -203
+        ],
+        "time": "2026-11-01T00:57:22.287Z",
+        "title": "記録の回廊"
+      },
+      {
+        "highlight": 1,
+        "id": "007",
+        "position": [
+          8.3,
+          1.7,
+          -208.8
+        ],
+        "time": "2026-11-01T00:57:25.904Z",
+        "title": "記録の裏を歩く"
+      },
+      {
+        "highlight": 2,
+        "id": "007",
+        "position": [
+          0.1,
+          1.7,
+          -209
+        ],
+        "time": "2026-11-01T00:57:28.619Z",
+        "title": "名前のない空白"
+      },
+      {
+        "highlight": 0,
+        "id": "008",
+        "position": [
+          53,
+          1.7,
+          -204
+        ],
+        "time": "2026-11-01T00:57:43.019Z",
+        "title": "一球ずつの連なり"
+      },
+      {
+        "highlight": 1,
+        "id": "008",
+        "position": [
+          49,
+          1.7,
+          -208
+        ],
+        "time": "2026-11-01T00:57:45.604Z",
+        "title": "得点とアウトの形"
+      },
+      {
+        "highlight": 2,
+        "id": "008",
+        "position": [
+          45,
+          1.7,
+          -210
+        ],
+        "time": "2026-11-01T00:57:48.047Z",
+        "title": "星座の内側"
+      },
+      {
+        "highlight": 0,
+        "id": "009",
+        "position": [
+          0,
+          1.7,
+          -260.94
+        ],
+        "time": "2026-11-01T01:12:26.579Z",
+        "title": "地面 — 1G"
+      },
+      {
+        "highlight": 1,
+        "id": "009",
+        "position": [
+          0.615,
+          1.7,
+          -273.23999999999995
+        ],
+        "time": "2026-11-01T01:12:29.496Z",
+        "title": "宙吊り — ¼G"
+      },
+      {
+        "highlight": 2,
+        "id": "009",
+        "position": [
+          -0.697,
+          1.7,
+          -285.13
+        ],
+        "time": "2026-11-01T01:12:32.529Z",
+        "title": "落ちない一球 — 0G"
+      },
+      {
+        "highlight": 0,
+        "id": "010",
+        "position": [
+          45,
+          1.7,
+          -293.4
+        ],
+        "time": "2026-11-01T01:12:43.929Z",
+        "title": "線の手前"
+      },
+      {
+        "highlight": 1,
+        "id": "010",
+        "position": [
+          40,
+          1.7,
+          -278.2
+        ],
+        "time": "2026-11-01T01:12:47.395Z",
+        "title": "境界を越える"
+      },
+      {
+        "highlight": 2,
+        "id": "010",
+        "position": [
+          56.7,
+          1.7,
+          -271
+        ],
+        "time": "2026-11-01T01:12:50.998Z",
+        "title": "残った線から未来へ"
+      },
+      {
+        "highlight": 0,
+        "id": "exit",
+        "position": [
+          22.5,
+          1.7,
+          -317
+        ],
+        "time": "2026-11-01T01:13:09.889Z",
+        "title": "出口へ"
+      }
+    ],
+    "yaw": -5.5160669274085597e-11
+  },
+  "events": [
+    {
+      "index": 16,
+      "time": "2026-11-01T00:57:09.645Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T00:57:10.145Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 17,
+      "time": "2026-11-01T00:57:10.544Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 2,
+      "id": "006",
+      "position": [
+        46,
+        1.7,
+        -138.8
+      ],
+      "time": "2026-11-01T00:57:11.287Z",
+      "title": "中央の静寂",
+      "type": "highlight"
+    },
+    {
+      "index": 17,
+      "time": "2026-11-01T00:57:12.514Z",
+      "type": "pause"
+    },
+    {
+      "id": "006",
+      "time": "2026-11-01T00:57:13.047Z",
+      "title": "006 十万人の声",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T00:57:13.870Z",
+      "type": "panel-close"
+    },
+    {
+      "id": "006",
+      "image": 13,
+      "time": "2026-11-01T00:57:14.313Z",
+      "type": "image-view"
+    },
+    {
+      "id": "006",
+      "time": "2026-11-01T00:57:14.314Z",
+      "title": "006 原画・資料",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T00:57:14.837Z",
+      "type": "panel-close"
+    },
+    {
+      "time": "2026-11-01T00:57:15.311Z",
+      "type": "next-highlight"
+    },
+    {
+      "id": "007",
+      "time": "2026-11-01T00:57:15.312Z",
+      "type": "enter"
+    },
+    {
+      "index": 18,
+      "time": "2026-11-01T00:57:15.711Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 0,
+      "id": "007",
+      "position": [
+        -7,
+        1.7,
+        -203
+      ],
+      "time": "2026-11-01T00:57:22.287Z",
+      "title": "記録の回廊",
+      "type": "highlight"
+    },
+    {
+      "index": 18,
+      "time": "2026-11-01T00:57:23.630Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T00:57:24.182Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 19,
+      "time": "2026-11-01T00:57:24.614Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 1,
+      "id": "007",
+      "position": [
+        8.3,
+        1.7,
+        -208.8
+      ],
+      "time": "2026-11-01T00:57:25.904Z",
+      "title": "記録の裏を歩く",
+      "type": "highlight"
+    },
+    {
+      "index": 19,
+      "time": "2026-11-01T00:57:27.032Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T00:57:27.597Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 20,
+      "time": "2026-11-01T00:57:27.963Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 2,
+      "id": "007",
+      "position": [
+        0.1,
+        1.7,
+        -209
+      ],
+      "time": "2026-11-01T00:57:28.619Z",
+      "title": "名前のない空白",
+      "type": "highlight"
+    },
+    {
+      "index": 20,
+      "time": "2026-11-01T00:57:29.815Z",
+      "type": "pause"
+    },
+    {
+      "id": "007",
+      "time": "2026-11-01T00:57:30.397Z",
+      "title": "007 スコアカードにない名前",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T00:57:31.454Z",
+      "type": "panel-close"
+    },
+    {
+      "id": "007",
+      "image": 1,
+      "time": "2026-11-01T00:57:31.870Z",
+      "type": "image-view"
+    },
+    {
+      "id": "007",
+      "time": "2026-11-01T00:57:31.872Z",
+      "title": "007 原画・資料",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T00:57:32.521Z",
+      "type": "panel-close"
+    },
+    {
+      "time": "2026-11-01T00:57:38.466Z",
+      "type": "next-highlight"
+    },
+    {
+      "id": "008",
+      "time": "2026-11-01T00:57:38.472Z",
+      "type": "enter"
+    },
+    {
+      "index": 21,
+      "time": "2026-11-01T00:57:38.863Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 0,
+      "id": "008",
+      "position": [
+        53,
+        1.7,
+        -204
+      ],
+      "time": "2026-11-01T00:57:43.019Z",
+      "title": "一球ずつの連なり",
+      "type": "highlight"
+    },
+    {
+      "index": 21,
+      "time": "2026-11-01T00:57:44.198Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T00:57:44.698Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 22,
+      "time": "2026-11-01T00:57:45.150Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 1,
+      "id": "008",
+      "position": [
+        49,
+        1.7,
+        -208
+      ],
+      "time": "2026-11-01T00:57:45.604Z",
+      "title": "得点とアウトの形",
+      "type": "highlight"
+    },
+    {
+      "index": 22,
+      "time": "2026-11-01T00:57:46.845Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T00:57:47.315Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 23,
+      "time": "2026-11-01T00:57:47.682Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 2,
+      "id": "008",
+      "position": [
+        45,
+        1.7,
+        -210
+      ],
+      "time": "2026-11-01T00:57:48.047Z",
+      "title": "星座の内側",
+      "type": "highlight"
+    },
+    {
+      "index": 23,
+      "time": "2026-11-01T00:57:49.196Z",
+      "type": "pause"
+    },
+    {
+      "id": "008",
+      "time": "2026-11-01T00:57:49.682Z",
+      "title": "008 球の星座",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T00:57:50.520Z",
+      "type": "panel-close"
+    },
+    {
+      "id": "008",
+      "image": 1,
+      "time": "2026-11-01T00:57:50.965Z",
+      "type": "image-view"
+    },
+    {
+      "id": "008",
+      "time": "2026-11-01T00:57:50.966Z",
+      "title": "008 原画・資料",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T00:57:51.804Z",
+      "type": "panel-close"
+    },
+    {
+      "id": "008",
+      "time": "2026-11-01T00:57:52.205Z",
+      "title": "008 特別設定",
+      "type": "panel-open"
+    },
+    {
+      "id": "008",
+      "name": "mode",
+      "time": "2026-11-01T00:58:09.237Z",
+      "type": "setting",
+      "value": "pulse"
+    },
+    {
+      "id": "008",
+      "name": "filter",
+      "time": "2026-11-01T00:58:09.488Z",
+      "type": "setting",
+      "value": "wicket"
+    },
+    {
+      "id": "008",
+      "name": "filter",
+      "time": "2026-11-01T00:58:09.701Z",
+      "type": "setting",
+      "value": "all"
+    },
+    {
+      "id": "008",
+      "time": "2026-11-01T01:11:31.679Z",
+      "type": "json"
+    },
+    {
+      "id": "008",
+      "name": "inning",
+      "time": "2026-11-01T01:11:32.490Z",
+      "type": "setting",
+      "value": "1"
+    },
+    {
+      "id": "008",
+      "time": "2026-11-01T01:12:10.397Z",
+      "type": "zip"
+    },
+    {
+      "time": "2026-11-01T01:12:20.430Z",
+      "type": "panel-close"
+    },
+    {
+      "time": "2026-11-01T01:12:20.849Z",
+      "type": "next-highlight"
+    },
+    {
+      "id": "009",
+      "time": "2026-11-01T01:12:20.850Z",
+      "type": "enter"
+    },
+    {
+      "index": 24,
+      "time": "2026-11-01T01:12:21.172Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 0,
+      "id": "009",
+      "position": [
+        0,
+        1.7,
+        -260.94
+      ],
+      "time": "2026-11-01T01:12:26.579Z",
+      "title": "地面 — 1G",
+      "type": "highlight"
+    },
+    {
+      "index": 24,
+      "time": "2026-11-01T01:12:27.755Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T01:12:28.156Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 25,
+      "time": "2026-11-01T01:12:28.522Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 1,
+      "id": "009",
+      "position": [
+        0.615,
+        1.7,
+        -273.23999999999995
+      ],
+      "time": "2026-11-01T01:12:29.496Z",
+      "title": "宙吊り — ¼G",
+      "type": "highlight"
+    },
+    {
+      "index": 25,
+      "time": "2026-11-01T01:12:30.772Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T01:12:31.255Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 26,
+      "time": "2026-11-01T01:12:31.588Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 2,
+      "id": "009",
+      "position": [
+        -0.697,
+        1.7,
+        -285.13
+      ],
+      "time": "2026-11-01T01:12:32.529Z",
+      "title": "落ちない一球 — 0G",
+      "type": "highlight"
+    },
+    {
+      "index": 26,
+      "time": "2026-11-01T01:12:33.687Z",
+      "type": "pause"
+    },
+    {
+      "id": "009",
+      "time": "2026-11-01T01:12:34.239Z",
+      "title": "009 重力のないクリケット",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T01:12:35.096Z",
+      "type": "panel-close"
+    },
+    {
+      "id": "009",
+      "image": 5,
+      "time": "2026-11-01T01:12:35.539Z",
+      "type": "image-view"
+    },
+    {
+      "id": "009",
+      "time": "2026-11-01T01:12:35.540Z",
+      "title": "009 原画・資料",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T01:12:36.079Z",
+      "type": "panel-close"
+    },
+    {
+      "time": "2026-11-01T01:12:39.872Z",
+      "type": "next-highlight"
+    },
+    {
+      "id": "010",
+      "time": "2026-11-01T01:12:39.879Z",
+      "type": "enter"
+    },
+    {
+      "index": 27,
+      "time": "2026-11-01T01:12:40.288Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 0,
+      "id": "010",
+      "position": [
+        45,
+        1.7,
+        -293.4
+      ],
+      "time": "2026-11-01T01:12:43.929Z",
+      "title": "線の手前",
+      "type": "highlight"
+    },
+    {
+      "index": 27,
+      "time": "2026-11-01T01:12:45.242Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T01:12:45.725Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 28,
+      "time": "2026-11-01T01:12:46.140Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 1,
+      "id": "010",
+      "position": [
+        40,
+        1.7,
+        -278.2
+      ],
+      "time": "2026-11-01T01:12:47.395Z",
+      "title": "境界を越える",
+      "type": "highlight"
+    },
+    {
+      "index": 28,
+      "time": "2026-11-01T01:12:48.691Z",
+      "type": "pause"
+    },
+    {
+      "time": "2026-11-01T01:12:49.158Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 29,
+      "time": "2026-11-01T01:12:49.573Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 2,
+      "id": "010",
+      "position": [
+        56.7,
+        1.7,
+        -271
+      ],
+      "time": "2026-11-01T01:12:50.998Z",
+      "title": "残った線から未来へ",
+      "type": "highlight"
+    },
+    {
+      "index": 29,
+      "time": "2026-11-01T01:12:52.358Z",
+      "type": "pause"
+    },
+    {
+      "id": "010",
+      "time": "2026-11-01T01:12:52.825Z",
+      "title": "010 最後のバウンダリー",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T01:12:53.747Z",
+      "type": "panel-close"
+    },
+    {
+      "id": "010",
+      "time": "2026-11-01T01:12:54.192Z",
+      "title": "010 原画・資料",
+      "type": "panel-open"
+    },
+    {
+      "time": "2026-11-01T01:12:54.679Z",
+      "type": "panel-close"
+    },
+    {
+      "id": "010",
+      "time": "2026-11-01T01:12:55.097Z",
+      "title": "010 特別設定",
+      "type": "panel-open"
+    },
+    {
+      "id": "010",
+      "name": "quiet",
+      "time": "2026-11-01T01:13:02.860Z",
+      "type": "setting",
+      "value": true
+    },
+    {
+      "id": "010",
+      "name": "quiet",
+      "time": "2026-11-01T01:13:04.156Z",
+      "type": "setting",
+      "value": false
+    },
+    {
+      "time": "2026-11-01T01:13:04.646Z",
+      "type": "panel-close"
+    },
+    {
+      "time": "2026-11-01T01:13:05.056Z",
+      "type": "next-highlight"
+    },
+    {
+      "index": 30,
+      "time": "2026-11-01T01:13:05.389Z",
+      "type": "resume"
+    },
+    {
+      "highlight": 0,
+      "id": "exit",
+      "position": [
+        22.5,
+        1.7,
+        -317
+      ],
+      "time": "2026-11-01T01:13:09.889Z",
+      "title": "出口へ",
+      "type": "highlight"
+    },
+    {
+      "index": 30,
+      "time": "2026-11-01T01:13:11.206Z",
+      "type": "pause"
+    },
+    {
+      "index": 30,
+      "time": "2026-11-01T01:13:11.739Z",
+      "type": "resume"
+    },
+    {
+      "index": 31,
+      "reason": "completed",
+      "time": "2026-11-01T01:13:16.412Z",
+      "type": "auto-interrupted"
+    },
+    {
+      "scope": "all",
+      "time": "2026-11-01T01:13:16.413Z",
+      "type": "auto-complete"
+    }
+  ],
+  "console": []
+}

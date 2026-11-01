@@ -1,0 +1,15 @@
+{
+  "id": "005",
+  "viewport": "mobile",
+  "details": "投げ、打ち、走り、受ける11の身体。元v2.4の透過画像、位置、縮尺、薄い残像を保持しています。像は回転せず、歩く身体がその間の関係を変えます。特別設定で一球と身体をつなぐ光の関係を表示できます。",
+  "image": {
+    "image": {
+      "complete": true,
+      "src": "exhibition-assets/005/12.jpg",
+      "width": 1200
+    },
+    "text": "1 / 12 — 元HTML内の制作参考画像・展示レイヤー2 / 12 — 元HTML内の制作参考画像・展示レイヤー3 / 12 — 元HTML内の制作参考画像・展示レイヤー4 / 12 — 元HTML内の制作参考画像・展示レイヤー5 / 12 — 元HTML内の制作参考画像・展示レイヤー6 / 12 — 元HTML内の制作参考画像・展示レイヤー7 / 12 — 元HTML内の制作参考画像・展示レイヤー8 / 12 — 元HTML内の制作参考画像・展示レイヤー9 / 12 — 元HTML内の制作参考画像・展示レイヤー10 / 12 — 元HTML内の制作参考画像・展示レイヤー11 / 12 — 元HTML内の制作参考画像・展示レイヤー12 / 12 — 元HTML内の制作参考画像・展示レイヤー拡大全体制作参考画像（正式原画としては未確認）元HTML内の制作参考画像・展示レイヤー出所：museum/recovered/sources/005/CRITT_Museum_Work05_Eleven_Bodies_Hybrid_Walk_v2.4.html · 行28埋め込み実データ 210,911 bytes / image/jpegSHA-256: ddd92392cba0b52e7c7016bbd13b46b8c67f92442920ed348c1742e30fa4db08画像ファイルを開く"
+  },
+  "positionPreserved": true,
+  "focus": "details"
+}
