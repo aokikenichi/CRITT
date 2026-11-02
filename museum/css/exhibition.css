@@ -13,3 +13,6 @@
 
 /* First-visit visitor guidance in the automatically opened hall map */
 .first-visit-guide{padding:16px 19px;margin:0 0 20px;background:#26352a;border:1px solid #a995675e;border-left:4px solid #d0b57c}.first-visit-guide h3{font:400 18px/1.5 'Hiragino Mincho ProN',Georgia,serif;color:#f0dfb7;margin:0 0 10px}.first-visit-guide ol{margin:0;padding-left:1.5em}.first-visit-guide li{font-size:13px;line-height:1.85;color:#d8dfd2;margin:0 0 9px}.first-visit-guide li:last-child{margin-bottom:0}@media(max-width:700px){.first-visit-guide{padding:12px 14px}.first-visit-guide h3{font-size:16px}.first-visit-guide li{font-size:12px;line-height:1.7}}
+
+/* Museum map return links */
+.museum-return-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;padding-top:16px;border-top:1px solid #7b826b55}.museum-return-links a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid #a99b7470;border-radius:3px;text-decoration:none;color:#e9e3d6;background:#233026;font-size:12px;line-height:1.5}.museum-return-links a:hover{background:#3a4738}.museum-return-links a:focus-visible{outline:2px solid #e7c689;outline-offset:3px}@media(max-width:700px){.museum-return-links{flex-direction:column}.museum-return-links a{width:100%}}
