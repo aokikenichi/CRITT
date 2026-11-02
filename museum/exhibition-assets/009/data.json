@@ -1,0 +1,10 @@
+{
+  "images": {
+    "room_B": "exhibition-assets/009/01.jpg",
+    "bat": "exhibition-assets/009/02.png",
+    "room_C": "exhibition-assets/009/03.jpg",
+    "pitch": "exhibition-assets/009/04.jpg",
+    "room_A": "exhibition-assets/009/05.jpg",
+    "ball": "exhibition-assets/009/06.png"
+  }
+}

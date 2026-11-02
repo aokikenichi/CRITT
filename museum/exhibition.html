@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101513"><title>CRITT MUSEUM — 10作品連続回遊 β</title><link rel="stylesheet" href="css/exhibition.css?v=20261103b"></head>
+<body>
+<canvas id="exhibition" tabindex="0" aria-label="CRITT Museum 館内空間。WASD・矢印で歩行、ドラッグで視点を移動"></canvas>
+<header class="masthead"><div><a class="wordmark" href="#" id="brand">CRITT <span>MUSEUM</span></a><p>BEYOND THE BOUNDARY <span>10 WORKS / β</span></p></div><button id="map" class="text-button">館内案内</button></header>
+<section class="work-heading" aria-live="polite"><p id="room-label">ROOM 01 / 運動と時間</p><h1><span id="work-id">001</span> <span id="work-title">空中で止まった一球</span></h1><p id="work-english">A Ball Suspended in Time</p><p id="art-state" hidden></p></section>
+<nav class="shared-controls" aria-label="共通鑑賞操作"><div class="mode"><button id="manual" aria-pressed="true">Manual</button><button id="auto" aria-pressed="false">Auto</button><button id="pause" hidden>Pause</button></div><button id="details">展示解説</button><button id="special">特別設定</button></nav>
+<aside id="crowd-audio" class="crowd-audio" hidden aria-label="006 音響"><button id="crowd-toggle" aria-pressed="false">音を有効にする</button><label for="crowd-volume">音量 <input id="crowd-volume" type="range" min="0" max="100" value="60"></label><p id="crowd-status" role="status">音声 OFF</p><small>音声：提供された生成素材。制作者・利用条件は確認中。</small></aside>
+<aside class="tour-note" id="tour-note" hidden aria-live="polite"><div><span id="tour-count"></span><button id="next">次の見どころ →</button></div><h2 id="highlight-title"></h2><p id="highlight-text"></p></aside>
+<footer class="walk-hint"><span id="mode-status">Manual · 自由歩行</span><span class="pc-hint">WASD / 矢印：歩く　Shift：速く歩く　ドラッグ：見回す　Q E / R F：視線</span><span class="mobile-hint">画面をドラッグ：見回す</span><span id="room-progress">01 / 05</span></footer>
+<div class="touch-move" aria-label="タッチ歩行"><button data-key="w" aria-label="前進">↑</button><button data-key="a" aria-label="左へ移動">←</button><button data-key="s" aria-label="後退">↓</button><button data-key="d" aria-label="右へ移動">→</button></div>
+<div class="touch-look" aria-label="視線"><button data-key="q" aria-label="左を向く">↶</button><button data-key="e" aria-label="右を向く">↷</button><button data-key="r" aria-label="見上げる">⤒</button><button data-key="f" aria-label="見下ろす">⤓</button></div>
+<div id="loading" role="status"><span>CRITT MUSEUM</span><p id="load-message">10作品の展示を準備しています…</p></div><div id="notice" role="status" hidden></div>
+<dialog id="panel"><form method="dialog" class="dialog-bar"><span id="panel-kicker">CRITT MUSEUM</span><button aria-label="閉じる">閉じる ×</button></form><div class="dialog-content"><h2 id="panel-title"></h2><div id="panel-body"></div></div></dialog>
+<script src="vendor/jszip-3.10.1/jszip.min.js"></script>
+<script type="module" src="js/exhibition.js?v=20261104b"></script>
+</body></html>
