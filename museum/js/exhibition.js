@@ -6,6 +6,18 @@ const $=s=>document.querySelector(s),canvas=$('#exhibition'),panel=$('#panel');
 let renderer,scene,camera,adapters=[],active=0,nav,yaw=0,pitch=.14,drag=null,last=0,speed=1,ready=false,noticeTimer,film=null,assetsLoading=false,assetsDone=null;
 const keys=new Set(),events=[],visits=[],failures=[];let tour=null,previousFocus=null,resumeAfterPanel=null;const shifts=new Set();
 const crowd=createCrowdAudio(state=>{const button=$('#crowd-toggle');button.textContent=state.loading?'音声を準備中…':state.enabled?'音をオフにする':'音を有効にする';button.setAttribute('aria-pressed',String(state.enabled));$('#crowd-status').textContent=state.error?'音声を再生できません。展示はそのまま鑑賞できます。':state.loading?'音声を準備しています…':state.enabled?'音声 ON':'音声 OFF';});
+const narrationAudio=new Audio();narrationAudio.preload='none';let narrationId=null,narrationAttempt=0;
+function narrationButton(){const button=$('#narration'),playing=Boolean(narrationId&&!narrationAudio.paused&&!narrationAudio.ended);button.textContent=playing?'音声解説を一時停止':narrationId&&!narrationAudio.ended?'音声解説を再開':'展示音声解説';button.setAttribute('aria-pressed',String(playing))}
+function stopNarration(){narrationAttempt++;narrationAudio.pause();narrationAudio.removeAttribute('src');narrationAudio.load();narrationId=null;narrationButton()}
+async function toggleNarration(){
+ const id=catalog[active].id;
+ if(narrationId===id&&!narrationAudio.paused){narrationAudio.pause();narrationButton();return}
+ if(narrationId!==id||narrationAudio.ended){stopNarration();narrationId=id;narrationAudio.src=`Narration/CRITT_Museum_${id}.mp3`}
+ const attempt=++narrationAttempt;
+ try{await narrationAudio.play();if(attempt!==narrationAttempt)return;narrationButton()}catch(error){if(attempt!==narrationAttempt)return;stopNarration();notify('展示音声解説を再生できませんでした。もう一度お試しください。')}
+}
+narrationAudio.addEventListener('ended',()=>{narrationId=null;narrationButton()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&narrationId){narrationAudio.pause();narrationButton()}});
 const roomNames=['運動と時間','道具と境界','身体と群衆','記録と記憶','重力と、その先'];
 const log=(type,data={})=>{events.push({time:new Date().toISOString(),type,...data});if(events.length>3000)events.shift()};
 function notify(text){$('#notice').textContent=text;$('#notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('#notice').hidden=true,4200)}
@@ -29,7 +41,7 @@ function hall(){
  scene.add(new THREE.HemisphereLight(0xe9e4d4,0x263229,2.3));const sun=new THREE.DirectionalLight(0xffe8bd,2.2);sun.position.set(-10,18,15);scene.add(sun);const fill=new THREE.DirectionalLight(0xaac7c2,.8);fill.position.set(10,9,-20);scene.add(fill);
 }
 const worldPoint=(a,p)=>a.root.localToWorld(new THREE.Vector3(...p));
-function setActive(index){if(index===active&&$('#work-title').textContent===catalog[index].title)return;adapters[active]?.leave();active=index;adapters[active]?.enter();const m=catalog[index],room=Math.floor(index/2);$('#work-id').textContent=m.id;$('#work-title').textContent=m.title;$('#work-english').textContent=m.english;$('#room-label').textContent=`ROOM 0${room+1} / ${roomNames[room]}`;$('#room-progress').textContent=`0${room+1} / 05`;$('#special').disabled=!m.controls.length;$('#crowd-audio').hidden=m.id!=='006';log('enter',{id:m.id})}
+function setActive(index){if(index===active&&$('#work-title').textContent===catalog[index].title)return;if(index!==active&&narrationId)stopNarration();adapters[active]?.leave();active=index;adapters[active]?.enter();const m=catalog[index],room=Math.floor(index/2);$('#work-id').textContent=m.id;$('#work-title').textContent=m.title;$('#work-english').textContent=m.english;$('#room-label').textContent=`ROOM 0${room+1} / ${roomNames[room]}`;$('#room-progress').textContent=`0${room+1} / 05`;$('#special').disabled=!m.controls.length;$('#crowd-audio').hidden=m.id!=='006';log('enter',{id:m.id})}
 function manual(reason='button'){if(tour)log('auto-interrupted',{reason,index:tour.index});tour=null;$('#manual').setAttribute('aria-pressed','true');$('#auto').setAttribute('aria-pressed','false');$('#pause').hidden=true;$('#tour-note').hidden=true;$('#mode-status').textContent='Manual · 自由歩行'}
 function routeStops(id){const chosen=id?adapters.filter(a=>a.id===id):adapters;return chosen.flatMap(a=>a.highlights.map((h,index)=>({id:a.id,adapter:a,index,...h,world:worldPoint(a,h.position),target:worldPoint(a,h.look)})))}
 function startTour(id){if(!ready)return;keys.clear();const stops=routeStops(id);if(!id)stops.push({id:'exit',index:0,title:'出口へ',text:'10作品を巡りました。この先が出口です。',world:new THREE.Vector3(22.5,1.7,-317),target:new THREE.Vector3(22.5,2,-320)});tour={scope:id||'all',stops,index:0,phase:'travel',dwell:0,path:[],paused:false};$('#manual').setAttribute('aria-pressed','false');$('#auto').setAttribute('aria-pressed','true');$('#pause').hidden=false;$('#pause').textContent='Pause';$('#tour-note').hidden=false;nextLeg();log('auto-start',{scope:id||'all',stops:stops.length})}
@@ -45,9 +57,9 @@ panel.addEventListener('close',()=>{keys.clear();shifts.clear();if(resumeAfterPa
 function element(tag,text,className){const e=document.createElement(tag);if(text)e.textContent=text;if(className)e.className=className;return e}
 function showMap(){const body=element('div');const guide=document.querySelector('#first-visit-guide');if(guide)body.append(guide.content.cloneNode(true));body.append(element('p','入口 → 運動と時間 → 道具と境界 → 身体と群衆 → 記録と記憶 → 重力と、その先 → 出口。中央の金色の線と開口部が5つの展示室をつなぎます。'));
  const all=element('button','館内Auto · 001〜010の全30視点を巡る','tour-all');all.onclick=()=>{panel.close();startTour()};body.append(all);const setting=element('div',null,'setting'),lab=element('label','Autoの歩行速度'),select=element('select');select.setAttribute('aria-label','Autoの歩行速度');for(const [v,t] of [[1,'ゆっくり ×1'],[2,'標準 ×2'],[4,'早送り ×4']]){const o=element('option',t);o.value=v;o.selected=speed===v;select.append(o)}select.onchange=()=>speed=Number(select.value);setting.append(lab,select);body.append(setting);
- const credits=element('div',null,'museum-credits');credits.append(element('p','この仮想クリケット現代美術展は生成AIを用いております。'));const creditList=element('ul');const person=element('li','企画・構成：@aokikenichi');creditList.append(person);for(const [label,url] of [['案作成・展示構築：ChatGPT','https://chatgpt.com/'],['作品006音声：Eleven Creative / Sound Effect','https://elevenlabs.io/']]){const item=element('li'),link=element('a',label);link.href=url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);creditList.append(item)}credits.append(creditList);body.append(credits);
+ const credits=element('div',null,'museum-credits');credits.append(element('p','この仮想クリケット現代美術展は生成AIを用いております。'));const creditList=element('ul');const person=element('li','企画・構成：@aokikenichi');creditList.append(person);for(const [label,url] of [['案作成・展示構築：ChatGPT','https://chatgpt.com/'],['作品006音声：Eleven Creative','https://elevenlabs.io/'],['展示解説音声：Eleven Text to Speech','https://elevenlabs.io/']]){const item=element('li'),link=element('a',label);link.href=url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);creditList.append(item)}credits.append(creditList);body.append(credits);
  const list=element('div',null,'map-list');catalog.forEach((m,i)=>{const b=element('button');b.append(element('span',`ROOM 0${Math.floor(i/2)+1} / ${m.id}`),element('strong',m.title));b.onclick=()=>{panel.close();goToWork(m.id)};list.append(b)});body.append(list);body.append(element('small','作品名を選ぶと、その作品へ直接移動してManualで鑑賞できます。作品のAutoは各作品の画面から開始できます。館内AutoはPauseで停止し、Resumeで続きから再開できます。'));
- const captureLinks=element('nav',null,'museum-return-links');captureLinks.setAttribute('aria-label','動画撮影');const captureLink=element('a','動画撮影用ツアー（約120秒）');captureLink.href='exhibition.html?capture=1';captureLinks.append(captureLink);body.append(captureLinks);
+ const captureLinks=element('nav',null,'museum-return-links');captureLinks.setAttribute('aria-label','動画閲覧');const captureLink=element('a','動画閲覧ツアー（約120秒）');captureLink.href='exhibition.html?capture=1';captureLinks.append(captureLink);body.append(captureLinks);
  const returnLinks=element('nav',null,'museum-return-links');returnLinks.setAttribute('aria-label','美術館から戻る');for(const [label,href] of [['CRITTに戻る','../index.html'],['CRITT Museumポータルに戻る','index.html']]){const link=element('a',label);link.href=href;returnLinks.append(link)}body.append(returnLinks);
  openPanel('10作品を、ひとつの空間で',body)}
 function special(){const a=adapters[active],body=element('div'),feedback=element('p'),selects=[];feedback.setAttribute('role','status');body.append(feedback);const announce=t=>{feedback.textContent=t;notify(t)};const options=c=>c.name==='match'?(a.stats().matches.length?a.stats().matches:[['','未確認／未収録']]):c.name==='inning'?(a.stats().innings.length?a.stats().innings:[['0','創作データ']]):c.name==='over'?[['all','全オーバー'],...a.stats().overs]:c.options;const refresh=()=>selects.forEach(([c,e])=>{c.value=a.stats().values?.[c.name]??c.value;e.replaceChildren();for(const [v,t] of options(c)){const o=element('option',t);o.value=v;e.append(o)}e.value=c.value;if(e.selectedIndex<0)e.selectedIndex=0;e.disabled=(c.name==='match'&&!a.stats().matches.length)||(c.name==='inning'&&!a.stats().innings.length)});if(a.id==='008')body.append(element('p','初期展示：創作120球。実試合の記録として扱いません。JSONを開いた場合のみ、そのファイルの記録を使用します。ZIPでは元ソースの選定6試合と日付・チームを照合し、確認できた試合だけを選択できます。ファイルはブラウザ内だけで処理します。'));
@@ -61,6 +73,7 @@ function special(){const a=adapters[active],body=element('div'),feedback=element
  openPanel(`${a.id} 特別設定`,body)}
 function attachInput(){
  $('#crowd-toggle').onclick=()=>{if(crowd.state().enabled)crowd.disable();else crowd.enable()};$('#crowd-volume').oninput=e=>crowd.setVolume(Number(e.target.value)/100);
+ $('#narration').onclick=toggleNarration;
  $('#manual').onclick=()=>{manual();canvas.focus()};$('#auto').onclick=()=>startTour(catalog[active].id);$('#pause').onclick=pauseTour;$('#details').onclick=()=>{const m=catalog[active],body=element('div',null,'exhibit-details');const paragraphs=m.details.split('\n\n');let question=-1;paragraphs.forEach((text,i)=>{if(text.endsWith('か。'))question=i});paragraphs.forEach((text,i)=>body.append(element('p',text,i===question?'closing-question':text.startsWith('※')?'curatorial-note':null)));openPanel(`${m.id} ${m.title}`,body,true)};$('#special').onclick=special;$('#map').onclick=showMap;$('#brand').onclick=e=>{e.preventDefault();showMap()};$('#next').onclick=()=>{if(tour){tour.index++;nextLeg();log('next-highlight')}};
  const movement=['w','a','s','d','arrowup','arrowdown','arrowleft','arrowright','q','e','r','f'];window.addEventListener('keydown',e=>{if(film?.blocksInput||panel.open||!ready||e.target.closest?.('input,textarea,select,[contenteditable=true]'))return;if(e.code==='ShiftLeft'||e.code==='ShiftRight'){shifts.add(e.code);return}const k=e.key.toLowerCase();if(k==='escape'){manual('escape');return}if(movement.includes(k)){e.preventDefault();manual('keyboard');keys.add(k)}});window.addEventListener('keyup',e=>{keys.delete(e.key.toLowerCase());shifts.delete(e.code)});window.addEventListener('blur',()=>{keys.clear();shifts.clear();drag=null});
  canvas.addEventListener('pointerdown',e=>{if(film?.blocksInput||panel.open||!ready)return;manual('pointer');drag={id:e.pointerId,x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId);canvas.focus({preventScroll:true})});canvas.addEventListener('pointermove',e=>{if(!drag||e.pointerId!==drag.id)return;yaw-=(e.clientX-drag.x)*.0038;pitch=THREE.MathUtils.clamp(pitch-(e.clientY-drag.y)*.0035,-1.25,1.2);drag.x=e.clientX;drag.y=e.clientY});for(const type of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(type,()=>drag=null);
@@ -83,7 +96,7 @@ async function setupFilming(){
  try{
  if(assetsLoading)await new Promise(resolve=>assetsDone=resolve);
  const images=new Set();scene.traverse(o=>{for(const m of [o.material].flat().filter(Boolean))for(const v of Object.values(m))if(v?.isTexture&&v.image?.decode)images.add(v.image)});await Promise.all([...images].map(i=>i.decode()));
- const {createFilmingTour}=await import('./filming-tour.mjs?v=20261106c');
+ const {createFilmingTour}=await import('./filming-tour.mjs?v=20261108d');
  const uiIds=['manual','auto','pause','tour-note','mode-status'];
  const clearInput=()=>{keys.clear();shifts.clear();drag=null};
  film=createFilmingTour({catalog,nav,crowd,clearInput,
@@ -91,7 +104,7 @@ async function setupFilming(){
  restore:s=>{camera.position.fromArray(s.position);yaw=s.yaw;pitch=s.pitch;speed=s.speed;tour=s.tour;setActive(s.active);s.ui.forEach(v=>{const e=$('#'+v.id);e.hidden=v.hidden;if(v.pressed!==null)e.setAttribute('aria-pressed',v.pressed);if(v.text!==null)e.textContent=v.text})},
  applyPose:s=>{camera.position.fromArray(s.pose.position);const [x,y,z]=s.pose.look,dx=x-camera.position.x,dz=z-camera.position.z;yaw=Math.atan2(dx,-dz);pitch=Math.atan2(y-camera.position.y,Math.hypot(dx,dz));setActive(catalog.findIndex(m=>m.id===s.id))}
  });
- }catch(e){notify('撮影モードを準備できません：'+e.message);showMap();console.error(e)}
+ }catch(e){notify('動画閲覧ツアーを準備できません：'+e.message);showMap();console.error(e)}
 }
 
 async function init(){try{
@@ -102,5 +115,5 @@ async function init(){try{
  const obstacles=[{x:0,z:0,r:2.35}];for(const id of ['004','005']){const d=await json(`exhibition-assets/${id}/data.json`),a=adapters.find(a=>a.id===id);for(const w of d.workdata||d.works){if(w.kind==='scrim')continue;const p=worldPoint(a,[w.x,0,w.z]);obstacles.push({x:p.x,z:p.z,r:.48})}}
  nav=makeNavigation(obstacles);for(const a of adapters)for(const h of a.highlights){const p=worldPoint(a,h.position);if(!nav.walkable(p.x,p.z))throw new Error(`${a.id} 鑑賞地点に衝突があります`)}if(failures.length)throw new Error(failures.join('; '));attachInput();adapters[0].enter();$('#special').disabled=true;ready=true;canvas.dataset.ready='true';$('#loading').hidden=true;log('ready',{works:adapters.length,figureMode:adapters[1].stats().figureMode});requestAnimationFrame(frame);if(new URLSearchParams(location.search).get('capture')==='1')await setupFilming();else showMap();
  }catch(e){fail(e)}}
-window.addEventListener('pagehide',()=>{film?.dispose();crowd.dispose();adapters.forEach(a=>a.dispose());renderer?.dispose()},{once:true});
+window.addEventListener('pagehide',()=>{stopNarration();film?.dispose();crowd.dispose();adapters.forEach(a=>a.dispose());renderer?.dispose()},{once:true});
 init();
