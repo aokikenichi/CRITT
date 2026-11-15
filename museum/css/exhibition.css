@@ -16,3 +16,18 @@
 
 /* Museum map return links */
 .museum-return-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;padding-top:16px;border-top:1px solid #7b826b55}.museum-return-links a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid #a99b7470;border-radius:3px;text-decoration:none;color:#e9e3d6;background:#233026;font-size:12px;line-height:1.5}.museum-return-links a:hover{background:#3a4738}.museum-return-links a:focus-visible{outline:2px solid #e7c689;outline-offset:3px}@media(max-width:700px){.museum-return-links{flex-direction:column}.museum-return-links a{width:100%}}
+
+/* Museum entrance: three ways to explore (2026-11-15) */
+.tour-choice-lead{margin:0 0 18px!important;font-size:13px!important;line-height:1.85!important;color:#cbd0c4}
+.tour-choices{display:grid;grid-template-columns:1fr;gap:11px;margin:0 0 22px}
+.dialog-content .tour-choice{display:grid;grid-template-columns:42px minmax(0,1fr) 20px;gap:13px;align-items:start;width:100%;padding:17px 18px;background:#18281f;border:1px solid #a99b744d;border-radius:4px;text-align:left;text-decoration:none;color:#e9e3d6;transition:background .2s,border-color .2s}
+.dialog-content .tour-choice.is-primary{background:#2a382a;border-color:#ba9c68a0}
+.dialog-content .tour-choice:hover{background:#23382c;border-color:#d5b77f}
+.dialog-content .tour-choice:focus-visible{outline:2px solid #e7c689;outline-offset:3px}
+.tour-choice-icon{display:flex;width:39px;height:39px;align-items:center;justify-content:center;border-radius:50%;border:1px solid #bbab7c6b;color:#eccb88;font-size:18px}
+.tour-choice-copy strong{display:block;font-weight:600;font-size:15px;margin:1px 0 7px}
+.tour-choice-copy small{display:block;font-size:12px;line-height:1.8;color:#bfc6b9}
+.tour-choice-arrow{font-size:16px;color:#d9bd8d}
+.tour-choice-lower{margin-top:23px;padding-top:20px;border-top:1px solid #82744955}
+.tour-choice-lower h3{font-size:14px;font-weight:500;color:#e3cf9d;margin:0 0 13px}
+@media(max-width:650px){.dialog-content .tour-choice{grid-template-columns:35px minmax(0,1fr) 15px;gap:11px;padding:15px 12px}.tour-choice-icon{width:33px;height:33px;font-size:15px}.tour-choice-copy strong{font-size:13px}.tour-choice-copy small{font-size:11px}.tour-choice-lead{font-size:12px!important}}
