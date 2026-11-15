@@ -12,7 +12,7 @@ function stopNarration(){narrationAttempt++;narrationAudio.pause();narrationAudi
 async function toggleNarration(){
  const id=catalog[active].id;
  if(narrationId===id&&!narrationAudio.paused){narrationAudio.pause();narrationButton();return}
- if(narrationId!==id||narrationAudio.ended){stopNarration();narrationId=id;narrationAudio.src=`Narration/CRITT_Museum_${id}.mp3`}
+ if(narrationId!==id||narrationAudio.ended){stopNarration();narrationId=id;narrationAudio.src=`Narration/CRITT_Museum_${id}.mp3${id==='002'?'?v=20261115-revised':''}`}
  const attempt=++narrationAttempt;
  try{await narrationAudio.play();if(attempt!==narrationAttempt)return;narrationButton()}catch(error){if(attempt!==narrationAttempt)return;stopNarration();notify('展示音声解説を再生できませんでした。もう一度お試しください。')}
 }
@@ -113,7 +113,7 @@ async function setupFilming(){
  try{
  if(assetsLoading)await new Promise(resolve=>assetsDone=resolve);
  const images=new Set();scene.traverse(o=>{for(const m of [o.material].flat().filter(Boolean))for(const v of Object.values(m))if(v?.isTexture&&v.image?.decode)images.add(v.image)});await Promise.all([...images].map(i=>i.decode()));
- const {createFilmingTour}=await import('./filming-tour.mjs?v=20261108d');
+ const {createFilmingTour}=await import('./filming-tour.mjs?v=20261115-002');
  const uiIds=['manual','auto','pause','tour-note','mode-status'];
  const clearInput=()=>{keys.clear();shifts.clear();drag=null};
  film=createFilmingTour({catalog,nav,crowd,clearInput,
