@@ -55,13 +55,30 @@ function pauseTour(){if(!tour)return;tour.paused=!tour.paused;$('#pause').textCo
 function openPanel(title,body,resumeOnClose=false){previousFocus=document.activeElement;keys.clear();shifts.clear();drag=null;resumeAfterPanel=resumeOnClose&&tour&&!tour.paused?tour:null;if(tour&&!tour.paused)pauseTour();$('#panel-kicker').textContent=`CRITT MUSEUM / ${catalog[active].id}`;$('#panel-title').textContent=title;$('#panel-body').replaceChildren();if(typeof body==='string'){const p=document.createElement('p');p.textContent=body;$('#panel-body').append(p)}else if(body)$('#panel-body').append(body);panel.showModal();panel.scrollTop=0;log('panel-open',{title,id:catalog[active].id})}
 panel.addEventListener('close',()=>{keys.clear();shifts.clear();if(resumeAfterPanel&&tour===resumeAfterPanel&&tour.paused)pauseTour();resumeAfterPanel=null;previousFocus?.focus({preventScroll:true});log('panel-close')});
 function element(tag,text,className){const e=document.createElement(tag);if(text)e.textContent=text;if(className)e.className=className;return e}
-function showMap(){const body=element('div');const guide=document.querySelector('#first-visit-guide');if(guide)body.append(guide.content.cloneNode(true));body.append(element('p','入口 → 運動と時間 → 道具と境界 → 身体と群衆 → 記録と記憶 → 重力と、その先 → 出口。中央の金色の線と開口部が5つの展示室をつなぎます。'));
+function showMap(){const body=element('div');
+ body.append(element('p','クリケットをめぐる5つの展示室。自由に歩く、短時間で巡る、音声解説を聴く。鑑賞方法をお選びください。','tour-choice-lead'));
+ const choices=element('nav',null,'tour-choices');choices.setAttribute('aria-label','鑑賞方法を選ぶ');
+ const choiceData=[
+  {icon:'⌁',title:'自由に歩いて鑑賞',description:'Manual／Autoで展示を探索。作品ごとに展示解説・音声解説を楽しめます。'},
+  {icon:'▶',title:'2分でめぐる展示ツアー',description:'全10作品の見どころを短時間で。初めての方におすすめ。（約120秒）',href:'exhibition.html?capture=1'},
+  {icon:'♫',title:'音声解説でじっくり鑑賞',description:'全10作品の展示解説を聞きながら巡る長編ツアー。（約14分）',href:'exhibition.html?capture=1&narration=1'}
+ ];
+ choiceData.forEach((item,i)=>{
+  const choice=element(item.href?'a':'button',null,'tour-choice'+(i===0?' is-primary':''));
+  if(item.href)choice.href=item.href;else{choice.type='button';choice.onclick=()=>{panel.close();manual('choice');canvas.focus({preventScroll:true})}};
+  const icon=element('span',item.icon,'tour-choice-icon');icon.setAttribute('aria-hidden','true');
+  const copy=element('span',null,'tour-choice-copy');copy.append(element('strong',item.title),element('small',item.description));
+  const arrow=element('span',i===0?'→':'↗','tour-choice-arrow');arrow.setAttribute('aria-hidden','true');
+  choice.append(icon,copy,arrow);choices.append(choice);
+ });
+ body.append(choices);
+ const lower=element('div',null,'tour-choice-lower');lower.append(element('h3','展示室・作品を選ぶ'));body.append(lower);
+const guide=document.querySelector('#first-visit-guide');if(guide)body.append(guide.content.cloneNode(true));body.append(element('p','入口 → 運動と時間 → 道具と境界 → 身体と群衆 → 記録と記憶 → 重力と、その先 → 出口。中央の金色の線と開口部が5つの展示室をつなぎます。'));
  const all=element('button','館内Auto · 001〜010の全30視点を巡る','tour-all');all.onclick=()=>{panel.close();startTour()};body.append(all);const setting=element('div',null,'setting'),lab=element('label','Autoの歩行速度'),select=element('select');select.setAttribute('aria-label','Autoの歩行速度');for(const [v,t] of [[1,'ゆっくり ×1'],[2,'標準 ×2'],[4,'早送り ×4']]){const o=element('option',t);o.value=v;o.selected=speed===v;select.append(o)}select.onchange=()=>speed=Number(select.value);setting.append(lab,select);body.append(setting);
  const credits=element('div',null,'museum-credits');credits.append(element('p','この仮想クリケット現代美術展は生成AIを用いております。'));const creditList=element('ul');const person=element('li','企画・構成：@aokikenichi');creditList.append(person);for(const [label,url] of [['案作成・展示構築：ChatGPT','https://chatgpt.com/'],['作品006音声：Eleven Creative','https://elevenlabs.io/'],['展示解説音声：Eleven Text to Speech','https://elevenlabs.io/']]){const item=element('li'),link=element('a',label);link.href=url;link.target='_blank';link.rel='noopener noreferrer';item.append(link);creditList.append(item)}credits.append(creditList);body.append(credits);
  const list=element('div',null,'map-list');catalog.forEach((m,i)=>{const b=element('button');b.append(element('span',`ROOM 0${Math.floor(i/2)+1} / ${m.id}`),element('strong',m.title));b.onclick=()=>{panel.close();goToWork(m.id)};list.append(b)});body.append(list);body.append(element('small','作品名を選ぶと、その作品へ直接移動してManualで鑑賞できます。作品のAutoは各作品の画面から開始できます。館内AutoはPauseで停止し、Resumeで続きから再開できます。'));
- const captureLinks=element('nav',null,'museum-return-links');captureLinks.setAttribute('aria-label','動画閲覧');const captureLink=element('a','動画閲覧ツアー（約120秒）');captureLink.href='exhibition.html?capture=1';captureLinks.append(captureLink);body.append(captureLinks);
  const returnLinks=element('nav',null,'museum-return-links');returnLinks.setAttribute('aria-label','美術館から戻る');for(const [label,href] of [['CRITTに戻る','../index.html'],['CRITT Museumポータルに戻る','index.html']]){const link=element('a',label);link.href=href;returnLinks.append(link)}body.append(returnLinks);
- openPanel('10作品を、ひとつの空間で',body)}
+ openPanel('あなたのペースで、10作品を。',body)}
 function special(){const a=adapters[active],body=element('div'),feedback=element('p'),selects=[];feedback.setAttribute('role','status');body.append(feedback);const announce=t=>{feedback.textContent=t;notify(t)};const options=c=>c.name==='match'?(a.stats().matches.length?a.stats().matches:[['','未確認／未収録']]):c.name==='inning'?(a.stats().innings.length?a.stats().innings:[['0','創作データ']]):c.name==='over'?[['all','全オーバー'],...a.stats().overs]:c.options;const refresh=()=>selects.forEach(([c,e])=>{c.value=a.stats().values?.[c.name]??c.value;e.replaceChildren();for(const [v,t] of options(c)){const o=element('option',t);o.value=v;e.append(o)}e.value=c.value;if(e.selectedIndex<0)e.selectedIndex=0;e.disabled=(c.name==='match'&&!a.stats().matches.length)||(c.name==='inning'&&!a.stats().innings.length)});if(a.id==='008')body.append(element('p','初期展示：創作120球。実試合の記録として扱いません。JSONを開いた場合のみ、そのファイルの記録を使用します。ZIPでは元ソースの選定6試合と日付・チームを照合し、確認できた試合だけを選択できます。ファイルはブラウザ内だけで処理します。'));
  for(const c of a.controls){c.value=a.stats().values?.[c.name]??c.value;const row=element('div',null,'setting'),lab=element('label',c.label);let input;
  if(c.type==='select'){input=element('select');for(const [v,t] of options(c)){const o=element('option',t);o.value=v;input.append(o)}input.value=c.value;input.disabled=(c.name==='match'&&!a.stats().matches.length)||(c.name==='inning'&&!a.stats().innings.length);selects.push([c,input]);input.onchange=()=>{c.value=input.value;a.set(c.name,c.value);refresh();log('setting',{id:a.id,name:c.name,value:c.value})}}
