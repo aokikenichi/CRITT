@@ -11,7 +11,7 @@ export function createNarration(){
     if(!buffers.length){
      const files=await Promise.all(Array.from({length:10},async(_,i)=>{
       const id=String(i+1).padStart(3,'0');
-      const response=await fetch(`Narration/CRITT_Museum_${id}.mp3`);
+      const response=await fetch(`Narration/CRITT_Museum_${id}.mp3${id==='002'?'?v=20261115-revised':''}`);
       if(!response.ok)throw new Error(`${id} の音声を取得できません`);
       return context.decodeAudioData(await response.arrayBuffer());
      }));
