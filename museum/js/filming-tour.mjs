@@ -1,5 +1,5 @@
 import {createTimeline,sampleTimeline,createFilmClock} from './filming-model.mjs?v=20261108b';
-import {createNarration} from './filming-narration.mjs?v=20261108a';
+import {createNarration} from './filming-narration.mjs?v=20261115-002';
 export function createFilmingTour({catalog,nav,crowd,snapshot,restore,applyPose,clearInput}){
  const narrated=new URLSearchParams(location.search).get('narration')==='1',narration=narrated?createNarration():null,clock=createFilmClock();let timeline=createTimeline(catalog,nav),narrationReady=!narrated,narrationError='',preparing=false,phase='setup',saved=null,countUntil=0,hud=false,lastSample=null,visits=[],lastId='',disposed=false;
  const style=document.createElement('link');style.rel='stylesheet';style.href='css/filming-tour.css?v=20261106b';document.head.append(style);
