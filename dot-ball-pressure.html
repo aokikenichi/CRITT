@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="男子T20国際試合の一球ごとの実データで、連続ドットボールの次に何が起こるかを見る。">
+  <title>ドットボールの連鎖 — CRITT</title>
+  <link rel="canonical" href="https://aokikenichi.github.io/CRITT/dot-ball-pressure.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/dot-ball-pressure.css">
+  <script defer src="assets/dot-ball-pressure.js"></script>
+</head>
+<body>
+  <a class="skip" href="#explore">分析の操作へ進む</a>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">CRITT <span>Cricket, Told Together.</span></a>
+      <a class="lab-link" href="data-analytics.html#lab">データ分析実験室</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div>
+        <p class="kicker">DOT BALL PRESSURE</p>
+        <h1>ドットボールの連鎖<span aria-hidden="true">.</span></h1>
+      </div>
+      <div class="hero-intro">
+        <p>無得点が続くと、次の一球で何が起こる？</p>
+        <p class="muted">ドットボールは、チームに1点も入らなかった合法球。続いた球数を変えて、男子T20国際試合の記録を見比べてみよう。</p>
+      </div>
+    </div>
+
+    <p class="coverage" id="coverage" hidden></p>
+    <div id="load-status" role="status" hidden>Cricsheetの集計を読み込んでいます…</div>
+    <noscript><p>グラフの操作にはJavaScriptが必要です。集計JSONはデータ・集計方法からダウンロードできます。</p></noscript>
+
+    <div id="explore" tabindex="-1" hidden>
+      <div class="phase-bar">
+        <span class="control-label" id="phase-label">局面（オーバー）</span>
+        <div class="phase-buttons" role="group" aria-labelledby="phase-label" id="phases">
+          <button type="button" data-phase="all" aria-pressed="true">全体</button>
+          <button type="button" data-phase="powerplay" aria-pressed="false">Powerplay <span>1〜6</span></button>
+          <button type="button" data-phase="middle" aria-pressed="false">Middle <span>7〜15</span></button>
+          <button type="button" data-phase="death" aria-pressed="false">Death <span>16〜20</span></button>
+        </div>
+      </div>
+
+      <section class="experiment" aria-labelledby="next-title">
+        <div class="pitch-panel">
+          <p class="kicker">世界全体</p>
+          <h2 id="next-title">次の一球を読む</h2>
+          <p id="streak-label">直前に連続したドット</p>
+          <div class="streak-buttons" role="group" aria-labelledby="streak-label" id="streaks">
+            <button type="button" data-streak="0" aria-pressed="false" aria-label="0球">0</button>
+            <button type="button" data-streak="1" aria-pressed="false" aria-label="1球">1</button>
+            <button type="button" data-streak="2" aria-pressed="false" aria-label="2球">2</button>
+            <button type="button" data-streak="3" aria-pressed="true" aria-label="3球">3</button>
+            <button type="button" data-streak="4" aria-pressed="false" aria-label="4球">4</button>
+            <button type="button" data-streak="5+" aria-pressed="false" aria-label="5球以上">5+</button>
+          </div>
+          <div class="pitch" aria-hidden="true">
+            <div class="pitch-line">
+              <div id="past-balls"></div>
+              <span class="crease"></span>
+              <span class="ball next">?</span>
+            </div>
+            <div class="pitch-caption"><span>直前</span><span>次球</span></div>
+          </div>
+          <p class="sample-line" id="next-sample" role="status"></p>
+        </div>
+        <div class="outcomes">
+          <div class="metrics" id="next-metrics"></div>
+          <div class="distribution">
+            <h3>次球でチームに入った点</h3>
+            <div id="run-bars"></div>
+            <p class="note">チーム得点には反則などで入る追加点も含みます。得点とアウトは同じ球で起こることがあります。各割合の95%信頼区間は「割合と内訳」で確認できます。</p>
+            <details>
+              <summary>割合と内訳</summary>
+              <div id="next-details"></div>
+              <div id="run-details"></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="world" aria-labelledby="world-title">
+        <div class="section-head">
+          <h2 id="world-title">連鎖が続くと、どうなる？</h2>
+          <p>世界全体の観測割合。囲みは上で選んだ球数、横線は試合単位で計算した95%信頼区間です。アウト率のグラフは目盛りを拡大しています。</p>
+        </div>
+        <p class="reading" id="world-reading"></p>
+        <div class="trend-grid" id="world-trends"></div>
+      </section>
+
+      <section class="section" id="countries" aria-labelledby="countries-title">
+        <div class="section-head">
+          <h2 id="countries-title">打撃側の国を比べる</h2>
+          <p>局面をそろえて、連鎖がどれだけ現れるか、次球やその次で何が起きるかを見る。対戦相手と試合年代の構成は国によって異なります。</p>
+        </div>
+        <div class="compare-controls">
+          <label>打撃側 A<select id="team-a"></select></label>
+          <label>打撃側 B<select id="team-b"></select></label>
+          <label>比較の連鎖条件<select id="compare-streak">
+            <option value="selected">上で選んだ球数に連動</option>
+            <option value="any">1球以上をまとめる</option>
+          </select></label>
+        </div>
+        <p class="note">日本・インド・オーストラリア・ネパールを一覧の先頭に配置しています。一覧にない代表の投球は収録されていません。</p>
+        <div id="country-chart"></div>
+      </section>
+
+      <section class="section japan" id="japan" aria-labelledby="japan-title">
+        <div class="section-head">
+          <h2 id="japan-title">日本と世界</h2>
+          <p id="japan-context"></p>
+        </div>
+        <label class="check"><input type="checkbox" id="exclude-japan" checked> 世界から日本の打撃投球を除く</label>
+        <div id="japan-chart"></div>
+        <p class="note">世界の値は投球で重み付けした割合です。日本を除く設定でも、日本と対戦したチームが打撃側の投球は世界に含まれます。</p>
+      </section>
+
+      <section class="section" aria-labelledby="adjusted-title" id="adjusted-section" hidden>
+        <div class="section-head">
+          <h2 id="adjusted-title">条件をそろえたアウトの比較</h2>
+          <p>打撃・守備チーム、局面、投球前のアウト数、試合年代を調整した世界全体のモデルです。1.00は0球時と同じオッズを表します。</p>
+        </div>
+        <div id="adjusted"></div>
+        <p class="note">試合内の投球のまとまりを95%信頼区間に反映。残りの目標点や選手、ピッチの状態などはモデルに含めていません。数値は観測上の関係を示します。</p>
+      </section>
+    </div>
+
+    <section class="section methodology" id="method" aria-labelledby="method-title">
+      <h2 id="method-title">データ・集計方法</h2>
+      <p id="source-details"></p>
+      <details open>
+        <summary>一球の数え方</summary>
+        <ul>
+          <li>投球順は同じイニングの記録順。オーバーをまたいでも連続数を引き継ぎ、次のイニングは0球から数えます。スーパーオーバーは集計対象外です。</li>
+          <li>ワイド・ノーボールは次球の集計に含め、連鎖をリセットします。バイ・レッグバイや投球についたペナルティ点もチーム得点に含めます。</li>
+          <li>合法の0点球はアウトがあってもドットです。アウトや負傷退場などの記録があれば次の球に連鎖を引き継ぎません。負傷退場などはアウト率の分子から外します。</li>
+          <li>バウンダリーはバットで打って境界に達した4点か6点。走って取った4点・6点や追加点による境界得点は含みません。</li>
+          <li>脱出率は当球、または当球がアウト・退場を伴わないドットなら同じイニングの次球で得点した割合。当球が無得点で連鎖を終了した場合は脱出なしとし、当球が連鎖を続けるドットで次球の記録がなければ分母から外します。</li>
+          <li>局面は結果が起きた投球のオーバー番号で分類します。短縮試合でも区分を固定するため、実際の守備制限期間や試合の終盤とずれることがあります。脱出判定は局面の境界を越えることがあります。</li>
+        </ul>
+      </details>
+      <details>
+        <summary>分母、信頼区間と比較上の注意</summary>
+        <ul>
+          <li>全ての投球を、直前のドット連鎖の長さで分類します。発生頻度の分母は、その国・局面の全投球です。同じ連鎖から複数の観測が生じます。</li>
+          <li>棒の割合は生の件数から計算し、国別の順位付けは行いません。100投球未満または20試合未満は参考値です。2試合未満の95%区間は表示できません。</li>
+          <li>割合の95%区間は試合単位のばらつきから有効標本数を推定したWilson型区間です。区間は個々の推定値に対応し、国間や局面間の差を直接検定するものではありません。</li>
+          <li>Cricsheetの収録には偏りがあります。対戦相手の強さや試合年代、対戦カードの違い、局面の構成に注意してください。観測上の差から因果関係は判断できません。</li>
+        </ul>
+      </details>
+      <p>Contains information from <a href="https://cricsheet.org/downloads/">Cricsheet</a>, which is made available under the <a href="https://opendatacommons.org/licenses/by/1-0/">ODC Attribution License</a>. CRITTで集計・可視化。<a href="https://cricsheet.org/format/json/">JSON仕様</a> ／ <a href="https://cricsheet.org/licensing/">Cricsheetのライセンス案内</a></p>
+      <p><a href="data/dot-ball-pressure.json" download>集計JSONをダウンロード</a> ／ <a href="scripts/dot_ball_pressure/RESULTS.md">分析レポート（Markdown）</a></p>
+      <details id="coverage-table" hidden>
+        <summary>チーム別の収録試合数</summary>
+        <div id="teams-coverage"></div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="wrap footer"><a class="brand" href="index.html">CRITT</a><p>クリケットを、データから読む。</p></footer>
+</body>
+</html>
