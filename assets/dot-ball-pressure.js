@@ -213,14 +213,31 @@ function selectButtons(id, dataKey, update) {
   });
 }
 
+async function loadData() {
+  if (location.protocol === "file:") {
+    // Browsers block fetch() from a local file, but allow adjacent classic scripts.
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "data/dot-ball-pressure-local.js";
+      script.onload = () => {
+        resolve(globalThis.crittDotBallPressureData);
+        delete globalThis.crittDotBallPressureData;
+      };
+      script.onerror = () => reject(new Error("Local data script could not be loaded"));
+      document.head.append(script);
+    });
+  }
+  const response = await fetch("data/dot-ball-pressure.json");
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return response.json();
+}
+
 async function start() {
   const status = $("load-status");
   status.hidden = false;
   try {
-    const response = await fetch("data/dot-ball-pressure.json");
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    data = await response.json();
-    if (data.metadata.schema !== 1) throw new Error("Unsupported data schema");
+    data = await loadData();
+    if (data?.metadata?.schema !== 1) throw new Error("Unsupported data schema");
 
     const listed = Object.keys(data.metadata.countries);
     const teams = [...distinctTeams, ...listed.filter((team) => !distinctTeams.includes(team))];
@@ -243,7 +260,9 @@ async function start() {
     $("explore").hidden = false;
     status.hidden = true;
   } catch (error) {
-    status.textContent = "集計を読み込めませんでした。ページの再読み込みをお試しください。";
+    status.textContent = location.protocol === "file:"
+      ? "集計を読み込めませんでした。HTMLと一緒に data フォルダーを配置し、開き直してください。"
+      : "集計を読み込めませんでした。ページの再読み込みをお試しください。";
     console.error(error);
   }
 }

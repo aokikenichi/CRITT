@@ -22,6 +22,8 @@ ATTRIBUTION = (
     "which is made available under the ODC Attribution License."
 )
 ROOT = Path(__file__).resolve().parents[2]
+JSON_OUTPUT = ROOT / "data/dot-ball-pressure.json"
+LOCAL_OUTPUT = ROOT / "data/dot-ball-pressure-local.js"
 PHASES = ("all", "powerplay", "middle", "death")
 STREAKS = ("0", "1", "2", "3", "4", "5+")
 BUCKETS = (*STREAKS, "any", "all")
@@ -335,12 +337,26 @@ def download(archive):
             Path(temporary.name).unlink(missing_ok=True)
 
 
+def write_output(path, content):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent, delete=False) as output:
+        try:
+            output.write(content)
+            output.flush()
+            Path(output.name).replace(path)
+        finally:
+            Path(output.name).unlink(missing_ok=True)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--archive", required=True, type=Path, help="path to Cricsheet ZIP")
     parser.add_argument("--download", action="store_true", help="fetch the latest official ZIP into --archive")
     parser.add_argument("--retrieved", type=datetime.fromisoformat, help="ZIP retrieval date (YYYY-MM-DD)")
-    parser.add_argument("--output", type=Path, default=ROOT / "data/dot-ball-pressure.json")
+    parser.add_argument(
+        "--output", type=Path, default=JSON_OUTPUT,
+        help="JSON path; the default path also generates the local browser script",
+    )
     parser.add_argument("--descriptive-only", action="store_true", help="skip the optional regression")
     args = parser.parse_args()
     if args.retrieved is None and not args.download:
@@ -350,15 +366,10 @@ def main():
         download(args.archive)
     retrieved = args.retrieved or datetime.now(timezone(timedelta(hours=9)))
     result = build(args.archive, retrieved.date().isoformat(), not args.descriptive_only)
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    with NamedTemporaryFile(mode="w", encoding="utf-8", dir=args.output.parent, delete=False) as output:
-        try:
-            json.dump(result, output, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
-            output.write("\n")
-            output.flush()
-            Path(output.name).replace(args.output)
-        finally:
-            Path(output.name).unlink(missing_ok=True)
+    payload = json.dumps(result, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
+    write_output(args.output, payload + "\n")
+    if args.output.resolve() == JSON_OUTPUT:
+        write_output(LOCAL_OUTPUT, f"globalThis.crittDotBallPressureData = {payload};\n")
     print(f'{result["metadata"]["matches"]:,} matches, {result["metadata"]["deliveries"]:,} deliveries → {args.output}')
 
 

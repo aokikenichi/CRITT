@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from zipfile import ZipFile
 
-from build import BUCKETS, PHASES, ROOT, STREAKS, build, cluster_interval, contexts
+from build import BUCKETS, JSON_OUTPUT, LOCAL_OUTPUT, PHASES, STREAKS, build, cluster_interval, contexts
 
 
 def delivery(batter=0, *, extras=None, wickets=(), non_boundary=False):
@@ -114,8 +114,14 @@ class DeliveryTests(unittest.TestCase):
 
 
 class ArtifactTests(unittest.TestCase):
+    def test_local_browser_data_matches_release_json(self):
+        release = JSON_OUTPUT.read_text(encoding="utf-8").rstrip("\n")
+        local = LOCAL_OUTPUT.read_text(encoding="utf-8")
+        self.assertTrue(local == f"globalThis.crittDotBallPressureData = {release};\n",
+                        "Local browser data must match the release JSON")
+
     def test_release_aggregate_invariants(self):
-        data = json.loads((ROOT / "data/dot-ball-pressure.json").read_text())
+        data = json.loads(JSON_OUTPUT.read_text(encoding="utf-8"))
         groups = data["groups"]
         teams = [g for g in groups if g.startswith("team:")]
         self.assertEqual(len(teams), len(data["metadata"]["countries"]))
